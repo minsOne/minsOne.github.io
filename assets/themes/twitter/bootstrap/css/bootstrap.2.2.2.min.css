@@ -131,7 +131,7 @@ h1,h2,h3,h4,h5,h6{margin:10px 0;font-family:inherit;font-weight:bold;line-height
 h1,h2,h3{line-height:40px;}
 h1{font-size:38.5px;}
 h2{font-size:31.5px;}
-h3{font-size:24.5px;}
+h3{font-size:24.5px;border-bottom: 1px solid #dddddd;}
 h4{font-size:17.5px;}
 h5{font-size:14px;}
 h6{font-size:11.9px;}

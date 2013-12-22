@@ -128,11 +128,11 @@ Pull 요청 의견은 Markdown과 호환이 되며 이미지를 넣을 수 있�
 
 오랫동안 진행되고 있는 Pull 요청은 한달 이상 존재하고 있는 것과 지난 달에 활동한 것들입니다. 오랫동안 진행되고 있는 Pull 요청의 필터 화면은 수명에 의해 정렬됩니다.(생성되어 최근까지 활동한 시간)
 
-### Related Topics
+### 관련 주제
 
 - [Merging a Pull Request](https://help.github.com/articles/merging-a-pull-request)
-- [Closing a Pull Request]()
-- [Tidying up Pull Requests]()
+- [Closing a Pull Request](http://minsone.github.io/lesson/2013/12/21/github-Pull-Request/)
+- [Tidying up Pull Requests](http://minsone.github.io/lesson/2013/12/21/github-Pull-Request/)
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GitHub / Pull 요청하는 방법[번역]"
+title: "[번역]GitHub / Collaborating / Pull 요청하는 방법"
 description: ""
 category: "lesson"
 tags: [git, github]

@@ -9,6 +9,8 @@ tags: [git, github]
 
 다음의 [Creating a pull request](https://help.github.com/articles/creating-a-pull-request) 번역하였습니다.
 
+---
+
 ### Pull 요청 만들기
 
 Pull 요청을 열기 전에 로컬 저장소에 브랜치를 만들어야 하고, 로컬 저장소에 커밋을 해야 하고 그리고 GitHub의 fork 또는 저장소에 브랜치를 Push해야 합니다.

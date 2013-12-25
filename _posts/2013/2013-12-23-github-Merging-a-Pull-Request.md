@@ -45,17 +45,17 @@ tags: [git, github]
 1. 터미널에서 로컬 저장소를 엽니다.
 
 2. 합치고 싶은 브랜치를 체크아웃 합니다.<br/>
-```git checkout master```
+```$ git checkout master```
 
 3. 다른 유저의 저장소로부터 훌륭한 브랜치를 Pull 합니다.<br/>
-```git pull https://github.com/otheruser/repo.git branchname```
+```$ git pull https://github.com/otheruser/repo.git branchname```
 
 4. 충돌을 해결하고 병합을 커밋합니다.
 
 5. 변경사항들을 리뷰하고 만족스러울 만큼 확인합니다.
 
 6. GitHub 저장소에 병합한 것을 Push 합니다.<br/>
-```git push origin master```<br/><br/>
+```$ git push origin master```<br/><br/>
 
 #### 패치와 적용
 
@@ -72,10 +72,10 @@ Pull은 팀 또는 같은 소규모 그룹으로부터 반복되는 변경사항
 3. 터미널에서 로컬 저장소를 엽니다.
 
 4. 합치고 싶은 브랜치를 체크아웃 합니다.<br/>
-```git checkout master```
+```$ git checkout master```
 
 5. 다운로드를 하고 패치를 적용합니다.<br/>
-```curl http://github.com/otheruser/repo/pull/25.patch | git am```
+```$ curl http://github.com/otheruser/repo/pull/25.patch | git am```
 
 ### 관련 주제들
 [Tidying up Pull Requests](https://help.github.com/articles/tidying-up-pull-requests)

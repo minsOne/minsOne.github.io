@@ -38,8 +38,6 @@ tags: [git, GitHub]
 
 ### 패치
 
-Fetching from the remote repository will bring in its branches and their respective commits. These are stored in your local repository under special branches.
-
 원격저장소에서 패치는 브랜치들과 각각의 커밋들을 가져올 것입니다. 로컬 저장소 아래 특정 브랜치에 저장됩니다.
 
     $ git fetch upstream

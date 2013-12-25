@@ -7,6 +7,10 @@ tags: [git, GitHub]
 ---
 {% include JB/setup %}
 
+다음의 [What happens when I remove a collaborator from my private repository?](https://help.github.com/articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository) 번역하였습니다.
+
+---
+
 ## 개인 저장소에서 공동 제작자를 삭제했을 때 무슨 일이 일어나나요?
 
 프로젝트에서 공동 제작자를 삭제했을 때, 공동 제작자들은 프로젝트의 접근 권한을 잃게되지만 프로젝트의 fork와 로컬 시스템에 복제된 프로젝트의 복사본에는 접근 권한이 유지됩니다.

@@ -7,6 +7,10 @@ tags: [git, GitHub]
 ---
 {% include JB/setup %}
 
+다음의 [Removing yourself from a collaborator's repository](https://help.github.com/articles/removing-yourself-from-a-collaborator-s-repository) 번역하였습니다.
+
+---
+
 ## 협업 저장소로부터 스스로 나오기
 
 1. [계정 설정](https://github.com/settings)으로 이동합니다.<br/><img src="https://github-images.s3.amazonaws.com/help/userbar-account-settings.png" alt="Account Settings button" style="width: 200px;"/><br/><br/>

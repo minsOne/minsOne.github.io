@@ -9,11 +9,9 @@ tags: [git, github]
 
 다음의 [Merging a pull request](https://help.github.com/articles/merging-a-pull-request) 번역하였습니다.
 
----
-
 ## Pull 요청 합치기
 
-일단 Pull 요청이 만족스럽게 생각되면 대상 저장소에 Push 접근을 할 수 있는 누군가는 병합을 할 수 있습니다. 병합을 할 수 있는 다양한 벙법이 있습니다. 아래에 두가지 유명한 방법이 기술되어 있습니다.
+일단 Pull 요청이 만족스럽게 생각되면 대상 저장소에 Push 접근을 할 수 있는 누군가는 합칠 수 있습니다. 합칠 수 있는 다양한 벙법이 있습니다. 아래에 두가지 유명한 방법이 기술되어 있습니다.
 
 ### GitHub에서 바로 합치기
 
@@ -30,13 +28,13 @@ tags: [git, github]
 
 ### 로컬에서 합치기
 
-만약 Pull 요청을 온라인에서 합칠 수 없다거나 GitHub에 저장소를 합쳐서 보내기전에 로컬에서 이것을 테스트하길 원한다면, 로컬에서 병합을 할 수 있습니다. 이것은 저장소에 Push 접근을 할 수 없다해도 편리합니다.
+만약 Pull 요청을 온라인에서 합칠 수 없다거나 GitHub에 저장소를 합쳐서 보내기전에 로컬에서 이것을 테스트하길 원한다면, 로컬에서 합칠 수 있습니다. 이것은 저장소에 Push 접근을 할 수 없다해도 편리합니다.
 
 #### Pull 
 
 패치와 변경사항 적용은 가장 흔한 방법입니다. 이 방법은 커밋 히스토리를 수정하지 않고 유지할 것입니다.
 
-1. 병합 버튼의 왼쪽에 있는 `command line`을 클릭합니다.<br/><img src="https://github-images.s3.amazonaws.com/help/pullrequest-manualinstructions.png" alt="Merge pull information message" style="width: 400px;"/><br/><br/>
+1. 합치기 버튼의 왼쪽에 있는 `command line`을 클릭합니다.<br/><img src="https://github-images.s3.amazonaws.com/help/pullrequest-manualinstructions.png" alt="Merge pull information message" style="width: 400px;"/><br/><br/>
 
 2. Pull 요청에 표시되는 지시를 따릅니다.<br/>주의: 모든 Pull 요청과는 다를 수 있습니다.
 
@@ -50,11 +48,11 @@ tags: [git, github]
 3. 다른 유저의 저장소로부터 훌륭한 브랜치를 Pull 합니다.<br/>
 ```$ git pull https://github.com/otheruser/repo.git branchname```
 
-4. 충돌을 해결하고 병합을 커밋합니다.
+4. 충돌을 해결하고 합친 것을 커밋합니다.
 
 5. 변경사항들을 리뷰하고 만족스러울 만큼 확인합니다.
 
-6. GitHub 저장소에 병합한 것을 Push 합니다.<br/>
+6. GitHub 저장소에 합친 것을 Push 합니다.<br/>
 ```$ git push origin master```<br/><br/>
 
 #### 패치와 적용
@@ -78,6 +76,6 @@ Pull은 팀 또는 같은 소규모 그룹으로부터 반복되는 변경사항
 ```$ curl http://github.com/otheruser/repo/pull/25.patch | git am```
 
 ### 관련 주제들
-[Tidying up Pull Requests](https://help.github.com/articles/tidying-up-pull-requests)
+[Pull 요청 정리하기](http://minsone.github.io/lesson/2013/12/25/GitHub-Tidying-up-pull-requests/)
 
 <!-- {% highlight bash%}git push origin master{% endhighlight %} -->

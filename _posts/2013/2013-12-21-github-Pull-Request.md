@@ -130,9 +130,9 @@ Pull 요청 의견은 Markdown과 호환이 되며 이미지를 넣을 수 있�
 
 ### 관련 주제
 
-- [Merging a Pull Request](https://help.github.com/articles/merging-a-pull-request)
-- [Closing a Pull Request](http://minsone.github.io/lesson/2013/12/21/github-Pull-Request/)
-- [Tidying up Pull Requests](http://minsone.github.io/lesson/2013/12/21/github-Pull-Request/)
+- [Pull 요청 합치기](http://minsone.github.io/lesson/2013/12/23/github-Merging-a-Pull-Request/)
+- [Pull 요청 닫기](http://minsone.github.io/lesson/2013/12/25/GitHub-Closing-a-Pull-Request/)
+- [Pull 요청 정리하기](http://minsone.github.io/lesson/2013/12/25/GitHub-Tidying-up-pull-requests/)
 
 ---
 

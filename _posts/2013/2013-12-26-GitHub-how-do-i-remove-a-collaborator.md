@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[번역]GitHub / Collaborating / 어떻게 협업자를 지울 수 있나요?"
+title: "[번역]GitHub / Collaborating / 어떻게 공동 작업자를 지울 수 있나요?"
 description: ""
 category: "translate"
 tags: [git, GitHub]
@@ -11,9 +11,9 @@ tags: [git, GitHub]
 
 ---
 
-## 어떻게 협업자를 지울 수 있나요?
+## 어떻게 공동 작업자를 지울 수 있나요?
 
-협업자들은 개인 계정 소유의 저장소에 접근 권한을 관리합니다. 기관(또는 기관이 소유하고 있는 저장소의 fork) 소유의 저장소에 유저의 접근 권한을 삭제하려면 이 [가이드](https://help.github.com/articles/how-do-i-remove-a-team-member)를 보세요.
+공동 작업자는 개인 계정 소유의 저장소에 접근 권한을 관리합니다. 기관(또는 기관이 소유하고 있는 저장소의 fork) 소유의 저장소에 유저의 접근 권한을 삭제하려면 이 [가이드](https://help.github.com/articles/how-do-i-remove-a-team-member)를 보세요.
 
 1. GitHub의 저장소 페이지를 열으세요.
 
@@ -21,7 +21,7 @@ tags: [git, GitHub]
 
 3. Collaborators 탭을 클릭하세요.<br/><img src="https://github-images.s3.amazonaws.com/help/repo-settings-collaborators.png" alt="Collaborators tab" style="width: 250px;"/><br/><br/>
 
-4. 지우고자 하는 협업자 근처에 있는 빨간 삭제 링크를 클릭하세요.<br/><img src="https://github-images.s3.amazonaws.com/help/Collaborator-Remove.png" alt="Remove link" style="width: 250px;"/><br/><br/>
+4. 지우고자 하는 공동 작업자 근처에 있는 빨간 삭제 링크를 클릭하세요.<br/><img src="https://github-images.s3.amazonaws.com/help/Collaborator-Remove.png" alt="Remove link" style="width: 250px;"/><br/><br/>
 
 ### Octocast
 

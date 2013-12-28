@@ -13,7 +13,7 @@ tags: [git, GitHub]
 
 ## 어떻게 공동 제작자를 지울 수 있나요?
 
-공동 제작자는 개인 계정 소유의 저장소에 접근 권한을 관리합니다. 기관(또는 기관이 소유하고 있는 저장소의 fork) 소유의 저장소에 유저의 접근 권한을 삭제하려면 이 [가이드](https://help.github.com/articles/how-do-i-remove-a-team-member)를 보세요.
+공동 제작자는 비공개 계정 소유의 저장소에 접근 권한을 관리합니다. 기관(또는 기관이 소유하고 있는 저장소의 fork) 소유의 저장소에 유저의 접근 권한을 삭제하려면 이 [가이드](https://help.github.com/articles/how-do-i-remove-a-team-member)를 보세요.
 
 1. GitHub의 저장소 페이지를 열으세요.
 

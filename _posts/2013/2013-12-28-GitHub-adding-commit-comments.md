@@ -2,8 +2,8 @@
 layout: post
 title: "[번역]GitHub / Collaborating / 커밋 의견를 추가하기"
 description: ""
-category: ""
-tags: []
+category: "translate"
+tags: [git, GitHub]
 ---
 {% include JB/setup %}
 

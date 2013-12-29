@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[번역]GitHub / Collaborating / Checking out Pull Requests locally"
+title: "[번역]GitHub / Collaborating / Pull 요청을 로컬에서 확인하기"
 description: ""
 category: "translate"
 tags: [git, GitHub]
@@ -11,7 +11,7 @@ tags: [git, GitHub]
 
 ---
 
-## Pull 요청을 로컬에 확인하기
+## Pull 요청을 로컬에서 확인하기
 
 저장소에 누군가 fork에 pull 요청을 만들었다고 가정합시다. 여기에 컴퓨터에서 변경사항을 확인하는 것과 다 괜찮은지 검증하는 방법이 있습니다.
 

@@ -3,7 +3,7 @@ layout: post
 title: "[번역]GitHub / Commits / 커밋 메시지를 삭제할 수 있나요?"
 description: ""
 category: "translate"
-tags: [git, GitHub, Commits,rebase, amend, push]
+tags: [git, GitHub, Commits, rebase, amend, push]
 ---
 {% include JB/setup %}
 

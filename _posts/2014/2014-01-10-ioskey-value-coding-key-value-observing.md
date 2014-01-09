@@ -157,3 +157,8 @@ NSKeyValueObservingOptionOld는 NSKeyValueChangeOldKey 키에 대한 이전 값�
     - (void)unregisterForChangeNotification {
         [observedObject removeObserver:inspector forKeyPath:@"openingBalance"];
     } 
+
+### 참고
+- [Key-Value Coding Programming Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html)
+- [Key-Value Observing Programming Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i)
+- [함수 예제 코드 참고](http://funnyrella.blogspot.kr/2013/10/27.html)

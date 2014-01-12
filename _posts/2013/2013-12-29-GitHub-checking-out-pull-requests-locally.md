@@ -17,7 +17,7 @@ tags: [git, GitHub]
 
 ### Git 환경설정을 수정하기
 
-`.git/config`파일에 GitHub 원격을 위한 구역이 있습니다. 다음을 보세요.
+`.git/config`파일에 GitHub 원격 저장소을 위한 구역이 있습니다. 다음을 보세요.
 
 	[remote "origin"]
 	  fetch = +refs/heads/*:refs/remotes/origin/*

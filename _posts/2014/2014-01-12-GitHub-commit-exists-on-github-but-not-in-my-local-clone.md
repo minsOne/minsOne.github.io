@@ -40,7 +40,7 @@ tags: [git, GitHub, Commits, Fetch]
 
 운좋게도 공동 제작자가 잃어버린 커밋을 로컬 저장소 Clone을 가지고 있다면 GitHub에 되돌리게 Push할 수 있습니다. 로컬 브랜치는 반드시 필요한 커밋을 참조하고 GitHub에 새로운 브랜치를 Push합니다.
 
-잃어버린 커밋을 포함하는 로컬 브랜치(`B`라고 부릅시다)를 가지고 있다고 말해봅시다. 강제 Push나 삭제되고 단순히 아직 업데이트 하지 않은 브랜치를 추적할 수 있습니다. 커밋을 유지하기 위해선 GitHub에 로컬 브랜치를 새로운 브랜치(`recover-B`라고 부릅시다)로 Push할 수 있습니다. 예를 들면 `github.com/$account/$repository`에 push 권한을 통해 원격 저장소 이름인 `upstream` 을 가진다고 가정합시다. 유저는 다음을 실행합니다:
+잃어버린 커밋을 포함하는 로컬 브랜치(`B`라고 부릅시다)를 가지고 있다고 말해봅시다. 강제 Push나 삭제말고도 단순히 아직 업데이트 하지 않은 브랜치를 추적할 수 있습니다. 커밋을 유지하기 위해선 GitHub에 로컬 브랜치를 새로운 브랜치(`recover-B`라고 부릅시다)로 Push할 수 있습니다. 예를 들면 `github.com/$account/$repository`에 push 권한을 통해 원격 저장소 이름인 `upstream` 을 가진다고 가정합시다. 유저는 다음을 실행합니다:
 
 	$ git push upstream B:recover-B
 	# Push local B to new upstream branch, creating new reference to commit

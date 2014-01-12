@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "[번역]GitHub / Commits / 커밋 브랜치와 태그 라벨"
-title: "Commit branch and tag labels"
 description: ""
 category: "translate"
 tags: [git, GitHub, Commits, Branch, Tag]

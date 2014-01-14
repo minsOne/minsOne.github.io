@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Commits / 커밋 브랜치와 태그 라벨"
 description: ""
-category: "translate"
+categories: [translate, Commits]
 tags: [git, GitHub, Commits, Branch, Tag]
 ---
 {% include JB/setup %}

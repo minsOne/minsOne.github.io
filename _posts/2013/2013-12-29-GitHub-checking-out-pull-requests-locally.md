@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Collaborating / Pull 요청을 로컬에서 확인하기"
 description: ""
-category: "translate"
+categories: [translate, Collaborating]
 tags: [git, GitHub]
 ---
 {% include JB/setup %}

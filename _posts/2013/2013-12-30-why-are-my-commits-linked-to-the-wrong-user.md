@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Commits / 왜 내 커밋이 잘못된 유저로 연결되나요?"
 description: ""
-category: "translate"
+categories: [translate, Commits]
 tags: [git, GitHub]
 ---
 {% include JB/setup %}

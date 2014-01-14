@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Collaborating / Fork 동기화"
 description: "Fork 동기화"
-category: "translate"
+categories: [translate, Collaborating]
 tags: [git, GitHub]
 ---
 {% include JB/setup %}

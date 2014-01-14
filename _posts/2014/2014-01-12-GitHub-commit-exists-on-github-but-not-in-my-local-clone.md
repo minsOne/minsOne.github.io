@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Commits / GitHub에는 커밋이 있는데 로컬 Clone에는 없어요"
 description: ""
-category: "translate"
+categories: [translate, Commits]
 tags: [git, GitHub, Commits, Fetch]
 ---
 {% include JB/setup %}

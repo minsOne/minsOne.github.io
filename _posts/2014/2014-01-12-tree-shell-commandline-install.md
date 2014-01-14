@@ -2,7 +2,7 @@
 layout: post
 title: "Tree Shell 명령어"
 description: ""
-category: ""
+category: "shell"
 tags: [shell, tree, os x]
 ---
 {% include JB/setup %}

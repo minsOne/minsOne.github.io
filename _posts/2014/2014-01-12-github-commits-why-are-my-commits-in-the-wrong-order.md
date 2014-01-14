@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Commits / 왜 커밋 순서가 잘못되었나요?"
 description: ""
-category: "translate"
+categories: [translate, Commits]
 tags: [git, GitHub, rebase, commit]
 ---
 {% include JB/setup %}

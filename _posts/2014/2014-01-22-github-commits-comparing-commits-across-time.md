@@ -43,7 +43,7 @@ To compare branches, you can select a branch name from the `compare` drop down m
 
 Here's an example of a [comparison between two branches](https://github.com/github/linguist/compare/jenkins-pluginspec).
 
-여기에 [두개 브랜치간의 비교](https://github.com/github/linguist/compare/jenkins-pluginspec)예제가 있습니다.
+여기에 [두 브랜치간의 비교](https://github.com/github/linguist/compare/jenkins-pluginspec)하는 예제가 있습니다.
 
 
 ## Comparing tags 태그 비교
@@ -58,36 +58,45 @@ Instead of typing a branch name, type the name of your tag in the `compare` drop
 
 Here's an example of a [comparison between two tags](https://github.com/github/linguist/compare/v2.2.0...v2.3.3).
 
-여기에 [두개 태그간의 비교](https://github.com/github/linguist/compare/v2.2.0...v2.3.3) 예제가 있습니다.
+[두 태그간의 비교](https://github.com/github/linguist/compare/v2.2.0...v2.3.3)하는 예제가 있습니다.
 
 
-## Comparing commits
+## Comparing commits 커밋 비교
 
 You can also compare two arbitrary commits in your repository. Comparisons between commits are made by providing either the full SHA hash or the short eight-character code.
 
+마찬가지로 저장소에 있는 임의의 두개 커밋을 비교할 수 있습니다. 커밋 사이의 비교는 전체 SHA 해쉬 또는 짧은 8자 코드 중 하나를 제공하여 만들어집니다.
+
 Here's an example of a [comparison between two commits](https://github.com/github/linguist/compare/96d29b7662f148842486d46117786ccb7fcc8018...a20631af040b4901b7341839d9e76e31994adda3).
 
+[두 커밋간의 비교](https://github.com/github/linguist/compare/96d29b7662f148842486d46117786ccb7fcc8018...a20631af040b4901b7341839d9e76e31994adda3)하는 예제가 있습니다.
 
 
-## Comparing across forks
+## Comparing across forks fork로 비교
 
 You can compare your base repository and any forked repository. This is the view that's presented when a user performs a Pull Request to a project.
 
+fork된 저장소와 기본 저장소를 비교할 수 있습니다. 유저가 프로젝트에 Pull 요청을 수행하면 보이는 화면입니다.
+
 To compare branches on different repositories, preface the branch names with user names. For example, by specifying `github:master` for `base` and `gjtorikian:master` for `compare`, you can compare the `master` branch of the repositories respectively owned by `github` and `gjtorikian`.
+
+다른 저장소에 브랜치를 비교하려면 브랜치 이름과 사용자 이름을 붙입니다. 예를 들어 `base`에 `github:master`를 `compare`에 `gjtorikian:master`를 지정하여 각각 `github`과 `gjtorikian`가 있는 저장소에 `master` 브랜치를 비교할 수 있습니다. 
 
 Here's an example of a [comparison between two repositories](https://github.com/gjtorikian/linguist/compare/github:master...gjtorikian:master).
 
+[두 저장소간의 비교](https://github.com/gjtorikian/linguist/compare/github:master...gjtorikian:master)하는 예제가 있습니다.
 
-
-## Comparisons across time
+## Comparisons across time 시간으로 비교
 
 Comparisons can be created for arbitrary time periods, like one month or two weeks. To define a time period, wrap the date between a `{@ }` notation, followed by the branch name. For example, typing `{@2weeks}master` into the `compare` dropdown menu compares a branch against the `master` branch as it was two weeks prior.
+
+한달 또는 이주와 같은 임의의 기간으로 비교를 만들어 냅니다. 시간 기간을 정의하려면 날짜를 `{@ }`표시 사이로 감싸도록하며 브랜치 이름으로 따릅니다. 예를 들어 `{@2weeks}master 입력하고 
 
 Here's an example of a [comparison between two time periods](https://github.com/github/linguist/compare/master@%7B1month%7D...master).
 
 
 
-## Comparisons across commits
+## Comparisons across commits 커밋으로 비교
 
 As a shortcut, Git uses the `^` notation to mean "one commit prior."
 

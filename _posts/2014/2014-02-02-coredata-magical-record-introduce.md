@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[CoreData]MagicalRecord을 이용한 CoreData를 조금 더 쉽게 사용하기"
+title: "[CoreData]Objective-C 프로젝트에서 MagicalRecord를 이용하여 Core Data 사용하기"
 description: ""
 categories: [iOS, Mac, CoreData]
 tags: [iOS, Mac, CoreData, MagicalRecord]

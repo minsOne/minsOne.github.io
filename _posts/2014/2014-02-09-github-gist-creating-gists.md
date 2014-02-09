@@ -24,7 +24,7 @@ Gists는 개인 저장소 숫자로 계산하지 않습니다. 유저가 만들�
 
 다양한 지표로 gist를 정렬하는 [Discover](https://gist.github.com/discover)를 이용하여 gists에 새로이 작성된 코드를 찾을 수 있습니다. 또한 [Gist Search](https://gist.github.com/search)와 언어로 검색할 수 있습니다.
 
-![Discover Gists](https://github-images.s3.amazonaws.com/help/gist/gist_discover.png)
+![Discover Gists](/../../../../image/2014/gist_discover.png)
 
 
 

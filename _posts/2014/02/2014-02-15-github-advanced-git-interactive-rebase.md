@@ -65,7 +65,7 @@ Running the command with the `--interactive` flag will launch your text editor w
 
 At this point you can edit the file to change the order of the commits. There are six commands available:
 
-파일을 편집하여 커밋의 순서를 변경할 수 있음을 가르킵니다. 가능한 명령어가 6개 있습니다.
+이 시점에서 파일을 편집하여 커밋의 순서를 변경할 수 있음을 가르킵니다. 가능한 명령어가 6개 있습니다.
 
 
 #### Pick
@@ -192,7 +192,11 @@ As usual, edit the file as we wish, save, and close the editor. The rebase will 
 
 At this point we would edit the files we need, do a `git commit --amend`, make our second commit, and ensure that our working tree and index are clean. On to the next one! `git rebase --continue`
 
+이 시점에서 `git commit --amend`를 하고 두번째 커밋을 만들고 working tree와 인덱스를 깨끗히 해서 파일을 수정합니다. 다음! `git rebase --continue`
+
 Finally, git hits our `reword` commit. It opens up the text editor one last time:
+
+마지막으로 git은 `reword` 커밋을 날립니다. 마지막으로 텍스트 에디터를 엽니다.
 
 	i cant' typ goods
 
@@ -207,13 +211,20 @@ Finally, git hits our `reword` commit. It opens up the text editor one last time
 
 Fix, save, and close the editor. Git finishes the rebase and returns us to our command prompt.
 
+고치고 저장하고 에디터를 닫습니다. Git은 rebase를 마무리하고 command prompt를 반환합니다.
 
 
 <h3>Using --autosquash</h3>
 
+<h3>--autosquash 사용하기</h3>
+
 In git 1.7 the `--autosquash` flag was added to `git rebase --interactive`. This option allows you to craft commit messages that tell rebase what you want to do. This is great if you're committing something that you know you want to squash or fixup against an earlier commit.
 
+git 1.7에서 `--autosquash` 옵션이 `git rebase --interactive`에 추가되었습니다. 이 옵션은 원하는 작업을 rebase한다는 커밋 메시지를 만들 수 있습니다. squash나 이전 커밋을 수정할 것을 알고 커밋한다면 좋은 방법입니다.
+
 The basic syntax is to use "squash!" or "fixup!" followed by the first part of the commit message. For example, if we used these commit messages:
+
+기본 문법은 커밋 메시지의 첫부분에 "squash!"나 "fixup!"를 따라 사용하는 것입니다. 예를 들면 이러한 커밋 메시지를 사용하는 경우입니다:
 
 	Patch A
 	Patch B
@@ -222,12 +233,16 @@ The basic syntax is to use "squash!" or "fixup!" followed by the first part of t
 
 When we run `git rebase --interactive --autosquash` It opens with our commits already where we want them:
 
+`git rebase --interactive --autosquash`를 실행하면 이미 원하는 커밋들로 열립니다.
+
 	pick 1fc6c95 Patch A
 	squash fa39187 squash! Patch A
 	pick 6b2481b Patch B
 	fixup c619268 fixup! Patch B
 
 If you use autosquash often (who wouldn't?), you can save yourself some typing by telling git to use it by default:
+
+autosquash를 자주 사용한다면(누가 안해?) 기본으로 사용하기 위해 입력을 저장해서 Git에 말할 수 있습니다.
 
 	git config --global rebase.autosquash true
 

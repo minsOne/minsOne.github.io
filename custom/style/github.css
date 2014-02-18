@@ -123,3 +123,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-chunk {
   color: #aaa
 }
+
+.alert.warning {
+    color: #EC2F2F;
+    background-color: #ffe3c8;
+    background: -moz-linear-gradient(#ffe3c8, #f5dac0);
+    background: -webkit-linear-gradient(#ffe3c8, #f5dac0);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe3c8', endColorstr='#f5dac0')";
+    border: 1px solid #dca874
+}

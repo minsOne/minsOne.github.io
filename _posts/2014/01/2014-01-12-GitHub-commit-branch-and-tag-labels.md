@@ -17,8 +17,8 @@ tags: [git, GitHub, Commits, Branch, Tag]
 
 기본 브랜치에 커밋이 아니라면, 표시가 커밋을 포함하는 브랜치를 보여줍니다. 커밋이 합쳐지지 않은 Pull 요청의 일부분이라면 링크를 보여줍니다.
 
-![Commit branch label](https://github-images.s3.amazonaws.com/help/commits/Commit-branch-label.png)
+![Commit branch label](/../../../../image/2014/Commit-branch-label.png)
 
 기본 브랜치에 커밋이 되면, 커밋을 포함하는 태그가 표시되고 기본 브랜치는 유일한 브랜치 목록이 됩니다.
 
-![Commit-master-label](https://github-images.s3.amazonaws.com/help/commits/Commit-master-label.png)
+![Commit-master-label](/../../../../image/2014/Commit-master-label.png)

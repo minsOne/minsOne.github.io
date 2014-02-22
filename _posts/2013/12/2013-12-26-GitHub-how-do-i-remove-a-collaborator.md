@@ -17,11 +17,11 @@ tags: [git, GitHub]
 
 1. GitHub의 저장소 페이지를 열으세요.
 
-2. Settings을 클릭하세요.<br/><img src="https://github-images.s3.amazonaws.com/help/repo-actions-settings.png" alt="Settings tab" style="width: 150px;"/><br/><br/>
+2. Settings을 클릭하세요.<br/><img src="/../../../../image/2013/repo-actions-settings.png" alt="Settings tab" style="width: 150px;"/><br/><br/>
 
-3. Collaborators 탭을 클릭하세요.<br/><img src="https://github-images.s3.amazonaws.com/help/repo-settings-collaborators.png" alt="Collaborators tab" style="width: 250px;"/><br/><br/>
+3. Collaborators 탭을 클릭하세요.<br/><img src="/../../../../image/2013/repo-settings-collaborators.png" alt="Collaborators tab" style="width: 250px;"/><br/><br/>
 
-4. 지우고자 하는 공동 제작자 근처에 있는 빨간 삭제 링크를 클릭하세요.<br/><img src="https://github-images.s3.amazonaws.com/help/Collaborator-Remove.png" alt="Remove link" style="width: 250px;"/><br/><br/>
+4. 지우고자 하는 공동 제작자 근처에 있는 빨간 삭제 링크를 클릭하세요.<br/><img src="/../../../../image/2013/Collaborator-Remove.png" alt="Remove link" style="width: 250px;"/><br/><br/>
 
 ### Octocast
 

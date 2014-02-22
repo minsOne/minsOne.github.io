@@ -15,7 +15,7 @@ Pull 요청 닫기는 Pull 요청과 합치지 **않을** 것입니다. 이것�
 
 1. Pull 요청 페이지로 이동합니다.
 
-2. **Close Pull request** 버튼을 클릭합니다.<br/><img src="https://github-images.s3.amazonaws.com/help/pullrequest-closebutton.png" alt="The close Pull Request button" style="width: 200px;"/><br/><br/>
+2. **Close Pull request** 버튼을 클릭합니다.<br/><img src="/../../../../image/2013/pullrequest-closebutton.png" alt="The close Pull Request button" style="width: 500px;"/><br/><br/>
 
 ### 관련 주제들
 [Pull 요청 정리하기](http://minsone.github.io/lesson/2013/12/25/GitHub-Tidying-up-pull-requests/)

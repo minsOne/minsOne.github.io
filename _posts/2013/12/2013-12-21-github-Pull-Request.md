@@ -38,11 +38,9 @@ Pull 요청은 특히 Fork와 Pull 모델에 유용한데 이는 당신의 fork�
 
 누군가가 변경사항을 Pull 하길 원하는 저장소로 이동하여 Pull 요청 버튼을 누릅니다.
 
-> 브랜치를 전환한다.
-> ![브랜치 전환 이미지](https://github-images.s3.amazonaws.com/help/pick-your-branch.png)
+> 브랜치를 전환한다.<br/><img src="/../../../../image/2013/pick-your-branch.png" alt="브랜치 전환 이미지" style="width: 200px;"/><br/><br/>
 
-> Compare & review버튼을 클릭한다.
-> ![Compare & review버튼을 클릭한다](https://github-images.s3.amazonaws.com/help/pull-request-start-review-button.png)
+> Compare & review버튼을 클릭한다.<br/><img src="/../../../../image/2013/pull-request-start-review-button.png" alt="Compare review버튼을 클릭한다" style="width: 200px;"/><br/><br/>
 
 Pull 요청은 아무 브랜치나 커밋을 보낼 수 있지만 주제 브랜치는 후속 커밋이 필요한 경우 Pull 요청을 업데이트하도록 Push할 수 있게 사용하는 것이 좋습니다.
 
@@ -50,7 +48,7 @@ Pull 요청은 아무 브랜치나 커밋을 보낼 수 있지만 주제 브랜�
 
 리뷰를 시작한 후에는 정확하게 당신의 브랜치와 저장소의 마스터 브랜치간 변경사항을 고수준의 개요로 얻을 수 있는 리뷰 페이지를 보여줘야 합니다. 커밋에 작성된 모든 의견을 리뷰할 수 있으며 파일 변경한 것을 확인할 수 있고, 당신의 브랜치에 공헌자들 목록을 얻을 수 있습니다.
 
-![Pull 요청 리뷰](https://github-images.s3.amazonaws.com/help/pull-request-review-page.png)
+![Pull 요청 리뷰](/../../../../image/2013/pull-request-review-page.png)
 
 ### 브랜치 범위와 대상 저장소 변경하기
 
@@ -64,7 +62,7 @@ Pull 요청은 아무 브랜치나 커밋을 보낼 수 있지만 주제 브랜�
 - Git history markers (like `HEAD^1`)
 - Valid time references (like `master@{1day}`)
 
-![브랜치 범위와 대상 저장소 변경하기](https://github-images.s3.amazonaws.com/help/pull-request-review-edit-branch.png)
+![브랜치 범위와 대상 저장소 변경하기](/../../../../image/2013/pull-request-review-edit-branch.png)
 
 브랜치 범위에 대한 생각하기 가장 쉬운 방법은 base 브랜치가 당신이 생각하기에 적용되어 변경되어야 하는 곳(**Where**)이고 head 브랜치는 당신이 이미 적용해놓은 것(**What**)입니다.
 
@@ -76,13 +74,13 @@ Pull 요청은 아무 브랜치나 커밋을 보낼 수 있지만 주제 브랜�
 
 Pull 요청을 제출할 준비가 되었다면 상단에 start a discussion을 클릭한다.
 
-![Pull 요청 보내기](https://github-images.s3.amazonaws.com/help/pull-request-review-create.png)
+![Pull 요청 보내기](/../../../../image/2013/pull-request-review-create.png)
 
 제목과 임의의 설명을 입력할 수 있는 토론 페이지로 이동할 것입니다. 커밋이 Pull 요청을 보냈을 때 포함되는 것을 정확하게 볼 수 있습니다.
 
 한번 제목과 설명을 입력했으면 커밋 범위를 어떤 필요한 사용자 정의를 만들었고 커밋과 파일 변경사항을 보내기 위해 리뷰했었고, Send pull request 버튼을 클릭합니다.
 
-![Pull 요청 보내기 버튼 클릭](https://github-images.s3.amazonaws.com/help/send-pull-request.png)
+![Pull 요청 보내기 버튼 클릭](/../../../../image/2013/send-pull-request.png)
 
 Pull 요청을 보낸 후에 어떤 Push들은 당신의 브랜치에 자동적으로 그 커밋들이 업데이트 되도록 만들어집니다. 이것은 만약 당신이 더 많은 변경사항을 만드는 것이 필요할 때 특히 유용합니다.
 
@@ -90,7 +88,7 @@ Pull 요청을 보낸 후에 어떤 Push들은 당신의 브랜치에 자동적�
 
 Pull 요청 대시보드에서 보내거나 받은 모든 Pull 요청들을 찾아볼 수 있습니다. 특정 저장소에 Pull 요청들도 또한 Pull 요청 페이지에 방문하여 접속한 사람이면 찾아볼 수 있습니다.
 
-![Pull 요청 관리하기](https://github-images.s3.amazonaws.com/help/repo-pull-requests.png)
+![Pull 요청 관리하기](/../../../../image/2013/repo-pull-requests.png)
 
 Pull 요청 대쉬보드와 저장소 Pull 요청 목록은 필터링과 정렬를 넓은 범위로 제공합니다. 관심있는 Pull 요청들의 목록 범위를 줄이기 위해 사용합니다.
 
@@ -98,17 +96,17 @@ Pull 요청 대쉬보드와 저장소 Pull 요청 목록은 필터링과 정렬�
 
 Pull 요청을 받았을 때 처음 해야 할 일은 제안받은 변경사항 제안 묶음을 검토하는 것입니다. Pull 요청은 밀접하게 기본적인 git 저장소와 통합되어 있어 요청 수락을 하면 커밋이 합쳐지는 것을 정확하게 볼 수 있습니다.
 
-![Pull 요청 커밋](https://github-images.s3.amazonaws.com/help/review-commits.png)
+![Pull 요청 커밋](/../../../../image/2013/review-commits.png)
 
 또한 모든 커밋을 통해 모든 파일의 누적된 변경 내역을 리뷰 할 수 있습니다.
 
-![Pull 요청 파일변경](https://github-images.s3.amazonaws.com/help/review-changes.png)
+![Pull 요청 파일변경](/../../../../image/2013/review-changes.png)
 
 ### Pull 요청 토론하기
 
 기초적인 설명, 커밋, 누적된 변경을 리뷰 한 후에 변경 사항을 적용하려고 질문이나 의견을 낼 수도 있습니다. 아마 코딩 스타일이 프로젝트 가이드라인과 맞지 않거나 유닛 테스트에서 안되거나 또는 아마도 모든 것이 훌륭하고 순서대로 표시된 어떤 기능들이 순서대로 된 것으로 보입니다. 이 토론 화면은 자신감을 돋구기 위해 디자인되었으며 이 토론의 유형을 캡쳐했습니다..
 
-![Pull 요청 토론하기](https://github-images.s3.amazonaws.com/help/conversation.png)
+![Pull 요청 토론하기](/../../../../image/2013/conversation.png)
 
 토론 화면은 원래의 제목과 설명 그리고 시간순으로 표시되는 추가적인 활동의 Pull 요청과 함께 시작됩니다. 어떤 활동 유형들은 다음 것들이 일어납니다.
 
@@ -124,7 +122,7 @@ Pull 요청 의견은 Markdown과 호환이 되며 이미지를 넣을 수 있�
 
 저장소에 Pull 요청 페이지로부터 오랫동안 진행되고 있는 Pull 요청을 보고 정렬할 수 있습니다.
 
-![Pull 요청 정렬](https://github-images.s3.amazonaws.com/help/pull-request-longest-running.png)
+![Pull 요청 정렬](/../../../../image/2013/pull-request-longest-running.png)
 
 오랫동안 진행되고 있는 Pull 요청은 한달 이상 존재하고 있는 것과 지난 달에 활동한 것들입니다. 오랫동안 진행되고 있는 Pull 요청의 필터 화면은 수명에 의해 정렬됩니다.(생성되어 최근까지 활동한 시간)
 

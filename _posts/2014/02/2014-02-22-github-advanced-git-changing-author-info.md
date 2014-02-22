@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[번역]GitHub / Advanced Git / Changing author info"
+title: "[번역]GitHub / Advanced Git / 저자 정보 변경하기"
 description: ""
 categories: [translate, Advanced Git]
 tags: [git, GitHub, filter-branch]
@@ -11,7 +11,7 @@ tags: [git, GitHub, filter-branch]
 
 ---
 
-## Changing author info 저자 정보 변경하기
+## 저자 정보 변경하기
 
 저장소 히스토리에 저자 정보를 변경할 필요가 있다면 이 스크립트를 사용하여 수행할 수 있습니다.
 

@@ -18,7 +18,7 @@ Pull 요청을 닫거나 합친 후에는 많은 양의 소멸된 브랜치들�
 Pull 요청을 합친 후에 오래 끄는 브랜치를 삭제할 수 있는 버튼을 볼 수 있을 것입니다.
 ![Delete Branch button](/../../../../image/2013/delete_branch_button.png)
 
-**Tip** : Push 접근 권한이 있는 저장소의 브랜치들만 삭제할 수 있습니다.
+<div class="alert-info"><strong>팁</strong>Push 접근 권한이 있는 저장소의 브랜치들만 삭제할 수 있습니다.</div>
 
 ### 삭제된 Pull 요청 복구하기
 

@@ -15,7 +15,8 @@ tags: [git, GitHub]
 
 동기화하기 전에 upstream 저장소가 가르키는 원격 저장소 주소를 추가 할 필요가 있습니다. 처음에 fork 했을 때 이 작업을 했을 수도 있습니다.
 
-**Tip** : fork를 동기화 하는 것은 저장소의 로컬 복사본에만 최신으로 갱신 합니다. 이것은 GitHub에 있는 저장소에는 갱신하는 것이 아닙니다.
+
+<div class="alert-info"><strong>팁</strong> : fork를 동기화 하는 것은 저장소의 로컬 복사본에만 최신으로 갱신 합니다. 이것은 GitHub에 있는 저장소에는 갱신하는 것이 아닙니다.</div>
 
     $ git remote -v
     # List the current remotes
@@ -78,4 +79,4 @@ upstream 저장소를 가져온 지금, 로컬 저장소에 upstream 저장소�
 
 만약 로컬 브랜치가 유일한 커밋을 가지고 있지 않다면, git은 대신 fast-forwad로 수행할 것입니다.
 
-**Tip** : 만약 GitHub에 당신의 저장소를 업데이트 하길 원한다면 [다음 과정](https://help.github.com/articles/pushing-to-a-remote#pushing-a-branch)을 따르면 됩니다.
+<div class="alert-info"><strong>팁</strong> : 만약 GitHub에 당신의 저장소를 업데이트 하길 원한다면 [다음 과정](https://help.github.com/articles/pushing-to-a-remote#pushing-a-branch)을 따르면 됩니다.</div>

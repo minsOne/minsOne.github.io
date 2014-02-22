@@ -32,7 +32,7 @@ tags: [git, GitHub, Commits, Fetch]
 
 간단하고 가능한 설명 중 하나는 로컬 저장소가 아직 커밋을 하지 않았습니다. `git fetch <remote>`를 사용해 파일이 변경되었는지 확인할 필요 없이 로컬저장소에 원격 저장소 데이터를 안전하게 가져올 수 있습니다. 일반적으로 fork되었거나 단지 단순히 복제하여 가지고 올 수 있는 데이터에서 `get fetch origin` 저장소에서 데이타를 얻기 위해 `get fetch upstream`을 작성합니다.
 
-**Tip**: 정보가 더 필요하면 [Pro Git](http://git-scm.com/book/ko/) 책에 있는 [원격 저장소 관리 및 데이터 가져오기](http://git-scm.com/book/ko/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EB%A6%AC%EB%AA%A8%ED%8A%B8-%EC%A0%80%EC%9E%A5%EC%86%8C)를 읽어보세요.
+<div class="alert-info"><strong>팁</strong>: 정보가 더 필요하면 <a href="http://git-scm.com/book/ko/">Pro Git</a> 책에 있는 <a href="http://git-scm.com/book/ko/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EB%A6%AC%EB%AA%A8%ED%8A%B8-%EC%A0%80%EC%9E%A5%EC%86%8C">원격 저장소 관리 및 데이터 가져오기</a>를 읽어보세요.</div>
 
 ### 브랜치 삭제 또는 강제 Push로부터 복구하기
 
@@ -50,7 +50,7 @@ tags: [git, GitHub, Commits, Fetch]
 	$ git fetch upstream recover-B
 	# Fetch commit into your local repository.
 
-**Tip**: 이 상황이 일어난다면 로컬 저장소에 처음 `git branch recover-B B`를 실행(즉, 커밋을 참조하는 새로운 로컬 브랜치를 생성)하여 안전하게 할 수 있습니다. 이 단계는 필요하지 않지만 분리된 원격 저장소에서 커밋을 포함하는 로컬 브랜치를 분리하기 좋습니다.
+<div class="alert-info"><strong>팁</strong>: 이 상황이 일어난다면 로컬 저장소에 처음 `git branch recover-B B`를 실행(즉, 커밋을 참조하는 새로운 로컬 브랜치를 생성)하여 안전하게 할 수 있습니다. 이 단계는 필요하지 않지만 분리된 원격 저장소에서 커밋을 포함하는 로컬 브랜치를 분리하기 좋습니다.</div>
 
 ### 강제 Push 피하기
 

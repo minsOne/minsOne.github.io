@@ -18,7 +18,7 @@ git 특징인 `git rebase` 명령어를 종종 넘겨버리곤 합니다. Rebase
 
 <h3>Rebase 사용하기 --interactive</h3>
 
-#### Invocation 호출
+#### 호출하기
 
 마스터 브랜치와 현재 브랜치의 head사이에 있는 모든 커밋을 Rebase하기 위해 master로 돌아갑니다:
 
@@ -85,7 +85,7 @@ squash와 비슷하지만 커밋 메시지는 버려집니다. 커밋은 간단�
 커밋에 대해 임의의 쉘 명령어를 자동으로 실행할 수 있습니다.
 
 
-#### 예시
+#### 예제
 
 exec를 제외한 모든 명령어를 다루는 Rebase입니다. `git rebase --interactive HEAD~7`인 rebase를 시작하고 에디터에 이 파일이 표시됩니다:
 

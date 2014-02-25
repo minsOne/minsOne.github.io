@@ -1,19 +1,19 @@
 ---
 layout: post
-title: "[번역]GitHub / Advanced Git / Subtree 병합 작업"
+title: "[번역]GitHub / Advanced Git / Subtree Merge 작업"
 description: ""
 categories: [translate, Advanced Git]
 tags: [git, GitHub, merge, read-tree, subtree]
 ---
 {% include JB/setup %}
 
-다음의 [Working with subtree merge](https://help.github.com/articles/working-with-subtree-merge) 번역하였습니다.
+이 문서는 [Working with subtree merge](https://help.github.com/articles/working-with-subtree-merge)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
 ---
 
-## Subtree 병합 작업
+## Subtree Merge 작업
 
-submodule로 작업하기에 적합하지 않을 때가 있습니다. 예를 들면 다중 저장소를 단일 저장소로 각 저장소의 히스토리를 유지한 채로 합치는 경우가 있습니다. 이 작업을 하기 위해서는 subtree 병합 전략이 더 나은 해결책입니다.
+submodule로 작업하기에 적합하지 않을 때가 있습니다. 예를 들면 다중 저장소를 단일 저장소로 각 저장소의 히스토리를 유지한 채로 합치는 경우가 있습니다. 이 작업을 하기 위해서는 subtree merge 전략이 더 나은 해결책입니다.
 
 
 ### 설정과 첫번째 병합 작업
@@ -87,15 +87,15 @@ submodule로 작업하기에 적합하지 않을 때가 있습니다. 예를 들
 	# [master f240057] Subtree merged in cork/modules
 
 
+
 ### 변경사항을 Pull하기
 
 합쳐진 저장소가 나중에 변경된다면 `-s subtree` 옵션을 사용하여 간단히 변경사항을 Pull 할 수 있습니다:
 
 	$ git pull -s subtree panda master
 
-<div class="alert-info">팁 : If you create a fresh clone of the repository in the future, the remotes you have added (cork, panda, etc) will not be created for you. You will have to add them again using the `git remote add` command described earlier.</div>
+<div class="alert-info">팁 : 나중에 새로운 저장소 복제본을 만든다면 이미 추가된 원격 저장소(cork, panda 등)를 생성하지 않습니다. 이전에 설명한 <code>git remote add</code> 명령어를 사용하여 다시 원격 저장소를 추가해야합니다.</div>
 
-나중에 새로운 저장소 복제본을 만든다면 이미 추가된 원격 저장소(cork, panda 등)를 생성하지 않습니다. 이전에 설명한 `git remote add` 명령어를 사용하여 다시 원격 저장소를 추가해야합니다.
 
 
 ### 자료

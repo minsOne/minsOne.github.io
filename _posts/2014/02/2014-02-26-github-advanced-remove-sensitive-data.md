@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[번역]GitHub / Advanced Git / Remove sensitive data"
+title: "[번역]GitHub / Advanced Git / 중요한 데이터 제거하기"
 description: ""
 categories: [translate, Advanced Git]
 tags: [git, GitHub]
@@ -15,11 +15,17 @@ tags: [git, GitHub]
 
 From time to time users accidentally commit data like passwords or keys into a git repository. While you can use `git rm` to remove the file, it will still be in the repository's history. Fortunately, it's possible to remove unwanted files from the whole of repository history too, using either Git's in-built `filter-branch` tool, or more easily & quickly using The BFG Repo-Cleaner.
 
+유저가 시간이 지남에 따라 비밀번호나 키 같은 데이터를 실수로 git 저장소에 커밋합니다. `git rm`을 사용해서 파일을 삭제할순 있지만 저장소 히스토리에는 여전히 남아있습니다. 다행히도 저장소 히스토리 전체로부터 원치않는 파일을 삭제가능합니다. Git에 내장된 `filter-branch`툴을 사용하거나 더 쉽고 빠른 BFG Repo-Cleaner을 사용합니다.
+
 <div class="alert-danger"><strong>Danger: Once the commit has been pushed you should consider the data to be compromised.</strong> If you committed a password, change it! If you committed a key, generate a new one.</div>
 
-### Purge the file from your repository
+위험 : 커밋이 진행된 후에 데이터가 손상되는 것을 고려해야 합니다. 비밀번호가 커밋이 되었다면 변경합니다. 키가 커밋되었다면 새로 생성합니다.
+
+### Purge the file from your repository 저장소로부터 파일을 제거하기
 
 Now that the password is changed, you want to remove the file from history and add it to the `.gitignore` to ensure it is not accidentally re-committed. For our examples, we're going to remove `Rakefile` from the [GitHub gem](https://github.com/defunkt/github-gem) repository.
+
+이제 패스워드는 변경되었고 히스토리로부터 파일을 제거하고 `.gitignore`을 추가하여 확실하게 사고없이 다시 커밋하길 원합니다. 예를 들어 [GitHub gem](https://github.com/defunkt/github-gem) 저장소에서 `Rakefile`을 제거하려고 합니다.
 
 	$ git clone https://github.com/defunkt/github-gem.git
 	# Initialized empty Git repository in /Users/tekkub/tmp/github-gem/.git/
@@ -39,9 +45,15 @@ Now that the password is changed, you want to remove the file from history and a
 
 This command will run the entire history of every branch and tag, changing any commit that involved the file `Rakefile`, and any commits afterwards. Commits that are empty afterwards (because they only changed the Rakefile) are removed entirely. Note that you'll need to specify the path to the file you want to remove, not just its filename.
 
+이 명령어는 모든 브랜치와 태그, `Rakefile` 파일이 포함된 커밋 변경과 나중 커밋의 전체 히스토리를 실행합니다. 나중에 빈 커밋(Rakefile만 변경되었기때문입니다)은 완전히 제거됩니다. 제거할 파일의 경로를 지정해야 합니다. 파일 이름만으로는 안됩니다.
+
 Now that we've erased the file from history, let's ensure that we don't accidentally commit it again.
 
+이제 히스토리에서 파일을 지웠습니다. 다시 커밋하는 실수를 하지 않도록 합시다.
+
 Please note that *this will overwrite your existing tags.*
+
+*기존의 태그를 덮어씌우므로* 유의하시기 바랍니다.
 
 	$ echo "Rakefile" >> .gitignore
 

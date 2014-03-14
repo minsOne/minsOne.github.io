@@ -3,7 +3,7 @@ layout: post
 title: "디자인패턴 - 상태패턴"
 description: ""
 category: "designPattern"
-tags: [designPattern, pattern]
+tags: [designPattern, pattern, state, class, interface, context, method, if]
 ---
 {% include JB/setup %}
 

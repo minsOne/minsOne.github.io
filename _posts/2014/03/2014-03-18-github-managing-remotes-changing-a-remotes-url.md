@@ -28,7 +28,7 @@ tags: [git, GitHub, remote, origin, name]
 	origin  https://github.com/user/repo2.git (fetch)
 	origin  https://github.com/user/repo2.git (push)
 
-<br/>두개의 인자를 가집니다:
+<br/>두 개의 인자를 가집니다:
 - 기존 원격 저장소 이름: `origin`
 - 새로운 원격 저장소 URL : `https://github.com/user/repo2.git`
 

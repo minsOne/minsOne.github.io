@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Google Analytics 세션 유지 적용"
+title: "Google Analytics 세션 유지"
 description: ""
 category: "iOS"
 tags: [Google Analytics, iOS, Heartbeat]

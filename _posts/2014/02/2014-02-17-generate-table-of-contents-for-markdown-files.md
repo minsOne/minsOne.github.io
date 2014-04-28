@@ -2,7 +2,7 @@
 layout: post
 title: "마크다운 파일의 목차를 만들어주는 doctoc"
 description: ""
-category: "markdown"
+category: "tool"
 tags: [markdown, npm, node]
 ---
 {% include JB/setup %}

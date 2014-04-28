@@ -2,8 +2,8 @@
 layout: post
 title: "Google Analytics 세션 유지"
 description: ""
-category: "iOS"
-tags: [Google Analytics, iOS, Heartbeat]
+category: "programming"
+tags: [ga, google analytics, google, analytics, ios, heartheat, keepalive]
 ---
 {% include JB/setup %}
 

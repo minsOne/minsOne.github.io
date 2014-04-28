@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Mac]wget 설치하기"
+title: "Mac에서 wget 설치하기"
 description: ""
-category: "Mac"
-tags: [Mac, Shell, wget]
+category: "tool"
+tags: [mac, shell, wget]
 ---
 {% include JB/setup %}
 

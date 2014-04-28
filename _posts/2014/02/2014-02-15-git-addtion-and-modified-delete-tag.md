@@ -2,13 +2,12 @@
 layout: post
 title: "[Git]Tag 추가, 변경 및 삭제하기"
 description: ""
-category: "Git"	
-tags: [Git, tag, push]
+category: "git"	
+tags: [git, tag, push]
 ---
 {% include JB/setup %}
 
 저장소의 소스 버전을 간간히 표시하기 위해서는 커밋 메시지 또는 브랜치로 해서 표시하는 것 보단 태그로 깔끔하게 하는 것이 좋습니다.
-
 
 
 #### 태그 조회하기

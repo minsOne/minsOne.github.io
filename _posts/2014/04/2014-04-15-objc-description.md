@@ -2,8 +2,8 @@
 layout: post
 title: "[Objc]description - 객체 설명 메소드"
 description: ""
-category: "Objective C"
-tags: [Objc, description]
+category: "programming"
+tags: [objectivec, objc, description]
 ---
 {% include JB/setup %}
 

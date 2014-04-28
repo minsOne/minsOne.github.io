@@ -2,8 +2,8 @@
 layout: post
 title: "[번역]GitHub / Managing Remotes / 원격 저장소 URL 변경하기"
 description: ""
-categories: [translate, GitHub]
-tags: [git, GitHub, remote, origin, name]
+categories: [git]
+tags: [git, github, remote, origin, name]
 ---
 {% include JB/setup %}
 

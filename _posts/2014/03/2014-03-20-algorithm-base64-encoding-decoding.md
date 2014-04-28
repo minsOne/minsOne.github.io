@@ -2,7 +2,7 @@
 layout: post
 title: "[알고리즘]Base64 알고리즘"
 description: ""
-category: "Programming"
+category: "programming"
 tags: [algorithm, base64, encode, decode, shift, padding]
 ---
 {% include JB/setup %}

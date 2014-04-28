@@ -2,8 +2,8 @@
 layout: post
 title: "NSDictionary를 이용한 조건문 제거하기"
 description: ""
-category: "Refactoring"
-tags: [NSDictionary, if, switch, Blocks, Mac, iOS, ObjectiveC]
+category: "programming"
+tags: [nadictionary, if, switch, blocks, mac, ios, objectivec, objc]
 ---
 {% include JB/setup %}
 

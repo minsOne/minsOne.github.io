@@ -2,8 +2,8 @@
 layout: post
 title: "[번역]GitHub / Release / Releases 열거 및 수정하기"
 description: ""
-categories: [translate, GitHub]
-tags: [git, GitHub, release, tag]
+categories: [git]
+tags: [git, github, release, tag]
 ---
 {% include JB/setup %}
 

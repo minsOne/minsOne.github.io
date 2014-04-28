@@ -2,12 +2,12 @@
 layout: post
 title: "[번역]GitHub / Advanced Git / 하위 경로를 새로운 저장소로 분할"
 description: ""
-categories: [translate, Advanced Git]
-tags: [git, GitHub, filter-branch, prune-empty, subdirectory-filter]
+categories: [git]
+tags: [git, github, filter-branch, prune-empty, subdirectory-filter]
 ---
 {% include JB/setup %}
 
-다음의 [Splitting a subpath out into a new repository](https://help.github.com/articles/splitting-a-subpath-out-into-a-new-repository) 번역하였습니다.
+이 문서는 [Splitting a subpath out into a new repository](https://help.github.com/articles/splitting-a-subpath-out-into-a-new-repository) 의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
 ---
 

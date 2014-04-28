@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Release / Release에 대하여"
 description: ""
-categories: [translate, GitHub]
+categories: [git]
 tags: [git, GitHub, release, tag]
 ---
 {% include JB/setup %}

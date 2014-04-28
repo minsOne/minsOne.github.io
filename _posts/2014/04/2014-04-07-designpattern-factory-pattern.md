@@ -2,7 +2,7 @@
 layout: post
 title: "디자인패턴 - 팩토리 패턴(Factory Pattern)"
 description: ""
-category: "designPattern"
+category: "programming"
 tags: [designPattern, factory, pattern, interface, class, inheritance, constructor, abstract]
 ---
 {% include JB/setup %}

@@ -2,12 +2,12 @@
 layout: post
 title: "[번역]GitHub / Advanced Git / 저자 정보 변경하기"
 description: ""
-categories: [translate, Advanced Git]
-tags: [git, GitHub, filter-branch]
+categories: [git]
+tags: [git, github, filter-branch]
 ---
 {% include JB/setup %}
 
-다음의 [Changing author info](https://help.github.com/articles/changing-author-info) 번역하였습니다.
+이 문서는 [Changing author info](https://help.github.com/articles/changing-author-info)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
 ---
 

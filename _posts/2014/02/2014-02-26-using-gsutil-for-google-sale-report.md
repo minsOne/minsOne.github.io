@@ -2,7 +2,7 @@
 layout: post
 title: "gsutil을 사용하여 구글 판매 통계 가져오기"
 description: ""
-category: "python"
+category: "programming"
 tags: [gsutil, python, google, sale, report]
 ---
 {% include JB/setup %}

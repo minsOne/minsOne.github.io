@@ -2,12 +2,14 @@
 layout: post
 title: "[번역]GitHub / Advanced Git / 대화형 Rebase"
 description: ""
-categories: [translate, Advanced Git]
-tags: [git, GitHub, rebase]
+categories: [git]
+tags: [git, github, rebase, interactive]
 ---
 {% include JB/setup %}
 
-다음의 [Interactive rebase](https://help.github.com/articles/interactive-rebase) 번역하였습니다.
+이 문서는 [Interactive rebase](https://help.github.com/articles/interactive-rebase)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
+
+---
 
 ## 대화형 Rebase
 

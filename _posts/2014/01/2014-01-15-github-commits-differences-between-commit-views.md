@@ -2,12 +2,12 @@
 layout: post
 title: "[번역]GitHub / Commits / 커밋 화면간의 차이"
 description: ""
-categories: [translate, Commits]
-tags: [git, GitHub, commit, history, log]
+categories: [Git]
+tags: [git, github, commit, history, log]
 ---
 {% include JB/setup %}
 
-다음의 [Differences between commit views](https://help.github.com/articles/differences-between-commit-views) 번역하였습니다.
+이 문서는 [Differences between commit views](https://help.github.com/articles/differences-between-commit-views)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
 ---
 

@@ -2,12 +2,12 @@
 layout: post
 title: "[번역]GitHub / Commits / GitHub에는 커밋이 있는데 로컬 Clone에는 없어요"
 description: ""
-categories: [translate, Commits]
-tags: [git, GitHub, Commits, Fetch]
+categories: [Git]
+tags: [git, github, commits, fetch]
 ---
 {% include JB/setup %}
 
-다음의 [Commit exists on GitHub but not in my local clone](https://help.github.com/articles/commit-exists-on-github-but-not-in-my-local-clone) 번역하였습니다.
+이 문서는 [Commit exists on GitHub but not in my local clone](https://help.github.com/articles/commit-exists-on-github-but-not-in-my-local-clone)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
 ---
 

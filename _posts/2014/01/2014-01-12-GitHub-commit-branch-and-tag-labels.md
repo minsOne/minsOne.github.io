@@ -2,14 +2,14 @@
 layout: post
 title: "[번역]GitHub / Commits / 커밋 브랜치와 태그 라벨"
 description: ""
-categories: [translate, Commits]
-tags: [git, GitHub, Commits, Branch, Tag]
+categories: [Git]
+tags: [git, github, commits, branch, tag]
 ---
 {% include JB/setup %}
 
-다음의 [Commit branch and tag labels](https://help.github.com/articles/commit-branch-and-tag-labels) 번역하였습니다.
+이 문서는 [Commit branch and tag labels](https://help.github.com/articles/commit-branch-and-tag-labels)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
---- 
+---
 
 ## 커밋 브랜치와 태그 라벨
 

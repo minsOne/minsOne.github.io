@@ -2,12 +2,12 @@
 layout: post
 title: "[번역]GitHub / Commits / 커밋 메시지를 삭제할 수 있나요?"
 description: ""
-categories: [translate, Commits]
-tags: [git, GitHub, Commits, rebase, amend, push]
+categories: [Git]
+tags: [git, github, commits, rebase, amend, push]
 ---
 {% include JB/setup %}
 
-다음의 [Can I delete a commit message?](https://help.github.com/articles/can-i-delete-a-commit-message) 번역하였습니다.
+이 문서는 [Can I delete a commit message?](https://help.github.com/articles/can-i-delete-a-commit-message)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
 ---
 

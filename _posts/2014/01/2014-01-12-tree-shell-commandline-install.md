@@ -2,7 +2,7 @@
 layout: post
 title: "Tree Shell 명령어"
 description: ""
-category: "shell"
+category: "programming"
 tags: [shell, tree, os x]
 ---
 {% include JB/setup %}
@@ -25,8 +25,6 @@ tags: [shell, tree, os x]
 - `sudo make install`을 실행한다.
 
 - tree 명령어를 실행하여 정상적으로 실행되는지 확인한다.
-
-
 
 
 ### 정규식을 통한 Tree Shell 명령어 만들기(폴더만)

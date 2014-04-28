@@ -2,12 +2,12 @@
 layout: post
 title: "[번역]GitHub / Commits / 왜 커밋 순서가 잘못되었나요?"
 description: ""
-categories: [translate, Commits]
-tags: [git, GitHub, rebase, commit]
+categories: [Git]
+tags: [git, github, rebase, commit]
 ---
 {% include JB/setup %}
 
-다음의 [Why are my commits in the wrong order?](https://help.github.com/articles/why-are-my-commits-in-the-wrong-order) 번역하였습니다.
+이 문서는 [Why are my commits in the wrong order?](https://help.github.com/articles/why-are-my-commits-in-the-wrong-order)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
 ---
 

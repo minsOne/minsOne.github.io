@@ -2,12 +2,14 @@
 layout: post
 title: "[번역]GitHub / Collaborating / Fork 동기화"
 description: "Fork 동기화"
-categories: [translate, Collaborating]
-tags: [git, GitHub]
+categories: [Git]
+tags: [git, github, translate, collaborating, fork]
 ---
 {% include JB/setup %}
 
-다음의 [Syncing a fork](https://help.github.com/articles/syncing-a-fork) 번역하였습니다.
+이 문서는 [Syncing a fork](https://help.github.com/articles/syncing-a-fork)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
+
+---
 
 ## Fork 동기화
 

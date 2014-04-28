@@ -2,14 +2,14 @@
 layout: post
 title: "[번역]GitHub / Collaborating / 네트워크의 가시성 변경하기"
 description: ""
-categories: [translate, Collaborating]
-tags: [git, GitHub]
+categories: [Git]
+tags: [git, github, translate, collaborating, network]
 ---
 {% include JB/setup %}
 
-다음의 [Changing the Visibility of a Network](https://help.github.com/articles/changing-the-visibility-of-a-network) 번역하였습니다.
+이 문서는 [Changing the Visibility of a Network](https://help.github.com/articles/changing-the-visibility-of-a-network)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
---- 
+---
 
 ## 네트워크의 가시성 변경하기
 

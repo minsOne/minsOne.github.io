@@ -2,12 +2,14 @@
 layout: post
 title: "[번역]GitHub / Collaborating / Pull 요청 만들기"
 description: ""
-categories: [translate, Collaborating]
-tags: [git, GitHub]
+categories: [Git]
+tags: [git, github, translate, collaborating, pull]
 ---
 {% include JB/setup %}
 
-다음의 [Creating a pull request](https://help.github.com/articles/creating-a-pull-request) 번역하였습니다.
+이 문서는 [Creating a pull request](https://help.github.com/articles/creating-a-pull-request)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
+
+---
 
 ### Pull 요청 만들기
 
@@ -29,4 +31,4 @@ Pull 요청을 열기 전에 로컬 저장소에 브랜치를 만들어야 하�
 
 8. **Send pull request**를 클릭합니다.<br /><img src="/../../../../image/2013/pullrequest-send.png" alt="Send Pull Request button" style="width:200px;"/><br/><br/>
 
-Pull 요청이 검토된 후에 [저장소에 합치기](http://minsone.github.io/lesson/2013/12/23/github-Merging-a-Pull-Request/)를 할 수 있습니다.
+Pull 요청이 검토된 후에 [저장소에 합치기](/git/github-Merging-a-Pull-Request/)를 할 수 있습니다.

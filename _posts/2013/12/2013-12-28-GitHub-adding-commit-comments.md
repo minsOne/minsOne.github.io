@@ -2,12 +2,12 @@
 layout: post
 title: "[번역]GitHub / Collaborating / 커밋 의견를 추가하기"
 description: ""
-categories: [translate, Collaborating]
-tags: [git, GitHub]
+categories: [Git]
+tags: [git, github, translate, collaborating, commit]
 ---
 {% include JB/setup %}
 
-다음의 [Adding commit comments](https://help.github.com/articles/adding-commit-comments) 번역하였습니다.
+이 문서는 [Adding commit comments](https://help.github.com/articles/adding-commit-comments)의 비공식 번역글이며 GitHub에서 보증, 유지 또는 감독하지 않습니다. 공식 도움글을 보시려면 [help.github.com](https://help.github.com)을 방문하세요.
 
 ---
 

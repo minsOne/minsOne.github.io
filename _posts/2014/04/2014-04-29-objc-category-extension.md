@@ -80,3 +80,5 @@ tags: [objectivec, objc, programming, category, extension, private, public, inte
 
 
 클래스 내부에서는 자유롭게 값을 변경할 수 있지만 외부에서는 공개되지 않기 때문에 사용할 수 없습니다.
+
+<br/><br/>※ 자바개발자를 위한 오브젝티브C 책을 참고하였습니다.

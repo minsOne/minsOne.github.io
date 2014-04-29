@@ -29,10 +29,10 @@ tags: [objectivec, objc, programming, category, extension, private, public, inte
 
 주의해야 할 부분은 같은 메소드를 선언하는 경우 카테고리의 메소드가 기존 클래스의 메소드를 덮어 씌워 호출하게 되면 카테고리의 메소드가 호출이 됩니다.
 
-
+<br/>
 ## 익스텐션
 
-오브젝티브C 2.0부터 익스텐션 개념이 추가되었습니다. 오브젝티브C의 익스텐션은 익명 카테고리(anonymous category)라고 할 수 있습니다. 
+오브젝티브C 2.0부터 익스텐션 개념이 추가되었습니다. 오브젝티브C의 익스텐션은 `익명 카테고리`(anonymous category)라고 할 수 있습니다.
 
 익스텐션을 사용하면 클래스의 @interface 부분을 나누어 사용할 수 있지만 @implementation 부분은 분리할 수 없습니다. 일부 메소드의 프로토타입을 인터페이스로 공개하지 않게 구성할 때 유용합니다.
 

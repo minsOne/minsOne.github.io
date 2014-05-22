@@ -111,4 +111,4 @@ Annotated 태그는 `-a` 옵션을 사용합니다.
 
 원격 저장소에 올라간 태그를 삭제하기 위해선 `:`를 사용하여 삭제할 수 있습니다.
 
-	# git tag origin :v1.0.0
+	# git push origin :v1.0.0

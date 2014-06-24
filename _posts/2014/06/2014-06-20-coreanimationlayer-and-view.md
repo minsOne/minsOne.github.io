@@ -55,7 +55,7 @@ CALayer backgroundColor 속성은 CGColorRef 타입이며, Core Graphic 메소�
 
 UIView에 파란색 CALayer를 추가한 화면입니다.
 
-![CAImage1](/../../../../image/2014/06/calayer1.png)
+<img src="/../../../../image/2014/06/calayer1.png" alt="CAImage1" style="width: 300px;"/><br/>
 
 
 ### 레이어 이미지
@@ -78,7 +78,7 @@ UIImage 객체를 생성하여 CGImage 프로퍼티로 bridge 캐스팅을 통�
 
 UIViewController에 UIView를 추가하고 거기에 이미지를 추가한 화면입니다.
 
-![CAImage2](/../../../../image/2014/06/calayer2.png)
+<img src="/../../../../image/2014/06/calayer2.png" alt="CAImage2" style="width: 300px;"/><br/>
 
 <br/>뷰의 contentMode 속성을 통해서 이미지의 크기나 위치가 변경됩니다. CALayer에서도 비슷한 효과를 줄 수 있는 contentsGravity가 있습니다.
 
@@ -99,7 +99,7 @@ UIViewController에 UIView를 추가하고 거기에 이미지를 추가한 화�
 
 화면 비율에 따라 이미지를 커지도록 하였습니다.
 
-![CAImage3](/../../../../image/2014/06/calayer3.png)
+<img src="/../../../../image/2014/06/calayer3.png" alt="CAImage3" style="width: 300px;"/><br/>
 
 <br/>하지만 우리가 원하는 뷰의 크기를 벗어나도록 하고자 원하지 않을 경우에는 뷰에서 벗어나면 보이지 않도록 해야합니다. UIView는 clipsToBounds라는 속성을 사용하며, CALayer에서는 masksToBounds라는 속성을 사용합니다. 이 값을 true로 변경하면 위에 이미지에서 외각부분이 보이지 않습니다.
 
@@ -107,7 +107,7 @@ UIViewController에 UIView를 추가하고 거기에 이미지를 추가한 화�
 self.myView.layer.masksToBounds = false;
 </code></pre><br/>
 
-![CAImage4](/../../../../image/2014/06/calayer4.png)
+<img src="/../../../../image/2014/06/calayer4.png" alt="CAImage4" style="width: 300px;"/><br/>
 
 
 

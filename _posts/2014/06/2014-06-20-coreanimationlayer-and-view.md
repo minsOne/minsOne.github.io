@@ -24,8 +24,7 @@ CALayer의 배경색을 파란색으로 만들어 view의 layer에 sublayer형�
 
 CALayer backgroundColor 속성은 CGColorRef 타입이며, Core Graphic 메소드를 사용하여 CGColor를 만들어 적용시킵니다.
 
-<pre><code class="objectivec">
-#import "MOViewController.h"
+<pre><code class="objectivec">#import "MOViewController.h"
 
 @import QuartzCore;
 
@@ -64,8 +63,7 @@ CALayer는 contents 프로퍼티 속성이 있으며 이 속성에 CGImage나 NS
 
 UIImage 객체를 생성하여 CGImage 프로퍼티로 bridge 캐스팅을 통하여 뷰의 레이어에 할당할 있습니다.
 
-<pre><code class="objectivec">
-- (void)viewDidLoad
+<pre><code class="objectivec">- (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -82,8 +80,7 @@ UIViewController에 UIView를 추가하고 거기에 이미지를 추가한 화�
 
 <br/>뷰의 contentMode 속성을 통해서 이미지의 크기나 위치가 변경됩니다. CALayer에서도 비슷한 효과를 줄 수 있는 contentsGravity가 있습니다.
 
-<pre><code class="objectivec">
-- (void)viewDidLoad
+<pre><code class="objectivec">- (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -103,8 +100,7 @@ UIViewController에 UIView를 추가하고 거기에 이미지를 추가한 화�
 
 <br/>하지만 우리가 원하는 뷰의 크기를 벗어나도록 하고자 원하지 않을 경우에는 뷰에서 벗어나면 보이지 않도록 해야합니다. UIView는 clipsToBounds라는 속성을 사용하며, CALayer에서는 masksToBounds라는 속성을 사용합니다. 이 값을 true로 변경하면 위에 이미지에서 외각부분이 보이지 않습니다.
 
-<pre><code class="objectivec">
-self.myView.layer.masksToBounds = false;
+<pre><code class="objectivec">self.myView.layer.masksToBounds = false;
 </code></pre><br/>
 
 <img src="/../../../../image/2014/06/calayer4.png" alt="CAImage4" style="width: 300px;"/><br/>

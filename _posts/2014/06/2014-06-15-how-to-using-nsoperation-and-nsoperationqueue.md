@@ -253,13 +253,10 @@ photo 프로퍼티가 존재하지 않을 경우 AFHTTPRequestOperation를 통�
 
 1.plist파일의 주소를 NSURLRequest로 만들어서 AFHTTPRequestOperation 작업으로 만듭니다.
 
-<pre>
-	<code class="objectivec">
-NSURL *datasourceURL = [NSURL URLWithString:kDatasourceURLString];
+<pre><code class="objectivec">NSURL *datasourceURL = [NSURL URLWithString:kDatasourceURLString];
 NSURLRequest *request = [NSURLRequest requestWithURL:datasourceURL];
 AFHTTPRequestOperation *datasource_download_operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-	</code>
-</pre>
+</code></pre>
 <br/>
 
 2.상태바에 네트워크 사용중이라고 NetworkActivityIndicator를 보여줍니다.
@@ -292,8 +289,7 @@ NSDictionary *datasource_dictionary = (__bridge NSDictionary *)plist;
 
 4-2.NSDictionary의 값을 NSMutableArray로 만들어 photo 프로퍼티에 저장하고 테이블뷰를 reloadData 호출하여 갱신합니다.
 
-<pre><code class="objectivec">
-NSMutableArray *records = [NSMutableArray array];
+<pre><code class="objectivec">NSMutableArray *records = [NSMutableArray array];
 
 for (NSString *key in datasource_dictionary) {
     PhotoRecord *record = [[PhotoRecord alloc] init];
@@ -313,8 +309,7 @@ self.photos = records;
 
 5-1.alert뷰를 띄우고 NetworkActivityIndicator를 내립니다.
 
-<pre><code class="objectivec">
-UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
+<pre><code class="objectivec">UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                 message:error.localizedDescription
                                                delegate:nil
                                       cancelButtonTitle:@"OK"
@@ -326,8 +321,7 @@ alert = nil;
 
 6.위의 작업을 수행하도록 합니다.
 
-<pre><code class="objectivec">
-[datasource_download_operation start];
+<pre><code class="objectivec">[datasource_download_operation start];
 </code></pre><br/>
 
 위에서 컨텐츠 목록을 다운받아서 처리하는 작업을 설명하였습니다.

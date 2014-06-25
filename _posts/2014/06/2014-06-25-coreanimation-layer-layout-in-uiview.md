@@ -15,9 +15,9 @@ frame은 외부에서 바라보는 좌표를 나타내고 bounds는 내부에서
 
 anchorPoint는 기본값으로 CALayer에 상대값으로 가지고 있기 때문에 (0.5, 0.5)를 가집니다.
 
-<img src="/../../../../image/2014/06/anchorPoint.png" alt="anchorPoint" style="width: 200px;"/><br/>
+<img src="/../../../../image/2014/06/anchorPoint.png" alt="anchorPoint" style="width: 800px;"/><br/>
 
-x는 왼쪽에서 1으로 시작하고 y는 위에서부터 1으로 시작합니다.
+iOS는 왼쪽 상단부터 (0,0)으로 시작하여 오른쪽 하단(1,1)이 됩니다.
 
 만약 CALayer에 anchorPoint를 (0,1)로 한다면 Layer는 오른쪽 상단으로 이동하게 됩니다.
 

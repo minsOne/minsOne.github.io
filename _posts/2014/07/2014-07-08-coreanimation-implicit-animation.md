@@ -148,3 +148,7 @@ CALayer에서는 CATransaction이 일어날 때 어떤 값이 변할지 알아�
     }
 }
 </code></pre><br/>
+
+다음은 실행 화면입니다.
+
+<img src="/../../../../image/2014/07/transaction_0708.gif" alt="transaction_0708" style="width: 300px;"/><br/>

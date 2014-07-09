@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[CoreAnimation]Transaction"
+title: "[CoreAnimation]암시적인 애니메이션"
 description: ""
 category: "iOS"
 tags: [ios, transaction, CALayer, layer]

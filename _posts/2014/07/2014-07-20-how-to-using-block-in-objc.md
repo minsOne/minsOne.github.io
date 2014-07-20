@@ -2,7 +2,7 @@
 layout: post
 title: "[Objc]Block 객체 사용하기"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [block, closure, first-class, reference, strong, weak, extention, typedef]
 ---
 {% include JB/setup %}

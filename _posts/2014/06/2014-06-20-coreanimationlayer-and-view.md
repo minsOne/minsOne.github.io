@@ -2,7 +2,7 @@
 layout: post
 title: "[CoreAnimation]Layer"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [ios, UIView, CALayer, layer, view]
 ---
 {% include JB/setup %}

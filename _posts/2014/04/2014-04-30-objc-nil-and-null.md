@@ -2,7 +2,7 @@
 layout: post
 title: "[Objc]nil과 null"
 description: ""
-category: "programming"
+category: "Mac/iOS"
 tags: [objectivec, objc, programming, nil, null]
 ---
 {% include JB/setup %}

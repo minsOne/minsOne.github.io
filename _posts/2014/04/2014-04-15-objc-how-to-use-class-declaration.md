@@ -2,7 +2,7 @@
 layout: post
 title: "[Objc]@class vs import - 클래스 호출 시 사용 방법"
 description: ""
-category: "programming"
+category: "Mac/iOS"
 tags: [objc, objectivec, import, class, annotation]
 ---
 {% include JB/setup %}

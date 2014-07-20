@@ -2,7 +2,7 @@
 layout: post
 title: "[iOS]왜 landscape로 전환하면 viewDidLoad에서는 회전한 가로 및 세로의 값이 portrait 값으로 주는가?"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [viewDidLoad, viewDidAppear, view]
 ---
 {% include JB/setup %}

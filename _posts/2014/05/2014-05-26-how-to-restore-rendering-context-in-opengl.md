@@ -2,7 +2,7 @@
 layout: post
 title: "OpenGL을 사용하는 라이브러리간 화면 객체 충돌을 처리하는 방법"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [iOS, OpenGL, Context, EAGLContext]
 ---
 {% include JB/setup %}

@@ -2,7 +2,7 @@
 layout: post
 title: "[iOS]숫자에서 3자리마다 ,를 추가시키기 - NSNumberFormatter"
 description: ""
-category: "ios"
+category: "Mac/iOS"
 tags: [objc, decimal, dot, string, style, number]
 ---
 {% include JB/setup %}

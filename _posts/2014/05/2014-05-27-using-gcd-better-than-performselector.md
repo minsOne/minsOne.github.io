@@ -2,7 +2,7 @@
 layout: post
 title: "PerformSelector를 사용하는 것 대신 Block을 사용하는 GCD를 호출하는 방법"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [performSelector, method, gcd, timer, arc, selector, dispatch_after, dispatch_async]
 ---
 {% include JB/setup %}

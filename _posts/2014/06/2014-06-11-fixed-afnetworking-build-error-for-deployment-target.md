@@ -2,7 +2,7 @@
 layout: post
 title: "[iOS]AFNetworking에서 afnetworking property with 'retain (or strong)' attribute must be of object type 에러 처리하기"
 description: ""
-category: "ios"
+category: "Mac/iOS"
 tags: [ios, afnetworking, retain, strong, property]
 ---
 {% include JB/setup %}

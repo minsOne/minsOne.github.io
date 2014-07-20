@@ -2,7 +2,7 @@
 layout: post
 title: "Xcode에서 iOS 로그 편하게 사용하기"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [ios,log,xcode]
 ---
 {% include JB/setup %}

@@ -2,7 +2,7 @@
 layout: post
 title: "[CoreAnimation]Implicit Animations"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [ios, transaction, CALayer, layer]
 ---
 {% include JB/setup %}

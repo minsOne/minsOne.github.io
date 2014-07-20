@@ -2,7 +2,7 @@
 layout: post
 title: "[CoreData]Objective-C 프로젝트에서 MagicalRecord를 이용하여 Core Data 사용하기"
 description: ""
-categories: [ios]
+category: "Mac/iOS"
 tags: [ios, mac, coredata, magicalrecord]
 ---
 {% include JB/setup %}

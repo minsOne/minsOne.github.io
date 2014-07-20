@@ -2,7 +2,7 @@
 layout: post
 title: "[Objc]NSOperation과 NSOperationQueue를 사용하는 방법 - 설명 및 예제"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [ios, KVO, NSOperation, NSOperationQueue, AFNetworking, AFHTTPRequestOperation, GCD, tableview, cell]
 ---
 {% include JB/setup %}

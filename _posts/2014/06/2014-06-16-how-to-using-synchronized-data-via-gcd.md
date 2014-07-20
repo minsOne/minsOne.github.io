@@ -2,7 +2,7 @@
 layout: post
 title: "GCD를 통해서 데이터를 동기화 하기"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [ios, gcd, lock, queue, async, sync, barrier, synchronized]
 ---
 {% include JB/setup %}

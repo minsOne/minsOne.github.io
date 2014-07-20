@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]NYTime의 iOS팀 Objective-C 스타일 가이드"
 description: ""
-category: "programming"
+category: "Mac/iOS"
 tags: [objectivec, objc, coding, style guide, translate]
 ---
 {% include JB/setup %}

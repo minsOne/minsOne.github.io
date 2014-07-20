@@ -2,7 +2,7 @@
 layout: post
 title: "[iOS]Key Value Coding, Key Value Observing"
 description: ""
-category: "iOS"
+category: "Mac/iOS"
 tags: [ios,KVC,KVO,key-value Coding, key-value Observing]
 ---
 {% include JB/setup %}

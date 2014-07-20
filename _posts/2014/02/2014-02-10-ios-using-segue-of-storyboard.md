@@ -2,7 +2,7 @@
 layout: post
 title: "[iOS]iOS 프로젝트에서 Storyboard의 Segue를 이용하여 화면 전환하기"
 description: ""
-category: "ios"
+category: "Mac/iOS"
 tags: [ios, xcode, storyboard, segue]
 ---
 {% include JB/setup %}

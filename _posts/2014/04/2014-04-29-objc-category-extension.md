@@ -2,7 +2,7 @@
 layout: post
 title: "[Objc]메소드 정의 방법 - Category, Extension"
 description: ""
-category: "programming"
+category: "Mac/iOS"
 tags: [objectivec, objc, programming, category, extension, private, public, interface, implementation, class, instance, 카테고리, 익스텐션]
 ---
 {% include JB/setup %}

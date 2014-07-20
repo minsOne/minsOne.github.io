@@ -2,7 +2,7 @@
 layout: post
 title: "iOS 상태바 표시에 대한 설명"
 description: ""
-category: "ios"
+category: "Mac/iOS"
 tags: [ios, statusbar, viewWillAppear, viewWillDisappear]
 ---
 {% include JB/setup %}

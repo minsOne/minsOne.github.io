@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "첫 회사를 나와 무엇을 얻었고 무엇을 느꼈는가"
+title: "첫 회사에서 무엇을 얻었고 무엇을 느꼈는가"
 description: ""
 category: "etc"
 tags: [project, company, review, computer, it]

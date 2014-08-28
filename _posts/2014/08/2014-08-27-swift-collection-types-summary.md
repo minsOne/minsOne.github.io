@@ -278,7 +278,7 @@ for-in 반복문을 사용. 각각의 딕셔너리에 아이템은 `(key, value)
 	// LHR: London Heathrow
 	// TYO: Tokyo
 
-딕셔너리의 keys`와 `values` 속성을 가지고 접근한 키나 값의 컬렉션을 반복하여 검색할 수 있음.
+딕셔너리의 `keys`와 `values` 속성을 가지고 접근한 키나 값의 컬렉션을 반복하여 검색할 수 있음.
 
 	for airportCode in airports.keys {
 	    println("Airport code: \(airportCode)")
@@ -322,7 +322,6 @@ for-in 반복문을 사용. 각각의 딕셔너리에 아이템은 `(key, value)
 Swift의 모든 기본 타입(String, Int, Double, Bool)은 기본적으로 해쉬가 가능하며 이 모든 타입은 딕셔너리의 키로 사용됨.
 
 자신만의 타입을 딕셔너리에 넣어 사용하고자 한다면 Swift 표준 라이브러리로 부터 Hashable 프로토콜을 만들어 따라야함.
-
 
 
 

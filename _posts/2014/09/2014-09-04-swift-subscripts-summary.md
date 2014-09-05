@@ -50,7 +50,9 @@ newValue 타입은 서브스크립트의 반환 값과 동일. 계산 속성과 
 
 호출되는 서브스크립트 threeTimesTable[6]로 threeTimesTable 인스턴스를 조회할 수 있음. 이 세 배 배수에서 6번째를 요청하면, 6의 3배인 18을 반환함.
 
+<div class="alert-info">
 n배 테이블은 고정된 산술 규칙이며 threeTimesTable[someIndex]에 새로운 값ㅇ로 설정할 수 없으며, timeTable 서브스크립트는 읽기 전용 서브스크립트로 정의됨.
+</div>
 
 ### 서브스크립트 사용(Subscript Usage)
 
@@ -63,7 +65,9 @@ n배 테이블은 고정된 산술 규칙이며 threeTimesTable[someIndex]에 �
 
 위 예제에서 numberOfLegs라는 변수와 세 개의 key-value 쌍을 가지는 딕셔너리 표현식으로 초기화를 정의함. numberOfLegs 딕셔너리의 타입은 `[String: Int]`로 추론함. 딕셔너리를 만든 후 "bird" 문자열 키와 Int 타입의 값 2가 딕셔너리에 추가되도록 사용함.
 
+<div class="alert-info">
 Swift 딕셔너리 타입은옵셔널 key-value 서브스크립트로 구현되며 옵셔널 타입을 받거나 반환함. numberOfLegs 딕셔너리에서 key-value 서브스크립트는 "Int?"" 또는 "옵셔널 Int" 타입의 값을 받거나 반환함. 딕셔너리 타입은 옵셔널 서브스크립트 타입으로 사용하며, 이는 모든 키가 값을 가지고 있지 않다는 사실에 근거하고, 키에 nil값을 할당하여 삭제하는 방법이 있음.
+</div>
 
 ### 서브스크립트 옵션(Subscript Options)
 

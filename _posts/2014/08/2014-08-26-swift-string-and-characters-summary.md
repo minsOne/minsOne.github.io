@@ -17,7 +17,9 @@ Swift 문자열과 문자 타입은 빠르며 유니코드에 호환됨.
 
 두 개의 문자열을 연결할 때 `+` 연산자를 사용하여 간단함.
 
+<div class="alert-info">
 Swift 문자열 타입은 Foundation의 NSString 클래스에 연결됨. Cocoa 또는 Cocoa Touch의 Foundation 프레임워크에 NSString API를 호출하여 String 값을 만드는 것이 가능함. 특정 API에서 NSString 인스턴스에 필요한 String 값으로 사용할 수 있음.
+</div>
 
 
 ### 문자열 리터럴(String Literals)
@@ -26,7 +28,9 @@ Swift 문자열 타입은 Foundation의 NSString 클래스에 연결됨. Cocoa �
 
 	let someString = "Some string literal value"
 
+<div class="alert-info">
 Swift에서 someString은 String 타입의 영향을 받음. 이는 초기 값이 문자열 리터럴 값이기 때문.
+</div>
 
 ### 빈 문자열 초기화(Initializing an Empty String)
 
@@ -56,14 +60,18 @@ Swift에서 someString은 String 타입의 영향을 받음. 이는 초기 값�
 	constantString += " and another Highlander"
 	// this reports a compile-time error - a constant string cannot be modified
 
+<div class="alert-info">
 Objective-C와 Cocoa에선 다르게 NSString과  NSMutableString 두 개의 클래스를 선택하여 사용함.
+</div>
 
 
 ### 문자열은 값 타입(Strings Are Value Type)
 
 Swift 문자열 타입은 값 타입. 문자열 값은 함수나 메소드를 통해 문자열 값이 복사되어 전달됨. 전달된 문자열은 원본이 아님.
 
+<div class="alert-info">
 Cocoa에 NSString과는 다르게 NSString을 메소드나 함수에 전달하면 같은 단일 NSString에 참조를 할당함. 특별히 요청하지 않는 이상 문자열 값은 복사되지 않음.
+</div>
 
 
 ### 문자 작업(Working with Characters)
@@ -178,7 +186,9 @@ Swift에서 문자 값을 위한 확장 자소 클러스터를 사용하여 문�
 	println("the number of characters in \(word) is \(countElements(word))")
 	// prints "the number of characters in café is 4"
 
+<div class="alert-info">
 Swift에 String의 countElements와 NSString의 length 속성과는 항상 같지 않음. 이는 NSString은 16-bit 코드를 기반으로 하기 때문에 확장 자소 클러스터를 지원하지 못함.
+</div>
 
 
 ### 문자열 비교(COmparing Strings)

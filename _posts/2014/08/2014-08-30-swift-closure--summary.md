@@ -13,7 +13,9 @@ tags: [swift, closure, trailing, operator, nested function, infer, context, refe
 
 클로저는 저신이 정의된 컨텍스트로부터 임의의 상수와 변수에 참조(reference)를 획득하고 저장할 수 있음. 이는 상수와 변수를 제약하는 특징으로 "클로저"라는 이름이 유래됨. Swift는 획득한 모든 메모리 관리를 다룸.
 
+<div class="alert-info">
 "획득" 개념은 친근하지 않지만 값 획득 항목에서 상세히 설명함.
+</div>
 
 앞에서 소개한 전역 및 중첩 함수는 실제론 클로저의 특수한 경우임. 클로저는 세가지 중 하나의 형태를 취함.
 
@@ -140,8 +142,9 @@ $0과 $1은 클로저의 첫번째와 두번째 문자열 인자를 참조함.
 	someFunctionThatTakesAClosure() {
 	    // trailing closure's body goes here
 	}
-
+<div class="alert-info">
 함수 표현식은 함수의 인자 하나뿐이며 후행 클로저로 표현식을 작성하면, 함수 호출 시 함수 이름 뒤에 괄호를 쓸 필요가 없음.
+</div>
 
 앞에서 클로저 표현식 문법의 문자열 정렬 클로저는 후행 클로저로 정렬 함수 괄호 밖에 작성됨.
 
@@ -182,7 +185,9 @@ numbers 배열을 사용하여 문자열 값을 가진 배열을 만드는데 �
 
 클로저 표현식은 호출될 때 마다 `output`이라는 문자를 만듬. number의 마지막 숫자를 나머지 연산자(number % 10)을 사용하여 계산한 뒤 digitNames 딕셔너리에 숫자와 맞는 문자열을 찾아 사용함. 클로저는 0보다 큰 숫자를 문자열로 다시 표현하도록 사용함.
 
+<div class="alert-info">
 digitNames 딕셔너리의 서브스크립트를 호출하면 느낌표(!)가 따름. 이는 딕셔너리 서브크립트는 옵셔널 값을 반환하는데 딕셔너리에서 만약 키로 찾는데 값이 없을수도 있기 때문임. 따라서 digitNames 딕셔너리에서 `number % 10`이 항상 유요한 서브크립트 키가 항상 보장되어야 하며, 느낌표는 서브스크립트의 옵셔널 반환 값에 문자열 값이 저장되도록 강제 언래핑하게 사용함.
+</div>
 
 digitNames 딕셔너리에서 가져온 문자열은 output 앞에 추가되며 숫자의 역순으로 문자열 버전이 효율적으로 만들어짐. (number % 10 표현식은 16에서 6을, 58에서 8을, 510에서 0을 얻음.)
 
@@ -230,7 +235,9 @@ incrementor 함수는 인자가 지만 runningTotal과 amount를 함수 내부�
 
 그러나 runningTotal 변수는 호출될 때 마다 변경되는데 이는 incrementor는 현재 runningTotal 변수 참조를 획득하기 때문이며 초기 값의 복사는 하지 않음. 참조 획득은 makeIncrementor이 호출되고 끝날 때 사라지지 않음을 보증하며, incrementor 함수가 호출되고 난 다음에도 runningTotal이 계속 사용 가능함을 보증함.
 
+<div class="alert-info">
 Swift는 값을 복사할지 참조하여 획득할지 결정함. amount나 runningTotal을 중첩함수에서 사용할지 명시할 필요가 없음. Swift는 runningTotal이 incrementor 함수로부터 더이상 필요하지 않을 때 메모리 관리에서 정리함.
+</div>
 
 다음은 makeIncrementor의 동작 예제.
 
@@ -253,9 +260,11 @@ Swift는 값을 복사할지 참조하여 획득할지 결정함. amount나 runn
 	incrementBySeven()
 	// returns a value of 7
 
+<div class="alert-info">
 클로저를 클래스 인스턴스의 속성으로 할당하고 클로저가 인스턴스 또는 그 멤버를 참조하여 인스턴스를 획득한다면, 클로저와 인스턴스 사이에 강력한 참조 순환을 만듬.
 
 Swift는 강력한 참조 순환을 깨기 위해 캡쳐 리스트(capture lists)를 사용함.
+</div>
 
 ### 참조 타입인 클로저(Closure Are Reference Types)
 

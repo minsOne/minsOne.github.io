@@ -15,7 +15,9 @@ Array는 같은 타입의 값을 순서대로 저장. Dictionary는 같은 타�
 
 Array와 Dictionary는 저장 시 키와 값의 타입에 명확해야 하며 실수로 Array나 Dictionary에 실수로 다른 타입의 값이 저장되지 않음을 의미.
 
+<div class="alert-info">
 Swift에서 명시적인 타입 컬렉션 사용은 코드가 타입이 명확해야 하며 개발시 맞지 않은 타입을 빠르게 찾을 수 있음.
+</div>
 
 
 ### 가변 컬렉션(Mutability of Collections)
@@ -29,7 +31,9 @@ Swift에서 명시적인 타입 컬렉션 사용은 코드가 타입이 명확�
 
 배열은 같은 타입의 다중 값이 정렬된 순서로 저장함. 배열에서 같은 값이지만 시간이 다르면 각각 다른 위치에 있음.
 
+<div class="alert-info">
 Swift의 Array는 Objective-C의 NSArray나 NSMUtableArray 클래스와는 다른 종류로, 후자는 어떤 종류의 객체를 저장해도 반환시 아무런 정보를 제공해주지 않음. Swift에서는 배열에 저장할 타입은 항상 명시적으로 타입을 선언하거나 타입 추정을 통해 명확함.
+</div>
 
 
 #### 축약 배열 타입 문법(Array Type Shorthand Syntax)
@@ -181,7 +185,9 @@ Swift에 배열 타입은 특정 크기와 그 크기에 기본 값으로 설정
 
 딕셔너리를 사용할 때는 식별자를 기반으로 값을 찾을 때임.
 
+<div class="alert-info">
 Swift의 딕셔너리는 Objective-C의 NSDictionary와 NSMutableDictionary 클래스와는 다름. Swift의 배열과 마찬가지로 딕셔너리는 정해진 타입의 객체만 저장이 가능함.
+</div>
 
 
 #### 축약 딕셔너리 타입 문법(Dictionary Type Shorthand Syntax)
@@ -321,7 +327,9 @@ for-in 반복문을 사용. 각각의 딕셔너리에 아이템은 `(key, value)
 
 Swift의 모든 기본 타입(String, Int, Double, Bool)은 기본적으로 해쉬가 가능하며 이 모든 타입은 딕셔너리의 키로 사용됨.
 
+<div class="alert-info">
 자신만의 타입을 딕셔너리에 넣어 사용하고자 한다면 Swift 표준 라이브러리로 부터 Hashable 프로토콜을 만들어 따라야함.
+</div>
 
 
 

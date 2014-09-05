@@ -90,7 +90,9 @@ Swift에서 함수 인자와 반환 값은 극도로 유연함. 이름없는 한
 
 반환 값이 없기 때문에 `->`를 사용할 필요가 없고 타입도 쓸 필요도 없음.
 
-엄밀히 말하면, 값을 반환하지 않는 함수는 값을 반환함. 이는 `Void`타입의 특수 값을 반환하는데 이 값은 빈 튜플이며 원소가 없으며 `()`로 작성됨.
+<div class="alert-info">
+엄밀히 말하면, 값을 반환하지 않는 함수는 값을 반환함. 이는 <code>Void</code>타입의 특수 값을 반환하는데 이 값은 빈 튜플이며 원소가 없으며 <code>()</code>로 작성됨.
+</div>
 
 #### 다중 값을 반환하는 함수(Functions with Multiple Return Values)
 
@@ -120,8 +122,9 @@ minMax 함수는 두 Int 값을 가지는 튜플을 반환. 이들 값은 min과
 #### 옵셔널 튜플 반환 타입(Optional Tuple Return Types)
 
 함수에서 반환되는 튜플 타입은 값이 없는 가능성이 있음. 옵셔널 튜플 반환 타입은 튜플이 nil일 수도 있다는 사실을 반영함. 옵셔널 튜플 반환 타입은 닫는 괄호 다음에 물음표(?)를 사용하여 사용함. (Int, Int)? 나 (String, Int, Bool)?
-
-옵셔널 튜플 타입`(Int, Int)?`는 옵셔널 타입을 가지는 튜플`(Int? Int?)`와는 다름. 
+<div class="alert-info">
+옵셔널 튜플 타입<code>(Int, Int)?</code>는 옵셔널 타입을 가지는 튜플<code>(Int? Int?)</code>와는 다름. 
+</div>
 
 다음은 minMax 함수에 옵셔널 튜플 반환 타입과 빈 배열일 때 nil 값을 반환하는 예제.
 
@@ -155,7 +158,7 @@ minMax 함수는 두 Int 값을 가지는 튜플을 반환. 이들 값은 min과
 
 이들 인자 이름은 함수 안에서만 사용 가능하며 함수 호출할 때에는 사용할 수 없음. 이러한 종류의 인자 이름은 지역 인자 이름으로 불리는데 함수 내에서만 오직 사용 가능하기 때문임.
 
-#### 외부 인자 이름
+#### 외부 인자 이름(External Parameter Names)
 
 때론 함수를 호출할 때 각각의 인자에 이름을 붙이는게 유용할 때가 있는데 함수로 던져진 각 인자의 목적을 가르키기 위함.
 
@@ -191,9 +194,11 @@ minMax 함수는 두 Int 값을 가지는 튜플을 반환. 이들 값은 min과
 	join(string: "hello", toString: "world", withJoiner: ", ")
 	// returns "hello, world"
 
+<div class="alert-info">
 만약 각 인자들의 이름에 목적이 뚜렷하게 나타난다면, 외부 인자 이름을 사용할 필요가 없음.
+</div>
 
-#### 축약 외부 인자 이름
+#### 축약 외부 인자 이름(Shorthand External Parameter Names)
 
 외부 인자 이름을 함수 인자에 쓰길 원하는데 지역 인자 이름은 이미 적절한 이름을 사용하고 있다면 같은 이름을 두번이나 사용할 필요가 없음. 대신 해쉬 기호(`#`)를 이름 앞에 한번 붙임. 그러면 Swift에 지역 인자 이름과 외부 인자 이름 둘다 사용한다고 통보함.
 
@@ -213,11 +218,13 @@ minMax 함수는 두 Int 값을 가지는 튜플을 반환. 이들 값은 min과
 	let containsAVee = containsCharacter(string: "aardvark", characterToFind: "v")
 	// containsAVee equals true, because "aardvark" contains a "v"
 
-#### 인자 기본 값
+#### 인자 기본 값(Default Parameter Values)
 
 함수의 정의에 부분으로 인자에 기본값을 정의할 수 있음. 기본 값은 정의되면 함수 호출될 때 인자를 생략할 수 있음.
 
+<div class="alert-info">
 기본 값을 가지는 인자는 함수 인자 목록의 마지막에 위치함. 이는 기본 값을 가지지 않는 인자가 같은 순서를 사용함을 보장하며 매 경우 같은 함수가 호출되도록 명확하게 함.
+</div>
 
 joiner 인자가 기본 값을 가지도록 하는 join 함수의 예제.
 
@@ -236,7 +243,7 @@ joiner에 값이 있는 경우에 다음과 같이 함수를 호출함.
 	join(string: "hello", toString: "world")
 	// returns "hello world"
 
-#### 기본값을 가지는 외부 인자 이름
+#### 기본값을 가지는 외부 인자 이름(External Names for Parameters with Default Values)
 
 대부분의 경우에 인자에 기본값과 외부 이름을 사용하는 것은 유용함. 함수가 호출될 때 인자에 값이 전달되어 그 목적이 명확해짐.
 
@@ -255,7 +262,8 @@ join함수에 다른 인자에는 외부 이름을 사용하지 않지만 joiner
 	join("hello", "world", joiner: "-")
 	// returns "hello-world"
 
-선택사항으로 인자를 정의할 때 명시적인 외부 이름 대신 밑줄(_)을 사용하여 행동을 무시하도록 선택할 수 있으나 외부 이름을 기본값을 가진 인자에 사용하는 것이 적절함.
+<div class="alert-info">
+선택사항으로 인자를 정의할 때 명시적인 외부 이름 대신 밑줄(_)을 사용하여 행동을 무시하도록 선택할 수 있으나 외부 이름을 기본값을 가진 인자에 사용하는 것이 적절함.</div>
 
 #### 가변 인자(Variadic Parameters)
 
@@ -279,9 +287,11 @@ join함수에 다른 인자에는 외부 이름을 사용하지 않지만 joiner
 	arithmeticMean(3, 8.25, 18.75)
 	// returns 10.0, which is the arithmetic mean of these three numbers
 
+<div class="alert-info">
 함수는 대부분 한 개의 가변 인자를 가지며 이는 인자 목록에 마지막에 항상 위치를 하고, 함수 호출 시 여러 인자들과의 모호성을 피하기 위함.
 
 하나 이상의 기본 값을 가지는 인자와 가변 인자를 가지고 있다면, 기본 값을 가지는 인자 뒤에 가변 인자 순으로 위치해야 함.
+</div>
 
 #### 상수 인자와 변수 인자(Constant and Variable Parameters)
 
@@ -309,7 +319,9 @@ join함수에 다른 인자에는 외부 이름을 사용하지 않지만 joiner
 
 이 예제에서 alignRight 함수에 string은 변수 인자로 정의되며 함수 내부에서 변경됨.
 
+<div class="alert-info">
 변수 인자에 변화는 함수 가 호출된 후에는 남지 않으며 함수 밖에서는 보이지 않음. 변수 인자의 생명주기는 함수가 호출되는 동안에만 존재를 함.
+</div>
 
 #### 입출력 인자(In-Out Parameters)
 
@@ -341,7 +353,9 @@ swapTwoInts함수는 앤드 기호(&)를 붙여 다음과 같이 호출함.
 
 위 예제는 someInt와 anotherInt의 원래 값이 swapTwoInts에 의해 변경되었음을 보여줌.
 
+<div class="alert-info">
 입출력 인자는 함수에서 값을 반환하는 것이 아니고 someInt 값과 anotherInt 값을 변경하여 범위 밖에서도 영향을 끼치는 방법임.
+</div>
 
 ### 함수 타입(Function Types)
 

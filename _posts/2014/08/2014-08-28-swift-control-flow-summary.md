@@ -296,7 +296,9 @@ C와 Objective-C의 `switch`문과는 다르게, Swift의 `switch`문은 기본�
 
 C에서의 `switch`문과는 다르게, Swift에서 Switch문은 "a"와 "A"는 일치하지 않음. 
 
+<div class="alert-info">
 특정 `switch`문의 경우에 다음 경우로 넘어가도록 하려면 fallthrough 키워드를 사용함.
+</div>
 
 #### 범위 일치(Range Matching)
 
@@ -413,7 +415,9 @@ switch의 세가지 경우는 yetAnotherPoint로부터 두 개의 튜플 값을 
 
 `Continue`문은 현재 작업을 멈추고 다음 반복문으로 넘어가서 시작하라고 명령함. 이는 루프에서 빠져나가지 않고 현재 반복 작업은 끝났음을 말함.
 
+<div class="alert-info">
 증감 조건 `for` 반복문은 continue문을 호출한 후에도 계속 조건을 검증함. 반복작업은 계속 되지만 코드가 건너뛰어질 뿐임.
+</div>
 
 다음은 문자열에서 모음과 빈 칸을 제거하는 예제.
 
@@ -525,13 +529,8 @@ Swift에선 switch문과 다른 반복문을 중첩하여 사용하여 복잡한
 
 위의 예제에서 break문에 gameLoop 라벨을 사용하지 않으면, switch문에서 탈출하고 while문에서는 탈출하지 못함. gameLoop 라벨을 사용함에 따라 어느 제어문을 종료해야하는지 명확하게 만듬.
 
+<div class="alert-info">
 또한, gameLoop 라벨을 엄격하게 사용할 필요가 없는 것이 continue gameLoop문을 호출할 때 다음 반복 명령으로 이동함. 하지만 단순히 continue를 사용하면 애매모호함이 발생하지 않음.
 
 이렇게 라벨을 사용하게 되면 게임의 로직을 읽고 이해하는데 도움을 줌.
-
-
-
-
-
-
-
+</div>

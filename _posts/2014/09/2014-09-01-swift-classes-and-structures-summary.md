@@ -13,7 +13,8 @@ tags: [swift, reference, variable, constants, function, dot, enumerations, class
 
 와다른 프로그래밍 언어와는 달리 Swift는 사용자 클래스와 구조체를 위한 인터페이스 파일과 구현 파일을 나누어 만들 필요가 없음. 단일 파일에 클래스나 구조체를 정의하고, 외부 인터페이스로 다른 코드에 사용하기 위한 클래스와 구조체는 자동으로 만들어 짐.
 
-클래스 인스턴스는 전통적으로 객체로 알려져있음. 그러나 Swift 클래스와 구조체는 다른 언어보다도 기능에 더 가까우며 이 챕터 대부분은 클래스나 구조체 타입의 인스턴스를 적용할 수 있는 기능을 설명함. 이 때문에, 일반적인 용어로 인스턴스가 사용됨.
+<div class="alert-info">
+클래스 인스턴스는 전통적으로 객체로 알려져있음. 그러나 Swift 클래스와 구조체는 다른 언어보다도 기능에 더 가까우며 이 챕터 대부분은 클래스나 구조체 타입의 인스턴스를 적용할 수 있는 기능을 설명함. 이 때문에, 일반적인 용어로 인스턴스가 사용됨.</div>
 
 ### 클래스와 구조체 비교(Comparing Classes and Structures)
 
@@ -26,7 +27,9 @@ Swift에서 클래스와 구조체는 비슷한 점을 많이 가지고 있음.
 * 기본적인 구현을 넘어선 기능을 확장시킬 수 있도록 확장이 가능함.
 * 특정 종류의 표준 기능을 제공하는 프로토콜을 따름.
 
+<div class="alert-info">
 코드에 구조체가 전달될 때 항상 복사되며, 참조 카운팅(reference counting)을 사용하지 않음.
+</div>
 
 #### 정의 문법(Definition Syntax)
 
@@ -39,7 +42,9 @@ Swift에서 클래스와 구조체는 비슷한 점을 많이 가지고 있음.
 	    // structure definition goes here
 	}
 
+<div class="alert-info">
 새로운 클래스나 구조체를 정의할 때, 특유의 새로운 Swift 타입을 효율적으로 정의할 수 있음. UpperCamelCase 이름(someClass와 someStructure) 타입은 표준 Swift 타입(String, Int와 Bool)의 대문자와 일치함. 거꾸로 말하면, 속성과 메소드는 lowerCamelCase 이름(frameRate, incrementCount)로 타입 이름과는 구분이 되도록 해야 함.
+</div>
 
 다음은 구조체와 클래스 정의 예제.
 
@@ -91,7 +96,9 @@ VideoMode의 Resolution 속성에 width 속성 같은 내부 속성으로 들어
 	println("The width of someVideoMode is now \(someVideoMode.resolution.width)")
 	// prints "The width of someVideoMode is now 1280"
 
+<div class="alert-info">
 Objective-C와는 다르게, Swift는 직접 구조체 속성의 내부 속성을 설정하는 것이 가능함. 마지막 예제에서 someVideoMode의 resolution 속성의 width 속성은 직접 설정하며 resolution 속성 전체에 새로운 값을 설정할 필요가 없음.
+</div>
 
 #### 구조체 타입을 위한 멤버들의 초기화(Memberwise Initializers for Structure Types)
 
@@ -227,4 +234,6 @@ Swift의 문자열, 배열 그리고 딕셔너리 타입은 구조체로서 구�
 
 이러한 행동은 Foundation에 NSString, NSArray 그리고 NSDictionary과는 다른데 이 것들은 구조체가 아니라 클래스로 구현이 되었음. NSString, NSArray 그리고 NSDictionary 인스턴스는 복사보단 기존 인스턴스에 참조를 언제나 할당하고 넘겨줌.
 
+<div class="alert-info">
 위 설명은 문자열, 배열 그리고 딕셔너리의 "복사"를 참조함. 항상 복사본이 위치해있음으로서 항상 보는 행동을 함.(??) 그러나 Swift는 이러한 작업이 필요할 때 실제로 뒷단에서 복사하는 작업을 함. Swift는 최적화 작업으로 값 복사를 보증하며, 이 최적화 작업을 선점하도록 노력하기 위해 할당을 피함.
+</div>

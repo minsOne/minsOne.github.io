@@ -37,7 +37,9 @@ Swift에 열거자는 일급-클래스 타입이며 많은 특징들이 적용�
 
 열거형(North, South, East, West)에 정의된 값은 열거형의 멤버 값(또는 멤버). `case` 키워드는 멉버 값의 새 줄이 정의될 것을 나타냄.
 
+<div class="alert-info">
 C와 Objective-C와는 다르게, Swift 열거형 멤버는 생성시 기본 정수 값을 할당하지 않음. CompassPoint 예제에서 North, South, East, West는 명시적으로 0, 1, 2, 3과는 같지 않음. 대신에 다른 열거형 멤버는 명시적으로 CompassPoint 타입으로 정의되어 완벽하게 갖춘 값임.
+</div>
 
 여러 멤버 값은 콤마로 분리되어 한줄로 나타낼 수 있음.
 

@@ -51,7 +51,7 @@ rangeOfFourItems는 `let` 키워드를 통해 상수로 선언되었기 때문�
 
 #### 게으른 저장 속성(Lazy Stored Properties)
 
-게으른 저장 속성은 처음으로 사용하기 전까지 초기 값을 계산하지 않음. 게으른 저장 속성은 `lazy` 수정자를 선언 선언 이전에 씀.
+게으른 저장 속성은 처음으로 사용하기 전까지 초기 값을 계산하지 않음. 게으른 저장 속성은 `lazy` 수식어를 선언 선언 이전에 씀.
 
 변수로서 게으른 속성을 항상 선언할 수 있는데, 초기 값은 인스턴스 초기화가 끝난 후에도 받을 수 있을지도 모르기 때문임. 상수 속성은 초기화 전에 항상 값을 가지고 있기 때문에 lazy로서 선언할 수 없음.
 
@@ -85,7 +85,7 @@ DataManager 클래스의 기능 중 하나는 파일에서 데이터를 가져�
 
 DataManager 인스턴스는 파일에서 데이터를 가져오지 않아도 관리할 수 있음. DataManager가 만들어 질 때 새로운 DataImporter 인스턴스를 만들 필요가 없기 때문임. 대신, 처음으로 사용 할 때 DataImporter 인스턴스를 만드는 것이 더 좋음.
 
-`lazy` 수정자로 표시하기 때문에 importer 속성을 위한 DataImporter 인스턴스는 fileName 속성이 조회될 때 처럼 importer 속성이 처음 접근 될 때 생성됨.
+`lazy` 수식어로 표시하기 때문에 importer 속성을 위한 DataImporter 인스턴스는 fileName 속성이 조회될 때 처럼 importer 속성이 처음 접근 될 때 생성됨.
 
 	println(manager.importer.fileName)
 	// the DataImporter instance for the importer property has now been created
@@ -248,7 +248,7 @@ totalSteps을 위한 `willSet`과 `didSet` 감시자는 새로운 값이 할당�
 
 전역 또는 지역 범위 중 하나에서 저장 변수를 위한 감시자와 계산 변수를 정의할 수 있음. 계산 변수는 값이 저장하는 것보다 계산하며, 계산 속성과 같은 방식을 취함.
 
-전역 사우와 변수는 언제나 게으르게 계산되며, 이는 게으른 저장 속성과 유사한 방법임. 게으른 저장 속성과는 다르게 전역 상수와 변수는 `lazy` 수정자를 표시할 필요가 없음.
+전역 사우와 변수는 언제나 게으르게 계산되며, 이는 게으른 저장 속성과 유사한 방법임. 게으른 저장 속성과는 다르게 전역 상수와 변수는 `lazy` 수식어를 표시할 필요가 없음.
 
 지역 상수와 변수는 절대로 게으르게 계산되지 못함.
 

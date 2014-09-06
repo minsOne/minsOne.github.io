@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift Initialization Summary"
+title: "Swift - Initialization 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, initialization, initializer, stored property, computed property, default, init, override, convenience, designated initializer, convenience initializer, parameter name, local parameter name, external parameter name, required, optional, superclass, subclass, inheritance, instance, delegation, closure, function, chaining, value type, self, structure]

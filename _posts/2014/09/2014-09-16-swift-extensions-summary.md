@@ -12,6 +12,7 @@ tags: [swift, extension, initializer, category, method, subscript, property]
 확장은 기존 클래스, 구조체 또는 열거형 타입에 새로운 기능을 추가한다. 기존 소스 코드에서 접근하지 못하는 타입들을 확장하는 능력이다(소급 적용 모델링). 확장은 Objective-C의 카테고리와 유사하다(Swift 확장은 이름을 가지지 않는다는 점에서 Objective-C 카테고리와는 다르다.).
 
 Swift에서 확장은 다음 기능을 할 수 있다:
+
 * 계산 속성과 계산 정적 속성 추가
 * 인스턴스 메소드와 타입 메소드 정의
 * 새로운 이니셜라이저 제공

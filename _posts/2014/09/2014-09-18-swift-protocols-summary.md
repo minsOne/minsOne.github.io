@@ -9,9 +9,9 @@ tags: [swift, protocol, class, struct, enumeration, instance, method, requiremen
 
 ## 프로토콜(Protocols)
 
-프로토콜은 메소드, 속성 그리고 다른 특정 작업 또는 기능의 부분에 맞는 요구 사항의 청사진을 정의한다. 프로토콜은 실제로 이들 요구사항 구현을 제공하지 않는다. - 구현 처럼 보이도록 설명한다. 프로토콜은 이들 요구사항의 실제 구현을 제공하기 위한 클래스, 구조체 또는 열거형에 적용된다. 프로토콜의 요구사항을 만족하면 어떤 타입이라도 프로토콜에 일치한다라고 말한다.
+프로토콜은 메소드, 속성 그리고 다른 특정 작업 또는 기능의 부분에 맞는 요구 사항의 청사진을 정의한다. 프로토콜은 실제로 이들 요구사항 구현을 제공하지 않는다. - 구현 처럼 보이도록 설명한다. 프로토콜은 이들 요구사항의 실제 구현을 제공하기 위한 클래스, 구조체 또는 열거형에 적용된다. 프로토콜의 요구사항을 만족하면 어떤 타입이라도 프로토콜에 준수한다라고 말한다.
 
-프로토콜은 일치 타입이 특정 인스턴스 속성, 인스턴스 메소드, 타입 메소드, 연산자 그리고 서브스크립트를 가지는 것이 필요하다.
+프로토콜은 준수 타입이 특정 인스턴스 속성, 인스턴스 메소드, 타입 메소드, 연산자 그리고 서브스크립트를 가지는 것이 필요하다.
 
 ### 프르토콜 문법(Protocol Syntax)
 
@@ -35,7 +35,7 @@ tags: [swift, protocol, class, struct, enumeration, instance, method, requiremen
 
 ### 속성 요구사항(Property Requirements)
 
-프로토콜은 특정 이름과 타입을 가진 인스턴스 속성 또는 타입 속성을 제공하기 위한 일치하는 타입이 필요하다. 프로토콜은 속성이 저장 속성이거나 계산 속성으로 지정되지 않는다 - 이는 필요한 속성 이름과 타입만 지정한다. 또한 프로토콜은 각 속성이 읽기 또는 읽기/쓰기인지 지정한다.
+프로토콜은 특정 이름과 타입을 가진 인스턴스 속성 또는 타입 속성을 제공하기 위한 준수하는 타입이 필요하다. 프로토콜은 속성이 저장 속성이거나 계산 속성으로 지정되지 않는다 - 이는 필요한 속성 이름과 타입만 지정한다. 또한 프로토콜은 각 속성이 읽기 또는 읽기/쓰기인지 지정한다.
 
 만약 프로토콜이 읽기/쓰기로 속성이 필요하다면, 속성 요구사항은 상수 저장 속성 또는 읽기 계산 속성으로는 채울 수 없다. 만약 프로토콜이 읽기가 필요한 속성만을 요구한다면, 요구사항은 어떤 속성의 종류으로도 만족할 수 있고, 쓰기가 필요한 속성에도 유효하다.
 
@@ -66,7 +66,7 @@ FullyNamed 프로토콜은 완전한 이름을 제공하기 위해 연관 타입
 	let john = Person(fullName: "John Appleseed")
 	// john.fullName is "John Appleseed"
 
-Person이라는 구조체는 특정 사람 이름을 표현한다. FullyNamed 프로토콜을 적용한 상태이다. 각 Person의 인스턴스는 fullName이라는 단일 저장 속성을 가지며 문자열 타입이다. FullyNamed 프로토콜의 단일 요구사항에 일치하며 Person은 프로토콜에 일치하도록 연관된다.
+Person이라는 구조체는 특정 사람 이름을 표현한다. FullyNamed 프로토콜을 적용한 상태이다. 각 Person의 인스턴스는 fullName이라는 단일 저장 속성을 가지며 문자열 타입이다. FullyNamed 프로토콜의 단일 요구사항에 준수하며 Person은 프로토콜에 준수하도록 연관된다.
 
 좀 더 복잡한 클래스에서 FullyNamed 속성에 연관되고 적용된다.
 
@@ -144,9 +144,9 @@ RandomNumberGenerator 프로토콜은 어떻게 난수를 생성하는지에 대
 	    mutating func toggle()
 	}
 
-Togglable 프로토콜을 구조체나 열거형에 구현한다면, 구조체나 열거형은 `mutating`으로 표시된 toggle 메소드의 구현을 받는 프로토콜에 일치할 수 있다.
+Togglable 프로토콜을 구조체나 열거형에 구현한다면, 구조체나 열거형은 `mutating`으로 표시된 toggle 메소드의 구현을 받는 프로토콜에 준수할 수 있다.
 
-다음은 두가지 상태를 토글하는 열거형으로 열거형의 toggle 구현은 `mutating`으로 표시되어 Togglable 프로토콜 요구사항과 일치하는 예제이다.
+다음은 두가지 상태를 토글하는 열거형으로 열거형의 toggle 구현은 `mutating`으로 표시되어 Togglable 프로토콜 요구사항과 준수하는 예제이다.
 
 	enum OnOffSwitch: Togglable {
 	    case Off, On
@@ -165,7 +165,7 @@ Togglable 프로토콜을 구조체나 열거형에 구현한다면, 구조체�
 
 ### 이니셜라이저 요구사항
 
-프로토콜은 일치하는 타입을 구현한 특정 이니셜라이저가 필요할 수 있다. 이들 이니셜라이저를 프로토콜 정의의 한 부분으로서 일반적인 이니셜라이저와 같은 방법으로 작성하지만 괄호나 이니셜라이저 내용은 없다.
+프로토콜은 준수하는 타입을 구현한 특정 이니셜라이저가 필요할 수 있다. 이들 이니셜라이저를 프로토콜 정의의 한 부분으로서 일반적인 이니셜라이저와 같은 방법으로 작성하지만 괄호나 이니셜라이저 내용은 없다.
 
 	protocol SomeProtocol {
 	    init(someParameter: Int)
@@ -173,7 +173,7 @@ Togglable 프로토콜을 구조체나 열거형에 구현한다면, 구조체�
 
 #### 프로토콜 이니셔라이저 요구사항의 클래스 구현
 
-지정 이니셜라이저 또는 편의 이니셜라이저로서 일치하는 클래스에서 프로토콜 이니셜라이저 요구사항을 구현할 수 있다. 이러한 경우, 이니셜라이저 구현에 `required` 수식어를 표시해야 한다.
+지정 이니셜라이저 또는 편의 이니셜라이저로서 준수하는 클래스에서 프로토콜 이니셜라이저 요구사항을 구현할 수 있다. 이러한 경우, 이니셜라이저 구현에 `required` 수식어를 표시해야 한다.
 
 	class SomeClass: SomeProtocol {
 	    required init(someParameter: Int) {
@@ -181,13 +181,13 @@ Togglable 프로토콜을 구조체나 열거형에 구현한다면, 구조체�
 	    }
 	}
 
-`required` 수식어 사용은 일치하는 클래스의 모든 서브클래스 상에서 명확하거나 상속된 이니셜라이저 요구사항의 구현을 제공함을 확신한다. 또한, 프로토콜과 일치해야 한다.
+`required` 수식어 사용은 준수하는 클래스의 모든 서브클래스 상에서 명확하거나 상속된 이니셜라이저 요구사항의 구현을 제공함을 확신한다. 또한, 프로토콜과 준수해야 한다.
 
 <div class="alert-info">
 	프로토콜 이니셜라이저 구현을 클래스에 <code>required</code> 수식어로 표시할 필요가 없다면 <code>final</code> 수식어로 표현해야 한다. 이는 final 클래스는 서브클래스가 될 수 없다.
 </div>
 
-만약 서브클래스가 슈퍼클래스로부터 지정 이니셜라이저와 일치하는 이니셜라이저 요구사항의 구현을 오버라이드 한다면, 이니셜라이저 구현에 `required`와 `override` 수식어를 표시한다.
+만약 서브클래스가 슈퍼클래스로부터 지정 이니셜라이저와 준수하는 이니셜라이저 요구사항의 구현을 오버라이드 한다면, 이니셜라이저 구현에 `required`와 `override` 수식어를 표시한다.
 
 	protocol SomeProtocol {
 	    init()
@@ -217,7 +217,7 @@ Togglable 프로토콜을 구조체나 열거형에 구현한다면, 구조체�
 * 배열, 딕셔너리, 다른 컨테이너 안에서 요소의 타입으로
 
 <div class="alert-info">
-	프로토콜은 타입이기 때문에, 대문자로 시작해야 하며(FullyNamed과 RandomNumberGenerator과 같은), 이는 Swift의 다른 타입의 이름과 일치해야 한다(Int, String, Double과 같은).
+	프로토콜은 타입이기 때문에, 대문자로 시작해야 하며(FullyNamed과 RandomNumberGenerator과 같은), 이는 Swift의 다른 타입의 이름과 준수해야 한다(Int, String, Double과 같은).
 </div>
 
 다음은 타입으로서 프로토콜 사용하는 예제이다.
@@ -236,7 +236,7 @@ Togglable 프로토콜을 구조체나 열거형에 구현한다면, 구조체�
 
 Dice 클래스는 generator 라는 속성을 가지며, RandomNumberGenerator 타입이다. 따라서 Dice 인스턴스는 RandomNumberGenerator 프로토콜이 적용되었다. 
 
-Dice는 초기 상태를 설정하는 이니셜라이저를 가지는데, generator라는 인자는 RandomNumberGenerator 타입이다. 새로운 Dice 인스턴스를 초기활 때 일치하는 타입의 값을 넘겨줘야 한다.
+Dice는 초기 상태를 설정하는 이니셜라이저를 가지는데, generator라는 인자는 RandomNumberGenerator 타입이다. 새로운 Dice 인스턴스를 초기활 때 준수하는 타입의 값을 넘겨줘야 한다.
 
 Dice는 rool이라는 인스턴스 메소드를 가지는데, generator의 random 메소드를 호출하여 새로운 난수 값을 만든다. generator는 RandomNumberGenerator이 적용되었다고 알려졌기 떄문에, random 메소드를 호출하는 것이 보장된다.
 
@@ -255,7 +255,7 @@ Dice는 rool이라는 인스턴스 메소드를 가지는데, generator의 rando
 
 ### 위임(Delegation)
 
-위임은 디자인패턴으로 클래스나 구조체가 다른 타입의 인스턴스에게 책임을 일부 위임한다. 디자인 패턴은 일치한 타입이 기능이 위임받음을 보장하는 것 같이, 위임된 책임을 캡슐화하는 프로토콜을 정의하는 것을 구현한다. 위임은 특정 행동이나 소스의 기반 타입을 알 필요 없는 외부 소스로부터 받은 데이터를 응답하는데 사용된다.
+위임은 디자인패턴으로 클래스나 구조체가 다른 타입의 인스턴스에게 책임을 일부 위임한다. 디자인 패턴은 준수한 타입이 기능이 위임받음을 보장하는 것 같이, 위임된 책임을 캡슐화하는 프로토콜을 정의하는 것을 구현한다. 위임은 특정 행동이나 소스의 기반 타입을 알 필요 없는 외부 소스로부터 받은 데이터를 응답하는데 사용된다.
 
 다음은 두 개의 프로토콜을 정의하는 예제로, 주사위 보드 게임에 사용한다.
 
@@ -302,7 +302,7 @@ Dice는 rool이라는 인스턴스 메소드를 가지는데, generator의 rando
 	    }
 	}
 
-SnakesAndLadders 클래스는 DiceGame 프로토콜이 적용되어, dice 속성과 play 메소드가 프로토콜과 일치함을 알 수 있다.(dice 속성은 상수 속성으로 선언되었는데, 이는 초기화 후에 변경할 필요가 없기 때문이며, 프로토콜은 읽기가 필요만 하면 된다.)
+SnakesAndLadders 클래스는 DiceGame 프로토콜이 적용되어, dice 속성과 play 메소드가 프로토콜과 준수함을 알 수 있다.(dice 속성은 상수 속성으로 선언되었는데, 이는 초기화 후에 변경할 필요가 없기 때문이며, 프로토콜은 읽기가 필요만 하면 된다.)
 
 모든 게임 로직은 프로토콜의 play 메소드로 움직이며, 프로토콜의 필요한 dice 속성은 주사위 값을 주는데 사용된다.
 
@@ -334,14 +334,14 @@ DiceGameTracker는 DiceGameDelegate가 필요로 하는 세 개의 메소드를 
 
 gameDidStart 메소드는 DiceGame 타입의 game 인자를 가지고, gameDidStart는 DiceGame 프로토콜의 한 부분으로서 구현된다. 그러나 메소드는 기반 인스턴의 타입을 조회하여 타입을 변경하여 사용한다.
 
-또한, gameDidStart는 game 인자에 dice 속성을 접근한다. game은 DiceGame 프로토콜과 일치되었다고 알려졌기 때문에, dice 속성을 가지는 것을 보장되며 gameDidStart 메소드는 dice의 side 속성을 접근하여 출력할 수 있다.
+또한, gameDidStart는 game 인자에 dice 속성을 접근한다. game은 DiceGame 프로토콜과 준수되었다고 알려졌기 때문에, dice 속성을 가지는 것을 보장되며 gameDidStart 메소드는 dice의 side 속성을 접근하여 출력할 수 있다.
 
-### 확장을 프로토콜 일치에 추가(Adding Protocol Conformance with an Extension)
+### 확장을 프로토콜 준수에 추가(Adding Protocol Conformance with an Extension)
 
-새로운 프로토콜에 기존 타입을 적용시키고 일치시켜 확장할 수 있으며, 심지어 기존 타입에서 소스코드에 접근할 수 없던 것도 확장할 수 있다. 확장은 새로운 속성, 메소드 그리고 서브스크립트를 기존 타입에 추가하고, 프로토콜에서 요구하는 요구사항을 추가할 수 있다.
+새로운 프로토콜에 기존 타입을 적용시키고 준수시켜 확장할 수 있으며, 심지어 기존 타입에서 소스코드에 접근할 수 없던 것도 확장할 수 있다. 확장은 새로운 속성, 메소드 그리고 서브스크립트를 기존 타입에 추가하고, 프로토콜에서 요구하는 요구사항을 추가할 수 있다.
 
 <div class="alert-info">
-	기존 타입의 인스턴스는 자동으로 프로토콜을 채택시키고 일치시키며, 일치는 확장에서 인스턴스의 타입에 추가될 때이다.
+	기존 타입의 인스턴스는 자동으로 프로토콜을 채택시키고 준수시키며, 준수는 확장에서 인스턴스의 타입에 추가될 때이다.
 </div>
 
 다음은 특정 타입을 구현하는 프로토콜이다.
@@ -350,7 +350,7 @@ gameDidStart 메소드는 DiceGame 타입의 game 인자를 가지고, gameDidSt
 	    func asText() -> String
 	}
 
-앞에서 본 Dice 클래스를 TextRepresentable를 도입하고 일치하도록 확장할 수 있다.
+앞에서 본 Dice 클래스를 TextRepresentable를 도입하고 준수하도록 확장할 수 있다.
 
 	extension Dice: TextRepresentable {
 	    func asText() -> String {
@@ -366,7 +366,7 @@ Dice 인스턴스는 이제 TextRepresentable로서 다루게 된다.
 	println(d12.asText())
 	// prints "A 12-sided dice"
 
-유사하게, SnakesAndLadders 게임 클래스는 TextRepresentable 프로토콜을 채택하고 일치시켜 확장될 수 있다.
+유사하게, SnakesAndLadders 게임 클래스는 TextRepresentable 프로토콜을 채택하고 준수시켜 확장될 수 있다.
 
 	extension SnakesAndLadders: TextRepresentable {
 	    func asText() -> String {
@@ -379,7 +379,7 @@ Dice 인스턴스는 이제 TextRepresentable로서 다루게 된다.
 
 #### 확장에 프로토콜 도입 선언
 
-만약 타입이 이미 프로토콜의 모든 요구사항을 일치한지만 아직 프로토콜을 도입하는 상태가 아니라면, 빈 확장에 프로토콜을 도입하도록 만들 수 있다.
+만약 타입이 이미 프로토콜의 모든 요구사항을 준수한지만 아직 프로토콜을 도입하는 상태가 아니라면, 빈 확장에 프로토콜을 도입하도록 만들 수 있다.
 
 	struct Hamster {
 	    var name: String
@@ -468,13 +468,13 @@ Hamster 인스턴스는 TextRepresentable이 필요한 타입인 곳에 사용�
 SomeClassOnlyProtocol은 클래스 타입에만 도입되며 구조체나 열거형 정의에 SomeClassOnlyProtocol를 도입하려고 하면 컴파일 에러가 발생한다.
 
 <div class="alert-info">
-	클래스 전용 프로토콜은 프로토콜의 요구사항이 일치한 타입이 값 의미보다 참조 의미를 가지는 것을 가정하거나 필요로 하는 것을 정의하는 행동일 때 사용된다.
+	클래스 전용 프로토콜은 프로토콜의 요구사항이 준수한 타입이 값 의미보다 참조 의미를 가지는 것을 가정하거나 필요로 하는 것을 정의하는 행동일 때 사용된다.
 </div>
 
 
 ### 프로토콜 구성(Protocol Comsposition)
 
-필요한 타입을 일치하는 다중 프로토콜로 사용할 수 있다. 다중 프로토콜을 단일 요구사항인 프로토콜 구성으로 결합할 수 있다. 프로토콜 구성은 `protocol<SomeProtocol, AnotherProtocol>` 형태로 가진다. 
+필요한 타입을 준수하는 다중 프로토콜로 사용할 수 있다. 다중 프로토콜을 단일 요구사항인 프로토콜 구성으로 결합할 수 있다. 프로토콜 구성은 `protocol<SomeProtocol, AnotherProtocol>` 형태로 가진다. 
 
 다음은 두 개의 프로토콜을 하나의 프로토콜 구성 요구사항으로 결합하는 예제이다.
 
@@ -495,21 +495,21 @@ SomeClassOnlyProtocol은 클래스 타입에만 도입되며 구조체나 열거
 	wishHappyBirthday(birthdayPerson)
 	// prints "Happy birthday Malcolm - you're 21!"
 
-위에서 wishHappyBirthday라는 함수는 celebrator라는 인자를 취한다. 이 인자의 타입은 `protocol<Name, Aged>`이며, Name과 Age 프로토콜을 일치하는 타입이라는 의미이다. 함수에 특정 타입으로 넘겨줄 필요가 없고, 필요한 프로토콜과 일치하는 타입만 넘겨주면 된다.
+위에서 wishHappyBirthday라는 함수는 celebrator라는 인자를 취한다. 이 인자의 타입은 `protocol<Name, Aged>`이며, Name과 Age 프로토콜을 준수하는 타입이라는 의미이다. 함수에 특정 타입으로 넘겨줄 필요가 없고, 필요한 프로토콜과 준수하는 타입만 넘겨주면 된다.
 
-따라서 wishHappyBirthday 함수에 Person 인스턴스를 넘겨주는데, Person은 두 프로토콜과 일치하기 때문에 인자로 념겨받을 수 있다.
+따라서 wishHappyBirthday 함수에 Person 인스턴스를 넘겨주는데, Person은 두 프로토콜과 준수하기 때문에 인자로 념겨받을 수 있다.
 
 <div class="alert-info">
 	프로토콜 구성은 새로운 영구 프로토콜 타입을 정의하는 것이 아니다. 모든 프로토콜의 결합된 요구사항을 가지는 임시 지역 프로토콜을 정의한다.
 </div>
 
 
-### 프로토콜 일치를 위한 검사(Checking for Protocol Conformance)
+### 프로토콜 준수를 위한 검사(Checking for Protocol Conformance)
 
-`is`와 `as` 연산자를 사용하여 프로토콜 일치를 위한 검사로 사용할 수 있으며, 특정 프로토콜로 캐스팅할 수 있다. 타입을 캐스팅하고 검사하는 문법으로 프로토콜을 확인하고 캐스팅할 수 있다.
+`is`와 `as` 연산자를 사용하여 프로토콜 준수를 위한 검사로 사용할 수 있으며, 특정 프로토콜로 캐스팅할 수 있다. 타입을 캐스팅하고 검사하는 문법으로 프로토콜을 확인하고 캐스팅할 수 있다.
 
-	* `is` 연산자는 인스턴스가 프로토콜과 일치하면 true, 그렇지 않다면 false를 반환한다.
-	* `as?`는 연산자 다운캐스팅 버전으로 프로토콜의 타입의 옵셔널 값을 반환하며, 이 값은 인스턴스가 프로토콜과 일치하지 않으면 nil 값을 가진다.
+	* `is` 연산자는 인스턴스가 프로토콜과 준수하면 true, 그렇지 않다면 false를 반환한다.
+	* `as?`는 연산자 다운캐스팅 버전으로 프로토콜의 타입의 옵셔널 값을 반환하며, 이 값은 인스턴스가 프로토콜과 준수하지 않으면 nil 값을 가진다.
 	* `as`는 연산자 다운캐스팅 버전으로 프로토콜 타입을 강제로 다운캐스팅을 하며, 만약 다운캐스팅이 성공하지 않으면 런타임 에러가 발생한다.
 
 다음은 HasArea라는 프로토콜 정의 예제로, area라는 Double 속성의 요구사항을 가진다.
@@ -519,12 +519,12 @@ SomeClassOnlyProtocol은 클래스 타입에만 도입되며 구조체나 열거
 	}
 
 <div class="alert-info">
-	프로토콜이 <code>@objc</code> 속성으로 표시된다면, 프로토콜 일치를 검사할 수 있다. 이 속성은 프로토콜이 Objective-C 코드에 드러나도록 한다. 심지어 Objective-C와 상호 운용을 하지 않아도 프로토콜에 <code>@objc</code> 속성을 표시해야 한다. 그래야 프로토콜 일치를 검사가 가능하다.
+	프로토콜이 <code>@objc</code> 속성으로 표시된다면, 프로토콜 준수를 검사할 수 있다. 이 속성은 프로토콜이 Objective-C 코드에 드러나도록 한다. 심지어 Objective-C와 상호 운용을 하지 않아도 프로토콜에 <code>@objc</code> 속성을 표시해야 한다. 그래야 프로토콜 준수를 검사가 가능하다.
 
-	<code>@objc</code> 프로토콜은 클래스에만 도입되며 구조체와 열거형에는 도입되지 않는다. 만약 프로토콜에 <code>@objc</code>를 표시하여 일치를 검사한다면, 클래스 타입에만 프로토콜이 적용 가능 할 것이다.
+	<code>@objc</code> 프로토콜은 클래스에만 도입되며 구조체와 열거형에는 도입되지 않는다. 만약 프로토콜에 <code>@objc</code>를 표시하여 준수를 검사한다면, 클래스 타입에만 프로토콜이 적용 가능 할 것이다.
 </div>
 
-다음은 HasArea 프로토콜을 일치시킨 두 개의 클래스 예제이다.
+다음은 HasArea 프로토콜을 준수시킨 두 개의 클래스 예제이다.
 
 	class Circle: HasArea {
 	    let pi = 3.1415927
@@ -537,9 +537,9 @@ SomeClassOnlyProtocol은 클래스 타입에만 도입되며 구조체나 열거
 	    init(area: Double) { self.area = area }
 	}
 
-Circle 클래스는 계산 속성으로서 area 속성 요구사항을 구현한다. Country 클래스는 저장 속성으로서 area 요구사항을 구현한다. 이들 클래스는 정확히 HasArea 프로토콜을 일치시킨다.
+Circle 클래스는 계산 속성으로서 area 속성 요구사항을 구현한다. Country 클래스는 저장 속성으로서 area 요구사항을 구현한다. 이들 클래스는 정확히 HasArea 프로토콜을 준수시킨다.
 
-다음은 HasArea 프로토콜을 일치시키지 않은 클래스 예제이다.
+다음은 HasArea 프로토콜을 준수시키지 않은 클래스 예제이다.
 
 	class Animal {
 	    var legs: Int
@@ -554,7 +554,7 @@ Circle, Country, Animal 클래스는 공유된 기반 클래스가 없다. 그�
 	    Animal(legs: 4)
 	]
 
-다음은 objects 배열은 반복하여 배열의 각 객체에서 HasArea 프로토콜과 일치하는지 검사하는 예제이다.
+다음은 objects 배열은 반복하여 배열의 각 객체에서 HasArea 프로토콜과 준수하는지 검사하는 예제이다.
 
 	for object in objects {
 	    if let objectWithArea = object as? HasArea {
@@ -567,15 +567,15 @@ Circle, Country, Animal 클래스는 공유된 기반 클래스가 없다. 그�
 	// Area is 243610.0
 	// Something that doesn't have an area
 
-객체가 HasArea 프로토콜과 일치하면 옵셔널 값은 `as?` 연산자가 objectWithArea라는 상수에 옵셔널 바인딩과 함께 드러나 반환된다. objectWithArea 상수는 HasArea 타입으로 알려졌기 때문에 area 속성을 접근하는 것이 안전하다.
+객체가 HasArea 프로토콜과 준수하면 옵셔널 값은 `as?` 연산자가 objectWithArea라는 상수에 옵셔널 바인딩과 함께 드러나 반환된다. objectWithArea 상수는 HasArea 타입으로 알려졌기 때문에 area 속성을 접근하는 것이 안전하다.
 
 또한, objectWithArea 상수는 HasArea 타입으로만 알려졌기 때문에 area 속성만 접근이 가능하다.
 
 ### 옵셔널 프로토콜 요구사항(Optional Protocol Requirement)
 
-프로토콜을 위한 옵셔널 요구사항을 정의할 수 있는데, 이들 요구사항은 프로토콜에 일치하는 타입을 구현하지 않는다. 옵셔널 요구사항은 프로토콜의 정의 한 부분으로 `optional` 수식어를 앞에 붙인다.
+프로토콜을 위한 옵셔널 요구사항을 정의할 수 있는데, 이들 요구사항은 프로토콜에 준수하는 타입을 구현하지 않는다. 옵셔널 요구사항은 프로토콜의 정의 한 부분으로 `optional` 수식어를 앞에 붙인다.
 
-옵셔널 프로토콜 요구사항은 옵셔널 체이닝으로 호출될 수 있으며, 요구사항은 프로토콜에 일치하는 타입이 구현되지 않는다.
+옵셔널 프로토콜 요구사항은 옵셔널 체이닝으로 호출될 수 있으며, 요구사항은 프로토콜에 준수하는 타입이 구현되지 않는다.
 
 옵셔널 요구사항의 구현을 위해 `someOptionalMethod?(someArgument)`와 같이 호출될 때 요구 사항의 이름 뒤에 물음표가 적혀있는지 검사한다. 옵셔널 속성 요구사항과 옵셔널 메소드 요구사항은 접근하거나 호출될 때 항상 적합한 타입의 옵셔널 값을 반환하며, 옵셔널 요구사항이 구현되지 않았음을 반영한다.
 
@@ -593,7 +593,7 @@ Circle, Country, Animal 클래스는 공유된 기반 클래스가 없다. 그�
 	}
 
 <div class="alert-info">
-	엄밀히 말하면 프로토콜 요구사항을 전혀 구현하지 않고 CounterDataSource에 일치하는 클래스를 만들 수 있다. 이는 옵셔널이기 때문이지만, 가능은 하지만 좋은 방법은 아니다.
+	엄밀히 말하면 프로토콜 요구사항을 전혀 구현하지 않고 CounterDataSource에 준수하는 클래스를 만들 수 있다. 이는 옵셔널이기 때문이지만, 가능은 하지만 좋은 방법은 아니다.
 </div>
 
 다음은 CounterDataSource? 타입의 옵셔널 속성 dataSource를 가지는 클래스 예제이다.
@@ -624,7 +624,7 @@ increment 메소드는 dataSource에서 incrementForCount 메소드가 구현되
 	    let fixedIncrement = 3
 	}
 
-이 클래스는 fixedIncrement 옵셔널 요구사항과 일치한다.
+이 클래스는 fixedIncrement 옵셔널 요구사항과 준수한다.
 
 Counter 인스턴스에 dataSource로서 ThreeSource 인스턴스를 사용할 수 있다.
 

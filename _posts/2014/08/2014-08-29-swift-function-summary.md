@@ -121,9 +121,10 @@ minMax 함수는 두 Int 값을 가지는 튜플을 반환. 이들 값은 min과
 
 #### 옵셔널 튜플 반환 타입(Optional Tuple Return Types)
 
-함수에서 반환되는 튜플 타입은 값이 없는 가능성이 있음. 옵셔널 튜플 반환 타입은 튜플이 nil일 수도 있다는 사실을 반영함. 옵셔널 튜플 반환 타입은 닫는 괄호 다음에 물음표(?)를 사용하여 사용함. (Int, Int)? 나 (String, Int, Bool)?
+함수에서 반환되는 튜플 타입은 값이 없는 가능성이 있음. 옵셔널 튜플 반환 타입은 튜플이 nil일 수도 있다는 사실을 반영함. 옵셔널 튜플 반환 타입은 닫는 괄호 다음에 물음표(?)를 사용하여 사용함. (Int, Int)? 나 (String, Int, Bool)?.
+
 <div class="alert-info">
-옵셔널 튜플 타입<code>(Int, Int)?</code>는 옵셔널 타입을 가지는 튜플<code>(Int? Int?)</code>와는 다름. 
+옵셔널 튜플 타입<code>(Int, Int)?</code>는 옵셔널 타입을 가지는 튜플<code>(Int?, Int?)</code>와는 다름.
 </div>
 
 다음은 minMax 함수에 옵셔널 튜플 반환 타입과 빈 배열일 때 nil 값을 반환하는 예제.

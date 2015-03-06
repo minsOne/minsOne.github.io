@@ -142,6 +142,7 @@ $0과 $1은 클로저의 첫번째와 두번째 문자열 인자를 참조함.
 	someFunctionThatTakesAClosure() {
 	    // trailing closure's body goes here
 	}
+
 <div class="alert-info">
 함수 표현식은 함수의 인자 하나뿐이며 후행 클로저로 표현식을 작성하면, 함수 호출 시 함수 이름 뒤에 괄호를 쓸 필요가 없음.
 </div>
@@ -165,7 +166,7 @@ $0과 $1은 클로저의 첫번째와 두번째 문자열 인자를 참조함.
 위 코드는 영어와 숫자간의 매핑 사잔을 생성하며 문자열로 변환할 숫자 배열을 정의함.
 
 numbers 배열을 사용하여 문자열 값을 가진 배열을 만드는데 배열의 `map` 메소드에 후행 클로저로 된 클로저 표현식을 넘겨줌. numbers.map을 호출하는데 map 뒤에 괄호를 실 필요가 없는데 map 메소드는 오직 한 개의 인자만 가지고 인자는 후행 클로저를 지원하기 때문임.
-정
+
 	let strings = numbers.map {
 	    (var number) -> String in
 	    var output = ""

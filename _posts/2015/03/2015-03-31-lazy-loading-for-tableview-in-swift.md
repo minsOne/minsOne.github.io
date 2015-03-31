@@ -53,7 +53,7 @@ tags: [ios, swift, gcd, closure, nsnotification, tableview, lazy]
 		}
 	}
 
-### ViewController
+### TableView에 반영하기
 
 Story 목록을 가져와 테이블뷰에 반영하게 되면 ContentSizeCategory가 변경된 것을 NSNotification으로 처리하여 테이블뷰의 reloadData를 호출하도록 합니다.
 

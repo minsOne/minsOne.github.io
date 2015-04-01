@@ -45,4 +45,4 @@ thlorenz가 만든 [doctoc](https://github.com/thlorenz/doctoc)이 이러한 목
 	        - [Using doctoc to generate bitbucket compatible links](#using-doctoc-to-generate-bitbucket-compatible-links)
 
 
-<br /><div class="alert warning">경고 : jekyll에서는 아직 마크다운 파일을 html형태로 만들어주었을 때 태그의 id값이 한글이면 나타나지 않습니다. 그러나 영어 문서에서는 해당 오류는 나타나지 않습니다.( doctoc과는 무관합니다. )</div>
+<div class="alert alert-danger" role="alert">경고 : jekyll에서는 아직 마크다운 파일을 html형태로 만들어주었을 때 태그의 id값이 한글이면 나타나지 않습니다. 그러나 영어 문서에서는 해당 오류는 나타나지 않습니다.( doctoc과는 무관합니다. )</div>

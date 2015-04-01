@@ -30,129 +30,127 @@ tags: [designPattern, pattern, state, class, interface, context, method, if]
 
 동전 투입에 대한 메소드를 만들수 있습니다.
 
-	 - (void)insertQuarter {
-	 	if(state == HAS_QUARTER) {
-	 		NSLog(@"동전은 한개만 넣어주세요.");
-	 	} else if(state == SOLD_OUT) {
-	 		NSLog(@"매진되었습니다. 다음 기회를 이용해주세요.");
-	 	} else if(state == SOLD) {
-	 		NSLog(@"잠깐만 기다려 주세요. 알맹이가 배출되고 있습니다.");
- 		} else if(state == NO_QUARTER) {
- 			state = HAS_QUARTER;
- 			NSLog(@"동전이 투입되었습니다.");
-	 	}
-	 }	
+	- (void)insertQuarter {
+		if(state == HAS_QUARTER) {
+			NSLog(@"동전은 한개만 넣어주세요.");
+		} else if(state == SOLD_OUT) {
+			NSLog(@"매진되었습니다. 다음 기회를 이용해주세요.");
+		} else if(state == SOLD) {
+			NSLog(@"잠깐만 기다려 주세요. 알맹이가 배출되고 있습니다.");
+		} else if(state == NO_QUARTER) {
+			state = HAS_QUARTER;
+			NSLog(@"동전이 투입되었습니다.");
+		}
+	}	
 
 조건문을 사용하여 모든 가능한 상태를 확인합니다. 그리고 상태에 따라서 적절한 작업을 처리합니다.
 
 현재 상태는 인스턴스 변수에 저장을 하고 그 값을 써서 모든 행동 및 상태 전환을 처리하도록 하는 코드를 구현해봅니다.
 
-	 // MOGumballMachine.h
- 	 #import <Foundation/Foundation.h>
- 	 @interface MOGumballMachine : NSObject
- 	 -(id)init:(NSInteger)initCount;
- 	 @end
+	// MOGumballMachine.h
+	#import <Foundation/Foundation.h>
+	@interface MOGumballMachine : NSObject
+	-(id)init:(NSInteger)initCount;
+	@end
  
- 	 // MOGumballMachine.m
- 	 #import "MOGumballMachine.h"
- 
- 	 const static NSInteger SOLD_OUT = 0;
- 	 const static NSInteger NO_QUARTER = 1;
- 	 const static NSInteger HAS_QUARTER = 2;
- 	 const static NSInteger SOLD = 3;
- 
- 	 @interface MOGumballMachine() {
- 	     NSInteger state;
- 	     NSInteger count;
- 	 }
- 	 @end
- 
- 	 @implementation MOGumballMachine
- 
- 	 -(id)init:(NSInteger)initCount {
- 	     self = [super init];
- 	     if (self) {
- 	         count = initCount;
- 	         state = SOLD_OUT;
- 	         if (count > 0) {
- 	             state = NO_QUARTER;
- 	         }
- 	     }
- 	     return self;
- 	 }
- 
- 	 /**
- 	  *  동전이 투입된 경우
- 	  */
- 	 - (void)insertQuarter{
- 	     if(state == HAS_QUARTER) {
- 	         NSLog(@"동전은 한개만 넣어주세요.");
- 	     } else if(state == SOLD_OUT) {
- 	         NSLog(@"매진되었습니다. 다음 기회를 이용해주세요.");
- 	     } else if(state == SOLD) {
- 	         NSLog(@"잠깐만 기다려 주세요. 알맹이가 배출되고 있습니다.");
- 	     } else if(state == NO_QUARTER) {
- 	         state = HAS_QUARTER;
- 	         NSLog(@"동전이 투입되었습니다.");
- 	     }
- 	 }
- 	 /**
- 	  *  사용자가 동전을 반환 받으려고 하는 경우
- 	  */
- 	 - (void)ejectQuarter {
- 	     if(state == HAS_QUARTER) {
- 	         NSLog(@"동전이 반환됩니다.");
- 	         state = NO_QUARTER;
- 	     } else if(state == NO_QUARTER) {
- 	         NSLog(@"동전을 넣어주세요.");
- 	     } else if(state == SOLD) {
- 	         NSLog(@"이미 알맹이를 뽑으셨습니다.");
- 	     } else if(state == SOLD_OUT) {
- 	         NSLog(@"동전을 넣지 않으셨습니다. 동전이 반환되지 않습니다.");
- 	     }
- 	 }
- 
- 	 /**
- 	  *  손잡이를 돌리는 경우
- 	  */
- 	 - (void)turnCrank {
- 	     if(state == SOLD) {
- 	         NSLog(@"손잡이는 한번만 돌려주세요.");
- 	     } else if(state == NO_QUARTER) {
- 	         NSLog(@"동전을 넣어주세요.");
- 	     } else if(state == SOLD_OUT) {
- 	         NSLog(@"매진되었습니다.");
- 	     } else if(state == HAS_QUARTER) {
- 	         NSLog(@"손잡이를 돌리셨습니다.");
- 	         state = SOLD;
- 	         [self dispense];
- 	     }
- 	 }
- 
- 	 /**
- 	  *  알맹이 꺼내기
- 	  */
- 	 - (void)dispense {
- 	     if(state == SOLD) {
- 	         NSLog(@"알맹이가 나가고 있습니다.");
- 	         count = count - 1;
- 	         if (count == 0) {
- 	             NSLog(@"더 이상 알맹이가 없습니다.");
- 	             state = SOLD_OUT;
- 	         } else {
- 	             state = NO_QUARTER;
- 	         }
- 	     } else if(state == NO_QUARTER) {
- 	         NSLog(@"동전을 넣어주세요.");
- 	     } else if(state == SOLD_OUT) {
- 	         NSLog(@"매진입니다.");
- 	     } else if(state == HAS_QUARTER) {
- 	         NSLog(@"알맹이가 나갈 수 없습니다.");
- 	     }
- 
- 	 }
- 
-	 @end
+	// MOGumballMachine.m
+	#import "MOGumballMachine.h"
+
+	const static NSInteger SOLD_OUT = 0;
+	const static NSInteger NO_QUARTER = 1;
+	const static NSInteger HAS_QUARTER = 2;
+	const static NSInteger SOLD = 3;
+
+	@interface MOGumballMachine() {
+		NSInteger state;
+		NSInteger count;
+	}
+	@end
+
+	@implementation MOGumballMachine
+
+	-(id)init:(NSInteger)initCount {
+		self = [super init];
+		if (self) {
+			count = initCount;
+			state = SOLD_OUT;
+			if (count > 0) {
+				state = NO_QUARTER;
+			}
+		}
+		return self;
+	}
+
+	/**
+	*  동전이 투입된 경우
+	*/
+	- (void)insertQuarter{
+		if(state == HAS_QUARTER) {
+			NSLog(@"동전은 한개만 넣어주세요.");
+		} else if(state == SOLD_OUT) {
+			NSLog(@"매진되었습니다. 다음 기회를 이용해주세요.");
+		} else if(state == SOLD) {
+			NSLog(@"잠깐만 기다려 주세요. 알맹이가 배출되고 있습니다.");
+		} else if(state == NO_QUARTER) {
+			state = HAS_QUARTER;
+			NSLog(@"동전이 투입되었습니다.");
+		}
+	}
+	/**
+	*  사용자가 동전을 반환 받으려고 하는 경우
+	*/
+	- (void)ejectQuarter {
+		if(state == HAS_QUARTER) {
+			NSLog(@"동전이 반환됩니다.");
+			state = NO_QUARTER;
+		} else if(state == NO_QUARTER) {
+			NSLog(@"동전을 넣어주세요.");
+		} else if(state == SOLD) {
+			NSLog(@"이미 알맹이를 뽑으셨습니다.");
+		} else if(state == SOLD_OUT) {
+			NSLog(@"동전을 넣지 않으셨습니다. 동전이 반환되지 않습니다.");
+		}
+	}
+
+	/**
+	*  손잡이를 돌리는 경우
+	*/
+	- (void)turnCrank {
+		if(state == SOLD) {
+			NSLog(@"손잡이는 한번만 돌려주세요.");
+		} else if(state == NO_QUARTER) {
+			NSLog(@"동전을 넣어주세요.");
+		} else if(state == SOLD_OUT) {
+			NSLog(@"매진되었습니다.");
+		} else if(state == HAS_QUARTER) {
+			NSLog(@"손잡이를 돌리셨습니다.");
+			state = SOLD;
+			[self dispense];
+	}
+	}
+
+	/**
+	*  알맹이 꺼내기
+	*/
+	- (void)dispense {
+		if(state == SOLD) {
+			NSLog(@"알맹이가 나가고 있습니다.");
+			count = count - 1;
+			if (count == 0) {
+				NSLog(@"더 이상 알맹이가 없습니다.");
+				state = SOLD_OUT;
+			} else {
+				state = NO_QUARTER;
+			}
+		} else if(state == NO_QUARTER) {
+			NSLog(@"동전을 넣어주세요.");
+		} else if(state == SOLD_OUT) {
+			NSLog(@"매진입니다.");
+		} else if(state == HAS_QUARTER) {
+			NSLog(@"알맹이가 나갈 수 없습니다.");
+		}
+	}
+	@end
 
 
 위에서 원하는 행동에 대하여 코드를 구현하였습니다. 그런데 이제 또 다른 요청들이 하나씩 들어오기 시작을 합니다.
@@ -172,448 +170,447 @@ tags: [designPattern, pattern, state, class, interface, context, method, if]
 
 모든 상태 클래스에서 구현할 State 인터페이스를 생성합니다.
 
-	 // MOState.h
-	 #import <Foundation/Foundation.h>
-	 #import "MOGumballMachine.h"
+	// MOState.h
+	#import <Foundation/Foundation.h>
+	#import "MOGumballMachine.h"
 
-	 @interface MOState : NSObject
-	 - (void)insertQuarter;
-	 - (void)ejectQuarter;
-	 - (void)turnCrank;
-	 - (void)dispense;
-	 @end
+	@interface MOState : NSObject
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
+
 
 State 인터페이스를 상속받는 각각의 상태 클래스를 생성합니다.
 	
-	 // MOSoldState.h
-	 #import "MOState.h"
-	 @interface MOSoldState : MOState
-	 - (void)insertQuarter;
-	 - (void)ejectQuarter;
-	 - (void)turnCrank;
-	 - (void)dispense;
-	 @end
+	// MOSoldState.h
+	#import "MOState.h"
+	@interface MOSoldState : MOState
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
  
- 	 // MOSoldState.m
- 	 #import "MSoldState.h"
- 	 @implementation MOSoldState
- 	 - (void)insertQuarter{}
- 	 - (void)ejectQuarter{}
- 	 - (void)turnCrank{}
- 	 - (void)dispense{}
- 	 @end
+	// MOSoldState.m
+	#import "MSoldState.h"
+	@implementation MOSoldState
+	- (void)insertQuarter{}
+	- (void)ejectQuarter{}
+	- (void)turnCrank{}
+	- (void)dispense{}
+	@end
  
- 	 // MOSoldOutState.h
- 	 #import "MOState.h"
- 	 @interface MOSoldOutState : MOState
- 	 - (void)insertQuarter;
- 	 - (void)ejectQuarter;
- 	 - (void)turnCrank;
- 	 - (void)dispense;
- 	 @end
+	// MOSoldOutState.h
+	#import "MOState.h"
+	@interface MOSoldOutState : MOState
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
  
- 	 // MOSoldOutState.m
- 	 #import "MOSoldOutState.h"
- 	 @implementation MOSoldOutState
- 	 - (void)insertQuarter{}
- 	 - (void)ejectQuarter{}
- 	 - (void)turnCrank{}
- 	 - (void)dispense{}
- 	 @end
+	// MOSoldOutState.m
+	#import "MOSoldOutState.h"
+	@implementation MOSoldOutState
+	- (void)insertQuarter{}
+	- (void)ejectQuarter{}
+	- (void)turnCrank{}
+	- (void)dispense{}
+	@end
  
- 	 // MONoQuarterState.h
- 	 #import "MOState.h"
- 	 @interface MONoQuarterState : MOState
- 	 - (void)insertQuarter;
- 	 - (void)ejectQuarter;
- 	 - (void)turnCrank;
- 	 - (void)dispense;
- 	 @end
+	// MONoQuarterState.h
+	#import "MOState.h"
+	@interface MONoQuarterState : MOState
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
  
- 	 // MONoQuarterState.m
- 	 #import "MONoQuarterState.h"
- 	 @implementation MONoQuarterState
- 	 - (void)insertQuarter{}
- 	 - (void)ejectQuarter{}
- 	 - (void)turnCrank{}
- 	 - (void)dispense{}
- 	 @end
+	// MONoQuarterState.m
+	#import "MONoQuarterState.h"
+	@implementation MONoQuarterState
+	- (void)insertQuarter{}
+	- (void)ejectQuarter{}
+	- (void)turnCrank{}
+	- (void)dispense{}
+	@end
  
- 	 // MOHasQuarterState.h
- 	 #import "MOState.h"
- 	 @interface MOHasQuarterState : MOState
- 	 - (void)insertQuarter;
- 	 - (void)ejectQuarter;
- 	 - (void)turnCrank;
- 	 - (void)dispense;
- 	 @end
+	// MOHasQuarterState.h
+	#import "MOState.h"
+	@interface MOHasQuarterState : MOState
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
  
- 	 // MOHasQuarterState.m
- 	 #import "MOHasQuarterState.h"
- 	 @implementation MOHasQuarterState
- 	 - (void)insertQuarter{}
- 	 - (void)ejectQuarter{}
- 	 - (void)turnCrank{}
- 	 - (void)dispense{}
- 	 @end
+	// MOHasQuarterState.m
+	#import "MOHasQuarterState.h"
+	@implementation MOHasQuarterState
+	- (void)insertQuarter{}
+	- (void)ejectQuarter{}
+	- (void)turnCrank{}
+	- (void)dispense{}
+	@end
 
 각각의 상태들을 구현을 하고 이제 내부 구현을 시작합니다.
 
 첫번째로 MONoQuarterState 상태 클래스를 살펴봅시다.
 
-	 // MONoQuarterState.h
-	 #import "MOState.h"
-	 @interface MONoQuarterState : MOState
-	 - (id)init:(MOGumballMachine *)gumballMachine;
-	 - (void)insertQuarter;
-	 - (void)ejectQuarter;
-	 - (void)turnCrank;
-	 - (void)dispense;
-	 @end
-	 
-	 // MONoQuarterState.m
-	 #import "MONoQuarterState.h"
-	 
-	 @interface MONoQuarterState ()
-	 @property (nonatomic) MOGumballMachine *gumballMachine;
-	 @end
-	 
-	 @implementation MONoQuarterState
-	 - (id)init:(MOGumballMachine *)gumballMachine {
-	     self = [super init];
-	     if (self) {
-	         self.gumballMachine = gumballMachine;
-	     }
-	     return self;
-	 }
-	 - (void)insertQuarter {
-	     NSLog(@"동전을 넣으셨습니다.");
-	     [self.gumballMachine setState:[self.gumballMachine getHasQuarterState]];
-	 }
-	 - (void)ejectQuarter {
-	     NSLog(@"동전을 넣어주세요.");
-	 }
-	 - (void)turnCrank {
-	     NSLog(@"동전을 넣어주세요.");
-	 }
-	 - (void)dispense {
-	     NSLog(@"동전을 넣어주세요.");
-	 }
-	 
-	 @end
+	// MONoQuarterState.h
+	#import "MOState.h"
+	@interface MONoQuarterState : MOState
+	- (id)init:(MOGumballMachine *)gumballMachine;
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
+	
+	// MONoQuarterState.m
+	#import "MONoQuarterState.h"
+	
+	@interface MONoQuarterState ()
+	@property (nonatomic) MOGumballMachine *gumballMachine;
+	@end
+	
+	@implementation MONoQuarterState
+	- (id)init:(MOGumballMachine *)gumballMachine {
+		self = [super init];
+		if (self) {
+			self.gumballMachine = gumballMachine;
+		}
+		return self;
+	}
+	- (void)insertQuarter {
+		NSLog(@"동전을 넣으셨습니다.");
+		[self.gumballMachine setState:[self.gumballMachine getHasQuarterState]];
+	}
+	- (void)ejectQuarter {
+		NSLog(@"동전을 넣어주세요.");
+	}
+	- (void)turnCrank {
+		NSLog(@"동전을 넣어주세요.");
+	}
+	- (void)dispense {
+		NSLog(@"동전을 넣어주세요.");
+	}	
+	@end
 
 MONoQuarterState 상태 클래스는 동전이 없는 상태를 나타내는 클래스입니다. 따라서 insertQuarter 메소드에서만 '동전을 넣으셨습니다.'라는 메시지를 출력하며 HasQuarterState로 상태를 전환를 하며 다른 메소드에서는 '동전을 넣어주세요.' 라는 메시지를 출력합니다.
 
 그리고 상태와 관련된 인스턴스 변수를 정수형태에서 객체를 사용하는 방식으로 변경합니다.
 
-	 // 변경 전
-	 const static NSInteger SOLD_OUT = 0;
-	 const static NSInteger NO_QUARTER = 1;
-	 const static NSInteger HAS_QUARTER = 2;
-	 const static NSInteger SOLD = 3;
+	// 변경 전
+	const static NSInteger SOLD_OUT = 0;
+	const static NSInteger NO_QUARTER = 1;
+	const static NSInteger HAS_QUARTER = 2;
+	const static NSInteger SOLD = 3;
 
-	 NSInteger state = SOLD_OUT;
-	 NSInteger count = 0;
+	NSInteger state = SOLD_OUT;
+	NSInteger count = 0;
 
-	 // 변경 후
-	 MOState *soldOutState;
-	 MOState *noQuarterState;
-	 MOState *hasQuarterState;
-	 MOState *soldState;
+	// 변경 후
+	MOState *soldOutState;
+	MOState *noQuarterState;
+	MOState *hasQuarterState;
+	MOState *soldState;
 
-	 MOState *state = soldOutState;
-	 NSInteger count = 0;
+	MOState *state = soldOutState;
+	NSInteger count = 0;
 
-</br/>이제 MOGumballMachine 클래스에 상태패턴을 적용하여 구현합니다.
+
+이제 MOGumballMachine 클래스에 상태패턴을 적용하여 구현합니다.
  
- 	 // MOGumballMachine.h
-  	 #import <Foundation/Foundation.h>
+ 	// MOGumballMachine.h
+	#import <Foundation/Foundation.h>
+
+	@class MOState;
+	@interface MOGumballMachine : NSObject
+
+	@property MOState* state;
+	- (id)init:(NSInteger)count;
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)releaseBall;
+	- (void)refill:(NSInteger)count;
+	- (id)getState;
+	- (id)getSoldOutState;
+	- (id)getNoQuarterState;
+	- (id)getHasQuarterState ;
+	- (id)getSoldState;
+	@end
+
+	
+	// MOGumballMachine.m
+	#import "MOGumballMachine.h"
+ 	#import "MOState.h"
  
-  	 @class MOState;
-  	 @interface MOGumballMachine : NSObject
+	@interface MOGumballMachine()
+
+	@property (nonatomic) MOState *soldOutState;
+	@property (nonatomic) MOState *noQuarterState;
+	@property (nonatomic) MOState *hasQuarterState;
+	@property (nonatomic) MOState *soldState;
  
-  	 @property MOState* state;
-  	 - (id)init:(NSInteger)count;
- 	 - (void)insertQuarter;
- 	 - (void)ejectQuarter;
- 	 - (void)turnCrank;
- 	 - (void)releaseBall;
- 	 - (void)refill:(NSInteger)count;
- 	 - (id)getState;
- 	 - (id)getSoldOutState;
- 	 - (id)getNoQuarterState;
- 	 - (id)getHasQuarterState ;
- 	 - (id)getSoldState;
-  	 @end
+	@property (nonatomic) NSInteger count;
+
+	@end
+
+	@implementation MOGumballMachine
+
+	- (id)init {
+		self = [super init];
+		if (self) {
+			[self initialize];
+			[self setState:self.soldOutState];
+			self.count = 0;
+		}
+		return self;
+	}
+
+	- (id)init:(NSInteger)count {
+		self = [super init];
+		if (self) {
+			[self initialize];
+			self.count = count;
+			[self setState:self.soldOutState];
+			if (count > 0) { 
+				self.state = self.noQuarterState; 
+			}
+		}
+		return self;
+	}
  
-  
-  	 // MOGumballMachine.m
-  	 #import "MOGumballMachine.h"
- 	 #import "MOState.h"
+	- (void)initialize {
+		self.soldOutState = [[MOState alloc]init];
+		self.noQuarterState = [[MOState alloc]init];
+		self.hasQuarterState = [[MOState alloc]init];
+		self.soldState = [[MOState alloc]init];
+	}
  
-  	 @interface MOGumballMachine()
+	
+	//동전이 투입된 경우
+	- (void)insertQuarter {
+		[self.state insertQuarter];
+	}
+
+	//사용자가 동전을 반환 받으려고 하는 경우
+	- (void)ejectQuarter {
+		[self.state ejectQuarter];
+	}
  
-  	 @property (nonatomic) MOState *soldOutState;
- 	 @property (nonatomic) MOState *noQuarterState;
- 	 @property (nonatomic) MOState *hasQuarterState;
- 	 @property (nonatomic) MOState *soldState;
+	//손잡이를 돌리는 경우
+	- (void)turnCrank {
+		[self.state turnCrank];
+	}
  
-  	 @property (nonatomic) NSInteger count;
+	- (void)releaseBall {
+		NSLog(@"A gumball comes rolling out the slot...");
+		if(self.count != 0) {
+			self.count -= 1;
+		}
+	}
  
-  	 @end
+	- (void)refill:(NSInteger)count {
+ 		self.count = count;
+ 	}
  
-  	 @implementation MOGumballMachine
+	- (id)getState {
+ 		return self.state;
+ 	}
  
-  	 -(id)init {
- 	     self = [super init];
- 	     if (self) {
- 	         [self initialize];
- 	         [self setState:self.soldOutState];
- 	         self.count = 0;
- 	     }
- 	     return self;
- 	 }
+	- (id)getSoldOutState {
+ 		return self.soldOutState;
+ 	}
  
-  	 -(id)init:(NSInteger)count {
- 	     self = [super init];
- 	     if (self) {
- 	         [self initialize];
- 	         self.count = count;
- 	         [self setState:self.soldOutState];
- 	         if (count > 0) {
- 	             self.state = self.noQuarterState;
- 	         }
- 	     }
- 	     return self;
- 	 }
+	- (id)getNoQuarterState {
+ 		return self.noQuarterState;
+ 	}
  
-  	 - (void)initialize {
- 	     self.soldOutState = [[MOState alloc]init];
- 	     self.noQuarterState = [[MOState alloc]init];
- 	     self.hasQuarterState = [[MOState alloc]init];
- 	     self.soldState = [[MOState alloc]init];
- 	 }
+	- (id)getHasQuarterState {
+ 		return self.hasQuarterState;
+ 	}
  
-  	 /**
- 	  *  동전이 투입된 경우
- 	  */
- 	 - (void)insertQuarter {
- 	     [self.state insertQuarter];
- 	 }
- 	 /**
- 	  *  사용자가 동전을 반환 받으려고 하는 경우
- 	  */
- 	 - (void)ejectQuarter {
- 	     [self.state ejectQuarter];
- 	 }
+	- (id)getSoldState {
+ 		return self.soldState;
+ 	}
  
-  	 /**
- 	  *  손잡이를 돌리는 경우
- 	  */
- 	 - (void)turnCrank {
- 	     [self.state turnCrank];
- 	 }
+	@end
+
  
-  	 - (void)releaseBall {
- 	     NSLog(@"A gumball comes rolling out the slot...");
- 	     if(self.count != 0) {
- 	         self.count -= 1;
- 	     }
- 	 }
- 
-  	 - (void)refill:(NSInteger)count {
- 	     self.count = count;
- 	 }
- 
-  	 - (id)getState {
- 	     return self.state;
- 	 }
- 
-  	 - (id)getSoldOutState {
- 	     return self.soldOutState;
- 	 }
- 
-  	 - (id)getNoQuarterState {
- 	     return self.noQuarterState;
- 	 }
- 
-  	 - (id)getHasQuarterState {
- 	     return self.hasQuarterState;
- 	 }
- 
-  	 - (id)getSoldState {
- 	     return self.soldState;
- 	 }
- 
-  	 @end
- 
-<br/> HasQuarterState와 SoldState 상태 클래스를 구현합니다.
+HasQuarterState와 SoldState 상태 클래스를 구현합니다.
 
-	 
-	 // MOHasQuarterState.h
-	 #import "MOState.h"
+	
+	// MOHasQuarterState.h
+	#import "MOState.h"
 
-	 @interface MOHasQuarterState : MOState
-	 - (id)init:(MOGumballMachine *)gumballMachine;
-	 - (void)insertQuarter;
-	 - (void)ejectQuarter;
-	 - (void)turnCrank;
-	 - (void)dispense;
-	 @end
+	@interface MOHasQuarterState : MOState
+	- (id)init:(MOGumballMachine *)gumballMachine;
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
 
 
-	 // MOHasQuarterState.m
-	 #import "MOHasQuarterState.h"
+	// MOHasQuarterState.m
+	#import "MOHasQuarterState.h"
 
-	 @interface MOHasQuarterState ()
-	 @property (nonatomic) MOGumballMachine *gumballMachine;
-	 @end
+	@interface MOHasQuarterState ()
+	@property (nonatomic) MOGumballMachine *gumballMachine;
+	@end
 
-	 @implementation MOHasQuarterState
-	 - (id)init:(MOGumballMachine *)gumballMachine
-	 {
-	     self = [super init];
-	     if (self) {
-	         self.gumballMachine = gumballMachine;
-	     }
-	     return self;
-	 }
-	 - (void)insertQuarter {
-	     NSLog(@"동전은 한 개만 넣어주세요.");
-	 }
-	 - (void)ejectQuarter {
-	     NSLog(@"동전이 반환됩니다.");
-	     [self.gumballMachine setState:[self.gumballMachine getNoQuarterState]];
-	 }
-	 - (void)turnCrank {
-	     NSLog(@"손잡이를 돌리셨습니다.");
-	     [self.gumballMachine setState:[self.gumballMachine getSoldState]];
-	 }
-	 - (void)dispense {
-	     NSLog(@"알맹이가 나갈 수 없습니다.");
-	 }
-	 @end
-
-
-	 // MOSoldState.h
-	 #import "MOState.h"
-
-	 @interface MOSoldState : MOState
-	 - (void)insertQuarter;
-	 - (void)ejectQuarter;
-	 - (void)turnCrank;
-	 - (void)dispense;
-	 @end
+	@implementation MOHasQuarterState
+	- (id)init:(MOGumballMachine *)gumballMachine
+	{
+		self = [super init];
+		if (self) {
+			self.gumballMachine = gumballMachine;
+		}
+		return self;
+	}
+	- (void)insertQuarter {
+		NSLog(@"동전은 한 개만 넣어주세요.");
+	}
+	- (void)ejectQuarter {
+		NSLog(@"동전이 반환됩니다.");
+		[self.gumballMachine setState:[self.gumballMachine getNoQuarterState]];
+	}
+	- (void)turnCrank {
+		NSLog(@"손잡이를 돌리셨습니다.");
+		[self.gumballMachine setState:[self.gumballMachine getSoldState]];
+	}
+	- (void)dispense {
+		NSLog(@"알맹이가 나갈 수 없습니다.");
+	}
+	@end
 
 
-	 // MOSoldState.m
-	 #import "MOSoldState.h"
+	// MOSoldState.h
+	#import "MOState.h"
 
-	 @interface MOSoldState ()
-	 @property (nonatomic) MOGumballMachine *gumballMachine;
-	 @end
-
-	 @implementation MOSoldState
-
-	 - (id)init:(MOGumballMachine *)gumballMachine
-	 {
-	     self = [super init];
-	     if (self) {
-	         self.gumballMachine = gumballMachine;
-	     }
-	     return self;
-	 }
-
-	 - (void)insertQuarter {
-	     NSLog(@"잠깐만 기다려 주세요. 알맹이가 나가고 있습니다.");
-	 }
-	 - (void)ejectQuarter {
-	     NSLog(@"이미 알맹이를 뽑으셨습니다.");
-	 }
-	 - (void)turnCrank {
-	     NSLog(@"손잡이는 한 번만 돌려주세요.");
-	 }
-	 - (void)dispense {
-	     [self.gumballMachine releaseBall];
-	     if ([self.gumballMachine getCount] > 0) {
-	         [self.gumballMachine setState:[self.gumballMachine getNoQuarterState]];
-	     } else {
-	         NSLog(@"Oops, out of gumballs");
-	         [self.gumballMachine setState:[self.gumballMachine getSoldOutState]];
-	     }
-	 }
-	 @end
-
-<br/> 마지막으로 열번에 한 번 알맹이를 주는 상태를 구현해 봅시다.
-우선 MOGumballMachine에 winnerState를 추가합니다.
-
-	 // MOGumballMachine.m
-	 @property (nonatomic) MOState *winnerState;
-
-	 // MOWinnerState.h
-	 #import "MOState.h"
-
-	 @interface MOWinnerState : MOState
-	 - (id)init:(MOGumballMachine *)gumballMachine;
-	 - (void)insertQuarter;
-	 - (void)ejectQuarter;
-	 - (void)turnCrank;
-	 - (void)dispense;
-	 @end
+	@interface MOSoldState : MOState
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
 
 
-	 // MOWinnerState.m
-	 #import "MOWinnerState.h"
+	// MOSoldState.m
+	#import "MOSoldState.h"
 
-	 @interface MOWinnerState ()
-	 @property (nonatomic) MOGumballMachine *gumballMachine;
-	 @end
+	@interface MOSoldState ()
+	@property (nonatomic) MOGumballMachine *gumballMachine;
+	@end
 
-	 @implementation MOWinnerState
-	 - (id)init:(MOGumballMachine *)gumballMachine {
-	     self = [super init];
-	     if (self) {
-	         self.gumballMachine = gumballMachine;
-	     }
-	     return self;
-	 }
-	 - (void)insertQuarter {
-	     NSLog(@"잠깐만 기다려 주세요. 알맹이가 나가고 있습니다.");
-	 }
-	 - (void)ejectQuarter {
-	     NSLog(@"이미 알맹이를 뽑으셨습니다.");
-	 }
-	 - (void)turnCrank {
-	     NSLog(@"손잡이는 한 번만 돌려주세요.");
-	 }
-	 - (void)dispense {
-	     NSLog(@"축하드립니다! 알맹이를 하나 더 받을 수 있습니다.");
-	     [self.gumballMachine releaseBall];
-	     if ([self.gumballMachine getCount] == 0) {
-	         [self.gumballMachine setState:[self.gumballMachine getSoldOutState]];
-	     } else {
-	         [self.gumballMachine releaseBall];
-	         if ([self.gumballMachine getCount] > 0) {
-	             [self.gumballMachine setState:[self.gumballMachine getNoQuarterState]];
-	         } else {
-	             NSLog(@"더 이상 알맹이가 없습니다.");
-	             [self.gumballMachine setState:[self.gumballMachine getSoldOutState]];
-	         }
-	     }
-	 }
-	 @end
+	@implementation MOSoldState
 
-	 // MOHasQuarterState.m
-	 - (void)turnCrank {
-	     NSLog(@"손잡이를 돌리셨습니다.");
-	     int random = rand() % 10;
-	     
-	     if ((random == 0) && ([self.gumballMachine getCount] > 1) ){
-	         [self.gumballMachine setState:[self.gumballMachine getWinnerState]];
-	     } else {
-	         [self.gumballMachine setState:[self.gumballMachine getSoldState]];
-	     }
-	 }
+	- (id)init:(MOGumballMachine *)gumballMachine
+	{
+		self = [super init];
+		if (self) {
+			self.gumballMachine = gumballMachine;
+		}
+		return self;
+	}
+
+	- (void)insertQuarter {
+		NSLog(@"잠깐만 기다려 주세요. 알맹이가 나가고 있습니다.");
+	}
+	- (void)ejectQuarter {
+		NSLog(@"이미 알맹이를 뽑으셨습니다.");
+	}
+	- (void)turnCrank {
+		NSLog(@"손잡이는 한 번만 돌려주세요.");
+	}
+	- (void)dispense {
+		[self.gumballMachine releaseBall];
+		if ([self.gumballMachine getCount] > 0) {
+			[self.gumballMachine setState:[self.gumballMachine getNoQuarterState]];
+		} else {
+			NSLog(@"Oops, out of gumballs");
+			[self.gumballMachine setState:[self.gumballMachine getSoldOutState]];
+		}
+	}
+	@end
+
+마지막으로 열번에 한 번 알맹이를 주는 상태를 구현해 봅시다.
+
+MOGumballMachine에 winnerState를 추가합니다.
+
+	// MOGumballMachine.m
+	@property (nonatomic) MOState *winnerState;
+
+	// MOWinnerState.h
+	#import "MOState.h"
+
+	@interface MOWinnerState : MOState
+	- (id)init:(MOGumballMachine *)gumballMachine;
+	- (void)insertQuarter;
+	- (void)ejectQuarter;
+	- (void)turnCrank;
+	- (void)dispense;
+	@end
+
+
+	// MOWinnerState.m
+	#import "MOWinnerState.h"
+
+	@interface MOWinnerState ()
+	@property (nonatomic) MOGumballMachine *gumballMachine;
+	@end
+
+	@implementation MOWinnerState
+	- (id)init:(MOGumballMachine *)gumballMachine {
+		self = [super init];
+		if (self) {
+			self.gumballMachine = gumballMachine;
+		}
+		return self;
+	}
+	- (void)insertQuarter {
+		NSLog(@"잠깐만 기다려 주세요. 알맹이가 나가고 있습니다.");
+	}
+	- (void)ejectQuarter {
+		NSLog(@"이미 알맹이를 뽑으셨습니다.");
+	}
+	- (void)turnCrank {
+		NSLog(@"손잡이는 한 번만 돌려주세요.");
+	}
+	- (void)dispense {
+		NSLog(@"축하드립니다! 알맹이를 하나 더 받을 수 있습니다.");
+		[self.gumballMachine releaseBall];
+		if ([self.gumballMachine getCount] == 0) {
+			[self.gumballMachine setState:[self.gumballMachine getSoldOutState]];
+		} else {
+			[self.gumballMachine releaseBall];
+			if ([self.gumballMachine getCount] > 0) {
+				[self.gumballMachine setState:[self.gumballMachine getNoQuarterState]];
+			} else {
+				NSLog(@"더 이상 알맹이가 없습니다.");
+				[self.gumballMachine setState:[self.gumballMachine getSoldOutState]];
+			}
+		}
+	}
+	@end
+
+	// MOHasQuarterState.m
+	- (void)turnCrank {
+		NSLog(@"손잡이를 돌리셨습니다.");
+		int random = rand() % 10;
+	
+		if ((random == 0) && ([self.gumballMachine getCount] > 1) ){
+			[self.gumballMachine setState:[self.gumballMachine getWinnerState]];
+		} else {
+			[self.gumballMachine setState:[self.gumballMachine getSoldState]];
+		}
+	}
 
 새로운 상태 클래스 MOWinnerState를 추가하였고 당첨여부를 결정하고 상태를 전환하는 코드를 추가를 하였습니다.
 

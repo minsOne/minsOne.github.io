@@ -21,95 +21,95 @@ UFOEnemyShip과 RocketEnemyShip은 EnemyShip에서 상속을 받아 객체를 �
 RocketEnemyShip과 UFOEnemyShip을 사용하기 위한 EnemyShip 클래스를 생성합니다.
 
 	// MOEnemyShip.h
-	 #import <Foundation/Foundation.h>
+	#import <Foundation/Foundation.h>
+
+	@interface MOEnemyShip : NSObject
  
- 	 @interface MOEnemyShip : NSObject
+	- (void)followHeroShip;
+	- (void)displayEnemyShip;
+	- (void)enemyShipShoots;
+	- (void)setDamage:(double)dmg;
+	- (double)getDamage;
+	- (NSString *)getName;
+	- (void)setName:(NSString *)newName;
  
- 	 - (void)followHeroShip;
- 	 - (void)displayEnemyShip;
- 	 - (void)enemyShipShoots;
- 	 - (void)setDamage:(double)dmg;
- 	 - (double)getDamage;
- 	 - (NSString *)getName;
- 	 - (void)setName:(NSString *)newName;
- 
-	 @end
+	@end
 
 	// MOEnemyShip.m
-	 #import "MOEnemyShip.h"
+	#import "MOEnemyShip.h"
 
-	 @interface MOEnemyShip () {
-	     NSString *name;
-	     double amtDamage;
-	 }
-	 @end
+	@interface MOEnemyShip () {
+		NSString *name;
+		double amtDamage;
+	}
+	@end
 
-	 @implementation MOEnemyShip
+	@implementation MOEnemyShip
 
-	 - (void)setName:(NSString *)newName {
-	     name = newName;
-	 }
-	 - (NSString *)getName {
-	     return name;
-	 }
-	 - (void)setDamage:(double)dmg {
-	     amtDamage = dmg;
-	 }
-	 - (double)getDamage {
-	     return amtDamage;
-	 }
-	 - (void)followHeroShip {
-	     NSLog(@"%@ is following the hero", name);
-	 }
-	 - (void)enemyShipShoots {
-	     NSLog(@"%@ attacks and does %f", name, amtDamage);
-	 }
-	 - (void)displayEnemyShip {
-	     NSLog(@"%@ is on the screen", name);
-	 }
-	 @end
+	- (void)setName:(NSString *)newName {
+			name = newName;
+	}
+	- (NSString *)getName {
+			return name;
+	}
+	- (void)setDamage:(double)dmg {
+			amtDamage = dmg;
+	}
+	- (double)getDamage {
+			return amtDamage;
+	}
+	- (void)followHeroShip {
+			NSLog(@"%@ is following the hero", name);
+	}
+	- (void)enemyShipShoots {
+			NSLog(@"%@ attacks and does %f", name, amtDamage);
+	}
+	- (void)displayEnemyShip {
+			NSLog(@"%@ is on the screen", name);
+	}
+	@end
 
 <br/>상속해줄 EnemyShip을 만들었으니 상속받을 UFOEnemyShip과 RocketEnemyShip을 생성합니다.
 
 	// MOEnemyShip.h
-	 #import "MOEnemyShip.h"
-	 @interface MOUFOEnemyShip : MOEnemyShip
-	 @end
+	#import "MOEnemyShip.h"
+	@interface MOUFOEnemyShip : MOEnemyShip
+	@end
 
 	// MOEnemyShip.m
-	 #import "MOUFOEnemyShip.h"
+	#import "MOUFOEnemyShip.h"
 
-	 @implementation MOUFOEnemyShip
+	@implementation MOUFOEnemyShip
 
-	 -(id)init {
-	     self = [super init];
-	     if (self) {
-	         [self setName:@"UFO Enemy Ship"];
-	         [self setDamage:20.0f];
-	     }
-	     return self;
-	 }
-	 @end
+	-(id)init {
+			self = [super init];
+			if (self) {
+					[self setName:@"UFO Enemy Ship"];
+					[self setDamage:20.0f];
+			}
+			return self;
+	}
+	@end
 
 	// MOEnemyShip.h
-	 #import "MOEnemyShip.h"
-	 @interface MORocketEnemyShip : MOEnemyShip
-	 @end
+	#import "MOEnemyShip.h"
+	@interface MORocketEnemyShip : MOEnemyShip
+	@end
 
 	// MOEnemyShip.m
-	 #import "MORocketEnemyShip.h"
+	#import "MORocketEnemyShip.h"
 
-	 @implementation MORocketEnemyShip
+	@implementation MORocketEnemyShip
 
-	 - (id)init {
-	     self = [super init];
-	     if (self) {
-	         [self setName:@"Rocket Enemy Ship"];
-	         [self setDamage:10.0f];
-	     }
-	     return self;
-	 }
-	 @end
+	- (id)init {
+			self = [super init];
+			if (self) {
+					[self setName:@"Rocket Enemy Ship"];
+					[self setDamage:10.0f];
+			}
+			return self;
+	}
+	@end
 
 <br/>이제 실행할 위의 객체를 실행하여 호출할 코드를 작성합니다.
 
@@ -130,30 +130,30 @@ RocketEnemyShip과 UFOEnemyShip을 사용하기 위한 EnemyShip 클래스를 �
 팩토리 클래스를 생성하여 호출하는 부분의 조건문들을 가져와 조건을 판단하여 객체를 반환합니다.
 	
 	// MOEnemyShipFactory.h
-	 #import <Foundation/Foundation.h>
-	 #import "MOEnemyShip.h"
+	#import <Foundation/Foundation.h>
+	#import "MOEnemyShip.h"
  
- 	 @interface MOEnemyShipFactory : NSObject
- 	 + (MOEnemyShip *)makeEnemyShip:(NSString *)newShipType;
-	 @end
+	@interface MOEnemyShipFactory : NSObject
+	+ (MOEnemyShip *)makeEnemyShip:(NSString *)newShipType;
+	@end
 
 	// MOEnemyShipFactory.m
-	 #import "MOEnemyShipFactory.h"
-	 #import "MORocketEnemyShip.h"
-	 #import "MOUFOEnemyShip.h"
+	#import "MOEnemyShipFactory.h"
+	#import "MORocketEnemyShip.h"
+	#import "MOUFOEnemyShip.h"
 
-	 @implementation MOEnemyShipFactory
+	@implementation MOEnemyShipFactory
 
-	 + (MOEnemyShip *)makeEnemyShip:(NSString *)newShipType {
-	     if ([newShipType isEqualToString:@"UFO"]) {
-	         return [[MOUFOEnemyShip alloc]init];
-	     } else if ([newShipType isEqualToString:@"Rocket"]) {
-	         return [[MORocketEnemyShip alloc]init];
-	     } else {
-	         return nil;
-	     }
-	 }
-	 @end
+	+ (MOEnemyShip *)makeEnemyShip:(NSString *)newShipType {
+			if ([newShipType isEqualToString:@"UFO"]) {
+					return [[MOUFOEnemyShip alloc]init];
+			} else if ([newShipType isEqualToString:@"Rocket"]) {
+					return [[MORocketEnemyShip alloc]init];
+			} else {
+					return nil;
+			}
+	}
+	@end
 
 <br/>이제 팩토리 클래스에서 UFOEnemyShip 또는 RocketEnemyShip 객체를 가져올 수 있습니다.
 

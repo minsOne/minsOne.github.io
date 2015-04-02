@@ -15,7 +15,7 @@ QuickSort는 분할 정복(Divide and Conquer) 방법을 통해 리스트를 정
 	  return quickSort(array.filter{$0 <= pivot}) + [pivot] + quickSort(array.filter{$0 > pivot})
 	}
 
-또한, 제네릭을 이용하여 Comparable 타입을 사용하는 모든 리스트를 정렬할 수 있도록 할 수 있습니다.
+또한, 제네릭을 이용하여 Comparable 타입을 사용하는 모든 리스트를 정렬할 수 있습니다.
 
 	func quickSort<T: Comparable>(var array: [T]) -> [T] {
 	  if array.isEmpty { return [] }

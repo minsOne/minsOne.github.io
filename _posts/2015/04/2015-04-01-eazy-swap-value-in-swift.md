@@ -13,6 +13,13 @@ tags: [ios, swift, swap]
 	str1 = str2
 	str2 = tmp
 
-Swift에서는 다음과 같이 한줄로 처리할 수 있습니다.
+
+<del>Swift에서는 다음과 같이 한줄로 처리할 수 있습니다.</del>
 
 	(str1, str2) = (str2, str1)
+
+Swift 기본 라이브러리 함수 swap을 지원합니다.
+
+	func swap<T>(inout a: T, inout b: T)
+
+	swap(&str1, &str2)

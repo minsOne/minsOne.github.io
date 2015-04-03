@@ -108,6 +108,8 @@ Swift는 타입 추정시 Float보다 Double을 선택함.
 * 8진수 - 접두사 0o
 * 16진수 - 접두사 0x
 
+<br/>
+
 	let decimalInteger = 17
 	let binaryInteger = 0b10001       // 17 in binary notation
 	let octalInteger = 0o21           // 17 in octal notation

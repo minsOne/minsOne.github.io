@@ -230,7 +230,7 @@ userDefinedColorName 값이 nil이 아니므로 colorNameToUse는 userDefinedCol
 
 * NOT(!a)
 * AND(a && b)
-* OR(a || b)
+* OR(a \|\| b)
 
 ### 논리 NOT 연산자(Logical NOT Operator)
 
@@ -260,7 +260,7 @@ userDefinedColorName 값이 nil이 아니므로 colorNameToUse는 userDefinedCol
 
 ### 논리 OR 연산자(Logical OR Operator)
 
-논리 OR 연산자(a || b)는 중위 연산자로 두 개의 인접한 파이프 문자로 만들어짐. 두 값 중 하나만 true가 되면 전체 표현식에서 true.
+논리 OR 연산자(a \|\| b)는 중위 연산자로 두 개의 인접한 파이프 문자로 만들어짐. 두 값 중 하나만 true가 되면 전체 표현식에서 true.
 
 첫번째 값이 true라면 두 번째 값은 평가하지 않고 true.
 

@@ -15,30 +15,28 @@ dispatch group은 dispatch_group_create 메소드로 생성합니다.
 
 	dispatch_group_t loopForGroup = dispatch_group_create();
 
-<br/>
 dispatch group의 작업이 끝난 후 비즈니스 로직을 수행하도록 하는 현재 쓰레드가 중단되었다가 실행하는 dispatch_group_wait와 특정 큐에서 실행될 블록을 작성하여 현재 쓰레드가 중단되지 않고 하는 dispatch_group_notify가 있습니다.
 
 우선 dispatch_group_wait를 살펴봅시다.
 
-	 - (void)loop1000 {
+	- (void)loop1000 {
 		for (int i = 0; i < 1000; i++){}
 		NSLog(@"Loop 1000 Function ");
-	 }
+	}
 
-	 - (void)makeDispatchGroupWait {
-	 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
- 	    dispatch_group_t loopForGroup = dispatch_group_create();
+	- (void)makeDispatchGroupWait {
+		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+		dispatch_group_t loopForGroup = dispatch_group_create();
 
- 	    for (int i = 0; i < 50; i++) {
- 	        dispatch_group_async(loopForGroup, queue, ^{
- 	            [self loop1000];
- 	        });
- 	    }
+		for (int i = 0; i < 50; i++) {
+				dispatch_group_async(loopForGroup, queue, ^{
+						[self loop1000];
+				});
+		}
 
- 	    dispatch_group_wait(loopForGroup, DISPATCH_TIME_FOREVER);
-
- 	    NSLog(@"Wait is End");
-	 }
+		dispatch_group_wait(loopForGroup, DISPATCH_TIME_FOREVER);
+		NSLog(@"Wait is End");
+	}
 
 makeDispatchGroupWait 메소드에서 dispatch_get_global_queue를 통해 dispatch_queue를 생성합니다. 그리고 dispatch_group_create 메소드를 통해 dispatch_group를 생성합니다.
 
@@ -46,49 +44,47 @@ dispatch_group_async에 dispatch_queue와, dispatch_group 그리고 실행할 �
 
 dispatch_group_wait는 기다리다가 dispatch_group의 작업이 끝나면 'Wait is End'를 출력하고 끝납니다. GCD를 사용해서 좀 더 빠른 수행이 가능하지만 현재 쓰레드가 중지됩니다.
 
-<br/>그렇다면 dispatch_group_notify를 살펴봅시다.
+그렇다면 dispatch_group_notify를 살펴봅시다.
 
-	 - (void)loop1000Low {
-	    for (int i = 0; i < 1000; i++) {}
-	    NSLog(@"Loop 1000 Low Function ");
-	 }
+	- (void)loop1000Low {
+			for (int i = 0; i < 1000; i++) {}
+			NSLog(@"Loop 1000 Low Function ");
+	}
 
-	 - (void)loop10000High {
-	    for (int i = 0; i < 10000; i++) {}
-	    NSLog(@"Loop 10000 High Function ");
-	 }
+	- (void)loop10000High {
+			for (int i = 0; i < 10000; i++) {}
+			NSLog(@"Loop 10000 High Function ");
+	}
 
-	 - (void) makeDispatchGroupNotify {
+	- (void) makeDispatchGroupNotify {
 
-	 	NSLog(@"dispatch Run!!");
+		NSLog(@"dispatch Run!!");
 
-	 	dispatch_queue_t lowPriorityQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
-	 	dispatch_queue_t highPriorityQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-	 	dispatch_group_t dispatchGroup = dispatch_group_create();
+		dispatch_queue_t lowPriorityQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+		dispatch_queue_t highPriorityQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+		dispatch_group_t dispatchGroup = dispatch_group_create();
 
-	 	for (int i = 0; i < 100; i++) {
- 	        dispatch_group_async(dispatchGroup, lowPriorityQueue, ^{
- 	            [self loop1000Low:i];
- 	        });
- 	    }
+		for (int i = 0; i < 100; i++) {
+			dispatch_group_async(dispatchGroup, lowPriorityQueue, ^{
+					[self loop1000Low:i];
+			});
+		}
 
- 	    for (int i = 0; i < 100; i++) {
- 	        dispatch_group_async(dispatchGroup, highPriorityQueue, ^{
- 	            [self loop10000High:i];
- 	        });
- 	    }
+		for (int i = 0; i < 100; i++) {
+			dispatch_group_async(dispatchGroup, highPriorityQueue, ^{
+					[self loop10000High:i];
+			});
+		}
 
- 	    dispatch_queue_t notifyQueue = dispatch_get_main_queue();
-        dispatch_group_notify(dispatchGroup, notifyQueue, ^{
-            NSLog(@"Really GCD End?!");
-        });
-
-        NSLog(@"End????????");
-	 }
+		dispatch_queue_t notifyQueue = dispatch_get_main_queue();
+			dispatch_group_notify(dispatchGroup, notifyQueue, ^{
+					NSLog(@"Really GCD End?!");
+			});
+			NSLog(@"End????????");
+	}
 
 우선순위가 LOW, HIGH인 dispatch_queue와 dispatch_group을 생성합니다. 100번씩 반복문을 돌리고 dispatch_group_async에 loop메소드를 넣습니다. notifyQueue를 dispatch_get_main_queue로 생성하여 notifyQueue에서 notify를 받도록 dispatch_group_notify 메소드를 사용합니다. notifyQueue에서 mainQueue를 꼭 사용할 필요 없이 큐를 별도로 생성하여 알림을 받을 수도 있습니다.
 
-<br/>
 앞에서 설명한 dispatch_group_wait는 현재 쓰래드가 블럭이 되지만 dispatch_group_notify는 현재 쓰래드가 블럭이 되지 않기 때문에 그 다음에 있는 NSLog를 실행하고 dispatch_group의 작업이 끝나면 'NSLog(@"Really GCD End?!")'가 실행이 됩니다.
 
 다음은 위의 코드를 실행한 결과입니다.
@@ -115,13 +111,13 @@ dispatch_group_wait는 기다리다가 dispatch_group의 작업이 끝나면 'Wa
 
 	dispatch_queue_t queue = dispatch_queue_create("kr.minsOne.queue", NULL);
 	for (int i = 0; i < 100; i++) {
-	    dispatch_async(queue, ^{
-	        [self loop10000High:i];
-	    });
+			dispatch_async(queue, ^{
+					[self loop10000High:i];
+			});
 	}
 	dispatch_async(queue, ^{
-	        NSLog(@"Replace Notification!!!");
-	    });
+					NSLog(@"Replace Notification!!!");
+			});
 
 dispatch_queue_create 메소드로 큐를 생성할 때 `dispatch_queue_attr`를 `NULL`로 해주어야 합니다.
 

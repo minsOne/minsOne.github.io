@@ -38,75 +38,62 @@ tags: [algorithm, binary, tree, preorder, inorder, postorder, levelorder]
 
 ### 의사코드
 
-* 전위 순회
+전위 순회
 
-```
-preorder(node)
-	print node->value
-	if node->left != null then
-		preorder(node->left)
-	elseif node->right != null then
-		preorder(node->right)
-	end
-end
-```
-
-* 중위 순회
-
-```
-inorder(node)
-	if node->left != null then
-		inorder(node->left)
+	preorder(node)
+		print node->value
+		if node->left != null then
+			preorder(node->left)
+		elseif node->right != null then
+			preorder(node->right)
+		end
 	end
 
-	print node->value
+중위 순회
 
-	if node->right != null then
-		inorder(node->right)
-	end
-end
-```
+	inorder(node)
+		if node->left != null then
+			inorder(node->left)
+		end
 
-* 후위 순회
-
-```
-postorder(node)
-	if node->left != null then
-		postorder(node->left)
-	end
-	if node->right != null then
-		postorder(node->right)
-	end
-	print node->value
-end
-```
-
-* 레벨 순서 순회
-
-```
-levelorder(newNode)
-	q = empty queue
-	q.append(newNode)
-	while(not q.empty)
-		node = q.dequeue
 		print node->value
 
-		if node->left != null then
-			q.append(node->left)
-		end
 		if node->right != null then
-			q.append(node->right)
+			inorder(node->right)
 		end
 	end
-end
-```
-<br/>
+
+후위 순회
+
+	postorder(node)
+		if node->left != null then
+			postorder(node->left)
+		end
+		if node->right != null then
+			postorder(node->right)
+		end
+		print node->value
+	end
+
+
+레벨 순서 순회
+
+	levelorder(newNode)
+		q = empty queue
+		q.append(newNode)
+		while(not q.empty)
+			node = q.dequeue
+			print node->value
+
+			if node->left != null then
+				q.append(node->left)
+			end
+			if node->right != null then
+				q.append(node->right)
+			end
+		end
+	end
+
 ## 참고
 
 - [wikipedia 이진트리](http://ko.wikipedia.org/wiki/이진트리)
-
-
-
-
-
-

@@ -47,25 +47,25 @@ RocketEnemyShip과 UFOEnemyShip을 사용하기 위한 EnemyShip 클래스를 �
 	@implementation MOEnemyShip
 
 	- (void)setName:(NSString *)newName {
-			name = newName;
+		name = newName;
 	}
 	- (NSString *)getName {
 			return name;
 	}
 	- (void)setDamage:(double)dmg {
-			amtDamage = dmg;
+		amtDamage = dmg;
 	}
 	- (double)getDamage {
-			return amtDamage;
+		return amtDamage;
 	}
 	- (void)followHeroShip {
-			NSLog(@"%@ is following the hero", name);
+		NSLog(@"%@ is following the hero", name);
 	}
 	- (void)enemyShipShoots {
-			NSLog(@"%@ attacks and does %f", name, amtDamage);
+		NSLog(@"%@ attacks and does %f", name, amtDamage);
 	}
 	- (void)displayEnemyShip {
-			NSLog(@"%@ is on the screen", name);
+		NSLog(@"%@ is on the screen", name);
 	}
 	@end
 
@@ -82,12 +82,12 @@ RocketEnemyShip과 UFOEnemyShip을 사용하기 위한 EnemyShip 클래스를 �
 	@implementation MOUFOEnemyShip
 
 	-(id)init {
-			self = [super init];
-			if (self) {
-					[self setName:@"UFO Enemy Ship"];
-					[self setDamage:20.0f];
-			}
-			return self;
+		self = [super init];
+		if (self) {
+			[self setName:@"UFO Enemy Ship"];
+			[self setDamage:20.0f];
+		}
+		return self;
 	}
 	@end
 
@@ -102,12 +102,12 @@ RocketEnemyShip과 UFOEnemyShip을 사용하기 위한 EnemyShip 클래스를 �
 	@implementation MORocketEnemyShip
 
 	- (id)init {
-			self = [super init];
-			if (self) {
-					[self setName:@"Rocket Enemy Ship"];
-					[self setDamage:10.0f];
-			}
-			return self;
+		self = [super init];
+		if (self) {
+			[self setName:@"Rocket Enemy Ship"];
+			[self setDamage:10.0f];
+		}
+		return self;
 	}
 	@end
 
@@ -145,13 +145,13 @@ RocketEnemyShip과 UFOEnemyShip을 사용하기 위한 EnemyShip 클래스를 �
 	@implementation MOEnemyShipFactory
 
 	+ (MOEnemyShip *)makeEnemyShip:(NSString *)newShipType {
-			if ([newShipType isEqualToString:@"UFO"]) {
-					return [[MOUFOEnemyShip alloc]init];
-			} else if ([newShipType isEqualToString:@"Rocket"]) {
-					return [[MORocketEnemyShip alloc]init];
-			} else {
-					return nil;
-			}
+		if ([newShipType isEqualToString:@"UFO"]) {
+			return [[MOUFOEnemyShip alloc]init];
+		} else if ([newShipType isEqualToString:@"Rocket"]) {
+			return [[MORocketEnemyShip alloc]init];
+		} else {
+			return nil;
+		}
 	}
 	@end
 

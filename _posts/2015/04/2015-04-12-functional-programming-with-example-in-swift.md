@@ -167,7 +167,7 @@ Region 함수를 인자로 받고 좌표를 region 함수에 넘겨주게 되면
 	var checkFn = shift(Position(x: 2, y: 2), circle(10))
 	checkFn(Position(x: 5, y: 5))
 
-<br/>이제 특정 지점이 포함이 안되는지 확인하는 함수를 작성합니다.; 여집합으로 region^c가 됩니다.
+<br/>이제 특정 지점이 포함이 안되는지 확인하는 함수를 작성합니다.; 여집합으로 A<sup>C</sup>가 됩니다.
 
 	func invert(region: Region) -> Region {
 		return { point in
@@ -191,7 +191,7 @@ Region 함수를 인자로 받고 좌표를 region 함수에 넘겨주게 되면
 		}
 	}
 
-<br/>특정 지점이 한 지역에 포함되고 한 지역에는 포함되지 않는지 확인하는 함수를 작성합니다; 차집합으로 A-B -> A ∩ B^c가 됩니다.
+<br/>특정 지점이 한 지역에 포함되고 한 지역에는 포함되지 않는지 확인하는 함수를 작성합니다; 차집합으로 A-B -> A ∩ B<sup>C</sup>가 됩니다.
 
 	func difference(region: Region, minusRegion: Region) -> Region {
 		return intersection(region, invert(minusRegion))

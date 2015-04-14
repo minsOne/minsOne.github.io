@@ -3,9 +3,11 @@ layout: post
 title: "Quick Sort in swift"
 description: ""
 category: "programming"
-tags: [swift, quicksort, algorithm, lamda, function]
+tags: [swift, quicksort, algorithm, lamda, function, sort]
 ---
 {% include JB/setup %}
+
+### Quick Sort
 
 QuickSort는 분할 정복(Divide and Conquer) 방법을 통해 리스트를 정렬합니다. 따라서 분할하는 부분에 대해서 고차함수인 filter를 이용하여 처리할 수 있습니다.
 

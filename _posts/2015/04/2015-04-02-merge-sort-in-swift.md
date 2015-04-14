@@ -3,11 +3,11 @@ layout: post
 title: "MergeSort in swift"
 description: ""
 category: "programming"
-tags: [swift, mergesort, algorithm]
+tags: [swift, mergesort, algorithm, sort]
 ---
 {% include JB/setup %}
 
-### MergeSort
+### Merge Sort
 
 MergeSort의 로직은 다음과 같습니다.
 

@@ -3,11 +3,11 @@ layout: post
 title: "BubbleSort in swift"
 description: ""
 category: "programming"
-tags: [swift, bubblesort, algorithm]
+tags: [swift, bubblesort, algorithm, sort]
 ---
 {% include JB/setup %}
 
-## Bubble Sort
+### Bubble Sort
 
 두 인접한 원소를 검사하여 정렬하는 방법으로 시간 복잡도는 O(n^2)입니다.
 
@@ -24,6 +24,6 @@ tags: [swift, bubblesort, algorithm]
 
 <br/>
 
-## 참고 자료
+### 참고 자료
 
 * [거품정렬](http://ko.wikipedia.org/wiki/거품_정렬)

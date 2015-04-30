@@ -48,7 +48,7 @@ for 문의 label은 변수(var)가 아니라 상수(let)입니다. 위에서 사
 
 map, filter 등은 함수형 언어에서 이미 기본 개념으로 들어가 있기 때문에, scala, haskell, f# 언어로 방향을 잡고 같은 생각을 하고 있는 사람들이 있는지 검색해 보았습니다.
 
-`site:stackoverflow.com condition in map function`으로 검색을 하니 이미 많은 질문들이 올라와 있었고 다들 Map, Condition을 같이 사용하고 있었습니다.
+`site:stackoverflow.com condition in map function`으로 검색을 하니 이미 많은 질문들이 올라와 있었고 특정 방법에 연연하지 않았습니다. 방법은 여러가지니까요.
 
 결론은 다음과 같습니다.
 
@@ -60,7 +60,7 @@ map, filter 등은 함수형 언어에서 이미 기본 개념으로 들어가 �
 
 <br/>
 
-ps1. 생각한 모든 것들은 누군가 벌써 생각을 하고 기록에 남습니다. 이런 뻘짓도 말이죠.<br/>
+ps1. 생각한 모든 것들은 누군가 벌써 생각을 하고 기록에 남습니다.<br/>
 ps2. 결국 처음 코드 그대로 썼습니다.<br/>
 <del>ps3. 뻘짓은 적당히 하는 것이 건강에 좋습니다.</del><br/>
-<del>ps4. 머리를 너무 굴리면 산으로 갑니다.</del><br/>
+<del>ps4. 새벽에는 그냥 자야 합니다.</del><br/>

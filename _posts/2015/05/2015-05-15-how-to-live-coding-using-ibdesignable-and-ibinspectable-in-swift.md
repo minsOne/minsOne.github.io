@@ -2,7 +2,7 @@
 layout: post
 title: "인터페이스 빌더에서 실시간 렌더링을 통한 커스텀 뷰 만들기 in swift"
 description: ""
-category: "iOS/Mac"
+category: "Mac/iOS"
 tags: [IBDesignable, IBInspectable, render, live, runtime, TARGET_INTERFACE_BUILDER, xcode]
 ---
 {% include JB/setup %}

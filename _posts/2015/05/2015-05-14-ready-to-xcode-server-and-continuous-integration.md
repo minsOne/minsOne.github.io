@@ -2,7 +2,7 @@
 layout: post
 title: "Xcode 서버와 CI만들기(0)"
 description: ""
-category: "iOS/Mac"
+category: "Mac/iOS"
 tags: [ci, xcode, server, ios, mac, system, apple]
 ---
 {% include JB/setup %}

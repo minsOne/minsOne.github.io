@@ -860,7 +860,8 @@ ImageDownloaderDelegate, ImageFiltrationDelegate를 통해서 ImageDownloader, I
 <br/>
 
 ---
-## 참고
+
+### 참고
 
 * [How To Use NSOperations and NSOperationQueues](http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues)
 

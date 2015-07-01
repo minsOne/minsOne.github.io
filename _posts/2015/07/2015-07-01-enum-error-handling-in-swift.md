@@ -40,9 +40,9 @@ Swift에서 Enum을 사용할 때 연관된 값(Associated Values)을 통해서 
 
 이를 이용하여 제네릭을 함께 사용하면 동작 수행 후 결과가 성공 또는 실패 그리고 각 enum에는 정보가 저장되는 코드를 작성할 수 있습니다.
 
-	enum Result<T, U> {
+	enum Result<T> {
 	  case Success(T)
-	  case Failure(U)
+	  case Failure(NSError)
 	}	
 
 위의 코드에서 Success와 Failure는 제네릭을 통해 각기 다른 타입의 데이터를 저장할 수 있게 됩니다. 그리고 switch 문을 통해서 Success, Failure 구분하여 결과를 달리 처리할 수 있습니다.

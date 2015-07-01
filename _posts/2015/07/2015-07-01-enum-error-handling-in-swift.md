@@ -14,25 +14,25 @@ Swift에서 Enum을 사용할 때 연관된 값(Associated Values)을 통해서 
 다음은 애플 문서에 작성 예제입니다. 
 
 	enum Barcode {
-	    case UPCA(Int, Int, Int, Int)
-	    case QRCode(String)
+		case UPCA(Int, Int, Int, Int)
+		case QRCode(String)
 	}
 
 	// 방법 1
 	switch productBarcode {
 	case .UPCA(let numberSystem, let manufacturer, let product, let check):
-	    println("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
+		println("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
 	case .QRCode(let productCode):
-	    println("QR code: \(productCode).")
+		println("QR code: \(productCode).")
 	}
 	// prints "QR code: ABCDEFGHIJKLMNOP."
 
 	// 방법 2
 	switch productBarcode {
 	case let .UPCA(numberSystem, manufacturer, product, check):
-	    println("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
+		println("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
 	case let .QRCode(productCode):
-	    println("QR code: \(productCode).")
+		println("QR code: \(productCode).")
 	}
 	// prints "QR code: ABCDEFGHIJKLMNOP."
 
@@ -41,25 +41,25 @@ Swift에서 Enum을 사용할 때 연관된 값(Associated Values)을 통해서 
 이를 이용하여 제네릭을 함께 사용하면 동작 수행 후 결과가 성공 또는 실패 그리고 각 enum에는 정보가 저장되는 코드를 작성할 수 있습니다.
 
 	final class Box<T> {
-	    let value: T
-	     
-	    init(value: T) {
-	        self.value = value
-	    }
+		let value: T
+		 
+		init(value: T) {
+			self.value = value
+		}
 	}
 	 
 	enum Result<T> {
-	    case Success(Box<T>)
-	    case Failure(NSError)
+		case Success(Box<T>)
+		case Failure(NSError)
 	}
 
 	let result = Result.Success(Box(value: "hello"))
 
 	switch result {
-	    case .Success(let box):
-	        println(box.value)
-	    case .Failure(let error):
-	        println(error.description)
+		case .Success(let box):
+			println(box.value)
+		case .Failure(let error):
+			println(error.description)
 	}
 
 	// prints "hello"

@@ -22,3 +22,13 @@ tags: [이상한 모임, werid, meetup, werid meetup]
 아직은 개발자들 비율이 많은 이상한 모임이기 때문에, 눈팅만 하더라도 많은 걸 얻을 수 도 있습니다.
 
 그러니 **좀 더 잉여시간을 더 잉여스럽게 보내고자 한다면 이상한 모임을 시작하세요.**
+
+<br/><br/>
+
+* 이상한모임에 대하여 : http://minieetea.com/2015/06/archives/3219
+* 이상한모임 블로그 : http://blog.weirdx.io
+* 이상한모임 슬랙(가입) : http://slack.weirdx.io
+* 이상한모임 스토어 : http://weirdx.io/event
+* 이상한모임 페이스북 : https://www.facebook.com/weweirdmeetup
+* 이상한모임 트위터 : http://www.twitter.com/we_weirdmeetup
+* 이상한모임 플리커 : https://www.flickr.com/photos/weirdmeetup

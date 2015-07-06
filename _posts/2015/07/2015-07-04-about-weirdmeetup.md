@@ -28,7 +28,7 @@ tags: [이상한 모임, werid, meetup, werid meetup]
 * 이상한모임에 대하여 : http://minieetea.com/2015/06/archives/3219
 * 이상한모임 블로그 : http://blog.weirdx.io
 * 이상한모임 슬랙(가입) : http://slack.weirdx.io
-* 이상한모임 스토어 : http://weirdx.io/event
+* 이상한모임 스토어 : http://weirdx.io/shop
 * 이상한모임 페이스북 : https://www.facebook.com/weweirdmeetup
 * 이상한모임 트위터 : http://www.twitter.com/we_weirdmeetup
 * 이상한모임 플리커 : https://www.flickr.com/photos/weirdmeetup

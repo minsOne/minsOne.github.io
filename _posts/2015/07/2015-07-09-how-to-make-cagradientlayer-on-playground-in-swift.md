@@ -46,6 +46,8 @@ containerView의 layer에 alphaGradientLayer를 붙여 containerView에 그라�
 
 만약 color의 값을 바꾼다면 실시간으로 갱신되어 색상이 바뀐 그러데이션 레이어를 볼 수 있습니다.
 
+### 코드
+
 다음은 그러데이션을 적용한 Playground 전체 소스입니다.
 
 	import Foundation

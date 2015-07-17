@@ -55,6 +55,8 @@ tags: [swift, uibutton, drawRect, UIBezierPath, ovalInRect, stroke, IBDesignable
 	    let linePath = UIBezierPath()
 
 	    linePath.lineWidth = 3.0
+
+	    // - 선을 그립니다.
 	    linePath.moveToPoint(CGPoint(
 	        x: bounds.width / 2 - lineWidth / 2,
 	        y: bounds.height / 2))
@@ -64,9 +66,11 @@ tags: [swift, uibutton, drawRect, UIBezierPath, ovalInRect, stroke, IBDesignable
 	        y: bounds.height / 2))
 	    }
 
+	    // | 선을 그립니다.
 	    linePath.moveToPoint(CGPoint(
 	        x: bounds.width / 2,
 	        y: bounds.height / 2 - lineWidth / 2))
+
 	    linePath.addLineToPoint(CGPoint(
 	        x: bounds.width / 2,
 	        y: bounds.height / 2 + lineWidth / 2))
@@ -90,6 +94,8 @@ tags: [swift, uibutton, drawRect, UIBezierPath, ovalInRect, stroke, IBDesignable
         let linePath = UIBezierPath()
 
         linePath.lineWidth = 3.0
+
+        // - 선을 그립니다.
         linePath.moveToPoint(CGPoint(
             x: bounds.width / 2 - lineWidth / 2,
             y: bounds.height / 2))
@@ -99,9 +105,11 @@ tags: [swift, uibutton, drawRect, UIBezierPath, ovalInRect, stroke, IBDesignable
             y: bounds.height / 2))
 
         if isAddButton {
+			// | 선을 그립니다.        	
             linePath.moveToPoint(CGPoint(
                 x: bounds.width / 2,
                 y: bounds.height / 2 - lineWidth / 2))
+
             linePath.addLineToPoint(CGPoint(
                 x: bounds.width / 2,
                 y: bounds.height / 2 + lineWidth / 2))

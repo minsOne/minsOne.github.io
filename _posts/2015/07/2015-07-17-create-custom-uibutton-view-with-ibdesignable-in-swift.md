@@ -122,3 +122,5 @@ tags: [swift, uibutton, drawRect, UIBezierPath, ovalInRect, stroke, IBDesignable
 이제 AddButton을 더 만들더라도 Storyboard의 Attributes inspector에서 Fill Color와 isAddButton 값을 변경하여 + 버튼 또는 - 버튼으로 보이도록 할 수 있습니다.
 
 <br/><img src="/../../../../image/2015/addbutton2.png" alt="" style="width: 200px;"/><br/><br/>
+
+다음에는 Material 디자인을 적용한 UIButton을 하나씩 만들어보도록 하겠습니다.

@@ -95,8 +95,6 @@ value에 들어갈 수 있는 타입은 다음과 같습니다.
 		return UIView()
 	}
 
-참고 - [NSHipster](http://nshipster.com/quick-look-debugging/)
-
 #### XCPSetExecutionShouldContinueIndefinitely
 
 `XCPSetExecutionShouldContinueIndefinitely` 함수는 정해진 시간 만큼 계속 실행합니다.

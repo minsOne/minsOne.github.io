@@ -3,7 +3,7 @@ layout: post
 title: "XCPlayground Framework"
 description: ""
 category: "Mac/iOS"
-tags: [Swift, XCPlayground, XCPShowView, XCPCaptureValue, XCPSharedDataDirectoryPath, XCPSetExecutionShouldContinueIndefinitely, QuickLookObject, async, Playground]
+tags: [swift, XCPlayground, XCPShowView, XCPCaptureValue, XCPSharedDataDirectoryPath, XCPSetExecutionShouldContinueIndefinitely, QuickLookObject, async, Playground]
 ---
 {% include JB/setup %}
 

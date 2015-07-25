@@ -3,7 +3,7 @@ layout: post
 title: "UIGestureRecognizer in Swift"
 description: ""
 category: "Mac/iOS"
-tags: [Swift, UIGestureRecognizer, UIPanGestureRecognizer, UISwipeGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UIScreenEdgePanGestureRecognizer, UILongPressGestureRecognizer, closure, nstimer, transform]
+tags: [swift, UIGestureRecognizer, UIPanGestureRecognizer, UISwipeGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UIScreenEdgePanGestureRecognizer, UILongPressGestureRecognizer, closure, nstimer, transform]
 ---
 {% include JB/setup %}
 

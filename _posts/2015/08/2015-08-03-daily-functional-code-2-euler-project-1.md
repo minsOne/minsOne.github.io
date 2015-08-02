@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "일일 함수형 코드 #2 - Euler Project 1"
+title: "일일 함수형 코드 #2 - 오일러 프로젝트 001"
 description: ""
 category: "programming"
 tags: [swift, filter, reduce]
@@ -12,6 +12,8 @@ tags: [swift, filter, reduce]
 10보다 작은 자연수 중에서 3 또는 5의 배수는 3, 5, 6, 9 이고, 이것을 모두 더하면 23입니다.
 
 1000보다 작은 자연수 중에서 3 또는 5의 배수를 모두 더하면 얼마일까요?
+
+### Solution
 
 	[Int](1...100).filter{ ($0 % 3 == 0) || ($0 % 5 == 0) }.reduce(0){ $0 + $1 }
 

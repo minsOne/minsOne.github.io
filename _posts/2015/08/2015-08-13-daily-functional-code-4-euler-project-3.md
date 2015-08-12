@@ -7,7 +7,7 @@ tags: [swift, closure]
 ---
 {% include JB/setup %}
 
-### Problem 2
+### Problem 003
 
 어떤 수를 소수의 곱으로만 나타내는 것을 소인수분해라 하고, 이 소수들을 그 수의 소인수라고 합니다.
 

@@ -7,7 +7,7 @@ tags: [swift, closure]
 ---
 {% include JB/setup %}
 
-### Problem 2
+### Problem 002
 
 피보나치 수열의 각 항은 바로 앞의 항 두 개를 더한 것이 됩니다. 1과 2로 시작하는 경우 이 수열은 아래와 같습니다.
 

@@ -7,7 +7,7 @@ tags: [swift, map, filter, closure]
 ---
 {% include JB/setup %}
 
-### Problem 4
+### Problem 004
 
 앞에서부터 읽을 때나 뒤에서부터 읽을 때나 모양이 같은 수를 대칭수(palindrome)라고 부릅니다.
 

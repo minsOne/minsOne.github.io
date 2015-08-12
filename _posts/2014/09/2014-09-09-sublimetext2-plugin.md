@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SublimeText2 Plugin"
+title: "[Tool]SublimeText2 Plugin"
 description: ""
 category: "tool"
 tags: [sublimetext, plugin]

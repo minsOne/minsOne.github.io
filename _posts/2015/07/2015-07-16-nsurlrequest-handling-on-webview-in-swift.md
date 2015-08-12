@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "UIWebView에서 Request 제어 in Swift"
+title: "[Swift]UIWebView에서 Request 제어"
 description: ""
 category: "Mac/iOS"
 tags: [swift, UIWebView, NSURLRequest, Bool, return]

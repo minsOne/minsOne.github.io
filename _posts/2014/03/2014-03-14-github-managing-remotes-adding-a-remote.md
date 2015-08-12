@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Managing Remotes / 원격 저장소 추가하기"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, git, remote, add, master, origin, track, name]
 ---
 {% include JB/setup %}

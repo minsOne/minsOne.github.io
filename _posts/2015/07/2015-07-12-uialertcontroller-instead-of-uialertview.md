@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "iOS 8에서 UIAlertView 대신에 UIAlertController를 사용하자! in Swift"
+title: "[iOS]iOS8에서 UIAlertView 대신에 UIAlertController를 사용하자!"
 description: ""
 category: "Mac/iOS"
 tags: [swift, UIAlertView, UIAlertController, Alert, ActionSheet]

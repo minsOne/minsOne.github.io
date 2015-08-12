@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Google Analytics 세션 유지"
+title: "[iOS]Google Analytics 세션 유지"
 description: ""
-category: "programming"
+category: "Mac/iOS"
 tags: [ga, google analytics, google, analytics, ios, heartheat, keepalive]
 ---
 {% include JB/setup %}
@@ -11,20 +11,19 @@ Google Analytics는 기본 세션 유지시간이 30분정도입니다. 그리�
 
 NSTimer에서 지원하는 scheduledTimerWithTimeInterval를 통해 일정시간마다 데이터을 보내도록 합니다.
 
-	NSTimer *keepAliveTimer = [NSTimer scheduledTimerWithTimeInterval:KeepAliveTime
-                                                      target:self
-                                                    selector:@selector(heartBeat)
-                                                    userInfo:nil
-                                                     repeats:YES];
+NSTimer *keepAliveTimer = [NSTimer scheduledTimerWithTimeInterval:KeepAliveTime
+														   target:self
+														 selector:@selector(heartBeat)
+														 userInfo:nil
+														  repeats:YES];
 
 
 Google Analytics에 HeartBeat 데이터를 보냅니다.
 
 	id<GAITracker> tracker= [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"app"
-                                                          action:@"HeartBeat"
-                                                           label:nil
-                                                           value:nil]
-                   build]];
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"app"
+														  action:@"HeartBeat"
+														   label:nil
+														   value:nil] build]];
 
 위와 같이 수행을 하면 이제부터는 세션이 끊겨 현재 사용자수가 줄어들 일은 발생하지 않게 됩니다.

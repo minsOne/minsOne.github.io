@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Gist / 익명의 Gist는 삭제할 수 없습니다"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, gist]
 ---
 {% include JB/setup %}

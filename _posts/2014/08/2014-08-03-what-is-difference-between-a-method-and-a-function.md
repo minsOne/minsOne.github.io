@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Method와 Function의 차이점"
+title: "[Programming]Method와 Function의 차이"
 description: ""
 category: "programming"
 tags: [method, function, object]

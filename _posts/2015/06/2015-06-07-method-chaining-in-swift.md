@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Method Chaining in Swift"
+title: "[Swift]Method Chaining"
 description: ""
 category: "Mac/iOS"
 tags: [objc, swift, wrapper, method, extension, self, javascript, method chaining]

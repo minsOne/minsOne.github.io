@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "정규 표현식 - 전방탐색과 후방탐색"
+title: "[Regex]전방탐색과 후방탐색"
 description: ""
-category: "regex"
+category: "Regex"
 tags: [regex, 정규식, 정규표현식, 전방탐색, 후방탐색, lookaround, lookahead, lookbehind ]
 ---
 {% include JB/setup %}

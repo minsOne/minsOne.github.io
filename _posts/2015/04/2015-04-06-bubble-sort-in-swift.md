@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "BubbleSort in swift"
+title: "[Swift]BubbleSort"
 description: ""
 category: "programming"
 tags: [swift, bubblesort, algorithm, sort]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "NSDataDetector in Swift"
+title: "[Swift]NSDataDetector"
 description: ""
 category: "Mac/iOS"
 tags: [NSDataDetector, swift, NSRange, NSTextCheckingType, block, closure, url, date, timezone, duration, link, PhoneNumber, Address]

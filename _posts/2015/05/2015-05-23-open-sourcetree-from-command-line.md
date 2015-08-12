@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "터미널에서 SourceTree 실행하기 on Mac"
+title: "[Shell]터미널에서 SourceTree 실행하기"
 description: ""
 category: "Shell"
 tags: [shell, terminal, sourcetree]

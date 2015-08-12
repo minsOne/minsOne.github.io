@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "언제부터 Svn에서 Git으로 전환되었을까?"
+title: "[Git]언제부터 Svn에서 Git으로 전환되었을까?"
 description: ""
 category: "programming"
 tags: [git, svn, subversion, google, trends]

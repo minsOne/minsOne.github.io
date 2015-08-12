@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Collaborating / 네트워크의 가시성 변경하기"
 description: ""
-categories: [Git]
+category: "Git"
 tags: [git, github, translate, collaborating, network]
 ---
 {% include JB/setup %}

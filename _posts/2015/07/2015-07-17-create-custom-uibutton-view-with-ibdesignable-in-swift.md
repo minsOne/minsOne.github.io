@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "IBDesignable을 이용하여 UIBezierPath로 +와 - 버튼 만들기 in Swift"
+title: "[Swift]IBDesignable을 이용하여 UIBezierPath로 +와 - 버튼 만들기"
 description: ""
 category: "Mac/iOS"
 tags: [swift, uibutton, drawRect, UIBezierPath, ovalInRect, stroke, IBDesignable, IBInspectable, Storyboard, UIKit]

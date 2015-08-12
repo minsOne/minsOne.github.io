@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Advanced Git / Subtree Merge 작업"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, merge, read-tree, subtree]
 ---
 {% include JB/setup %}

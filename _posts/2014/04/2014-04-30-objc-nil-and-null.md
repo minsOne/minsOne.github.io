@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Objc]nil과 null"
+title: "[Objective-C]nil vs null"
 description: ""
 category: "Mac/iOS"
-tags: [objectivec, objc, programming, nil, null]
+tags: [objc, programming, nil, null]
 ---
 {% include JB/setup %}
 

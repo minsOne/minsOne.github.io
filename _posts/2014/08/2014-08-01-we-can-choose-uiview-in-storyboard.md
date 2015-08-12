@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "스토리보드 안에서 원하는 뷰를 쉽게 선택하기"
+title: "[Xcode]스토리보드 안에서 원하는 뷰를 쉽게 선택하기"
 description: ""
 category: "Mac/iOS"
 tags: [xcode, storyboard, view]

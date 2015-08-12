@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Enumerations 정리"
+title: "[Swift]Enumerations 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, enumeration, if, raw value, toRaw, fromRaw, associated value, member, switch]

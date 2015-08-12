@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Class와 Structure 정리"
+title: "[Swift]Class와 Structure 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, reference, variable, constants, function, dot, enumerations, class, structure, Identity Operator, encapsulate, instance, value type, reference type, property, Assignment, copy]

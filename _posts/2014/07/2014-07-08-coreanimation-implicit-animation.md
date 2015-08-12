@@ -3,7 +3,7 @@ layout: post
 title: "[CoreAnimation]Implicit Animations"
 description: ""
 category: "Mac/iOS"
-tags: [ios, transaction, CALayer, layer]
+tags: [ios, transaction, calayer, layer]
 ---
 {% include JB/setup %}
 
@@ -34,19 +34,19 @@ Transaction은 CATransation Class에서 사용합니다. 직접적으로 CATrans
 }
 </code></pre><br/>
 
-+begin 클래스 메소드를 호출하여 CATransaction을 사용한다고 선언합니다.
-+setAnimationDuration 클래스 메소드를 통해 애니메이션 동작 시간을 설정합니다. 기본적으로 0.25초로 설정되어 있습니다.
+begin 클래스 메소드를 호출하여 CATransaction을 사용한다고 선언합니다.
+setAnimationDuration 클래스 메소드를 통해 애니메이션 동작 시간을 설정합니다. 기본적으로 0.25초로 설정되어 있습니다.
 
-애니메이션 동작할 코드를 작성하고 +commit 클래스 메소드를 통하여 위에서 작성된 명령을 동작할 transaction을 끝맺습니다.
+애니메이션 동작할 코드를 작성하고 commit 클래스 메소드를 통하여 위에서 작성된 명령을 동작할 transaction을 끝맺습니다.
 
-만약 애니메이션이 끝난 후에 동작할 행동을 설정하고자 한다면 +setCompletionBlock 클래스 메소드에 block 코드를 넣을 수 있습니다.
+만약 애니메이션이 끝난 후에 동작할 행동을 설정하고자 한다면 setCompletionBlock 클래스 메소드에 block 코드를 넣을 수 있습니다.
 
 <pre><code class="objectivec">[CATransaction setCompletionBlock:^{
     NSLog(@"Transaction is Completion");
 }];
 </code></pre><br/>
 
-또한, CATransaction을 중지하고자 한다면 +setDisableActions 클래스 메소드를 +begin 클래스 메소드 뒤에 작성하여 애니메이션을 멈추도록 합니다.
+또한, CATransaction을 중지하고자 한다면 setDisableActions 클래스 메소드를 begin 클래스 메소드 뒤에 작성하여 애니메이션을 멈추도록 합니다.
 
 
 ### Layer Action

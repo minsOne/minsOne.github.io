@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "디자인패턴 - 팩토리 패턴(Factory Pattern)"
+title: "[DesignPattern]팩토리 패턴(Factory Pattern)"
 description: ""
 category: "programming"
 tags: [designPattern, factory, pattern, interface, class, inheritance, constructor, abstract]

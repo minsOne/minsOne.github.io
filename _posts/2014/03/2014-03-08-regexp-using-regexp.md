@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "자주 사용하는 정규표현식"
+title: "[Regex]자주 사용하는 정규표현식"
 description: ""
-category: "regex"
+category: "Regex"
 tags: [regex, 정규식, 정규표현식]
 ---
 {% include JB/setup %}

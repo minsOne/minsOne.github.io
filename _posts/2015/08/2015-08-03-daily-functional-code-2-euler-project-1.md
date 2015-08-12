@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "일일 함수형 코드 #2 - 오일러 프로젝트 001"
+title: "[Swift][일일 코드 #2]오일러 프로젝트 001"
 description: ""
 category: "programming"
 tags: [swift, filter, reduce]

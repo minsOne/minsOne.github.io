@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "NSLayoutConstraint"
+title: "[iOS]NSLayoutConstraint"
 description: ""
 category: "mac/ios"
-tags: [autolayout, xcode, interface builder, storyboard, view, constraint, NSLayoutConstraint, constraintWithItem, constraintsWithVisualFormat]
+tags: [objc, autolayout, xcode, interface builder, storyboard, view, constraint, NSLayoutConstraint, constraintWithItem, constraintsWithVisualFormat]
 ---
 {% include JB/setup %}
 

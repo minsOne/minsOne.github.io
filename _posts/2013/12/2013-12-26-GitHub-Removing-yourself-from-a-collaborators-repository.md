@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Collaborating / 협업 저장소로부터 스스로 나오기"
 description: ""
-categories: [Git]
+category: "Git"
 tags: [git, github, translate, collaborating]
 ---
 {% include JB/setup %}

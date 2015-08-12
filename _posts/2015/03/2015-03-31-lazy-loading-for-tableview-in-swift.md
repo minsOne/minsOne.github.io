@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "테이블뷰의 List에 게으르게 데이터를 반영하기 in Swift"
+title: "[Swift]지연 로딩으로 테이블뷰에 데이터를 반영하기"
 description: ""
 category: "Mac/iOS"
 tags: [ios, swift, gcd, closure, nsnotification, tableview, lazy]

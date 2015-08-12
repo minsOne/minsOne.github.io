@@ -2,7 +2,7 @@
 layout: post
 title: "[Xcode]사용하고 있는 플러그인 리스트"
 description: ""
-categories: [tool]
+category: "Mac/iOS"
 tags: [xcode, ios, mac, plugin, tool]
 ---
 {% include JB/setup %}

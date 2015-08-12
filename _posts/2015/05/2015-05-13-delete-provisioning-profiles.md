@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Provisioning Profiles 삭제하기"
+title: "[Xcode]Provisioning Profiles 삭제하기"
 description: ""
 category: "Mac/iOS"
-tags: [Xcode, Provisioning Profiles, ios, mac]
+tags: [xcode, provisioning profiles, ios, mac]
 ---
 {% include JB/setup %}
 

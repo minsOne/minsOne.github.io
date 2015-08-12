@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GCD를 이용한 RaceCodition 만들기 in Swift"
+title: "[Swift]GCD를 이용한 RaceCodition 만들기"
 description: ""
 category: "Mac/iOS"
 tags: [ios, swift, racecondition, didset, gcd]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Xcode에서 iOS 로그 편하게 사용하기"
+title: "[Xcode]상세 로그 만들기"
 description: ""
 category: "Mac/iOS"
 tags: [ios,log,xcode]

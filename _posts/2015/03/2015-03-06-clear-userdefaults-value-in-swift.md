@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "NSUserDefaults 값 초기화하기 in Swift"
+title: "[Swift]NSUserDefaults 값 초기화하기"
 description: ""
 category: "Mac/iOS"
-tags: [ios, NSUserDefaults, swift]
+tags: [ios, nsuserdefaults, swift]
 ---
 {% include JB/setup %}
 

@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Commits / 커밋 메시지로 이슈 닫기"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, commit, message, issue]
 ---
 {% include JB/setup %}

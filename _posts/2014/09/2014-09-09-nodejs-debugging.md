@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "node.js debugging"
+title: "[Node.js]debugging"
 description: ""
-category: "tool"
+category: "Tool"
 tags: [node, debug]
 ---
 {% include JB/setup %}

@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Collaborating / Pull 요청 정리하기"
 description: ""
-categories: [Git]
+category: "Git"
 tags: [git, github, translate, collaborating, pull]
 ---
 {% include JB/setup %}

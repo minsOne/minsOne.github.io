@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Automatic Reference Counting 정리"
+title: "[Swift]Automatic Reference Counting 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, ARC, strong, weak, unowned, in, instance, reference type, reference, optional, var, let, strong reference cycle]
@@ -343,14 +343,14 @@ Swift는 클로저 획득 목록으로 이 문제를 해결한다.
 
 HTMLElement 클래스는 name 속성을 정의하며 각 요소의 이름을 나타낸다. HTMLElement 클래스는 옵셔널 text 속성을 정의하며 HTML 요소 안에 문자열을 만들어 표현하여 설정한다.
 
-HTMLElement 클래스는 asHTML이라는 게으른 속성을 정의한다. 이 속성은 클로저를 참조하며 name과 text를 HTML 문자열로 결합한다. asHTML 속성은 `() -> String` 타입으로, 인자를 가지지 않고 문자열 값을 반환한다.
+HTMLElement 클래스는 asHTML이라는 지연 속성을 정의한다. 이 속성은 클로저를 참조하며 name과 text를 HTML 문자열로 결합한다. asHTML 속성은 `() -> String` 타입으로, 인자를 가지지 않고 문자열 값을 반환한다.
 
 기본적으로 asHTML 속성은 클로저가 할당되며 HTML 태그 문자열을 반환한다. 태그는 옵셔널 text 값을 포함한다. 
 
 asHTML 속성은 인스턴스 메소드와 같이 명명되고 사용된다. asHTML이 인스턴스 메소드가 아니라 클로저 속성이기 때문에 asHTML 속성에 기본값을 사용자 클로저로 대체할 수 있다.
 
 <div class="alert-info">
-	asHTML 속성은 게으른 속성으로 선언되며 항목이 실제로 만들어질 때 사용된다. asHTML이 게으른 속성이라는 의미는 기본 클로저 안에 self를 참조할 수 있기 때문인데, 게으른 속성은 초기화가 끝나기전까지 접근할 수 없고 self를 알지 못한다.
+	asHTML 속성은 지연 속성으로 선언되며 항목이 실제로 만들어질 때 사용된다. asHTML이 지연 속성이라는 의미는 기본 클로저 안에 self를 참조할 수 있기 때문인데, 지연 속성은 초기화가 끝나기전까지 접근할 수 없고 self를 알지 못한다.
 </div>
 
 다음은 HTMLElement 클래스 인스턴스를 만드는 예제이다.

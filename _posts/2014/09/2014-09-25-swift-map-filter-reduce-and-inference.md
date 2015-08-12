@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Map, Filter, Reduce 그리고 추론"
+title: "[Swift]Map, Filter, Reduce 그리고 추론"
 description: ""
 category: "mac/ios"
 tags: [swift, map, filter, reduce, inference, closure]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git Alias 추가 / 삭제 / 목록 보기"
+title: "[Git]Alias 추가 / 삭제 / 목록 보기"
 description: ""
 category: "git"
 tags: [git,alias,config,shell,command]

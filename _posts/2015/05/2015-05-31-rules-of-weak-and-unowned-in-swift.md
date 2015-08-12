@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "weak와 unowned 사용 방법 in Swift"
+title: "[Swift]weak와 unowned 사용 방법"
 description: ""
 category: "Mac/iOS"
 tags: [swift, weak, unowned, reference cycle, reference, arc, nil, self, lazy]

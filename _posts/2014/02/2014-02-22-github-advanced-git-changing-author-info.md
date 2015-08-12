@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Advanced Git / 저자 정보 변경하기"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, filter-branch]
 ---
 {% include JB/setup %}

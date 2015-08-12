@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "디자인패턴 - 상태패턴"
+title: "[DesignPattern]상태패턴"
 description: ""
 category: "programming"
 tags: [designPattern, pattern, state, class, interface, context, method, if]

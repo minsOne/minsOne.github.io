@@ -3,7 +3,7 @@ layout: post
 title: "[CoreAnimation]CALayer의 AnchorPoint, zPosition"
 description: ""
 category: "Mac/iOS"
-tags: [ios, UIView, CALayer, layer, view, AnchorPoint, zPosition, Transform]
+tags: [ios, uiview, calayer, layer, view, anchorpoint, zposition, transform]
 ---
 {% include JB/setup %}
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "UIGestureRecognizer in Swift"
+title: "[Swift]UIGestureRecognizer"
 description: ""
 category: "Mac/iOS"
 tags: [swift, UIGestureRecognizer, UIPanGestureRecognizer, UISwipeGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UIScreenEdgePanGestureRecognizer, UILongPressGestureRecognizer, closure, nstimer, transform]

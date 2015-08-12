@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Generics 정리"
+title: "[Swift]Generics 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, generic, protocol, type parameter, extend, type constraint, associated type, where]

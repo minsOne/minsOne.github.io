@@ -2,7 +2,7 @@
 layout: post
 title: "[Git]Tag 추가, 변경 및 삭제하기"
 description: ""
-category: "git"	
+category: "Git"
 tags: [git, tag, push]
 ---
 {% include JB/setup %}

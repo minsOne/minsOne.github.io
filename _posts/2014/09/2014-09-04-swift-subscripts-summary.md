@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Subscripts 정리"
+title: "[Swift]Subscripts 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, subscript, getter, setter, get, set, newValue, overloading]

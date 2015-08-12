@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Advanced Git / 대화형 Rebase"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, rebase, interactive]
 ---
 {% include JB/setup %}

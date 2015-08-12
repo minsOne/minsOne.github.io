@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Gist / Gists 만들기"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, gist]
 ---
 {% include JB/setup %}

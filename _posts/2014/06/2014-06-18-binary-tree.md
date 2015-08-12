@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[알고리즘]Binary Tree - 이진트리"
+title: "[Algorithm]Binary Tree"
 description: ""
 category: "programming"
 tags: [algorithm, binary, tree, preorder, inorder, postorder, levelorder]

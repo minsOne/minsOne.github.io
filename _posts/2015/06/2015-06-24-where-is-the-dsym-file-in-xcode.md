@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "dSYM 파일은 어디 있나요? in Xcode"
+title: "[Xcode]dSYM 파일은 어디 있나요?"
 description: ""
 category: "Mac/iOS"
-tags: [xcode, dSYM, Archives, xcarchive]
+tags: [xcode, dsym, archives, xcarchive]
 ---
 {% include JB/setup %}
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Properties 정리"
+title: "[Swift]Properties 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, static, type, struct, class, newValue, oldValue, observer, setter, getter, set, get, willSet, didSet, computed property, type property, lazy, stored property, variable, constant]
@@ -49,17 +49,17 @@ rangeOfFourItems는 `let` 키워드를 통해 상수로 선언되었기 때문�
 
 클래스는 참조 타입으로 다름. 참조 타입의 인스턴스를 상수에 할당하더라도 인스턴스의 변수 속성은 바꿀 수 있음.
 
-#### 게으른 저장 속성(Lazy Stored Properties)
+#### 지연 저장 속성(Lazy Stored Properties)
 
-게으른 저장 속성은 처음으로 사용하기 전까지 초기 값을 계산하지 않음. 게으른 저장 속성은 `lazy` 수식어를 선언 선언 이전에 씀.
+지연 저장 속성은 처음으로 사용하기 전까지 초기 값을 계산하지 않음. 지연 저장 속성은 `lazy` 수식어를 선언 선언 이전에 씀.
 
 <div class="alert-info">
-변수로서 게으른 속성을 항상 선언할 수 있는데, 초기 값은 인스턴스 초기화가 끝난 후에도 받을 수 있을지도 모르기 때문임. 상수 속성은 초기화 전에 항상 값을 가지고 있기 때문에 lazy로서 선언할 수 없음.
+변수로서 지연 속성을 항상 선언할 수 있는데, 초기 값은 인스턴스 초기화가 끝난 후에도 받을 수 있을지도 모르기 때문임. 상수 속성은 초기화 전에 항상 값을 가지고 있기 때문에 lazy로서 선언할 수 없음.
 </div>
 
-게으른 속성은 인스턴스의 초기화가 끝난 후에도 외부 인자에 의존하는 속성의 값을 알지 못할 때 유용함. 게으른 속성은 또한 속성의 초기 값이 복잡하거나 필요할 때 까지 수행하지 않아도 되는 경우에 유용함.
+지연 속성은 인스턴스의 초기화가 끝난 후에도 외부 인자에 의존하는 속성의 값을 알지 못할 때 유용함. 지연 속성은 또한 속성의 초기 값이 복잡하거나 필요할 때 까지 수행하지 않아도 되는 경우에 유용함.
 
-다음은 게으른 저장 속성을 사용하여 복잡한 클래스의 불필요한 초기화를 피하는 예제임. 이 예제에서 DataImporter와 DataManager 두 클래스가 정의됨.
+다음은 지연 저장 속성을 사용하여 복잡한 클래스의 불필요한 초기화를 피하는 예제임. 이 예제에서 DataImporter와 DataManager 두 클래스가 정의됨.
 
 	class DataImporter {
 	    /*
@@ -259,10 +259,10 @@ totalSteps을 위한 `willSet`과 `didSet` 감시자는 새로운 값이 할당�
 전역 또는 지역 범위 중 하나에서 저장 변수를 위한 감시자와 계산 변수를 정의할 수 있음. 계산 변수는 값이 저장하는 것보다 계산하며, 계산 속성과 같은 방식을 취함.
 
 <div class="alert-info">
-전역 사우와 변수는 언제나 게으르게 계산되며, 이는 게으른 저장 속성과 유사한 방법임. 게으른 저장 속성과는 다르게 전역 상수와 변수는 <code>lazy</code> 수식어를 표시할 필요가 없음.
+전역 상수와 변수는 언제나 지연 계산되며, 이는 지연 저장 속성과 유사한 방법임. 지연 저장 속성과는 다르게 전역 상수와 변수는 <code>lazy</code> 수식어를 표시할 필요가 없음.
 </div>
 
-지역 상수와 변수는 절대로 게으르게 계산되지 못함.
+지역 상수와 변수는 절대로 지연 계산되지 못함.
 
 ### 타입 속성(Type Properties)
 

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "GCD를 통해서 데이터를 동기화 하기"
+title: "[Objective-C]GCD를 이용하여 데이터 동기화"
 description: ""
 category: "Mac/iOS"
-tags: [ios, gcd, lock, queue, async, sync, barrier, synchronized]
+tags: [objc, ios, gcd, lock, queue, async, sync, barrier, synchronized]
 ---
 {% include JB/setup %}
 
@@ -54,9 +54,3 @@ dispatch_barrier_async(globalQueue, ^{
 </code></pre><br/>
 
 따라서 GCD를 이용하더라도 목적에 따라 사용하는 GCD 메소드를 다르게 사용하도록 합니다.
-
-
-
-
-
-

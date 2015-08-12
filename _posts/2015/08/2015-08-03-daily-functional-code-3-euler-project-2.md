@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "일일 함수형 코드 #3 - 오일러 프로젝트 002"
+title: "[Swift][일일 코드 #3]오일러 프로젝트 002"
 description: ""
 category: "programming"
 tags: [swift, closure]

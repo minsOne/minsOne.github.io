@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "GCD의 dispatch group과 notify를 사용하여 작업을 위임하기"
+title: "[Objective-C]GCD의 dispatch group과 notify를 사용하여 작업을 위임하기"
 description: ""
 category: "Mac/iOS"
-tags: [dispatch, dispatch_group, dispatch_queue, dispatch_group_wait, dispatch_group_notify, dispatch_group_async, async, notify, wait, concurrent, NSNotification]
+tags: [objc, dispatch, dispatch_group, dispatch_queue, dispatch_group_wait, dispatch_group_notify, dispatch_group_async, async, notify, wait, concurrent, nsnotification]
 ---
 {% include JB/setup %}
 

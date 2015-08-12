@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Commits / 커밋 화면간의 차이"
 description: ""
-categories: [Git]
+category: "Git"
 tags: [git, github, commit, history, log]
 ---
 {% include JB/setup %}

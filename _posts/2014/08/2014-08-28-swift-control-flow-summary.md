@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Control Flow 정리"
+title: "[Swift]Control Flow 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, control, flow, if, switch, for, while, break, continue, fallthrough, label, where, case, for-in, tuple, range, string]

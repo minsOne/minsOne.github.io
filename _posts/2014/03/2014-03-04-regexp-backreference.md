@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "정규 표현식 - 역참조 사용하기"
+title: "[Regex]역참조 사용하기"
 description: ""
-category: "regex"
+category: "Regex"
 tags: [regex, 정규식, 정규표현식, 역참조, backreference]
 ---
 {% include JB/setup %}

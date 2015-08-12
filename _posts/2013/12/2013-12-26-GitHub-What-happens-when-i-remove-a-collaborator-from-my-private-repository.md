@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Collaborating / 비공개 저장소에서 공동 제작자를 삭제했을 때 무슨 일이 일어나나요?"
 description: ""
-categories: [Git]
+category: "Git"
 tags: [git, github, translate, collaborating]
 ---
 {% include JB/setup %}

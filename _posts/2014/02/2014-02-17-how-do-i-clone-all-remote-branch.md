@@ -2,7 +2,7 @@
 layout: post
 title: "[Git]Clone으로 받은 저장소에 브랜치로 이동하기"
 description: ""
-category: "git"
+category: "Git"
 tags: [git, clone, branch]
 ---
 {% include JB/setup %}

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Nested Types 정리"
+title: "[Swift]Nested Types 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, nested type, structure, enumeration, class]

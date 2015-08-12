@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Autoclosure란? in swift"
+title: "[Swift]Autoclosure란?"
 description: ""
 category: "Mac/iOS"
 tags: [swift, autoclosure, function]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "유용한 Git alias"
+title: "[Git]유용한 Git alias"
 description: ""
 category: "Git"
 tags: [git, alias, command, shell, gitconfig]

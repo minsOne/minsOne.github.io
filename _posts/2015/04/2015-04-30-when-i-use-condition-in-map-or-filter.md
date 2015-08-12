@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Map 안에서 조건문 써야하나? in Swift"
+title: "[Swift]Map 안에서 조건문 써야하나?"
 description: ""
 category: "programming"
 tags: [swift, map, filter, condition, for, loop]

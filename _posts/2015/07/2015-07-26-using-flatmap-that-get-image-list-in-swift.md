@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "flatMap을 이용하여 유효한 이미지 리스트를 가져오기 in Swift"
+title: "[Swift]flatMap을 이용하여 유효한 이미지 리스트를 가져오기"
 description: ""
 category: "programming"
 tags: [swift, flatMap]

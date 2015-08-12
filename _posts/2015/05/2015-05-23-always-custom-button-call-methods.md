@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "커스텀 UIButton 클릭시 항상 특정 메소드 호출하기 in Swift"
+title: "[Swift]커스텀 UIButton 클릭시 항상 특정 메소드 호출하기"
 description: ""
 category: "Mac/iOS"
 tags: [ios, swift, uikit, initializers, convenience, addTarget, UIControlEvents]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Playground에서 Dimmed를 어떻게 만들까? in swift"
+title: "[Swift]Playground에서 Dimmed를 어떻게 만들까?"
 description: ""
 category: "Mac/iOS"
 tags: [swift, playground, XCPlayground, UIBezierPath, mask, fillRule, kCAFillRuleEvenOdd]

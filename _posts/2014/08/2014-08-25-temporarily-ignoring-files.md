@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git - 일시적으로 파일 변경 무시하기"
+title: "[Git]일시적으로 파일 변경 무시하기"
 description: ""
 category: "git"
 tags: [git, update-index, ignore, gitignore]

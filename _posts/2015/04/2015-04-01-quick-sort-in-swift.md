@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Quick Sort in swift"
+title: "[Swift]Quick Sort"
 description: ""
 category: "programming"
 tags: [swift, quicksort, algorithm, lamda, function, sort]

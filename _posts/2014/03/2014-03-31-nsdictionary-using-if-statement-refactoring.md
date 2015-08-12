@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "NSDictionary를 이용한 조건문 제거하기"
+title: "[Objective-C]NSDictionary를 이용한 조건문 제거하기"
 description: ""
 category: "Mac/iOS"
-tags: [nadictionary, if, switch, blocks, mac, ios, objectivec, objc]
+tags: [nsdictionary, if, switch, block, ios, objc]
 ---
 {% include JB/setup %}
 
@@ -67,10 +67,9 @@ if / switch 조건문 안에서 메소드 실행 후 얻은 데이터를 변수�
 		str = [NSString stringWithFormat:@"%@", result ? @"True5" : @"False5"];
 	}
 
-<br/>그러면 NSDictionary에 block을 넣어 해당 키일 경우 block을 사용할 수 있도록 합시다.
+<br/>그리고 NSDictionary에 block을 넣어 해당 키일 경우 block을 사용할 수 있도록 합시다.
 
-	-(NSString *)getConditionStr:(NSInteger)index
-	{
+	-(NSString *)getConditionStr:(NSInteger)index {
 	    static NSDictionary *mapping = nil;
 	    NSString *(^getTitle)(void);
 	    

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Github의 Swift Style Guide 번역"
+title: "[번역]Github의 Swift Style Guide"
 description: ""
 category: "programming"
 tags: [swift, github, translate, style guide, korean]

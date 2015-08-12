@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Enumeration를 이용한 Error Handling in Swift"
+title: "[Swift]Enumeration를 이용한 Error Handling"
 description: ""
 category: "Mac/iOS"
 tags: [swift, generic, enum, enumeration, switch, case, box, class]

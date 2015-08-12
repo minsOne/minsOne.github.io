@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "로딩 이미지 애니메이션 팝업 쉽게 만들기 in Swift"
+title: "[Swift]로딩 이미지 애니메이션 팝업 쉽게 만들기"
 description: ""
 category: "Mac/iOS"
 tags: [swift, singleton, popup, window, uiapplication]

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Objc]메소드 정의 방법 - Protocol"
+title: "[Objective-C]메소드 선언 - Protocol"
 description: ""
 category: "Mac/iOS"
-tags: [objectivec, objc, programming, protocol, delegate]
+tags: [objc, programming, protocol, delegate]
 ---
 {% include JB/setup %}
 

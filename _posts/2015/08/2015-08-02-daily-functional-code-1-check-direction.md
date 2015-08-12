@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "일일 함수형 코드 #1 - 이동하는 방향 확인하기 in Swift"
+title: "[Swift][일일 코드 #1]이동하는 방향 확인하기"
 description: ""
 category: "programming"
 tags: [swift, closure, switch, direction]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Methods 정리"
+title: "[Swift]Methods 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, method, instance, type method, instance method, class, structure, enumeration, function, static, property, mutating, func, self]

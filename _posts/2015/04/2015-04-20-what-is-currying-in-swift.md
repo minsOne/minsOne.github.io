@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "커링(Currying) in Swift"
+title: "[Swift]커링(Currying)"
 description: ""
 category: "programming"
 tags: [functional programming, FP, swift, refactoring, type, lamda, currying, uncurrying, haskell, closure, lazy]

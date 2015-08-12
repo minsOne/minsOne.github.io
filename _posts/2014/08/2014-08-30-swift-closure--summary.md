@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Closure 정리"
+title: "[Swift]Closure 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, closure, trailing, operator, nested function, infer, context, reference type, reference, strong reference cycle, shorthand argument name, closure expression, map]

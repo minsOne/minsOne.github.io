@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Xcode에서 Library 호출 시 사용하는 all_load, force_load"
+title: "[Xcode]Library 호출 시 사용하는 all_load, force_load"
 description: ""
 category: "Mac/iOS"
 tags: [xcode, framework, linker, all_load, force_load, kakaotalk, objc, library]

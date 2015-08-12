@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Objc]NSOperation과 NSOperationQueue를 사용하는 방법 - 설명 및 예제"
+title: "[Objective-C]NSOperation과 NSOperationQueue를 사용하는 방법 - 설명 및 예제"
 description: ""
 category: "Mac/iOS"
-tags: [ios, KVO, NSOperation, NSOperationQueue, AFNetworking, AFHTTPRequestOperation, GCD, tableview, cell]
+tags: [objc, ios, kvo, nsoperation, nsoperationqueue, afnetworking, afhttprequestoperation, gcd, tableview, cell]
 ---
 {% include JB/setup %}
 
@@ -864,9 +864,3 @@ ImageDownloaderDelegate, ImageFiltrationDelegate를 통해서 ImageDownloader, I
 ### 참고
 
 * [How To Use NSOperations and NSOperationQueues](http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues)
-
-
-
-
-
-

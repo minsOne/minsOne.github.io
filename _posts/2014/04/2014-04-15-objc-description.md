@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Objc]description - 객체 설명 메소드"
+title: "[Objective-C]description - 객체 설명 메소드"
 description: ""
-category: "programming"
-tags: [objectivec, objc, description]
+category: "Mac/iOS"
+tags: [objc, description]
 ---
 {% include JB/setup %}
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "쉽게 값을 교환하기 in swift"
+title: "[Swift]쉽게 값을 교환하기"
 description: ""
 category: "Mac/iOS"
 tags: [ios, swift, swap]

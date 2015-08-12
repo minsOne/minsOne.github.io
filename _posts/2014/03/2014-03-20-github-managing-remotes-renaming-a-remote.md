@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Managing Remotes / 원격 저장소 이름 변경하기"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, remote, origin, name, rename]
 ---
 {% include JB/setup %}

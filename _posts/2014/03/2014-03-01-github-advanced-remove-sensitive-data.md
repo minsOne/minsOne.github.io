@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Advanced Git / 민감한 데이터 제거하기"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, sensitive data, remove]
 ---
 {% include JB/setup %}

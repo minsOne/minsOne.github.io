@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Singleton 패턴 사용 방법 3가지 in swift"
+title: "[Swift]Singleton 패턴 사용 방법 3가지"
 description: ""
 category: "Mac/iOS"
 tags: [swift, singleton, objectivec, objc, class constant, constant, nested struct, dispatch_once]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git 명령어 정리"
+title: "[Git]명령어 정리"
 description: "자주사용하는 Git 명령어들 정리 및 설명"
 category: Git
 tags: [git, command]

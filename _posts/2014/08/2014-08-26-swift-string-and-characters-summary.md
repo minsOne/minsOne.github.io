@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - String and Characters 정리"
+title: "[Swift]String and Characters 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, string, character, literal, type, scalar, unicode, utf]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "UIDevice의 Orientation을 믿으시나요?"
+title: "[iOS]UIDevice의 Orientation을 믿으시나요?"
 description: ""
 category: "Mac/iOS"
 tags: [swift, uidevice, statusbar, portrait, landscape, orientation, viewdidload]

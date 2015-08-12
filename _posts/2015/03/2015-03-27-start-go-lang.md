@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Go 시작하기(초간단) on Mac"
+title: "[Go]Go 시작하기(초간단)"
 description: ""
 category: "Go"
-tags: [Go, Mac]
+tags: [go, mac]
 ---
 {% include JB/setup %}
 

@@ -3,7 +3,7 @@ layout: post
 title: "[iOS]View의 Layer 속성 minificationFilter과 magnificationFilter 정리"
 description: ""
 category: "Mac/iOS"
-tags: [view,layer,minificationFilter,magnificationFilter,nearest,linear]
+tags: [view, layer, minificationFilter, magnificationFilter, nearest, linear]
 ---
 {% include JB/setup %}
 

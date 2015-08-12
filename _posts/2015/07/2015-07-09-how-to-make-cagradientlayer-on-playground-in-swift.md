@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Playground에서 CAGradientLayer를 어떻게 적용할까? in Swift"
+title: "[Swift]Playground에서 CAGradientLayer를 어떻게 적용할까?"
 description: ""
 category: "Mac/iOS"
 tags: [swift, playground, XCPlayground, CAGradientLayer]

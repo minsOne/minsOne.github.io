@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "트위터 커버 효과 만들기 in Swift"
+title: "[Swift]트위터 커버 효과 만들기"
 description: ""
 category: "Mac/iOS"
 tags: [swift, animation, scale, UIScrollView, transform]

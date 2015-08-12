@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "XCPlayground Framework"
+title: "[Xcode]XCPlayground Framework"
 description: ""
 category: "Mac/iOS"
 tags: [swift, XCPlayground, XCPShowView, XCPCaptureValue, XCPSharedDataDirectoryPath, XCPSetExecutionShouldContinueIndefinitely, QuickLookObject, async, Playground]

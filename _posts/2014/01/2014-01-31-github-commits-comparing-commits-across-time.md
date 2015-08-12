@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Commits / 시간으로 커밋 비교"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, commit, compare, time, fork, branch, tag, commit]
 ---
 {% include JB/setup %}

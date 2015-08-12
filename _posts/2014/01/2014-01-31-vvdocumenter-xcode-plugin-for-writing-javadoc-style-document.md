@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Xcode]Xcode 플러그인 VVDocumenter-Xcode 소개"
+title: "[Xcode]VVDocumenter-Xcode 플러그인 소개"
 description: ""
-categories: [tool]
-tags: [xcode, ios, mac, comment, javadoc, document]
+category: "Mac/iOS"
+tags: [xcode, mac, comment, javadoc, document]
 ---
 {% include JB/setup %}
 

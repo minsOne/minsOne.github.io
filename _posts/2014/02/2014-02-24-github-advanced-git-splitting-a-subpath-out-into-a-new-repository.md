@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Advanced Git / 하위 경로를 새로운 저장소로 분할"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, github, filter-branch, prune-empty, subdirectory-filter]
 ---
 {% include JB/setup %}

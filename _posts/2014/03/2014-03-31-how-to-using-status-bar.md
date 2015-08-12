@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "iOS 상태바 표시에 대한 설명"
+title: "[iOS]상태바 표시에 대한 설명"
 description: ""
 category: "Mac/iOS"
-tags: [ios, statusbar, viewWillAppear, viewWillDisappear]
+tags: [ios, statusbar, viewwillappear, viewwilldisappear]
 ---
 {% include JB/setup %}
 
@@ -20,13 +20,11 @@ tags: [ios, statusbar, viewWillAppear, viewWillDisappear]
 
 만약에 특정 화면에서 상태바를 보여야 한다면 viewWillAppear, viewWillDisappear에서 상태바를 설정하면 됩니다.
 
-	-(void)viewWillAppear:(BOOL)animated 
-	{
+	-(void)viewWillAppear:(BOOL)animated {
 	    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
 	}
 
-	-(void)viewWillDisappear:(BOOL)animated 
-	{
+	-(void)viewWillDisappear:(BOOL)animated {
 	    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 	}
 

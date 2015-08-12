@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "UIAlertController에서 UITextField 만들기 in Swift"
+title: "[Swift]UIAlertController에서 UITextField 만들기"
 description: ""
 category: "Mac/iOS"
 tags: [swift, UIAlertView, UIAlertController, Alert, ActionSheet, UITextField]

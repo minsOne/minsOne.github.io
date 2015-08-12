@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Xcode에서 Storyboard 또는 Xib 미리보기"
+title: "[Xcode]Storyboard 또는 Xib 미리보기"
 description: ""
 category: "Mac/iOS"
 tags: [xcode, storyboard, xib, adaptive layout, preview, autolayout]

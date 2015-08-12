@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Extensions 정리"
+title: "[Swift]Extensions 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, extension, initializer, category, method, subscript, property]

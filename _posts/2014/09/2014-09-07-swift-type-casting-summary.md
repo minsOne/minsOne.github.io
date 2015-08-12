@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Type Casting 정리"
+title: "[Swift]Type Casting 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, type cast, downcast, is, as, optional, Any, AnyObject]

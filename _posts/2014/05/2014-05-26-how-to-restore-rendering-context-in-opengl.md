@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "OpenGL을 사용하는 라이브러리간 화면 객체 충돌을 처리하는 방법"
+title: "[iOS]OpenGL을 사용하는 라이브러리간 화면 객체 충돌을 처리하는 방법"
 description: ""
 category: "Mac/iOS"
-tags: [iOS, OpenGL, Context, EAGLContext]
+tags: [ios, opengl, context, eaglcontext]
 ---
 {% include JB/setup %}
 
@@ -22,6 +22,7 @@ tags: [iOS, OpenGL, Context, EAGLContext]
 	[EAGLContext setCurrentContext:oldContext];
 
 
-### 참고할 내용
+### 참고 내용
+
 * [OpenGL ES Programming Guide for iOS](https://developer.apple.com/library/ios/documentation/3ddrawing/conceptual/opengles_programmingguide/Introduction/Introduction.html)
 * [EAGLContext Class Reference](https://developer.apple.com/library/ios/documentation/opengles/reference/EAGLContext_ClassRef/Reference/EAGLContext.html)

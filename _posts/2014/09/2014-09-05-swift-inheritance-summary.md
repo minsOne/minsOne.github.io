@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - inheritance 정리"
+title: "[Swift]inheritance 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, class, superclass, subclass, inheritance, base class, override, property, subscript, super, getter, setter, instance, final]

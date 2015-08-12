@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - The Basic 정리"
+title: "[Swift]The Basic 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, optional, let, var, constants, optional binding, safe]

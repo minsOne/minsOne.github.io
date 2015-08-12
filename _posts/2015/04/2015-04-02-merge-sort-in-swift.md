@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MergeSort in swift"
+title: "[Swift]MergeSort"
 description: ""
 category: "programming"
 tags: [swift, mergesort, algorithm, sort]

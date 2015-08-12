@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "예제로 살펴본 함수형 프로그래밍 in Swift"
+title: "[Swift]예제로 살펴본 함수형 프로그래밍"
 description: ""
 category: "programming"
 tags: [functional programming, FP, swift, battle ship, refactoring, pure function, first-class function, function, set, module, type, lamda]

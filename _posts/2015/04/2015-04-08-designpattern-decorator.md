@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "디자인패턴 - 데코레이터 패턴(Decorator Pattern)"
+title: "[DesignPattern]데코레이터 패턴(Decorator Pattern)"
 description: ""
 category: "programming"
 tags: [designPattern, decorator, wrapper, swift, super, class, protocol, component, decorator, concrete, abstract, generator]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "터미널에서 Sublime 실행하기"
+title: "[Shell]터미널에서 Sublime 실행하기"
 description: ""
 category: "Shell"
 tags: [shell, terminal, softlink, profile]

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Iterator 패턴 구현하기 in Swift"
+title: "[Swift]Iterator 패턴 구현하기"
 description: ""
 category: "Mac/iOS"
-tags: [swift, iterator, protocol, SequenceType, GeneratorType, generate, next, for, struct, class]
+tags: [swift, iterator, protocol, sequencetype, generatortype, generate, next, for, struct, class]
 ---
 {% include JB/setup %}
 

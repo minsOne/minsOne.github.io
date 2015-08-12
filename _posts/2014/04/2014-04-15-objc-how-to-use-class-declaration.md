@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Objc]@class vs import - 클래스 호출 시 사용 방법"
+title: "[Objective-C]클래스 호출 - @class vs import"
 description: ""
 category: "Mac/iOS"
-tags: [objc, objectivec, import, class, annotation]
+tags: [objc, import, class, annotation]
 ---
 {% include JB/setup %}
 

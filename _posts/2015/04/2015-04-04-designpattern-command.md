@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "디자인패턴 - 커맨드 패턴(Command Pattern)"
+title: "[DesignPattern]커맨드 패턴(Command Pattern)"
 description: ""
 category: "programming"
 tags: [designPattern, command, interface, class, inheritance, constructor, abstract, protocol, dependency, protocol]

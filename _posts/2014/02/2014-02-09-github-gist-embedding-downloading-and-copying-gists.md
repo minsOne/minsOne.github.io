@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Gist / Gist 복사, 다운로드, 내장하기"
 description: ""
-categories: [git]
+category: "Git"
 tags: [git, gist, github]
 ---
 {% include JB/setup %}

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Enumeration를 이용한 Binary Tree 만들기 in Swift"
+title: "[Swift]Enumeration를 이용한 Binary Tree 만들기"
 description: ""
 category: "Mac/iOS"
 tags: [swift, generic, enum, enumeration, switch, case, box, class, tree, b-tree, binary tree]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "디자인패턴 - 입문 및 전략패턴"
+title: "[DesignPattern]입문 및 전략패턴"
 description: ""
 category: "programming"
 tags: [designPattern, strategy, pattern, interface, class, inheritance, constructor, abstract]

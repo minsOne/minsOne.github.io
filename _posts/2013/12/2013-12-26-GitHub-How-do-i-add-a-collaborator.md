@@ -2,7 +2,7 @@
 layout: post
 title: "[번역]GitHub / Collaborating / 어떻게 공동 제작자를 추가할 수 있나요?"
 description: ""
-categories: [Git]
+category: "Git"
 tags: [git, github, translate, collaborating]
 ---
 {% include JB/setup %}

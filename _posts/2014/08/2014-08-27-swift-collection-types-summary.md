@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Collection Types 정리"
+title: "[Swift]Collection Types 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, collection, type, array, dictionary, nsarray, nsmutablearray, nsdictionary, nsmutabledictionary, for-in]

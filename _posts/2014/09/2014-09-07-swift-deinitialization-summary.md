@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift - Deinitialization 정리"
+title: "[Swift]Deinitialization 정리"
 description: ""
 category: "mac/ios"
 tags: [swift, deinitializer, deallocation, class, deinitialization, deinit, init, initializer, nil, reference, arc]

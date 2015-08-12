@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Swift - Function 정리"
+title: "[Swift]Function 정리"
 description: ""
-category: "mac/ios"
+category: "Mac/iOS"
 tags: [swift, function, nested function, inout, func, return, tuple, optional, type, external parameter name, parameter, defalut, hash simbol, variadic parameter, function type]
 ---
 {% include JB/setup %}

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Insertion Sort in swift"
+title: "[Swift]Insertion Sort"
 description: ""
 category: "programming"
-tags: [swift, InsertionSort, algorithm, sort]
+tags: [swift, insertionsort, algorithm, sort]
 ---
 {% include JB/setup %}
 

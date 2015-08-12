@@ -39,6 +39,8 @@ tags: [swift, closure]
 	let result = factor(600851475143)
 	println(result.last)
 
+<br/>
+
 ### 문제 출처
 
 * [사이냅 소프트의 오일러 프로젝트](http://euler.synap.co.kr/prob_detail.php?id=3)

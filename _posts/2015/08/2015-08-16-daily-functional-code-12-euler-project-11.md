@@ -38,7 +38,7 @@ tags: [swift, map, reduce]
 
 ### Solution
 	
-	작은 4 x 4 격자를 만들어서 모든 숫자 곱의 경우를 구하여 최대 값을 찾는다.
+작은 4 x 4 격자를 만들어서 모든 숫자 곱의 경우를 구하여 최대 값을 찾는다.
 
 	let gridStr:[String] = [
 		 "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08"
@@ -68,21 +68,47 @@ tags: [swift, map, reduce]
 	let gridVerticalLength = grid.count
 	let distance = 4
 
-	let result = reduce(0..<gridVerticalLength-distance, 0) { (max1, y) in
-	    return max(reduce(0..<gridHorizonLength-distance, 0) { (max2, x) in
-	        let smallGrid = map(y..<y+distance){ y1 in map(x..<x+distance){ grid[y1][$0] } }
-	        var maxLists = [max2]
-	        maxLists += [reduce(0...3, 1) { $0 * smallGrid[$1][$1] }]
-	        maxLists += [reduce(0...3, 1) { $0 * smallGrid[3-$1][$1] }]
-	        maxLists += [reduce(0...3, 0) { max3, y1 in max(max3, reduce(0...3, 1){ $0 * smallGrid[y1][$1] } ) }]
-	        maxLists += [reduce(0...3, 0) { max3, x1 in max(max3, reduce(0...3, 1){ $0 * smallGrid[$1][x1] } ) }]
-	        return maxElement(maxLists)
-	        },max1)
+<ul><li>수정 전</li></ul>
+
+	let result = [Int](0..<gridVerticalLength-distance).reduce(0) { (max1, y) in
+		let maximum = [Int](0..<gridHorizonLength-distance).reduce(0) { (max2, x) in
+			var maximum = 0
+			let smallGrid = [Int](y..<y+distance).map { y1 in [Int](x..<x+distance).map { grid[y1][$0] } }
+			maximum = max(maximum, [Int](0...3).reduce(1) { $0 * smallGrid[$1][$1] })
+			maximum = max(maximum, [Int](0...3).reduce(1) { $0 * smallGrid[3-$1][$1] })
+			maximum = max(maximum, [Int](0...3).reduce(0) { max3, y1 in
+				let maximum = [Int](0...3).reduce(1) { $0 * smallGrid[y1][$1] }
+				return maximum > max3 ? maximum : max3
+			})
+			maximum = max(maximum, [Int](0...3).reduce(0) { max3, x1 in
+				let maximum = [Int](0...3).reduce(1){ $0 * smallGrid[$1][x1] }
+				return maximum > max3 ? maximum : max3
+			})
+			return maximum > max2 ? maximum : max2
+		}
+		return maximum > max1 ? maximum : max1
+	}
+
+	println(result)	// 70600674
+
+<ul><li>수정 후</li></ul>
+
+	let result = reduce(0..<gridVerticalLength-distance, 0) { (maximum, y) in
+		return max(maximum, reduce(0..<gridHorizonLength-distance, 0) { (max1, x) in
+			let smallGrid = map(y..<y+distance){ y1 in map(x..<x+distance){ grid[y1][$0] } }
+			var maxLists = [max1]
+			maxLists += [reduce(0...3, 1){ $0 * smallGrid[$1][$1] }]
+			maxLists += [reduce(0...3, 1){ $0 * smallGrid[3-$1][$1] }]
+			maxLists += [reduce(0...3, 0){ max2, y1 in max(max2, reduce(0...3, 1){ $0 * smallGrid[y1][$1] })}]
+			maxLists += [reduce(0...3, 0){ max2, x1 in max(max2, reduce(0...3, 1){ $0 * smallGrid[$1][x1] })}]
+			return maxElement(maxLists)
+			})
 	}
 
 	println(result)	// 70600674
 
 <br/>
+
 ### 문제 출처
 
 * [사이냅 소프트의 오일러 프로젝트](http://euler.synap.co.kr/prob_detail.php?id=11)

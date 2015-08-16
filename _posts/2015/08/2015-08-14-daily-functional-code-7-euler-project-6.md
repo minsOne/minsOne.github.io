@@ -27,6 +27,7 @@ tags: [swift, closure, reduce]
 	println(result)
 
 <br/>
+
 ### 문제 출처
 
 * [사이냅 소프트의 오일러 프로젝트](http://euler.synap.co.kr/prob_detail.php?id=6)

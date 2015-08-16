@@ -33,32 +33,32 @@ tags: [swift]
 ### Solution
 
 	func getTriangleNumber() -> (Void -> Int) {
-	    var sum = 0, index = 1
-	    return {
-	        sum = sum + index++
-	        return sum
-	    }
+		var sum = 0, index = 1
+		return {
+			sum = sum + index++
+			return sum
+		}
 	}
 
 	func factor(n: Int) -> Int {
-	    if n <= 1 { return 1 }
-	    var count = 2;
-	    for var index = 2; index <= Int(ceil(sqrt(Double(n)))); index++ {
-	        if n % index == 0 {
-	            count += 2
-	        }
-	    }
-	    return count
+		if n <= 1 { return 1 }
+		var count = 2;
+		for var index = 2; index <= Int(ceil(sqrt(Double(n)))); index++ {
+			if n % index == 0 {
+				count += 2
+			}
+		}
+		return count
 	}
 
 	let next = getTriangleNumber()
 	while true {
-	    let triangleNumber = next()
-	    let list = factor(triangleNumber)
-	    if factor(triangleNumber) >= 500 {
-	        println(triangleNumber)
-	        break
-	    }
+		let triangleNumber = next()
+		let list = factor(triangleNumber)
+		if factor(triangleNumber) >= 500 {
+			println(triangleNumber)		// 76576500
+			break
+		}
 	}
 
 ### 문제 출처

@@ -107,8 +107,6 @@ tags: [swift, map, reduce]
 
 	println(result)	// 70600674
 
-<br/>
-
 ### 문제 출처
 
 * [사이냅 소프트의 오일러 프로젝트](http://euler.synap.co.kr/prob_detail.php?id=11)

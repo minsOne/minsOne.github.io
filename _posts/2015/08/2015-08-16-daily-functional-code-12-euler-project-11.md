@@ -68,26 +68,16 @@ tags: [swift, map, reduce]
 	let gridVerticalLength = grid.count
 	let distance = 4
 
-	let result = [Int](0..<gridVerticalLength-distance).reduce(0) { (max1, y) in
-		let maximum = [Int](0..<gridHorizonLength-distance).reduce(0) { (max2, x) in
-			var maximum = 0
-			let smallGrid = [Int](y..<y+distance).map { y1 in [Int](x..<x+distance).map { grid[y1][$0] } }
-
-			maximum = max(maximum, [Int](0...3).reduce(1) { $0 * smallGrid[$1][$1] })
-			maximum = max(maximum, [Int](0...3).reduce(1) { $0 * smallGrid[3-$1][$1] })
-			maximum = max(maximum, [Int](0...3).reduce(0) { max3, y1 in
-				let maximum = [Int](0...3).reduce(1) { $0 * smallGrid[y1][$1] }
-				return maximum > max3 ? maximum : max3
-			})
-			maximum = max(maximum, [Int](0...3).reduce(0) { max3, x1 in
-				let maximum = [Int](0...3).reduce(1){ $0 * smallGrid[$1][x1] }
-				return maximum > max3 ? maximum : max3
-			})
-
-			return maximum > max2 ? maximum : max2
-		}
-
-		return maximum > max1 ? maximum : max1
+	let result = reduce(0..<gridVerticalLength-distance, 0) { (max1, y) in
+	    return max(reduce(0..<gridHorizonLength-distance, 0) { (max2, x) in
+	        let smallGrid = map(y..<y+distance){ y1 in map(x..<x+distance){ grid[y1][$0] } }
+	        var maxLists = [max2]
+	        maxLists += [reduce(0...3, 1) { $0 * smallGrid[$1][$1] }]
+	        maxLists += [reduce(0...3, 1) { $0 * smallGrid[3-$1][$1] }]
+	        maxLists += [reduce(0...3, 0) { max3, y1 in max(max3, reduce(0...3, 1){ $0 * smallGrid[y1][$1] } ) }]
+	        maxLists += [reduce(0...3, 0) { max3, x1 in max(max3, reduce(0...3, 1){ $0 * smallGrid[$1][x1] } ) }]
+	        return maxElement(maxLists)
+	        },max1)
 	}
 
 	println(result)	// 70600674

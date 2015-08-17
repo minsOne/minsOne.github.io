@@ -24,28 +24,40 @@ n → 3 n + 1 (n이 홀수일 때)
 
 ### Solution
 
-	var maximum:(index: Int, value: Int) = (0, 0)
-	var cacheSequence = [Int:Int]()
+<ul><li>수정 전</li></ul>
 
-	func hailstoneSequence(n: Int) -> Int {
-		if n == 1 { return 1 }
+		var maximum:(index: Int, value: Int) = (0, 0)
+		var cacheSequence = [Int:Int]()
 
-		if let cached = cacheSequence[n] {
-			return cached
-		} else {
-			return 1 + ( (n % 2 == 0) ?
-				hailstoneSequence(n/2) :
-				hailstoneSequence(n*3+1))
+		func hailstoneSequence(n: Int) -> Int {
+			if n == 1 { return 1 }
+
+			if let cached = cacheSequence[n] {
+				return cached
+			} else {
+				return 1 + ( (n % 2 == 0) ?
+					hailstoneSequence(n/2) :
+					hailstoneSequence(n*3+1))
+			}
 		}
+
+		for i in 1...1_000_000 {
+			let result = hailstoneSequence(i)
+			cacheSequence[i] = result
+			if result > maximum.value { maximum = (i, result) }
+		}
+
+		println(maximum)	// (837799, 525)
+
+<ul><li>수정 후</li></ul>
+
+	let result = reduce(1...1_000_000, (0,0)) { maximum, i in
+	    let result = hailstoneSequence(i)
+	    cacheSequence[i] = result
+	    return (result > maximum.0) ? (i, result) : maximum
 	}
 
-	for i in 1...1_000_000 {
-		let result = hailstoneSequence(i)
-		cacheSequence[i] = result
-		if result > maximum.value { maximum = (i, result) }
-	}
-
-	println(maximum)	// (837799, 525)
+	println(result)	// (837799, 525)
 
 ### 문제 출처
 

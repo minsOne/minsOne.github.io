@@ -45,12 +45,23 @@ tags: [swift]
 
 	let numList = Array(numbers).map{ String($0).toInt() }
 	let numRange = 5
+
+<ul><li>수정 전</li></ul>
+
 	var maxNum = 0
 	for i in 0 ..< numList.count - numRange {
-	    maxNum = max(maxNum, reduce(i..<(i + numRange), 1){ $0 * numList[$1]! })
+		maxNum = max(maxNum, reduce(i..<(i + numRange), 1){ $0 * numList[$1]! })
 	}
 
 	println(maxNum)	// 40824
+
+<ul><li>수정 후</li></ul>
+
+	let result = reduce(0..<numList.count-numRange, 0) { maxNum, num in
+		return max(maxNum, reduce(num..<(num + numRange), 1){ $0 * numList[$1]! })
+	}
+
+	println(result)	// 40824
 
 <br/>
 

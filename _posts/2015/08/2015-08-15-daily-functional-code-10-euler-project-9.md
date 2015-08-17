@@ -3,7 +3,7 @@ layout: post
 title: "[Swift][일일 코드 #10]오일러 프로젝트 009"
 description: ""
 category: "programming"
-tags: [swift]
+tags: [swift, reduce]
 ---
 {% include JB/setup %}
 
@@ -24,6 +24,9 @@ a = ((sum * sum)/2 - sum * b) / (sum - b)
 위의 식을 가지고 다음 코드를 작성할 수 있습니다.
 
 	let sum = 1000
+
+<ul><li>수정 전</li></ul>
+
 	for var b = 1; b < sum / 2; b++ {
 		var a = Double(((sum * sum)/2 - sum * b)) / Double((sum - b))
 		if a % 1 == 0 {
@@ -31,6 +34,15 @@ a = ((sum * sum)/2 - sum * b) / (sum - b)
 			break;
 		}
 	}
+
+<ul><li>수정 후</li></ul>
+
+	let result = reduce(1..<sum/2, 0) { result, b in
+		let a = Double(((sum * sum)/2 - sum * b)) / Double((sum - b))
+		return (a % 1 == 0) ? Int(a) * b * (sum - Int(a) - b) : result
+	}
+
+	println(result)	// 31875000
 
 ### 문제 출처
 

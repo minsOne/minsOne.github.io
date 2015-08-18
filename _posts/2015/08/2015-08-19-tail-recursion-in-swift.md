@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Algorithm][Swift]꼬리 재귀"
+title: "[Swift][Algorithm]꼬리 재귀"
 description: ""
 category: "programming"
 tags: [recursion, tail, swift]

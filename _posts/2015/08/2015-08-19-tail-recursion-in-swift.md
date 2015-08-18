@@ -3,7 +3,7 @@ layout: post
 title: "[Swift][Algorithm]꼬리 재귀"
 description: ""
 category: "programming"
-tags: [recursion, tail, swift]
+tags: [tail recursion, swift]
 ---
 {% include JB/setup %}
 

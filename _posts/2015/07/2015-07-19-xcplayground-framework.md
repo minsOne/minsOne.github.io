@@ -38,7 +38,7 @@ XCPShowView는 다음과 같이 사용합니다.
 
 	containerView.layer.mask = shape
 
-<br/><img src="/../../../../image/2015/playground1.png" alt="" style="width: 200px;"/><br/><br/>
+<br/><img src="https://farm1.staticflickr.com/655/20564702530_a29dc52f3d.jpg" width="482" height="414" alt="playground1"><br/><br/>
 
 #### XCPCaptureValue
 
@@ -50,7 +50,7 @@ XCPCaptureValue는 다음과 같이 사용합니다.
 	// 예제 코드
 	XCPCaptureValue("newRect", CGRectMake(10, 10, 100, 100))
 
-<br/><img src="/../../../../image/2015/playground2.png" alt="" style="width: 200px;"/><br/><br/>
+<br/><img src="https://farm6.staticflickr.com/5654/20130085434_62299e74f0.jpg" width="278" height="268" alt="playground2"><br/><br/>
 
 value에 들어갈 수 있는 타입은 다음과 같습니다.
 
@@ -103,7 +103,7 @@ Xcode 하단에 시간이 10초로 설정되어 있으면 10초까지 비동기 
 
 	XCPSetExecutionShouldContinueIndefinitely()
 
-<br/><img src="/../../../../image/2015/playground3.png" alt="" style="width: 100px;"/><br/><br/>
+<br/><img src="https://farm1.staticflickr.com/615/20752680305_d991201e85_m.jpg" width="166" height="58" alt="playground3"><br/><br/>
 
 ### 참고 자료
 

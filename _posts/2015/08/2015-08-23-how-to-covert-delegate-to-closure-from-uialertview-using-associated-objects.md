@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift]Associated Objects로 Delegate에서 Closure로 구현하기"
+title: "[Swift]Associated Objects로 Delegate에서 Closure로 바꾸기"
 description: ""
 category: "Mac/iOS"
 tags: [swift, associatedobject, delegate, closure, runtime, objc_setAssociatedObject, objc_getAssociatedObject, objc_removeAssociatedObjects, uialertview, extension, category, subclass, method, function, property, variable, class]

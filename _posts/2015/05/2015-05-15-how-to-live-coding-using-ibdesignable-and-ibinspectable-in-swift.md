@@ -15,7 +15,7 @@ IBDesignable과 IBInspectable를 이용하여 실제 커스텀 뷰를 만들도�
 
 1.프로젝트가 생성되어있음을 가정하고 UIView를 상속받는 커스텀 뷰 클래스를 생성합니다.
 
-<br/><img src="/../../../../image/2015/newCustomView.png" alt="" style="width: 500px;"/><br/><br/>
+<br/><img src="https://farm6.staticflickr.com/5833/20587512820_e6a152ee3f.jpg" width="500" height="292" alt="newCustomView"><br/><br/>
 
 2.클래스 선언부 위에 `@IBDesignable`를 작성하여 CustomRectView를 실시간으로 볼 수 있도록 선언합니다.
 
@@ -58,8 +58,8 @@ IBDesignable과 IBInspectable를 이용하여 실제 커스텀 뷰를 만들도�
 위의 코드는 기본값이며, 인터페이스 빌더에서 변경이 가능합니다.
 
 <br/>4.인터페이스 빌더에 커스텀 뷰를 추가하여 IBInspectable를 사용한 변수들을 확인할 수 있습니다.
-<br/><img src="/../../../../image/2015/customclass.png" alt="" style="width: 300px;"/><br/><br/>
-<br/><img src="/../../../../image/2015/customclass_ibinspectable.png" alt="" style="width: 300px;"/><br/><br/>
+<br/><img src="https://farm6.staticflickr.com/5833/20749257446_64dc65ab83.jpg" width="258" height="101" alt="customclass"><br/><br/>
+<br/><img src="https://farm1.staticflickr.com/610/20587517640_3be71f3c75.jpg" width="243" height="500" alt="customclass_ibinspectable"><br/><br/>
 
 5.drawRect 메소드를 통해 커스텀 뷰에 그리게 되면 인터페이스 빌더에 실시간으로 보여지게 됩니다.
 	
@@ -73,13 +73,13 @@ IBDesignable과 IBInspectable를 이용하여 실제 커스텀 뷰를 만들도�
 	}
 
 위의 코드 작성 후 렌더링 되었는지 확인을 하면 변경되어 있는 것을 확인할 수 있습니다.
-<br/><img src="/../../../../image/2015/customclass_preview.png" alt="" style="width: 600px;"/><br/><br/>
+<br/><img src="https://farm1.staticflickr.com/569/20154548193_cc96dd8d98.jpg" width="500" height="377" alt="customclass_preview"><br/><br/>
 
 만일 다른 색상, 선 폭 크기를 변경하고자 한다면 인터페이스 빌더에서 변경이 가능합니다.
-<br/><img src="/../../../../image/2015/customclass_preview_change.png" alt="" style="width: 600px;"/><br/><br/>
+<br/><img src="https://farm1.staticflickr.com/708/20766095512_1defc6f59e.jpg" width="500" height="359" alt="customclass_preview_change"><br/><br/>
 
 인터페이스 빌더에서 값을 변경하면 동시에 User Defined Runtime Attributes에도 동일한 Key Path, Type, Value로 생성이 됩니다.
-<br/><img src="/../../../../image/2015/customclass_preview_runtime.png" alt="" style="width: 300px;"/><br/><br/>
+<br/><img src="https://farm6.staticflickr.com/5825/20154548003_9f7e961a38.jpg" width="257" height="83" alt="customclass_preview_runtime"><br/><br/>
 
 6.인터페이스 빌더 내에서만 커스텀 뷰 코드를 만들고자 한다면 `prepareForInterfaceBuilder` 메소드로부터 코드를 호출할 수 있습니다.
 

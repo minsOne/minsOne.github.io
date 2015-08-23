@@ -57,7 +57,7 @@ Set 타입의 문법은 `Set<SomeType>`로 작성되며, 다음과 같이 초기
 
 #### Set 연산 작업
 
-<br/><img src="/../../../../image/2015/setVennDiagram.png" alt="setVennDiagram" style="width: 600px;"/><br/><br/>
+<br/><img src="https://farm1.staticflickr.com/763/20588695009_bc5b70e88e.jpg" width="500" height="379" alt="setVennDiagram"><br/><br/>
 
 union : 합집합으로 두 Set을 합쳐 새로운 Set을 만듭니다.
 
@@ -83,7 +83,7 @@ exclusiveOr : 두 Set의 겹치는 부분을 제외한 나머지 부분으로 �
 
 #### Set 비교
 
-<br/><img src="/../../../../image/2015/setEulerDiagram.png" alt="setEulerDiagram" style="width: 600px;"/><br/><br/>
+<br/><img src="https://farm1.staticflickr.com/665/20587459798_95dcf36955.jpg" width="500" height="293" alt="setEulerDiagram"><br/><br/>
 
 isSubsetOf : Set의 모든 값이 특정 Set에 포함되는지를 확인합니다.
 

@@ -9,7 +9,7 @@ tags: [swift, animation, scale, UIScrollView, transform]
 
 Twitter의 프로필을 화면에서 위로 스크롤을 하면 커버 이미지가 점점 확대되면서 블러처리가 됩니다. 
 
-<br/><img src="/../../../../image/2015/twitterCover.png" alt="" style="width: 200px;"/><br/><br/>
+<br/><img src="https://farm1.staticflickr.com/716/20587359900_eec6104501.jpg" width="282" height="500" alt="twitterCover"><br/><br/>
 
 이미지가 확대되는 효과를 구현해봅시다.
 
@@ -78,6 +78,4 @@ Twitter의 프로필을 화면에서 위로 스크롤을 하면 커버 이미지
 
 다음은 위의 코드를 적용한 결과 화면입니다.
 
-<video width="500" height="500" controls>
-  <source src="/../../../../image/2015/twitterCoverAnimation.mp4" type="video/mp4">
-</video>
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/134677242@N06/20588608259/in/dateposted-public/" title="twitterCoverAnimation"><img src="https://farm6.staticflickr.com/5677/20588608259_824b4991f5.jpg" width="500" height="375" alt="twitterCoverAnimation"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>

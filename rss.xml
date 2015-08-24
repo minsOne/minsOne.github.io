@@ -12,7 +12,7 @@ title : RSS Feed
         <link>{{ site.production_url }}</link>
         <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>
         <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
-        <ttl>1800</ttl>
+        <ttl>60</ttl>
 
 {% for post in site.posts %}
         <item>

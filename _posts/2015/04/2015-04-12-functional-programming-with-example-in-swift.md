@@ -132,7 +132,7 @@ tags: [functional programming, FP, swift, battle ship, refactoring, pure functio
 
 	func circle(radius: Distance) -> Region {
 		return { point in 
-			sqrt(point.x * point.x + point.y + point.y) <= radius
+			sqrt(point.x * point.x + point.y * point.y) <= radius
 		}
 	}
 

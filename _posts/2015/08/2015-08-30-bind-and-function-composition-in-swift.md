@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "[Swift]함수 묶기(Bind)"
+title: "[Swift]함수 묶기(Binding)"
 description: ""
 category: "programming"
 tags: [swift, function, closure, bind, fp, functional programming, currying]
 ---
 {% include JB/setup %}
 
-### 함수 묶기(Bind)
+### 함수 묶기(Binding)
 
 중첩된 조건문이 많아지면 조건문들을 이해해야 되고, 점점 코드의 복잡도는 증가됩니다. 이러한 조건문들을 함수 단위로 잘게 나누고 묶어 사용할 수 있습니다.
 
@@ -51,7 +51,7 @@ tags: [swift, function, closure, bind, fp, functional programming, currying]
 	((("String" >>= f1) >>= f3) >>= f2) >>= f1	// nil
 
 
-### Currying과 Bind
+### Currying과 Binding
 
 두 숫자를 더하는 함수는 다음과 같이 작성됩니다.
 
@@ -59,7 +59,7 @@ tags: [swift, function, closure, bind, fp, functional programming, currying]
 		return x + y
 	}
 
-이 함수를 Currying으로 바꾸면 
+이 함수를 `Currying` 형태로 바꾸면 다음과 같이 작성할 수 있습니다.
 
 	func add(x: Int) -> Int -> Int {
 	    return {
@@ -67,7 +67,7 @@ tags: [swift, function, closure, bind, fp, functional programming, currying]
 	    }
 	}
 
-과 같이 작성할 수 있는데 여기에 Bind를 같이 사용하면 다음과 같이 사용할 수 있습니다.
+그리고 `bind`를 같이 사용하면 다음과 같이 사용할 수 있습니다.
 
 	func bind<A, B>(a: A, f: A -> B) -> B {
 	    return f(a)

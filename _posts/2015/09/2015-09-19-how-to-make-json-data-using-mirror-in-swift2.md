@@ -133,7 +133,7 @@ Mirror을 통해 객체에 속성이 몇개인지를 읽고, 값이 JSON 프로�
 
 전체 코드는 [여기](https://gist.github.com/minsOne/765aaffe565e688dd790)에서 확인하실 수 있습니다.
 
-<br/><div class="alert-info">위의 코드는 <a href="https://gist.github.com/chriseidhof/48243eb549481bc38d58">Gist</a>를 참고하였습니다.</div>
+<div class="alert-info">위의 코드는 <a href="https://gist.github.com/chriseidhof/48243eb549481bc38d58">Gist</a>를 참고하였습니다.</div>
 
 ### 결론
 

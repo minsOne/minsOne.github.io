@@ -320,7 +320,8 @@ UILongPressGestureRecognizer는 버튼 또는 뷰 등을 오래 누르는 것을
 다음으로 UILongPressGestureRecognizer를 생성하여 붙일 함수를 만듭니다.
 	
 	func attachLongPressGesture() {
-		var longPress = UILongPressGestureRecognizer(target: self, action: Selector("handleLongPressGesture:"))
+		self.stopTimer()
+		let longPress = UILongPressGestureRecognizer(target: self, action: Selector("handleLongPressGesture:"))
 		longPress.minimumPressDuration = 0.01
 		self.redView.gestureRecognizers = [longPress]
 	}
@@ -329,12 +330,10 @@ UILongPressGestureRecognizer는 버튼 또는 뷰 등을 오래 누르는 것을
 
 	func makeElapsedTime() -> ( Void -> Bool) {
 		var elapsedTime = kTimer
-		func isElapsedTime() -> Bool {
-			elapsedTime--
-			if elapsedTime < 0 { elapsedTime = 0 }
-			return elapsedTime == 0 ? true : false
-		}
-		return isElapsedTime
+		return {
+            if --elapsedTime < 0 { elapsedTime = 0 }
+            return elapsedTime == 0 ? true : false
+        }
 	}
 
 <br/>다음은 터치 시작할 때 동작할 타이머와 타이머가 호출될 때 실행될 함수를 만듭니다.
@@ -358,11 +357,8 @@ UILongPressGestureRecognizer는 버튼 또는 뷰 등을 오래 누르는 것을
 
 	// 지정된 시간이 지날경우 타이머를 종료하고 UILongPressGestureRecognizer를 초기화 하여 더이상 처리하지 않도록 합니다.
 	func longPressTimerHandler() {
-		if let isElapsedTime = self.elapsedHandler where isElapsedTime() {
-			println("Success")
-			self.stopTimer()
-			self.attachLongPressGesture()
-		}
+		guard let isElapsedTime = self.elapsedHandler where isElapsedTime() else { return }
+        self.attachLongPressGesture()
 	}
 
 <br/> 이제 UILongPressGestureRecognizer를 처리하는 함수를 만듭니다. 여기에서 터치 시작할 때 타이머를 설정하고 제어합니다.
@@ -387,25 +383,20 @@ UILongPressGestureRecognizer는 버튼 또는 뷰 등을 오래 누르는 것을
 
 	extension ViewController 
 	{
-		func handleLongPressGesture(recogizer: UILongPressGestureRecognizer)
-		{
-			let state = recogizer.state
-
-			if state == .Began {
-				self.startTimer()
-			}
-			else if let lView = recogizer.view
-				where recogizer.state == .Changed
-			{
-				let location = recogizer.locationInView(lView.superview)
-				if !CGRectContainsPoint(lView.frame, location) {
-					self.stopTimer()
-					self.attachLongPressGesture()
-				}
-			} 
-			else if (state == .Ended || state == .Cancelled || state == .Failed) {
-				self.stopTimer()
-			}
+		func handleLongPressGesture(recogizer: UILongPressGestureRecognizer) {
+		    switch recogizer.state {
+		    case .Began:
+		        self.startTimer()
+		    case .Ended, .Cancelled, .Failed:
+		        self.stopTimer()
+		    case .Changed:
+		        guard let lView = recogizer.view else { return }
+		        let location = recogizer.locationInView(lView.superview)
+		        if !CGRectContainsPoint(lView.frame, location) {
+		            self.attachLongPressGesture()
+		        }
+		    default: break
+		    }
 		}
 	}
 

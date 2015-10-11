@@ -73,7 +73,7 @@ n → 3 n + 1 (n이 홀수일 때)
 	        return hailstoneSequenceF
 	    }
 
-	    return (x...y).reduce( (result: (0, maximum: 0), f: hailstoneSequence([Int:Int]())) ) {
+	    return (x...y).reduce( (result: (index: 0, maximum: 0), f: hailstoneSequence([Int:Int]())) ) {
 	        let length = $0.0.f($0.1)
 	        if length > $0.0.result.maximum {
 	            return (($0.1, length), $0.0.f)

@@ -49,7 +49,7 @@ n → 3 n + 1 (n이 홀수일 때)
 
 		println(maximum)	// (837799, 525)
 
-<ul><li>수정 후</li></ul>
+<ul><li>1차 수정</li></ul>
 
 	let result = reduce(1...1_000_000, (0,0)) { maximum, i in
 	    let result = hailstoneSequence(i)
@@ -58,6 +58,32 @@ n → 3 n + 1 (n이 홀수일 때)
 	}
 
 	println(result)	// (837799, 525)
+
+<ul><li>2차 수정</li></ul>
+
+	func main(x x: Int, y: Int) -> (Int, Int) {
+	    func hailstoneSequence(var cacheSequence: [Int:Int]) -> Int -> Int {
+	        func hailstoneSequenceF(n: Int) -> Int {
+	            if n == 1 { return 1 }
+	            if let cached = cacheSequence[n] { return cached }
+	            let result = 1 + ( (n % 2 == 0) ? hailstoneSequenceF(n/2) : hailstoneSequenceF(n*3+1))
+	            cacheSequence[n] = result
+	            return result
+	        }
+	        return hailstoneSequenceF
+	    }
+
+	    return (x...y).reduce( (result: (0, maximum: 0), f: hailstoneSequence([Int:Int]())) ) {
+	        let length = $0.0.f($0.1)
+	        if length > $0.0.result.maximum {
+	            return (($0.1, length), $0.0.f)
+	        }
+	        return $0.0
+	    }.result
+	}
+
+	print(main(x: 1, y: 1_000_000)) // (525, 837799)
+	
 
 ### 문제 출처
 

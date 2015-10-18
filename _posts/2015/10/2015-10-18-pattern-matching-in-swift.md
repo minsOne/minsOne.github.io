@@ -12,24 +12,24 @@ tags: [swift, if case, if, case, function, generic]
 Swift 2에서는 Switch문이 아닌 if문에서도 case를 사용할 수 있습니다.
 
 	enum Direction {
-	    case Right, Down, Left, Up
+		case Right, Down, Left, Up
 	}
 
 	let r = Direction.Right
 	let l = Direction.Left
 
 	if case Direction.Right = r {
-	    print("Right")
+		print("Right")
 	}
 
 	// Or
 
 	if case .Right = r {
-	    print("Right")
+		print("Right")
 	}
 
 	if case Direction.Right = r where l == Direction.Left {
-	    print("Right and Left")
+		print("Right and Left")
 	}
 
 ### Case에 함수 사용하기
@@ -38,11 +38,11 @@ Swift 2에서는 Switch문이 아닌 if문에서도 case를 사용할 수 있습
 
 	var x = 0
 	func isEven(n: Int) -> Bool {
-	    return n % 2 == 0 ? true : false
+		return n % 2 == 0 ? true : false
 	}
 
 	func isOdd(n: Int) -> Bool {
-	    return n % 2 != 0 ? true : false
+		return n % 2 != 0 ? true : false
 	}
 
 	switch x {
@@ -53,18 +53,18 @@ Swift 2에서는 Switch문이 아닌 if문에서도 case를 사용할 수 있습
 
 	error: binary operator '~=' cannot be applied to operands of type '(Int) -> Bool' and 'Int'
 	case isEven: print("Even")
-	     ^~~~~~
+		 ^~~~~~
 
 위와 같은 에러가 발생을 하여 Case에 함수를 사용할 수 없습니다. 하지만 에러를 살펴보면 `(Int) -> Bool` 타입의 변수와, `Int` 타입의 변수가 들어감을 알 수 있으므로, 다음과 같이 `~=` 연산자를 선언할 수 있습니다.
 
 	func ~=(f: Int -> Bool, value: Int) -> Bool {
-	    return f(value)
+		return f(value)
 	}
 
-Int 타입으로만 사용할 수 있으므로, 제네릭을 사용하여 작성할 수 있습니다.
+제네릭을 사용하여 다른 타입도 사용할 수 있도록 작성합니다.
 
 	func ~=<T>(f: T -> Bool, value: T) -> Bool {
-	    return f(value)
+		return f(value)
 	}
 
 <br/>

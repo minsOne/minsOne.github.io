@@ -67,9 +67,7 @@ Swift 2에서는 Switch문이 아닌 if문에서도 case를 사용할 수 있습
 		return f(value)
 	}
 
-<br/>
-
-<div class="alert-info">Case에 함수를 사용하게 되면 Switch문은 모든 경우를 판단할 수 없기 때문에 반드시 default를 사용해야 합니다.</div>
+그리고 Case에 함수를 사용하게 되면 Switch문은 모든 경우를 판단할 수 없기 때문에 반드시 default를 사용해야 합니다.
 
 ### 참고자료
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift]Switch 문 Trick & Tip"
+title: "[Swift]Switch문 Trick"
 description: ""
 category: "programming"
 tags: [swift, if case, if, case, function, generic]

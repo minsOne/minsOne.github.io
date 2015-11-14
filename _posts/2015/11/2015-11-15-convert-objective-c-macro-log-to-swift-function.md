@@ -18,7 +18,7 @@ Swift에서는 매크로를 사용할 수 없어, 전역으로 사용할 함수�
 	func DFT_TRACE_PRINT(filename: String = __FILE__, line: Int = __LINE__, funcname: String = __FUNCTION__, output:Any...) {
 		#if DEBUG
 		let now = NSDate()
-		print("[\(now.description)] \(filename)[\(funcname)][Line \(line)] \(output)")
+		print("[\(now.description)][\(filename)][\(funcname)][Line \(line)] \(output)")
 		#endif
 	}
 

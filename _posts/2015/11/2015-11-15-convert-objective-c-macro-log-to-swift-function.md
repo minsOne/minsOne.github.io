@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift]Objective-C 로그 매크로를 Swift로 만들기"
+title: "[Swift]Swift 로그 매크로(?) 만들기"
 description: ""
 category: "Mac/iOS"
 tags: [swift, function, log, trace, print]

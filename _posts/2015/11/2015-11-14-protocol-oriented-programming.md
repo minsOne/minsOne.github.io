@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[번역]Protocol-Oriented Programming in Swift"
+title: "[번역][Swift]프로토콜지향 프로그래밍"
 description: ""
 category: "programming"
 tags: [apple, wwdc, swift, protocol, object, protocol-oriented, object-oriented]

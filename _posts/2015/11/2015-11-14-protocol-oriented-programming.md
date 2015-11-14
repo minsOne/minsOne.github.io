@@ -9,7 +9,7 @@ tags: [apple, wwdc, swift, protocol, object, protocol-oriented, object-oriented]
 
 이 영상 번역 글은 [Protocol-Oriented Programming in Swift](https://developer.apple.com/videos/play/wwdc2015-408/)의 비공식 영상 번역글이며 Apple에서 보증, 유지 또는 감독하지 않습니다. 공식 영상을 보시려면 [Apple Developer](https://developer.apple.com)을 방문하세요.
 
-### 프로토콜 지향 프로그래밍
+### 프로토콜지향 프로그래밍
 
 안녕하세요. 제 이름은 Dave Abrahams이며, Swift 표준 라이브러리에 테크니컬 리더이며, 오늘 여기에서 여러분과 이 자리에 함께할 수 있어 영광입니다. 이 방에서 여러분 모두를 볼 수 있음에 영광입니다. 다음 40분간 프로그래밍 생각의 일반적인 방법을 잠시 접어두세요. 우리가 여기에서 같이 하기가 쉽지는 않겠지만, 나와 같이한다면 가치 있는 시간이 될 것이라고 약속합니다. 나는 여기에서 Swift의 디자인 핵심 주제에 관해 이야기하고, 모든 것을 바꿀 수 있는 잠재력을 가진 프로그래밍 방법을 소개합니다. 
 

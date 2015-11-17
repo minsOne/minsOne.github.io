@@ -7,7 +7,7 @@ tags: [한글, swift, objc]
 ---
 {% include JB/setup %}
 
-한글 검색이 필요하여 한글 초성, 중성, 종성을 분리하도록 기존 Objective-C 코드를 모던하게 수정하였고, Swift 코드로 변환하였습니다.
+한글 초성, 중성, 종성을 분리하는 기존 Objective-C 코드를 모던하게 수정하였고, Swift 코드로 변환하였습니다.
 
 #### Objective-C
 

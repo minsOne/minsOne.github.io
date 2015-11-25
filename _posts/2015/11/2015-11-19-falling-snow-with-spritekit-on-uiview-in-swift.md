@@ -75,6 +75,10 @@ tags: [swift, spritekit, skview, skscene, particle]
 		sceneView.backgroundColor = UIColor.clearColor()
 		sceneView.presentScene(snowScene)
 		snowView.addSubview(sceneView)
+
+		// 밑에 있는 뷰가 터치를 먹도록 설정
+		sceneView.userInteractionEnabled = false
+		snowView.userInteractionEnabled = false
 	}
 
 그리고 화면이 나타나면 눈 내리는 효과를 시작하도록 합니다.
@@ -104,6 +108,6 @@ tags: [swift, spritekit, skview, skscene, particle]
 
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/134677242@N06/22715895538/in/datetaken/" title="fallingSnow"><img src="https://farm1.staticflickr.com/703/22715895538_58c4f16d08.jpg" width="282" height="500" alt="fallingSnow"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script><br/>
 
-<div class="alert warning"><strong>주의</strong> : sceneView의 presentScene을 정리하지 않으면 계속 살아있기 때문에 성능에 영향을 줍니다. 따라서 여러 번 실행하여 성능에 문제가 없는지 확인을 하는 것이 중요합니다.</div>
+<div class="alert warning"><strong>주의</strong> : sceneView의 presentScene을 정리하지 않으면 계속 살아있기 때문에 성능에 영향을 줍니다. 따라서 여러 번 실행하여 성능에 문제가 없는지 확인을 하는 것이 중요합니다. 또한, sceneView와 snowScene의 userInteractionEnabled를 false로 설정하여 아래에 있는 뷰에 터치를 보내줄 수 있도록 합니다.</div>
 
 [여기](https://gist.github.com/minsOne/71e7d761489e70e5f63a)에서 ViewController와 SnowScene 전체 소스를 받으시면 됩니다.<br/><br/>

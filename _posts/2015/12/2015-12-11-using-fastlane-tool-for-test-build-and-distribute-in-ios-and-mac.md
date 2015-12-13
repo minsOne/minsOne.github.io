@@ -3,7 +3,7 @@ layout: post
 title: "[iOS][Xcode]fastlane을 이용하여 쉽게 테스트, 빌드, 배포하기"
 description: ""
 category: "Mac/iOS"
-tags: [ios, xcode, fastlan, scan, gym, snapshot, deliver, itunesconnect]
+tags: [ios, xcode, fastlane, scan, gym, snapshot, deliver, itunesconnect]
 ---
 {% include JB/setup %}
 

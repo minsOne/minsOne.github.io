@@ -21,7 +21,7 @@ SSL Certificate Check를 내려받아 실행권한을 주고 pem 파일의 남�
 
 	Host                                            Status       Expires      Days
 	----------------------------------------------- ------------ ------------ ----
-	FILE:app_test.pem                               Expiring     Jul 15 2016  189 
+	FILE:app_test.pem                               Expiring     Jul 15 2016  189
 
 <br/>만약 만료날짜가 얼마남지 않았다면 [Pem](https://github.com/fastlane/pem)을 통해서 인증서를 만들어 갱신합니다.
 
@@ -37,6 +37,21 @@ SSL Certificate Check를 내려받아 실행권한을 주고 pem 파일의 남�
 그리고 애플 개발자 센터에서 다음과 같이 인증서가 만들어진 것을 확인할 수 있습니다.
 
 <br/><img src="https://farm2.staticflickr.com/1600/23606687693_4fb96da155_z.jpg" width="640" height="389" alt=""><br/><br/>
+
+또한, bag attribute가 필요하다면 pem으로 내려받을 때 `-p` 옵션을 사용하여 받아 `p12` 파일을 openssl로 `pem` 파일을 만들면 됩니다.
+
+	FASTLANE_PASSWORD=[password] pem -a [bundleId] -u [username] -o app_test.pem -p "qwer1234"
+	openssl pkcs12 -info -in app_test.p12 -passin pass:qwer1234 -passout pass:whatever -out app_test.pem
+	cat app_test.pem
+
+	Bag Attributes
+    	friendlyName: production
+    	localKeyID: FA CB 95 61 59 31 *************
+	subject=/UID=[bundleId]/CN=Apple Push Services: [bundleId]/OU=******/O=******/C=US
+	issuer=/C=US/O=Apple Inc./OU=Apple Worldwide Developer Relations/CN=Apple Worldwide Developer Relations Certification Authority
+	-----BEGIN CERTIFICATE-----
+	MIIGSjCCBTKgAwIBAgIIS****
+	...
 
 만료되고 있는 인증서는 pem이 revoke를 하지 않고 새로운 인증서를 만드는데 최대 2개까지 만들게 됩니다. 하지만 우리가 사용하는 인증서는 갱신되었기 때문에 만료되고 있는 인증서는 개발자 센터에서 revoke를 할 필요 없이 만료되면 알아서 삭제됩니다.(아마도?)
 

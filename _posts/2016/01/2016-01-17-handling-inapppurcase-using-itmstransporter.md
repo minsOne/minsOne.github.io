@@ -7,7 +7,7 @@ tags: [apple, iTMSTransporter, Transporter, InAppPurcase, itunesconnect]
 ---
 {% include JB/setup %}
 
-서비스에 따라 다르지만 인앱 가격이 자주 바뀌는 서비스인 경우, 매번 itunesconnect에 들어가서 인앱 가격을 변경하거나 기간을 설정해줘야 합니다. 이벤트를 해야 하는 시점에 여러 앱의 인앱들을 바꿔야 한다면, 매우 끔찍할 것입니다. 속도가 느린 itunesconnect에서 일일이 변경을 하려면 말이죠.
+서비스에 따라 다르지만 인앱 가격이 자주 바뀌는 서비스인 경우, 매번 itunesconnect에 들어가서 인앱 가격을 변경하거나 기간을 설정해줘야 합니다. 이벤트를 해야 하는 시점에 여러 앱의 인앱들을 바꿔야 한다면, 끔찍합니다. 속도가 느린 itunesconnect에서 일일이 변경을 하려면 말이죠.
 
 하지만 애플은 일일이 하지 않아도 되도록 iTMSTransporter라는 툴을 만들어 놓았습니다. 메타데이터, App 파일 등을 조회하고, 진단하고, 업로드할 수 있습니다.
 

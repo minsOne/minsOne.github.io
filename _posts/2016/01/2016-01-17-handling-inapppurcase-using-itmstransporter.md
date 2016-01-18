@@ -3,7 +3,7 @@ layout: post
 title: "[Apple][iTMSTransporter]iTMSTransporter로 인앱 다루기"
 description: ""
 category: "Mac/iOS"
-tags: [apple, iTMSTransporter, Transporter, InAppPurcase, itunesconnect]
+tags: [apple, iTMSTransporter, Transporter, InAppPurcase, itunesconnect, Application loader]
 ---
 {% include JB/setup %}
 

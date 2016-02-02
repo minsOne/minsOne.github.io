@@ -53,3 +53,7 @@ Swift에서 가장 많이 쓰이는 라이브러리인 Alamofire를 통해서 �
 	3kxp2bq1fvxsa99pa7wt50hnwpr0xtl0
 
 <br/><br/>
+
+### 참고 자료
+
+* [stackoverflow](http://stackoverflow.com/a/26690724)

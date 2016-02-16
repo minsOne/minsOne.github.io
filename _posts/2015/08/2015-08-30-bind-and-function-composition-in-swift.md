@@ -20,6 +20,7 @@ tags: [swift, function, closure, bind, fp, functional programming, currying]
 	    }
 	}
 
+	infix operator >>= { associativity left }
 	func >>=<A, B>(a: A?, f: A -> B?) -> B?
 	{
 	    return bind(a, f)
@@ -73,6 +74,7 @@ tags: [swift, function, closure, bind, fp, functional programming, currying]
 	    return f(a)
 	}
 
+	infix operator >>= { associativity left }
 	func >>=<A, B>(a: A, f: A -> B) -> B {
 	    return bind(a, f)
 	}

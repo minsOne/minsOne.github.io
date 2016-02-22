@@ -41,7 +41,10 @@ SSL Certificate Check를 내려받아 실행권한을 주고 pem 파일의 남�
 또한, bag attribute가 필요하다면 pem으로 내려받을 때 `-p` 옵션을 사용하여 받아 `p12` 파일을 openssl로 `pem` 파일을 만들면 됩니다.
 
 	$ FASTLANE_PASSWORD=[password] pem -a [bundleId] -u [username] -o app_test.pem -p "qwer1234"
-	$ openssl pkcs12 -info -in app_test.p12 -passin pass:qwer1234 -out app_test.pem
+	$ openssl pkcs12 -info -nodes -in app_test.p12 -passin pass:qwer1234 -out app_test.pem
+	$ sed -n '/Bag Attributes/,/Key Attributes: <No Attributes>/p' app_test.pem > tmp.pem
+	$ cat app_test.pkey >> tmp.pem
+	$ mv tmp.pem app_test.pem
 	$ cat app_test.pem
 
 	Bag Attributes

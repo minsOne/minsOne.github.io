@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[ReactiveX][RxSwift]Observable vs Driver"
+title: "[ReactiveX][RxSwift]Observable과 Driver"
 description: ""
 category: "programming"
 tags: [swift, ReactiveX, RxSwift, Observable, Driver, asObservable, asDriver, MainScheduler]

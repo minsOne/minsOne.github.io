@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[ReactiveX][RxSwift]들어가기 전 - 0"
+title: "[ReactiveX][RxSwift]들어가기 전"
 description: ""
 category: "programming"
 tags: [swift, ReactiveX, RxSwift, ReactiveCocoa, Reactive, RxJava, RxJS, ui]

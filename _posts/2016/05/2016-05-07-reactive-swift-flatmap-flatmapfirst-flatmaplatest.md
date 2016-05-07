@@ -219,3 +219,4 @@ flatMapFirst와는 다르게 모든 아이템 0,1,2,3이 발행된 것을 알 �
 * [ReactiveX - flatMap](http://reactivex.io/documentation/operators/flatmap.html)
 * [Pluu Dev - [번역] RxJava에 대해서 찾아보고 써봤다](http://pluu.github.io/blog/rx/2015/04/29/rxjava/)
 * [Gaemi - RxJava with Android - 1 - RxJava 사용해보기](http://gaemi.github.io/android/2015/05/20/RxJava%20with%20Android%20-%201%20-%20RxJava%20사용해보기.html)
+

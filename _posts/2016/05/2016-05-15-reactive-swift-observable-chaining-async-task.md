@@ -7,7 +7,7 @@ tags: [swift, ReactiveX, RxSwift, Observable, subscribeOn, observeOn]
 ---
 {% include JB/setup %}
 
-iOS에서 비동기 작업을 가장 많이 하는 것이 네트워크입니다. 네트워크를 한번만 요청하는 것이 아니라, 요청한 결과를 받아 다시 요청해야하거나, 동시에 여러 개를 요청하기도 합니다.
+iOS에서 비동기 작업을 가장 많이 하는 것이 네트워크입니다. 네트워크를 한 번만 요청하는 것이 아니라, 요청한 결과를 받아 다시 요청해야 하거나, 동시에 여러 개를 요청하기도 합니다.
 
 비동기 작업의 대표적인 네트워크 요청을 Rx 연산자를 통해 체이닝 형태로 만들어보려고 합니다.
 
@@ -129,13 +129,13 @@ iOS에서 비동기 작업을 가장 많이 하는 것이 네트워크입니다.
 2. rx_tap은 Void 아이템을 가지므로, HTTPBin에 인자를 넘겨주기 위해 빈 딕셔너리 아이템으로 만듭니다.
 3. 네트워크 작업을 하기 전에 라벨에 Loading... 표시와 networkActivityIndicator를 표시합니다. 이는 subscribeOn이 메인 스레드를 지정하였기 때문에 가능합니다.
 4. observeOn으로 Observable이 앞으로 동작할 스케쥴러를 백그라운드 스레드로 지정합니다.
-5. 네트워크 작업을 수행하는데, retry를 추가하여 에러가 발행한다면 두 번까지 동일한 작업을 수행합니다. 그리고 observeOn에 메인 스레드로 지정하여 라벨에 Done으로 표시합니다.
+5. 네트워크 작업을 수행하는데, retry를 추가하여 에러가 발행한다면 두 번까지 같은 작업을 수행합니다. 그리고 observeOn에 메인 스레드로 지정하여 라벨에 Done으로 표시합니다.
 6. observeOn으로 Observable이 앞으로 동작할 스케쥴러를 메인 스레드로 지정합니다. 다음에 호출될 subscribe는 메인 스레드에서 동작합니다.
 7. 결과를 라벨에 표시하고, networkActivityIndicator를 보여주지 않습니다.
 
-<br/>지금까지는 어렵지 않았습니다. 그렇다면 인자를 계속 늘리면서 네트워크 작업을 요청은 어떻게 해야할까요?
+<br/>지금까지는 어렵지 않았습니다. 그렇다면 인자를 계속 늘리면서 네트워크 작업을 요청은 어떻게 해야 할까요?
 
-간단합니다. 네트워크 작업이 추가된 flatMapLatest를 붙이면 됩니다. 즉, 다음 코드가 반복해서 들어가면 되는거죠.
+간단합니다. 네트워크 작업이 추가된 flatMapLatest를 붙이면 됩니다. 즉, 다음 코드가 반복해서 들어가면 되는 거죠.
 
 ```swift
 	.flatMapLatest { p in
@@ -158,7 +158,7 @@ iOS에서 비동기 작업을 가장 많이 하는 것이 네트워크입니다.
 
 <br/><a data-flickr-embed="true"  href="https://www.flickr.com/photos/134677242@N06/26422927964/in/dateposted-public/" title="live"><img src="https://farm8.staticflickr.com/7657/26422927964_351a276f9d_z.jpg" width="349" height="640" alt="live"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
-이제 비동기 작업의 콜백 지옥에서 벗어나게 되었습니다.(다른 방법도 많지만,,) 스트림 형태로 만들기 때문에, 더더욱 데이터 흐름을 생각하면서 Rx코드를 작성하게 됩니다.
+이제 비동기 작업의 콜백 지옥에서 벗어나게 되었습니다.(다른 방법도 많지만,,) 스트림 형태로 만들기 때문에, 더더욱 데이터 흐름을 생각하면서 Rx 코드를 작성하게 됩니다.
 
 ### 참고
 

@@ -1,136 +1,69 @@
 ---
 layout: post
-title: "[ReactiveX][RxSwift]observeOn, subscribeOn - 작업 스레드 지정하기"
+title: "[ReactiveX][RxSwift]Scheduler, observeOn, subscribeOn"
 description: ""
 category: "programming"
-tags: [swift, ReactiveX, RxSwift, Observable, observeOn, subscribe, subscribeOn]
+tags: [swift, ReactiveX, RxSwift, Observable, observeOn, subscribe, subscribeOn, Scheduler]
 ---
 {% include JB/setup %}
 
-Rx를 다루다보면 observeOn과 subscribeOn을 같이 쓸 일이 많은데, 이를 정리하고자 합니다.
+Rx를 다루다보면 멀티스레드가 필요한 작업이 많아 observeOn과 subscribeOn을 같이 쓸 일이 많은데, 이를 정리하고자 합니다.
+
+### Scheduler
+
+멀티스레드를 사용하여 여러가지 작업을 Observable 연산자로 묶어 수행하는 경우가 있습니다. 가령 백그라운드 스레드에서는 네트워크 작업, 많은 연산이 필요한 작업을 해야하고, 화면에 보여주기 위해서는 메인 스레드에서 작업을 해야합니다.
+
+이 작업들은 Observable 연산자로 묶어 만들 수 있으므로, 각각의 작업에 맞게 스레드 지정을 해야합니다.
+
+Scheduler는 스레드를 가르키는 말입니다.
 
 ### ObserveOn, SubscribeOn
 
-observeOn은 Observable이 아이템을 전파할 때, 사용할 스레드를 지정합니다. subscribeOn은 구독(subscribe)에서 사용할 스레드를 지정합니다.
+subscribeOn은 Observable이 동작하는 스케쥴러를 다른 스케쥴러로 지정하여 동작을 변경합니다. 
 
-예를 들어, Observable은 네트워크 연결하고, 결과를 받으며, 구독에서 결과를 처리합니다. 그러면 Observable은 백그라운드 스레드에서 네트워크 요청 작업을 수행하고, 구독은 결과를 화면에 보여주기 위해 메인 스레드에서 수행합니다.
+observeOn은 Observable이 Observer에게 알리는 스케쥴러를 다른 스케쥴러로 지정합니다.
 
-Observable은 백그라운드 스레드에서 동작하도록 observeOn으로 백그라운드 스레드를 지정하고, 구독은 메인 스레드에서 동작하도록 subscribeOn으로 메인 스레드를 지정합니다.
+다음 그림을 한번 살펴보죠.
 
-따라서 다음과 같이 코드를 작성할 수 있습니다.
+<img src="https://farm8.staticflickr.com/7756/26417720444_7f391698b3_z.jpg" width="512" height="640" alt="schedulers"><br/><br/>
+
+위 그림에서 subscribeOn은 시작하는 스케쥴러를 나타내는데, subscribeOn 호출 시점과 상관없이 적용됩니다. observeOn은 호출 시점 아래의 스케쥴러가 영향을 받은 것을 알 수 있습니다.
+
+위 그림과는 조금 다르지만 observeOn을 여러번 사용하여 스케쥴러를 변경하는 코드를 작성할 수 있습니다.
 
 ```swift
 	let backgroundScheduler = SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Default)
-	[1,2,3,4,5]
-		.toObservable()
-		.observeOn(backgroundScheduler)
-		.map { $0 * 2 }
-		.subscribeOn(MainScheduler.instance)
-		.subscribeNext {
-			print("Result : \($0)")
-		}
-		
-	// Output
-	Result : 2
-	Result : 4
-	Result : 6
-	Result : 8
-	Result : 10
+
+	[1,2,3,4,5].toObservable()
+		.subscribeOn(MainScheduler.instance) 	// 1
+		.doOnNext {
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+			return $0
+		} 		// 2
+		.observeOn(backgroundScheduler) // 3
+		.flatMapLatest {
+			HTTPBinDefaultAPI.sharedAPI.get($0)
+		}		// 4
+		.observeOn(MainScheduler.instance) 		// 5
+		.subscribe {
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+			print($0)
+		}		// 6
 ```
 
-<br/>
-시퀀스(Sequence)는 아이템을 전파하고, 그 아이템을 구독하여 출력합니다. 그렇다면 시퀀스 아이템을 2배 곱한 아이템을 묶은 후, 다시 전파하려면 어떻게 해야할까요?
+단계별로 살펴봅시다.
 
-observeOn을 추가하면 됩니다. 다음 코드로 살펴보도록 합시다.
-
-```swift
-	[1,2,3,4,5]
-		.toObservable()
-		.observeOn(backgroundScheduler)
-		.map { n -> Int in
-			print("This is performed on background scheduler")
-			return n * 2
-		}
-		.observeOn(backgroundScheduler)
-		.subscribeOn(MainScheduler.instance)
-		.subscribeNext {
-			print("Result : \($0)")
-		}
-
-	// Output
-	This is performed on background scheduler
-	This is performed on background scheduler
-	This is performed on background scheduler
-	This is performed on background scheduler
-	This is performed on background scheduler
-	Result : 2
-	Result : 4
-	Result : 6
-	Result : 8
-	Result : 10
-```
-
-<br/>
-이 경우에서 두번째 observeOn가 구독 역할도 수행하기 때문에, subscribeOn을 지정하지 않고 dispose도 자동으로 호출합니다.
-
-출력 결과를 살펴보면, 시퀀스에서 아이템을 전파하더라도 바로 구독에서 처리하지 않고, 중간에서 아이템을 구독 받은후 전파하는 것을 확인할 수 있습니다.
-
-그러면 map과 observeOn 사이, observeOn과 subscribeOn 사이에 debug를 추가하여 어떻게 진행되는지 살펴봅니다.
-
-다음은 아이템이 전파되는 과정을 디버깅입니다.
-
-```swift
-	[1,2,3,4,5]
-		.toObservable()
-		.observeOn(backgroundScheduler)
-		.map { n -> Int in
-			print("This is performed on background scheduler")
-			return n * 2
-		}
-		.debug()
-		.observeOn(backgroundScheduler)
-		.debug()
-		.subscribeOn(MainScheduler.instance)
-		.subscribeNext {
-			print("Result : \($0)")
-		}
-
-
-	// Output
-	(DEBUG) subscribed
-	(DEBUG) subscribed
-	This is performed on background scheduler
-	(DEBUG) Event Next(2)
-	This is performed on background scheduler
-	(DEBUG) Event Next(4)
-	This is performed on background scheduler
-	(DEBUG) Event Next(6)
-	This is performed on background scheduler
-	(DEBUG) Event Next(8)
-	This is performed on background scheduler
-	(DEBUG) Event Next(10)
-	(DEBUG) Event Completed
-	(DEBUG) Event Next(2)
-	Result : 2
-	(DEBUG) Event Next(4)
-	Result : 4	
-	(DEBUG) Event Next(6)
-	Result : 6
-	(DEBUG) Event Next(8)
-	Result : 8
-	(DEBUG) Event Next(10)
-	Result : 10
-	(DEBUG) Event Completed
-	(DEBUG) disposed
-	(DEBUG) disposed
-```
-
-<br/>
-디버깅 된 결과를 살펴보도록 합시다. 출력 결과의 4번째 줄 `(DEBUG) Event Next(2)`는 map을 통해 2배가 된 아이템이 전파되고 있음을 알 수 있습니다. 그리고 13번째 줄 `(DEBUG) Event Completed`에서 아이템 전파가 끝났음을 알 수 있습니다. 
-
-Observable은 구독 역할도 가능하기 때문에, 전파받은 아이템을 시퀀스 형태로 가지며, Observable에 구독이 추가되어 있으므로, 2배가 된 아이템을 전파합니다. 14번째 줄 `(DEBUG) Event Next(2)`에서 아이템이 전파되고 있음을 확인할 수 있으며, 24번째 줄 `(DEBUG) Event Completed`에서 전파가 끝났음을 알 수 있습니다.
+1. Observable이 동작하는 스케쥴러를 MainScheduler로 지정합니다.
+2. 1에서 MainScheduler로 지정하였으므로, networkActivityIndicatorVisible를 표시할 때 MainScheduler에서 동작합니다.
+3. Observable이 동작할 스케쥴러를 backgroundScheduler로 지정하여, 아래 Observable을 MainScheduler에서 backgroundScheduler로 지정합니다.
+4. backgroundScheduler로 지정되었기 때문에, 네트워크 작업은 backgroundScheduler에서 동작합니다.
+5. Observable이 동작할 스케쥴러를 MainScheduler로 지정하여, 아래 subscribe를 backgroundScheduler에서 MainScheduler로 지정합니다.
+6. networkActivityIndicatorVisible를 표시하지 않을 때 MainScheduler에서 동작합니다.
 
 ### 정리
 
-* observeOn은 Observable이 작업할 스레드 지정, subscribeOn은 구독이 작업할 스레드 지정합니다.
-* subscribeOn은 구독 앞에서 호출해도 되지만, observeOn보다 먼저 호출하여 어떤 스레드에서 구독 작업을 하는지 지정하는 것도 좋습니다.
+observeOn은 특정 작업의 스케쥴러를 변경할 수 있어 여러번 사용하고, subscribeOn은 Observable이 동작하는 스케쥴러를 바꾸기 때문에 가급적 한번만 사용하는 것이 좋습니다.
+
+### 참조
+
+* [ReactiveX - subscribeOn](http://reactivex.io/documentation/operators/subscribeon.html)

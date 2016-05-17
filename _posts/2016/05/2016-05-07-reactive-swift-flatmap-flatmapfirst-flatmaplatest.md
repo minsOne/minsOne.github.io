@@ -119,7 +119,7 @@ flatMapFirst는 flatMap과 마찬가지로 새로운 Observable을 만들지만,
 		.interval(0.5, scheduler: MainScheduler.instance)	// 0.5초마다 발행
 		.take(4)		// 4번 발행
 
-	t.flatMap { (x: Int) -> Observable<Int> in
+	t.flatMapFirst { (x: Int) -> Observable<Int> in
 		let newTimer = Observable<Int>
 			.interval(0.2, scheduler: MainScheduler.instance)	// 0.2초마다 발행
 			.take(4)		// 4번 발행
@@ -171,7 +171,7 @@ flatMapLatest는 새로운 Observable을 만들고, 새로운 Observable이 동�
 		.interval(0.5, scheduler: MainScheduler.instance)	// 0.5초마다 발행
 		.take(4)		// 4번 발행
 
-	t.flatMap { (x: Int) -> Observable<Int> in
+	t.flatMapLatest { (x: Int) -> Observable<Int> in
 		let newTimer = Observable<Int>
 			.interval(0.2, scheduler: MainScheduler.instance)	// 0.2초마다 발행
 			.take(4)		// 4번 발행

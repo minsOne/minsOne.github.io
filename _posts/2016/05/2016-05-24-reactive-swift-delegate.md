@@ -7,6 +7,8 @@ tags: [swift, ReactiveX, RxSwift, DelegateProxy, DelegateProxyType, Delegate]
 ---
 {% include JB/setup %}
 
+이 글은 이해가 낮은 상태에서 참고용으로 작성하였습니다. 잘못된 내용이 있을 수 있습니다.<br/><br/><br/>
+
 RxCocoa를 사용하다보면, Delegate로 사용해야 할 메소드가 확장되어 사용되는 것을 볼 수 있습니다. 예를 들면, UITableView의 `didSelectRowAtIndexPath` 메소드를 감싼 rx_itemSelected 메소드 등이 있습니다.
 
 Delegate에서 Observable 메소드로 변경하여, Rx에서 사용할 수 있도록 해봅시다. 예제로 사용할 CustomClassDelegate 프로토콜, CustomClass 클래스를 선언합니다.

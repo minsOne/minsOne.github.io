@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[ReactiveX][RxSwift]Unit Test 1 - 핫 옵저버블과 콜드 옵저버블
+title: "[ReactiveX][RxSwift]Unit Test 1 - 핫 옵저버블과 콜드 옵저버블"
 description: ""
 category: "programming"
 tags: [swift, ReactiveX, RxSwift, RxTests, Observable, Hot Observables, Cold Observables, TestScheduler, hot, cold]
@@ -96,3 +96,6 @@ Hot Observable이 아닌 Cold Observable이기 때문에 구독한 후에 아이
 		])
 ```
 
+### 참고 자료
+
+* [RxSwift](https://github.com/ReactiveX/RxSwift/)

@@ -36,7 +36,7 @@ tags: [swift, singleton, popup, window, uiapplication]
 	        popupView.animationRepeatCount = 0	// 0일 경우 무한반복
 
 			// popupView를 UIApplication의 window에 추가하고, popupView의 center를 window의 center와 동일하게 합니다.
-			let window = UIApplication.sharedApplication().keyWindow {
+			if let window = UIApplication.sharedApplication().keyWindow {
 				window.addSubview(popupView)
 				popupView.center = window.center
 				popupView.startAnimating()

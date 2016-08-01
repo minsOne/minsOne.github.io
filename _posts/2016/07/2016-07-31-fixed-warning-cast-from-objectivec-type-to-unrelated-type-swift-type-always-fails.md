@@ -22,7 +22,7 @@ tags: [swift, objectivec, nullability, casting, cast, AnyObject, unrelated type,
 	guard let channels = DataManager().getData() as? [Channel] else { return }
 
 	// fixed warning
-	guard let channels = DataManager().getData() as? AnyObject as? [Channel] else { return }
+	guard let channels = DataManager().getData() as AnyObject as? [Channel] else { return }
 ```
 
 위와 같이 사용하면 Objective-C와 Swift를 같이 사용함에 있어서 문제 없이 원하는 동작을 수행할 수 있습니다.

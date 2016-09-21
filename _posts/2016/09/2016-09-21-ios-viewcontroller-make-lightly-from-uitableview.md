@@ -13,11 +13,17 @@ tags: [UIViewController, UITableView, NSObject, Swift, UITableViewDelegate, UITa
 
 UIViewController가 UITableView 프로토콜을 따르면 코드의 양이 많아져 가독성이 떨어지게 되고, 분석도 어려워집니다.
 
+<img src="https://c6.staticflickr.com/9/8640/29755304981_e7a0d11b61_z.jpg" width="346" height="540" alt="Untitled.001">
+
+UITableView, 모델들 그리고 기타 View들이 한데 모인 UIViewController라면 더더욱 그렇습니다.
+
 많은 방법도 있지만 [AutoTable](https://github.com/Ben-G/AutoTable)이라는 프로젝트에서 괜찮은 방법을 찾았습니다.
 
 상세히 설명하기 전에 요약하자면, NSObject를 상속받은 클래스가 UITableView를 관리하도록 하고, 데이터와 셀을 묶어 `TableViewModel`이라는 것을 만들어 사용합니다. 그리고 셀을 다룰 때, TableViewModel에서 데이터와 셀에 적용할 함수를 가져와 적용합니다.
 
 따라서 다양한 셀을 쉽게 다룰 수 있으며, 코드도 간결해집니다.
+
+<img src="https://c2.staticflickr.com/9/8169/29755304841_a723eb09b3_z.jpg" width="640" height="480" alt="Untitled.004">
 
 ## AutoTable
 
@@ -191,20 +197,20 @@ cell을 만들 때, `cellViewModel.applyViewModelToCell(cell)`을 통해 ViewMod
 ```swift
 	class ViewController: UIViewController {
 		@IBOutlet var tableView: UITableView!
-	    var tableViewRenderer: TableViewShim!
-	    var ints = [1,2,3,4,5]
-	    let cellTypes = [
-            CellTypeDefinition(
-                nibFilename: ExampleCell.nibFilename,
-                cellIdentifier: ExampleCell.cellIdentifier
-            )]
+		var tableViewRenderer: TableViewShim!
+		var ints = [1,2,3,4,5]
+		let cellTypes = [
+			CellTypeDefinition(
+				nibFilename: ExampleCell.nibFilename,
+				cellIdentifier: ExampleCell.cellIdentifier
+			)]
 
-	    override func viewDidLoad() {
-	    	super.viewDidLoad()
+		override func viewDidLoad() {
+			super.viewDidLoad()
 
-	    	let viewModel = viewModelForInteger(ints)
-	    	self.tableViewRenderer = TableViewShim(cellTypes: cellTypes, tableView: tableView, tableViewModel: viewModel)
-	    }
+			let viewModel = viewModelForInteger(ints)
+			self.tableViewRenderer = TableViewShim(cellTypes: cellTypes, tableView: tableView, tableViewModel: viewModel)
+		}
 	}
 ```
 이제 UIViewController는 UITableView를 신경 쓰지 않아도 되었습니다. tableViewRenderer에 모두 넘겼으며, UIViewController는 데이터를 다루기만 하면 됩니다.

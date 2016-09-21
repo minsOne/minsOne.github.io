@@ -11,7 +11,7 @@ tags: [UIViewController, UITableView, NSObject, Swift, UITableViewDelegate, UITa
 
 일반적으로 iOS는 MVC 패턴을 사용하기 때문에 `UIViewController`가 `UITableView`를 가지며, UIViewController는 UITableView의 프로토콜인 `UITableViewDelegate`, `UITableViewDataSource`를 따릅니다.
 
-UITableView 프로토콜을 UIViewController가 따르면 코드의 양이 엄청 불어나기 때문에 가독성이 떨어지게 되고, 분석도 어려워집니다.
+UIViewController가 UITableView 프로토콜을 따르면 코드의 양이 많아져 가독성이 떨어지게 되고, 분석도 어려워집니다.
 
 많은 방법도 있지만 [AutoTable](https://github.com/Ben-G/AutoTable)이라는 프로젝트에서 괜찮은 방법을 찾았습니다.
 

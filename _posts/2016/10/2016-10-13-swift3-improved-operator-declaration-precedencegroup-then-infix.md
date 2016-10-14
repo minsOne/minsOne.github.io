@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "[Swift3]연산자 우선순위 지정을 위한 precedencegroup"
+title: "[Swift3]향상된 연산자 선언 - precedencegroup"
 description: ""
 category: "programming"
-tags: [swift, precedence, precedencegroup, precedence group, associativity, ]
+tags: [swift, precedence, precedencegroup, precedence group, associativity]
 ---
 {% include JB/setup %}
 
-Xcode 8로 Swift 자료를 만들다가 연산자 선언 관련해 기존 방법을 사용하지 말고 `precedence group`을 사용하여 선언하라고 경고 메시지를 보고 Swift 3 제안서를 살펴보았습니다. 그리고 연산자 우선순위 관련한 제안서 [SE-0077: Improved operator declarations](https://github.com/apple/swift-evolution/blob/master/proposals/0077-operator-precedence.md)를 찾았습니다.
+Xcode 8로 Swift 자료를 만들다가 연산자 선언 관련해 기존 방법을 사용하지 말고 `precedence group`을 사용하여 선언하라고 경고 메시지를 보고 Swift 3 제안서를 살펴보았습니다. 그리고 연산자 선언 관련한 제안서 [SE-0077: Improved operator declarations](https://github.com/apple/swift-evolution/blob/master/proposals/0077-operator-precedence.md)를 찾았습니다.
 
 Swift 2까지 사용하던 연산자 선언 방법은 다음과 같습니다.
 

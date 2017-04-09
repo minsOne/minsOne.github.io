@@ -39,6 +39,8 @@ FirstVC는 Closure에 행동할지를 정의를 해야합니다. 하지만 Secon
 
 그러면 RxSwift를 이용하여 FirstVC가 SecondVC에서 선택한 색상을 받아 처리하는 방식으로 바꿔보도록 해봅시다.
 
+먼저 SecondVC를 띄울 버튼을 만듭니다.
+
 ```
   class FirstViewController: UIViewController {
     let disposeBag = DisposeBag()
@@ -52,9 +54,8 @@ FirstVC는 Closure에 행동할지를 정의를 해야합니다. 하지만 Secon
   }
 ```
 
-먼저 SecondVC를 띄울 버튼을 만듭니다.
 
-그리고 SecondVC를 만듭니다.
+그리고 색상 선택하는 기능을 가진 SecondVC를 만듭니다.
 
 ```
   class SecondViewController: UIViewController {
@@ -80,7 +81,7 @@ FirstVC는 Closure에 행동할지를 정의를 해야합니다. 하지만 Secon
   }
 ```
 
-SecondVC에 PublishSubject를 만들고, 외부에서 Observable을 구독하도록 추가합니다.
+SecondVC에 PublishSubject를 만들고, 외부에서 Observable을 구독하도록 추가합니다. 이는 외부에서 PublishSubject에 이벤트를 발행할 수 없도록 하기 위함입니다.
 
 ```
   class SecondViewController: UIViewController {

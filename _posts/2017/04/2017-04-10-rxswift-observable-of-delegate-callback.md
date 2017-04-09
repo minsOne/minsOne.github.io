@@ -170,3 +170,7 @@ FirstVC는 SecondVC의 selectedColor를 구독하고, 구독한 값으로 배경
 
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/134677242@N06/33550828290/in/datetaken/" title="observable"><img src="https://c1.staticflickr.com/3/2906/33550828290_5dbc83dd68_o.jpg" width="374" height="682" alt="observable"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
+## 정리
+
+* Observable을 구독하는 방식으로 변경되면, 각 ViewController는 의존관계가 사라지게 되고, 필요한 곳에서 가져다 사용할 수 있다.
+* Rx 코드 가독성이 증가된다.

@@ -135,9 +135,9 @@ SecondVC에 PublishSubject를 만들고, 외부에서 Observable을 구독하도
   }
 ```
 
-selectedColorSubject에 onCompleted()를 호출해야하는데, PublishSubject가 disposed되어 메모리에 상주하지 않도록 합니다. 따라서 SecondVC가 dismiss되더라도 메모리 누수가 발생하지 않습니다.
+selectedColorSubject에 onCompleted()를 호출하는데, 이는 PublishSubject가 disposed되어 메모리에 상주하지 않도록 합니다. 따라서 SecondVC가 사라지더라도 메모리 누수가 발생하지 않습니다.
 
-FirstVC는 SecondVC의 selectedColor를 구독하고, 구독한 값으로 배경색을 바꿉니다.
+그리고 FirstVC는 SecondVC의 selectedColor를 구독하고, 전달받은 색상으로 배경색을 바꿉니다.
 
 ```
   class FirstViewController: UIViewController {

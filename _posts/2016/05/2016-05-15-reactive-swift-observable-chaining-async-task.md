@@ -48,6 +48,7 @@ iOS에서 비동기 작업을 가장 많이 하는 것이 네트워크입니다.
 							return
 					}
 					observer.onNext(args)
+					observer.onComplete()
 				}
 				s.resume()
 				return NopDisposable.instance

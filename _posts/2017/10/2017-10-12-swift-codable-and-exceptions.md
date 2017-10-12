@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Swift4]Codable 그리고 예외상황들"
+title: "[Swift4]Codable, 현실의 Codable 그리고 Extension"
 description: ""
-category: ""
-tags: []
+category: "Programming"
+tags: [Swift, Codable, Encodable, Decodable, CodingKeys, try]
 ---
 {% include JB/setup %}
 

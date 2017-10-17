@@ -69,11 +69,17 @@ extension ExtensionCompatible {
         get {
             return Extension(self)
         }
+        set {
+
+        }
     }
     static var ex: Extension<Self>.Type {
         get {
             return Extension<Self>.self
         }
+        set {
+
+        }        
     }
 }
 ```
@@ -198,7 +204,7 @@ vm.output
 ## 참고
 
 * [RxSwift issue - \[RxCocoa\] Move from `rx_` prefix to a `rx.` proxy (for Swift 3 update ?)](https://github.com/ReactiveX/RxSwift/issues/826)
+* [Jérôme Alves - Safe collection subscripting in Swift](https://medium.com/@jegnux/safe-collection-subsripting-in-swift-3771f16f883)
 * [KingFisher](https://github.com/onevcat/Kingfisher)
 * [WorldDownTown/ExtensionCompatibleSample.swift](https://gist.github.com/WorldDownTown/3e0ac74b0add9b22f9188421de608d1a)
 * [Natasha The Robot - Using Swift Extensions The “Wrong” Way](https://www.natashatherobot.com/using-swift-extensions/)
-* [Jérôme Alves - Safe collection subscripting in Swift](https://medium.com/@jegnux/safe-collection-subsripting-in-swift-3771f16f883)

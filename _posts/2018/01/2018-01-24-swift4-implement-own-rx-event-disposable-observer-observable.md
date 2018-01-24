@@ -257,6 +257,8 @@ extension ObservableType {
 
 Observable에서 발행한 아이템을 다른 Observable로 만들며, 만들어진 Observable에서 아이템을 발행합니다.
 
+Map과 다른 점은 next인 경우 transform 클로저를 구독하여 이벤트를 observer에다 넘겨준다는 점입니다.
+
 ```
 extension ObservableType {
     func flatMap<U>(_ transform: @escaping (E) -> Observable<U>) -> Observable<U> {
@@ -264,7 +266,7 @@ extension ObservableType {
             let composite = CompositeDisposable()
             let subscription = self.subscribe(observer: Observer { event in
                 switch event {
-                case .next(let element):
+                case let .next(element):
                     let transformed = transform(element)
                     let disposable = transformed.subscribe(observer: Observer { event in
                         switch event {
@@ -277,7 +279,7 @@ extension ObservableType {
                         }
                     })
                     composite.add(disposable: disposable)
-                case .error(let e):
+                case let .error(error):
                     observer.on(.error(e))
                 case .completed:
                     observer.on(.completed)

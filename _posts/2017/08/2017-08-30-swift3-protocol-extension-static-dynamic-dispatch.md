@@ -11,6 +11,8 @@ tags: [Swift, Protocol, Extension, Protocol Extension, Dispatch]
 
 Protocol 타입인 변수에 Extension에 구현된 메소드를 접근시 구조체나 클래스에 이름이 동일한 메소드가 호출되지 않고 Extension에 구현된 메소드가 호출됩니다.
 
+먼저 결론부터 이야기 하면 프로토콜에 정의하지 않고 extension에만 구현하게 되면 문제가 발생합니다.
+
 ```
 protocol A {
 	func foo() -> String

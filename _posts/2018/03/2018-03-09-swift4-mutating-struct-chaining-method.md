@@ -10,7 +10,7 @@ tags: [Swift, Struct, mutating]
 Swift의 Struct는 `mutating` 이라는 것을 통해 내부 속성 값 변경이 가능합니다.
 
 ```
-Struct A {
+struct A {
 	var b: Int
 
 	mutating func set(b: Int) {
@@ -25,7 +25,7 @@ a.set(b: 5) // b is 5
 <br/>하지만 `mutating`을 쓰게 되면 `return`을 할 수 없습니다. 
 
 ```
-Struct A {
+struct A {
 	...
 	mutating func set(b: Int) -> A {
 		self.b = b
@@ -39,7 +39,7 @@ Struct A {
 그렇다면 *새로운 값을 만들어 반환*하는 방식으로 하면 체이닝 메소드를 사용하여 값을 계속 설정하는 것이 가능해집니다.
 
 ```
-Struct A {
+struct A {
 	var a: Int = 0
 	var b: Int = 0
 

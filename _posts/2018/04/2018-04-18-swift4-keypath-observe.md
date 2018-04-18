@@ -230,7 +230,9 @@ extension KeyPathObservationDeallocatable where Self: NSObject {
 model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`, model, change) in }
 ```
 
-<br/><br/><details><summary>다음은 위 내용들을 정리한 전체 코드입니다.</summary>
+
+
+<br/><details><summary>다음은 위 내용들을 정리한 전체 코드입니다.</summary>
 
 ```
 import ObjectiveC

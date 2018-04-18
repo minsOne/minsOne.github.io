@@ -232,8 +232,7 @@ model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`,
 
 
 
-<br/><details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-1</summary>
-
+<details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-2</summary>
 ```
 import ObjectiveC
 
@@ -338,8 +337,7 @@ extension KeyPathObservationDeallocatable where Self: NSObject {
     }
 }
 ```
-
-</details><br/>
+</details>
 
 
 ## 참고자료

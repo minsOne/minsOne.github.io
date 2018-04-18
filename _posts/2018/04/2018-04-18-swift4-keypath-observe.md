@@ -176,6 +176,20 @@ model.observe(\.b, options: [.initial, .old, .new]) { (model, change) in }
     .dispose(in: model.keyPathDisposeBag)
 ```
 
+그리고 model의 생성주기에 Observation이 따르므로, model에 `keyPathDisposeBag`에 KeyPathObservation을 추가하는 것을 숨길 수 있습니다.
+
+```
+extension KeyPathObservationDeallocatable where Self: NSObject {
+    func subscribe<T>(keyPath: KeyPath<Self, T>,
+                      options: NSKeyValueObservingOptions,
+                      changeHandler: @escaping (Self, NSKeyValueObservedChange<T>) -> Void) {
+        self.observe(keyPath, options: options, changeHandler: changeHandler).dispose(in: keyPathDisposeBag)
+    }
+}
+
+model.subscribe(\.b, options: [.initial, .old, .new]) { (model, change) in }
+```
+
 ### KeyPath Observe의 Capture list
 
 observe 함수의 인자 중 `changeHandler`는 클로저이므로, `self`를 쓰기 위해선 Capture list를 사용해야합니다. 예를 들면 다음과 같이 작성해야 합니다.

@@ -232,7 +232,7 @@ model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`,
 
 
 
-<details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-3</summary>
+<details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-4</summary>
 <pre><code>import ObjectiveC
 
 protocol AssociatedObjectStore {}
@@ -336,6 +336,9 @@ extension KeyPathObservationDeallocatable where Self: NSObject {
     }
 }</code></pre></details>
 
+<br/>
+
+---
 
 ## 참고자료
 

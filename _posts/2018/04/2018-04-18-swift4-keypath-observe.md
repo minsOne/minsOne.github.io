@@ -229,7 +229,7 @@ extension Extension where Base: NSObject {
 위 코드는 다음과 같이 사용할 수 있습니다.
 
 ```
-model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`, model, change) in }
+model.ex.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`, model, change) in }
     .dispose(in: model.keyPathDisposeBag)
 ```
 

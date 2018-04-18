@@ -209,31 +209,15 @@ model.observe(\.b, options: [.initial, .old, .new]) { (`self, model, change) in 
 이를 위해 ReactiveKit의 [Bond](https://github.com/DeclarativeHub/Bond)의 `KeyPath Signal`부분과 [Delegated](https://github.com/dreymonde/Delegated) 프로젝트의 부분들을 일부 차용해보았습니다.
 
 ```
-struct Extension<Base> {
-    let base: Base
-    init(_ base: Base) { self.base = base }
-}
-
-protocol ExtensionCompatible {
-    associatedtype Compatible
-    var ex: Extension<Compatible> { get }
-}
-
-extension ExtensionCompatible {
-    var ex: Extension<Self> { return Extension(self) }
-}
-
-extension NSObject: ExtensionCompatible {}
-
-extension Extension where Base: NSObject {
+extension KeyPathObservationDeallocatable where Self: NSObject {
     func target<Target: AnyObject, T>(to target: Target,
-                                       keyPath: KeyPath<Base, T>,
-                                       options: NSKeyValueObservingOptions,
-                                       changeHandler: @escaping (Target, Base, NSKeyValueObservedChange<T>) -> Void) -> NSKeyValueObservation {
-        return base.observe(keyPath, options: options) { [weak target] (base, change) in
+                                      keyPath: KeyPath<Self, T>,
+                                      options: NSKeyValueObservingOptions,
+                                      changeHandler: @escaping (Target, Self, NSKeyValueObservedChange<T>) -> Void) {
+        self.observe(keyPath, options: options) { [weak target] (`self`, change) in
             guard let target = target else { return }
-            changeHandler(target, base, change)
-        }
+            changeHandler(target, `self`, change)
+        }.dispose(in: keyPathDisposeBag)
     }
 }
 ```
@@ -243,8 +227,7 @@ extension Extension where Base: NSObject {
 위 코드는 다음과 같이 사용할 수 있습니다.
 
 ```
-model.ex.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`, model, change) in }
-    .dispose(in: model.keyPathDisposeBag)
+model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`, model, change) in }
 ```
 
 

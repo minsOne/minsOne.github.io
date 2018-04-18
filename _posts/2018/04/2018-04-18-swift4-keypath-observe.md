@@ -233,8 +233,7 @@ model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`,
 
 
 <details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-2</summary>
-```
-import ObjectiveC
+<pre><code>import ObjectiveC
 
 protocol AssociatedObjectStore {}
 
@@ -335,9 +334,7 @@ extension KeyPathObservationDeallocatable where Self: NSObject {
             changeHandler(target, `self`, change)
         }.dispose(in: keyPathDisposeBag)
     }
-}
-```
-</details>
+}</code></pre></details>
 
 
 ## 참고자료

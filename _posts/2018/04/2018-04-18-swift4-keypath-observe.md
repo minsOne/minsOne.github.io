@@ -232,7 +232,7 @@ model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`,
 
 
 
-<details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-4</summary>
+<br/><details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-5</summary>
 <pre><code>import ObjectiveC
 
 protocol AssociatedObjectStore {}
@@ -336,13 +336,10 @@ extension KeyPathObservationDeallocatable where Self: NSObject {
     }
 }</code></pre></details>
 
-<br/>
-
----
-
-## 참고자료
-
-* [ReactiveKit](https://github.com/DeclarativeHub/ReactiveKit)
-* [Bond](https://github.com/DeclarativeHub/Bond)
-* [ReactorKit](https://github.com/ReactorKit/ReactorKit)
-* [Delegated](https://github.com/dreymonde/Delegated)
+<br/><h2 id="참고자료">참고자료</h2>
+<ul>
+    <li><a href="https://github.com/DeclarativeHub/ReactiveKit">ReactiveKit</a></li>
+    <li><a href="https://github.com/DeclarativeHub/Bond">Bond</a></li>
+    <li><a href="https://github.com/ReactorKit/ReactorKit">ReactorKit</a></li>
+    <li><a href="https://github.com/dreymonde/Delegated">Delegated</a></li>
+</ul>

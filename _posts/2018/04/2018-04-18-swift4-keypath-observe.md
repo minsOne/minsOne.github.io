@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift4] KeyPath Observe 사용하기"
+title: "[Swift4] KeyPath Get Set 그리고 Observe 사용하기"
 description: ""
 category: "Programming"
 tags: [Swift, KeyPath, KeyValue, NSKeyValueObservation, NSObject]
@@ -229,6 +229,116 @@ extension KeyPathObservationDeallocatable where Self: NSObject {
 ```
 model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`, model, change) in }
 ```
+
+<details>
+    <summary>다음은 전체 코드입니다.</summary>
+    
+    ```
+    import ObjectiveC
+
+    protocol AssociatedObjectStore {}
+
+    extension AssociatedObjectStore {
+        func associatedObject<T>(forKey key: UnsafeRawPointer) -> T? {
+            return objc_getAssociatedObject(self, key) as? T
+        }
+
+        func associatedObject<T>(forKey key: UnsafeRawPointer, default: @autoclosure () -> T) -> T {
+            if let object: T = self.associatedObject(forKey: key) {
+                return object
+            }
+            let object = `default`()
+            self.setAssociatedObject(object, forKey: key)
+            return object
+        }
+
+        func setAssociatedObject<T>(_ object: T?, forKey key: UnsafeRawPointer) {
+            objc_setAssociatedObject(self, key, object, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+
+    protocol KeyPathObservationDisposeBagProtocol: KeyPathObservationDisposable {
+        func add(disposable: KeyPathObservationDisposable)
+    }
+
+    final class KeyPathObservationDisposeBag: KeyPathObservationDisposeBagProtocol {
+        private var disposables: [KeyPathObservationDisposable] = []
+
+        func add(disposable: KeyPathObservationDisposable) {
+            disposables += [disposable]
+        }
+
+        func dispose() {
+            disposables.forEach { $0.dispose() }
+            disposables.removeAll()
+        }
+
+        var isDisposed: Bool {
+            return disposables.isEmpty
+        }
+
+        deinit {
+            dispose()
+        }
+    }
+    extension KeyPathObservationDisposable {
+        func dispose(in disposeBag: KeyPathObservationDisposeBagProtocol) {
+            disposeBag.add(disposable: self)
+        }
+    }
+
+
+    protocol KeyPathObservationDeallocatable: class, AssociatedObjectStore {
+        var keyPathDisposeBag: KeyPathObservationDisposeBag { get }
+    }
+
+    private var keyPathObservationDisposeBagKey = "KeyPathObservationDisposeBagKey"
+
+    extension KeyPathObservationDeallocatable {
+        var keyPathDisposeBag: KeyPathObservationDisposeBag {
+            return self.associatedObject(forKey: &keyPathObservationDisposeBagKey, default: KeyPathObservationDisposeBag())
+        }
+    }
+
+    protocol KeyPathObservationDisposable {
+
+        /// Dispose the signal observation or binding.
+        func dispose()
+
+        /// Returns `true` is already disposed.
+        var isDisposed: Bool { get }
+    }
+
+    extension NSKeyValueObservation: KeyPathObservationDisposable {
+        func dispose() {
+            self.invalidate()
+        }
+
+        var isDisposed: Bool {
+            return observationInfo == nil
+        }
+    }
+    
+    extension KeyPathObservationDeallocatable where Self: NSObject {
+        func subscribe<T>(keyPath: KeyPath<Self, T>,
+                          options: NSKeyValueObservingOptions,
+                          changeHandler: @escaping (Self, NSKeyValueObservedChange<T>) -> Void) {
+            self.observe(keyPath, options: options, changeHandler: changeHandler).dispose(in: keyPathDisposeBag)
+        }
+
+        func target<Target: AnyObject, T>(to target: Target,
+                                          observe keyPath: KeyPath<Self, T>,
+                                          options: NSKeyValueObservingOptions,
+                                          changeHandler: @escaping (Target, Self, NSKeyValueObservedChange<T>) -> Void) {
+            self.observe(keyPath, options: options) { [weak target] (`self`, change) in
+                guard let target = target else { return }
+                changeHandler(target, `self`, change)
+            }.dispose(in: keyPathDisposeBag)
+        }
+    }
+    ```
+
+</details>
 
 
 ## 참고자료

@@ -232,7 +232,7 @@ model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`,
 
 
 
-<details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-2</summary>
+<details><summary>다음은 위 내용들을 정리한 전체 코드입니다.-3</summary>
 <pre><code>import ObjectiveC
 
 protocol AssociatedObjectStore {}

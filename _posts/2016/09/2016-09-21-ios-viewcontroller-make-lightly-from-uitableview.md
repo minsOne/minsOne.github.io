@@ -31,14 +31,14 @@ UITableView, 모델들 그리고 기타 View들이 한데 모인 UIViewControlle
 
 ```swift
 	final class TableViewShim: NSObject {
-		let tableView: UITableView
+		weak var tableView: UITableView?
 
 		init(tableView: UITableView) {
 			self.tableView = tableView
 			super.init()
 
-			self.tableView.dataSource = self
-			self.tableView.delegate = self
+			tableView.dataSource = self
+			tableView.delegate = self
 		}
 	}
 

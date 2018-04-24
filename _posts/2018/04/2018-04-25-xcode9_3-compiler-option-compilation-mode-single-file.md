@@ -21,7 +21,7 @@ The choice for compiling Swift code by file or by module moved from the Optimiza
 
 기존 프로젝트는 `Compilation Mode`의 `Whole Module`에서 `Single File`로 바꿔주면 됩니다.
 
-<br/><div class="alert"><strong>주의 : </strong>티켓 작업과 같이 여러 브랜치로 이동해야 하는 경우, 전체 컴파일을 계속 하기 때문에 소스 파일이 많다면 빌드 속도가 느려질 수 있습니다. 개인적으로 Single File은 한 브랜치에서 오래 작업하는 경우에 추천합니다.</div>
+<div class="alert"><strong>주의 : </strong>티켓 작업과 같이 여러 브랜치로 이동해야 하는 경우, 전체 컴파일을 계속 하기 때문에 소스 파일이 많다면 빌드 속도가 느려질 수 있습니다. 개인적으로 Single File은 한 브랜치에서 오래 작업하는 경우에 추천합니다.</div>
 
 ## 출처
 

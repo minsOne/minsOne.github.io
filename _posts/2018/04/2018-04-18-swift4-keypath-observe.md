@@ -58,7 +58,9 @@ a.b = 3
 
 <br/>초기값, 변경전 값, 변경후 값을 얻을 수 있습니다.  하지만 `NSKeyValueObservation`을 저장하지 않는다면 deinit 되면서 관측이 해제 됩니다.
 
-RxSwift 또는 ReactiveKit의 `DisposeBag`를 착안하여 관측하는 변수에 `NSKeyValueObservation` 를 담아두는 방식을 취하면 어떨까 합니다.
+RxSwift 또는 ReactiveKit의 `DisposeBag`를 착안하여 관측하는 속성을 가진 타입에 `NSKeyValueObservation` 를 담아두는 방식을 취하면 어떨까 합니다.
+
+즉, 클래스 A의 생명주기에 `NSKeyValueObservation`를 맡기는 것이죠.
 
 ### KeyPath Observation의 DisposeBag
 

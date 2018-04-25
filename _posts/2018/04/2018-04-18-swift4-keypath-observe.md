@@ -176,7 +176,7 @@ model.observe(\.b, options: [.initial, .old, .new]) { (model, change) in }
     .dispose(in: model.keyPathDisposeBag)
 ```
 
-<br/>그리고 model의 생성주기에 Observation이 따르므로, model에 `keyPathDisposeBag`에 KeyPathObservation을 추가하는 것을 숨길 수 있습니다.
+<br/>그리고 model의 생명주기를 KeyPathObservation이 따르므로, model에 `keyPathDisposeBag`에 KeyPathObservation을 추가하는 것을 숨길 수 있습니다.
 
 ```
 extension KeyPathObservationDeallocatable where Self: NSObject {

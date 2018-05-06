@@ -97,7 +97,7 @@ errorSubject
     .disposed(by: disposeBag)
 ```
 
-doonError를 통해 Error 이벤트를 errorSubject에 넘겨주고, suppressError가 Error로 인한 Stream 깨짐을 방지줍니다.
+doonError를 통해 Error 이벤트를 errorSubject에 넘겨주고, suppressError가 Error로 인한 Stream 깨짐을 방지합니다.
 
 만약 `doonError` 와 `suppressError`를 쓰기 귀찮다면, 통합한 Operator를 만들 수 있습니다.
 

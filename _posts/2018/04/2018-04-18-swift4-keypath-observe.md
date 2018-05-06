@@ -234,6 +234,43 @@ model.target(to: self, keyPath: \.b, options: [.initial, .old, .new]) { (`self`,
 
 <br/>
 
+### KeyPath Binding
+
+Rx 라이브러리들 코드를 보면 Observe 코드 안이 아닌 Bind 함수를 통해서 데이터를 직접 주입하는 방식을 취하기도 합니다. 이를 조금 차용해볼까 합니다.
+
+Bind될 객체 또는 값의 생명주기에 따라 관측의 해제를 해줘야 한다고 생각됩니다. 
+
+KeyPath Binding 하는 코드는 다음과 같이 작성할 수 있습니다.
+
+```
+extension KeyPathObservationDeallocatable where Self: NSObject {
+    func bind<Target: KeyPathObservationDeallocatable, Value>(from fromKeyPath: KeyPath<Self, Value>,
+                                                              to target: Target,
+                                                              at targetKeyPath: ReferenceWritableKeyPath<Target, Value>,
+                                                              options: NSKeyValueObservingOptions) {
+        self.observe(fromKeyPath, options: options) { [weak target] (_, value) in
+            guard let newValue = value.newValue else { return }
+            target?[keyPath: targetKeyPath] = newValue
+            }
+            .dispose(in: target.keyPathDisposeBag)
+    }
+}
+```
+
+<br/>위 코드는 다음과 같이 사용할 수 있습니다.
+
+```
+@objcMembers class A: NSObject {
+    dynamic var title: String? = ""
+}
+let a = A()
+let label = UILabel()
+
+a.bind(from: \.title, to: label, at: \.text, options: [.new, .initial])
+```
+
+<br/>
+
 ---
 
 <br/>다음은 위 내용들을 정리한 전체 코드입니다.
@@ -338,6 +375,17 @@ extension KeyPathObservationDeallocatable where Self: NSObject {
             guard let target = target else { return }
             changeHandler(target, `self`, change)
         }.dispose(in: keyPathDisposeBag)
+    }
+
+    func bind<Target: KeyPathObservationDeallocatable, Value>(from fromKeyPath: KeyPath<Self, Value>,
+                                                              to target: Target,
+                                                              at targetKeyPath: ReferenceWritableKeyPath<Target, Value>,
+                                                              options: NSKeyValueObservingOptions) {
+        self.observe(fromKeyPath, options: options) { [weak target] (_, value) in
+            guard let newValue = value.newValue else { return }
+            target?[keyPath: targetKeyPath] = newValue
+            }
+            .dispose(in: target.keyPathDisposeBag)
     }
 }
 

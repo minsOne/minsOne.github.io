@@ -128,7 +128,17 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) thread select 2
 ```
 
-* **Until/Jump/Return**
+* **Until/Jump/Return** - 특정 줄까지 수행 후 멈춤 / 특정 주소/줄로 이동 / 현재 stack frame에서 특정 값을 반환(note: Swift에서는 거의 안됨)
+
+```
+/// 특정 줄까지 step over 수행함.(ex: 현재 줄이 10줄이고, 20줄 이전 까지 step over를 수행함.)
+(lldb) thread until 20 // 19줄까지 step over, 20줄에서 멈춤
+
+/// 특정 frame의 특정 소스 라인까지 수행함.(frame 2에서 10번째 줄 전 까지 수행)
+(lldb) thread until --frame 2 10
+
+/// 
+```
 
 * **Backtrace** - 스레드의 stack backtrace를 보여줌.
 
@@ -161,6 +171,10 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) down 5
 ```
 
+## Expression
+
 ## 참고자료
 
 * [Apple - LLDB Quick Start Guide](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/Introduction.html#//apple_ref/doc/uid/TP40012917-CH1-SW1)
+* [UIKonf18 – Day 1 – Carola Nitz – Advanced Debugging Techniques](https://www.youtube.com/watch?v=578YdS2sNqk)
+* [Advanced Debugging with Xcode and LLDB](https://developer.apple.com/videos/play/wwdc2018/412)

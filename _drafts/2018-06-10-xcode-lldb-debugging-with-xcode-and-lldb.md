@@ -207,10 +207,13 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) expr -l Swift -- let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
 (lldb) po $vc
 or
-(lldb) expr import UIKit
+(lldb) expr import UIKit 
+(lldb) p import UIKit 
 (lldb) expr let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
 (lldb) po $vc
 ```
+
+* 
 
 * UIViewController 생성하여 NavigationViewController에 Push하기
 
@@ -246,3 +249,4 @@ or
 * [UIKonf18 – Day 1 – Carola Nitz – Advanced Debugging Techniques](https://www.youtube.com/watch?v=578YdS2sNqk)
 * [Advanced Debugging with Xcode and LLDB](https://developer.apple.com/videos/play/wwdc2018/412)
 * [Chisel](https://github.com/facebook/chisel)
+* [More than `po`: Debugging in lldb](https://www.slideshare.net/micheletitolo/more-than-po-debugging-in-lldb)

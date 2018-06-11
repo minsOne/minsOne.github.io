@@ -171,10 +171,78 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) down 5
 ```
 
-## Expression
+## Evaluatiing Expression - 표현식 계산하기
+
+* 현재 frame에서 표현식 계산하기
+```
+(lldb) expression print(1 + 2)
+(lldb) expr print(1 + 2)
+(lldb) e print(1 + 2)
+
+(lldb) expression -- print(1 + 2)
+(lldb) print print(1 + 2)
+(lldb) p print(1 + 2)
+```
+
+* LLDB에서 변수를 선언하기
+
+```
+(lldb) expr var $foo = 10
+(lldb) expr print($foo) // Output: 10
+(lldb) expr $foo += 1
+(lldb) expr print($foo) // Output: 11
+```
+
+* Objc 객체의 description 보여주기
+
+```
+(lldb) expr -o -- object
+(lldb) po object
+```
+
+* 특정 메모리 주소의 값을 출력하기
+
+```
+(lldb) expr -l Swift -- import UIKit
+(lldb) expr -l Swift -- let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
+(lldb) po $vc
+or
+(lldb) expr import UIKit
+(lldb) expr let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
+(lldb) po $vc
+```
+
+* UIViewController 생성하여 NavigationViewController에 Push하기
+
+```
+(lldb) expr var $vc = UIViewController()
+(lldb) expr $vc.view.backgroundColor = UIColor.red
+(lldb) expr self.navigationController?.pushViewController($vc, animated: true)
+```
+
+
+
+## Script - Python REPL
+
+* script
+
+```
+(lldb) script print 1 + 2 // Output: 3
+
+```
+
+
+## 기타
+
+```
+/// 특정 키워드의 상세한 설명을 보여줌
+(lldb) apropos keyword
+```
+
 
 ## 참고자료
 
 * [Apple - LLDB Quick Start Guide](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/Introduction.html#//apple_ref/doc/uid/TP40012917-CH1-SW1)
 * [UIKonf18 – Day 1 – Carola Nitz – Advanced Debugging Techniques](https://www.youtube.com/watch?v=578YdS2sNqk)
 * [Advanced Debugging with Xcode and LLDB](https://developer.apple.com/videos/play/wwdc2018/412)
+* [Chisel](https://github.com/facebook/chisel)

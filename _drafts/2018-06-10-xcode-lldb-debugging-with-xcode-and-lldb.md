@@ -206,7 +206,14 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) expr -l Swift -- import UIKit
 (lldb) expr -l Swift -- let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
 (lldb) po $vc
-or
+
+/// 실행 중에 Pause를 하여 특정 메모리 주소의 값을 확인하는 경우
+(lldb) expr -l Swift --
+Enter expressions, then terminate with an empty line to evaluate:
+1 let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
+2 print($vc.view)
+3
+
 (lldb) expr import UIKit 
 (lldb) p import UIKit 
 (lldb) expr let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)

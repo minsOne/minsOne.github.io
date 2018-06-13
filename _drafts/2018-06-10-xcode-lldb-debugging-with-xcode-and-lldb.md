@@ -57,7 +57,7 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 
 ## **Examining Variables** - 변수 검사
 
-* **Frame Variable** - frame에 있는 변수를 출력함.
+* **Frame Variable** - 메모리에서 변수를 읽어 lldb 형태의 description을 출력함.
 
 ```
 /// 현재 frame에 argument와 local 변수 출력하기.
@@ -71,11 +71,13 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 /// local 변수 `bar` 내용 출력하기
 (lldb) frame variable bar
 (lldb) fr v bar
-(lldb) p bar
 
 /// local 변수 `bar`을 hex로 내용 출력하기
 (lldb) frame variable --format x bar
 (lldb) fr v -f x bar
+
+/// Object의 Description 출력하기
+(lldb) frame variable -O self
 ```
 
 * **Target Variable** - global/static 변수를 출력함.
@@ -128,16 +130,25 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) thread select 2
 ```
 
-* **Until/Jump/Return** - 특정 줄까지 수행 후 멈춤 / 특정 주소/줄로 이동 / 현재 stack frame에서 특정 값을 반환(note: Swift에서는 거의 안됨)
+* **Thread Until/Jump/Return** - 특정 줄 전까지 실행 후 멈춤 / 특정 주소/줄로 이동 / 현재 stack frame에서 특정 값을 반환(note: Swift에서는 거의 안됨)
 
 ```
 /// 특정 줄까지 step over 수행함.(ex: 현재 줄이 10줄이고, 20줄 이전 까지 step over를 수행함.)
 (lldb) thread until 20 // 19줄까지 step over, 20줄에서 멈춤
 
-/// 특정 frame의 특정 소스 라인까지 수행함.(frame 2에서 10번째 줄 전 까지 수행)
+/// 특정 frame의 특정 소스 줄까지 수행함.(frame 2에서 10번째 줄 전 까지 수행)
 (lldb) thread until --frame 2 10
 
-/// 
+/// 특정 소스라인까지 이동함.
+(lldb) thread jump --line 10 // 10번째 줄으로 이동
+(lldb) thread jump --by 5 // 현재 줄에서 +5번째 줄로 이동
+(lldb) thread jump --by -5 // 현재 줄에서 -5번째 줄로 이동
+
+/// 현재 frame에서 Void를 반환하거나 특정 값을 반환(note: Swift에서는 거의 안됨)
+(lldb) thread return 
+(lldb) thread return 0
+(lldb) thread return "aa"
+error: Error returning from frame 0 of thread 1: We only support setting simple integer and float return types at present..
 ```
 
 * **Backtrace** - 스레드의 stack backtrace를 보여줌.
@@ -196,6 +207,7 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 * Objc 객체의 description 보여주기
 
 ```
+(lldb) expr --object-description -- object
 (lldb) expr -o -- object
 (lldb) po object
 ```
@@ -203,26 +215,31 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 * 특정 메모리 주소의 값을 출력하기
 
 ```
-(lldb) expr -l Swift -- import UIKit
-(lldb) expr -l Swift -- let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
+/// Swift
+(lldb) expr -l swift -- import UIKit
+(lldb) expr -l swift -- let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
 (lldb) po $vc
 
-/// 실행 중에 Pause를 하여 특정 메모리 주소의 값을 확인하는 경우
-(lldb) expr -l Swift --
+/// Objc
+(lldb) expr -l objc -- @import UIKit
+(lldb) expr -l objc -- ViewController *$vc = (ViewController *)0x7fe75a70bb40
+(lldb) po $vc
+
+/// 실행 중에 Pause를 한 후, 특정 메모리 주소의 값을 확인하는 경우
+(lldb) expr -l swift --
 Enter expressions, then terminate with an empty line to evaluate:
 1 let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
 2 print($vc.view)
 3
 
+/// 위 명령들을 축약
 (lldb) expr import UIKit 
 (lldb) p import UIKit 
 (lldb) expr let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
 (lldb) po $vc
-```
+``` 
 
-* 
-
-* UIViewController 생성하여 NavigationViewController에 Push하기
+* 임의의 UIViewController 생성하여 NavigationViewController에 Push하기
 
 ```
 (lldb) expr var $vc = UIViewController()
@@ -230,6 +247,66 @@ Enter expressions, then terminate with an empty line to evaluate:
 (lldb) expr self.navigationController?.pushViewController($vc, animated: true)
 ```
 
+## BreakPoint - BreakPoint 설정하기
+
+```
+/// viewDidLoad 이름인 모든 함수에 breakpoint를 설정하기 - Swift
+(lldb) breakpoint set --name viewDidLoad
+(lldb) br s -n viewDidLoad
+(lldb) b viewDidLoad
+
+/// viewDidLoad 이름인 모든 함수에 breakpoint를 설정하기 - Objc
+(lldb) breakpoint set --name "-[UIViewController viewDidLoad]
+
+/// 특정 파일 특정 줄에 breakpoint 설정하기
+(lldb) breakpoint set --file test.c --line 12
+(lldb) br s -f test.c -l 12
+(lldb) b test.c:12
+
+/// 현재 파일의 특정 줄에 breakpoint 설정하기
+(lldb) breakpoint set --line 12
+(lldb) br s -l 12
+(lldb) b 12
+
+/// 특정 이름을 가진 Select에 breakpoint 설정하기
+(lldb) breakpoint set --selector dealloc
+
+/// breakpoint에 global이 5이면 중단되도록 조건 설정
+(lldb) b 12
+(lldb) breakpoint modify -c "global == 5"
+
+/// breakpoint 목록 보기
+(lldb) breakpoint list
+(lldb) br l
+
+/// breakpoint 지우기
+(lldb) breakpoint delete 1
+(lldb) br del 1
+```
+
+## Watchpoint - 변수에 값이 기록될 때마다 중단되도록 설정
+
+```
+/// 전역 변수에 watchpoint 설정
+(lldb) watchpoint set variable global_var
+(lldb) wa s v global_var
+
+/// 메모리 주소에 watchpoint 설정
+(lldb) watchpoint set expression -- my_ptr
+(lldb) wa s e -- my_ptr
+
+/// watchpoint에 global이 5이면 중단되도록 조건 설정
+(lldb) watch set var global
+(lldb) watchpoint modify -c "global == 5"
+
+/// watchpoint 목록 보기
+(lldb) watchpoint list
+(lldb) watch l
+
+/// watchpoint 지우기
+(lldb) watchpoint delete 1
+(lldb) watch del 1
+```
 
 
 ## Script - Python REPL
@@ -238,7 +315,6 @@ Enter expressions, then terminate with an empty line to evaluate:
 
 ```
 (lldb) script print 1 + 2 // Output: 3
-
 ```
 
 
@@ -257,3 +333,6 @@ Enter expressions, then terminate with an empty line to evaluate:
 * [Advanced Debugging with Xcode and LLDB](https://developer.apple.com/videos/play/wwdc2018/412)
 * [Chisel](https://github.com/facebook/chisel)
 * [More than `po`: Debugging in lldb](https://www.slideshare.net/micheletitolo/more-than-po-debugging-in-lldb)
+* [Debugging RubyMotion applications](http://ruby-korea.github.io/RubyMotionDocumentation/articles/debugging/)
+* [Xcode LLDB 디버깅 테크닉](https://www.letmecompile.com/xcode-lldb-%EB%94%94%EB%B2%84%EA%B9%85-%ED%85%8C%ED%81%AC%EB%8B%89/)
+* [LLDB Debugging Cheat Sheet](https://gist.github.com/alanzeino/82713016fd6229ea43a8)

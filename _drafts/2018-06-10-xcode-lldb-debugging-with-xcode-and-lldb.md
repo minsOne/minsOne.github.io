@@ -316,7 +316,13 @@ Enter expressions, then terminate with an empty line to evaluate:
 
 ```
 (lldb) script print 1 + 2 // Output: 3
+(lldb) script import os
+(lldb) script print os.getcwd()
 ```
+
+## LLDB 관련 툴
+
+* Chisel - python으로 대부분 작성되어 있으며, View Debugging 관련하여 손쉽게 사용할 수 있도록 도와줌. [여기](https://kapeli.com/cheat_sheets/LLDB_Chisel_Commands.docset/Contents/Resources/Documents/index)에서 많은 명령을 살펴볼 수 있음.
 
 
 ## 기타
@@ -327,13 +333,19 @@ Enter expressions, then terminate with an empty line to evaluate:
 ```
 
 
+
+
+
+
 ## 참고자료
 
 * [Apple - LLDB Quick Start Guide](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/Introduction.html#//apple_ref/doc/uid/TP40012917-CH1-SW1)
 * [UIKonf18 – Day 1 – Carola Nitz – Advanced Debugging Techniques](https://www.youtube.com/watch?v=578YdS2sNqk)
 * [Advanced Debugging with Xcode and LLDB](https://developer.apple.com/videos/play/wwdc2018/412)
 * [Chisel](https://github.com/facebook/chisel)
+* [LLDB Chisel Commands](https://kapeli.com/cheat_sheets/LLDB_Chisel_Commands.docset/Contents/Resources/Documents/index)
 * [More than `po`: Debugging in lldb](https://www.slideshare.net/micheletitolo/more-than-po-debugging-in-lldb)
 * [Debugging RubyMotion applications](http://ruby-korea.github.io/RubyMotionDocumentation/articles/debugging/)
 * [Xcode LLDB 디버깅 테크닉](https://www.letmecompile.com/xcode-lldb-%EB%94%94%EB%B2%84%EA%B9%85-%ED%85%8C%ED%81%AC%EB%8B%89/)
 * [LLDB Debugging Cheat Sheet](https://gist.github.com/alanzeino/82713016fd6229ea43a8)
+* [Debugging a Debugger](http://idrisr.com/2015/10/12/debugging-a-debugger.html)

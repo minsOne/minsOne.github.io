@@ -226,10 +226,10 @@ error: Error returning from frame 0 of thread 1: We only support setting simple 
 (lldb) po $vc
 
 /// 실행 중에 Pause를 한 후, 특정 메모리 주소의 값을 확인하는 경우
-(lldb) expr -l swift --
+(lldb) expr -l Swift --
 Enter expressions, then terminate with an empty line to evaluate:
 1 let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
-2 print($vc.view)
+2 print($vc)
 3
 
 /// 위 명령들을 축약
@@ -237,7 +237,8 @@ Enter expressions, then terminate with an empty line to evaluate:
 (lldb) p import UIKit 
 (lldb) expr let $vc = unsafeBitCast(0x7fe75a70bb40, to: ViewController.self)
 (lldb) po $vc
-``` 
+<SomeProject.ViewController: 0x7fe75a70bb40>
+```
 
 * 임의의 UIViewController 생성하여 NavigationViewController에 Push하기
 

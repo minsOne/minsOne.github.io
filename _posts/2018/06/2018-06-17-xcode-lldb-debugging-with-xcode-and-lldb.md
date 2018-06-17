@@ -312,7 +312,7 @@ Enter expressions, then terminate with an empty line to evaluate:
 
 ## Script - Python REPL
 
-* script
+* Python을 LLDB Script로 사용할 수 있음.
 
 ```
 (lldb) script print 1 + 2 // Output: 3

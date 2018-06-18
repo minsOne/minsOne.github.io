@@ -320,6 +320,14 @@ Enter expressions, then terminate with an empty line to evaluate:
 (lldb) script print os.getcwd()
 ```
 
+* import - 필요한 script 소스를 import하여 사용함.
+
+```
+(lldb) command script import ~/myCommands.py
+```
+
+또는 /.lldbinit 파일 내에 `command script import ~/myCommands.py` 를 추가함.
+
 ## 기타
 
 ```

@@ -251,9 +251,9 @@ Enter expressions, then terminate with an empty line to evaluate:
 
 * Printing Modes
 
-** `frame variable (f v)` - Code를 실행하지 않으며, LLDB formatter를 사용
-** `expression -- (p)` - Code를 실행하며, LLDB formatter를 사용
-** `expression -O -- (po)` - Code를 실행하며, `debugDescription`와 같이 개발자가 만든 출력 형태를 사용
+  * `frame variable (f v)` - Code를 실행하지 않으며, LLDB formatter를 사용
+  * `expression -- (p)` - Code를 실행하며, LLDB formatter를 사용
+  * `expression -O -- (po)` - Code를 실행하며, `debugDescription`와 같이 개발자가 만든 출력 형태를 사용
 
 ## BreakPoint - BreakPoint 설정하기
 

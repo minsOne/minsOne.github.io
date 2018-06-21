@@ -139,6 +139,10 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 /// 특정 frame의 특정 소스 줄까지 수행함.(frame 2에서 10번째 줄 전 까지 수행)
 (lldb) thread until --frame 2 10
 
+/// 명령어 수준의 특정 주소까지 수행함
+(lldb) disassemble --frame
+(lldb) thread until --address 0x1023653a0
+
 /// 특정 소스라인까지 이동함.
 (lldb) thread jump --line 10 // 10번째 줄으로 이동
 (lldb) thread jump --by 5 // 현재 줄에서 +5번째 줄로 이동

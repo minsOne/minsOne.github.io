@@ -268,7 +268,7 @@ Enter expressions, then terminate with an empty line to evaluate:
 (lldb) b viewDidLoad
 
 /// viewDidLoad 이름인 모든 함수에 breakpoint를 설정하기 - Objc
-(lldb) breakpoint set --name "-[UIViewController viewDidLoad]
+(lldb) breakpoint set --name "-[UIViewController viewDidLoad]"
 
 /// 특정 파일 특정 줄에 breakpoint 설정하기
 (lldb) breakpoint set --file test.c --line 12

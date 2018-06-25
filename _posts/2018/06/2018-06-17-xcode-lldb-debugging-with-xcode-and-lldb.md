@@ -155,6 +155,34 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 error: Error returning from frame 0 of thread 1: We only support setting simple integer and float return types at present..
 ```
 
+* **Disassemble**
+
+```
+/// 현재 frame의 현재 함수를 disassemble하여 보여줌.
+(lldb) disassemble --frame
+(lldb) di -f
+
+/// main 이라는 함수를 disassemble하여 보여줌.
+(lldb) disassemble --name main
+(lldb) di -n main
+
+/// 지정된 주소범위의 명령어 코드를 출력함.
+(lldb) disassemble --start-address 0x1eb8 --end-address 0x1ec3
+(lldb) di -s 0x1eb8 -e 0x1ec3
+
+/// 시작 주소부터 20개의 명령어를 출력함.
+(lldb) disassemble --start-address 0x1eb8 --count 20
+(lldb) di -s 0x1eb8 -c 20
+
+/// 현재 frame의 코드에 해당하는 명령어를 코드와 같이 출력함.
+(lldb) disassemble --frame --mixed
+(lldb) di -f -m
+
+/// 현재 frame에 현재 소스 코드 라인을 disassemble하여 보여줌.
+(lldb) disassemble --line
+(lldb) di -l
+```
+
 * **Backtrace** - 스레드의 stack backtrace를 보여줌.
 
 ```
@@ -348,6 +376,8 @@ Enter expressions, then terminate with an empty line to evaluate:
 ## LLDB 관련 툴
 
 * [Chisel](https://github.com/facebook/chisel) - python으로 대부분 작성되어 있으며, View Debugging 관련하여 손쉽게 사용할 수 있도록 도와주며, [여기](https://kapeli.com/cheat_sheets/LLDB_Chisel_Commands.docset/Contents/Resources/Documents/index)에서 많은 명령을 살펴볼 수 있음.
+* [DerekSelander - LLDB](https://github.com/DerekSelander/LLDB) - A collection of LLDB aliases/regexes and Python scripts to aid in your debugging sessions
+
 
 ## 참고자료
 

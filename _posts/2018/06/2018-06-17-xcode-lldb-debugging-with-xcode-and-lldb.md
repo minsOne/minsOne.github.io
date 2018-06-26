@@ -373,7 +373,7 @@ Enter expressions, then terminate with an empty line to evaluate:
 (lldb) apropos keyword
 ```
 
-## LLDB 관련 툴
+## LLDB 확장 툴
 
 * [Chisel](https://github.com/facebook/chisel) - python으로 대부분 작성되어 있으며, View Debugging 관련하여 손쉽게 사용할 수 있도록 도와주며, [여기](https://kapeli.com/cheat_sheets/LLDB_Chisel_Commands.docset/Contents/Resources/Documents/index)에서 많은 명령을 살펴볼 수 있음.
 * [DerekSelander - LLDB](https://github.com/DerekSelander/LLDB) - A collection of LLDB aliases/regexes and Python scripts to aid in your debugging sessions

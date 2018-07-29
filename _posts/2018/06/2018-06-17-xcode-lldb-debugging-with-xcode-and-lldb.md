@@ -374,6 +374,9 @@ Enter expressions, then terminate with an empty line to evaluate:
 
 /// 기본 언어 설정을 바꿈
 (lldb) settings set target.language swift
+
+/// Alias 설정
+(lldb) command alias es expression -l swift --
 ```
 
 ## LLDB 확장 툴

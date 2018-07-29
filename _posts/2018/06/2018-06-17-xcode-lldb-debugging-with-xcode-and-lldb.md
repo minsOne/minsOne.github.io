@@ -371,6 +371,9 @@ Enter expressions, then terminate with an empty line to evaluate:
 ```
 /// 특정 키워드의 상세한 설명을 보여줌
 (lldb) apropos keyword
+
+/// 기본 언어 설정을 바꿈
+(lldb) settings set target.language swift
 ```
 
 ## LLDB 확장 툴

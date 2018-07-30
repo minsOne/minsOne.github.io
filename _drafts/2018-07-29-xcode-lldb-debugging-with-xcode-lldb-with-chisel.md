@@ -172,6 +172,9 @@ UIExtendedSRGBColorSpace 1 1 1 1
 (lldb) unborder 0x7f80f2d11b40
 ```
 
+### **alamborder/alamunborder** - Ambiguous Layouts View들만 border를 설정하거나 끄는 명령어
+
+
 ### **vs** - 대화식으로 View를 계층구조 간 이동하도록 하는 명령어
 
 ```
@@ -291,3 +294,4 @@ UITableViewCell:0x7fada085d600
 
 ## 참고자료
 * https://kapeli.com/cheat_sheets/LLDB_Chisel_Commands.docset/Contents/Resources/Documents/index
+* http://ios.137422.xyz/83589/

@@ -9,7 +9,25 @@ tags: []
 
 iOS 개발시 LLDB를 이용하여 디버깅을 하지만, 낮은 수준의 명령어들을 지원하기 때문에 조금은 불편한 점이 있습니다. 관련하여 Facebook에서 [Chisel](https://github.com/facebook/chisel)이라는 프로젝트를 통해 python을 이용하여 높은 수준의 명령어를 지원합니다.
 
-이 Chisel의 명령어들을 알아보겠습니다.
+## Install
+
+일반적으로 Homebrew를 사용하여 설치합니다.
+
+```
+$ brew install chisel
+```
+
+그리고 .lldbinit 파일에다 chisel 스크립트를 추가합니다.(없다면 만듭니다.)
+
+```
+$ echo 'command script import /usr/local/opt/chisel/libexec/fblldb.py' >> ~/.lldbinit
+```
+
+이제 Chisel 명령을 사용할 수 있습니다. 만약 설치가 잘 되지 않는다면 [Chisel](https://github.com/facebook/chisel)의 README.md 파일을 읽어보면 설치가 나와있습니다.
+
+이제 Chisel 명령어들을 살펴보겠습니다.
+
+## Commands
 
 ### **pvc** - rootViewController로부터 시작하고 UIWindow에 표시하는 모든 UIViewController를 출력하는 명령어
 
@@ -19,17 +37,22 @@ iOS 개발시 LLDB를 이용하여 디버깅을 하지만, 낮은 수준의 명�
    + <UIViewController 0x7f8527609180>, state: disappeared, view: <UIView 0x7f8527411c10> not in the window, presented with: <_UIFullscreenPresentationController 0x7f852740e4b0>
    |    + <UIViewController 0x7f8527609f70>, state: disappeared, view: <UIView 0x7f8527602690> not in the window, presented with: <_UIFullscreenPresentationController 0x7f8527609d70>
    |    |    + <UIViewController 0x7f8527501000>, state: appeared, view: <UIView 0x7f8527502520>, presented with: <_UIFullscreenPresentationController 0x7f8527505240>
+(lldb) pvc 0x7f85274116b0
+<UIViewController: 0x7f85274116b0; view = <UIView; 0x7f8527708ad0>; frame = (0, 0; 414, 736)>
 ```
 
 `pvc`를 실행하여 현재 Present된 ViewController의 주소인 `0x7faa7e80cb50`를 찾았습니다. 그러면 최상위로 Present된 ViewController를 dismiss하고, 두 번째 최상위 ViewController의 색상을 Red로 변경해봅니다.
 
 ```
-(lldb) e -l swift --
+(lldb) settings set target.language swift
+(lldb) po
+Enter expressions, then terminate with an empty line to evaluate:
 1 import UIKit
 2 let $vc = unsafeBitCast(0x7f8527501000, to: UIViewController.self)
 3 $vc.dismiss(animated: true, completion: nil)
 4 let $nextvc = unsafeBitCast(0x7f8527609f70, to: UIViewController.self)
 5 $nextvc.view.backgroundColor = UIColor.red
+
 ```
 
 ### **pviews** - UIWindow에 표시되는 모든 UIView를 출력하는 명령어
@@ -48,10 +71,52 @@ iOS 개발시 LLDB를 이용하여 디버깅을 하지만, 낮은 수준의 명�
 ### **pclass** - 해당 인스턴스의 상속 계층 구조를 보여주는 명령어
 
 ```
-(lldb) pclass 0x7ff0e2d14330
-UIViewController
+(lldb) pviews
+<UIWindow: 0x7f99505075b0; frame = (0 0; 414 736); gestureRecognizers = <NSArray: 0x6000031e0570>; layer = <UIWindowLayer: 0x600003f86a60>>
+   | <UITransitionView: 0x7f9950615d50; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x600003ff4da0>>
+   | <UITransitionView: 0x7f99507090f0; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x600003ff14c0>>
+   |    | <UIView: 0x7f9950708cd0; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x600003ff0ae0>>
+   |    |    | <UIButton: 0x7f995070b050; frame = (164 318; 46 30); opaque = NO; autoresize = RM+BM; layer = <CALayer: 0x600003ff0340>>
+   |    |    |    | <UIButtonLabel: 0x7f9950406a00; frame = (0.333333 6; 45.6667 18); text = 'Button'; opaque = NO; userInteractionEnabled = NO; layer = <_UILabelLayer: 0x600001c98190>>
+
+(lldb) pclass 0x7f9950708cd0
+UIView
    | UIResponder
    |    | NSObject
+```
+
+`pclass` 등 명령어는 Swift를 지원하지 않기 때문에 다음과 같은 명령을 실행하면 에러가 출력합니다.
+
+```
+(lldb) pclass self.view
+error: error: use of undeclared identifier 'self'
+Traceback (most recent call last):
+  File "/usr/local/opt/chisel/libexec/fblldb.py", line 84, in runCommand
+    command.run(args, options)
+  File "/usr/local/Cellar/chisel/1.8.0/libexec/commands/FBPrintCommands.py", line 155, in run
+    _printIterative(arguments[0], _inheritanceHierarchy)
+  File "/usr/local/Cellar/chisel/1.8.0/libexec/commands/FBPrintCommands.py", line 139, in _printIterative
+    for currentValue in generator(initialValue):
+  File "/usr/local/Cellar/chisel/1.8.0/libexec/commands/FBPrintCommands.py", line 159, in _inheritanceHierarchy
+    instanceClass = fb.evaluateExpression('(id)[(id)' + instanceAddress + ' class]')
+TypeError: cannot concatenate 'str' and 'NoneType' objects
+```
+
+이를 우회하기 위해선 두 가지 방법을 사용하여 원하는 명령을 실행할 수 있습니다.
+
+```
+/// 1. 출력할 객체의 메모리 주소를 얻어 출력하기
+(lldb) po self.view
+▿ Optional<UIView>
+  - some : <UIView: 0x7f9950502a90; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x600003ffc560>>
+(lldb) pclass 0x7f9950502a90
+UIView
+   | UIResponder
+   |    | NSObject
+
+/// 2. Objective-C 변수를 선언하여 출력하기
+(lldb) expr -l objc -- UIView *$view = (UIView *)0x7f9950502a90
+(lldb) pclass $view
 ```
 
 ### **pinternals** - 객체 내부를 보여주는 명령어
@@ -86,7 +151,7 @@ UIExtendedSRGBColorSpace 1 1 1 1
 ```
 
 
-### **fv** - 현재 표시되는 화면에서 특정 UIView 클래스를 찾아 출력하는 명령어
+### **fv** - 현재 표시되는 화면에서 정규식을 사용하여 특정 UIView 클래스를 찾아 출력하는 명령어
 
 ```
 (lldb) fv UIButton
@@ -94,47 +159,37 @@ UIExtendedSRGBColorSpace 1 1 1 1
 0x7f811cc16460 UIButtonLabel
 ```
 
-### **fvc** - pvc와 비슷하나 특정 UIViewController 클래스를 찾아 출력하는 명령어
+### **fvc** - pvc와 비슷하지만 정규식을 사용하여 특정 UIViewController 클래스를 찾아 출력하는 명령어
 
 ```
 (lldb) fvc BaseViewController
 0x7f9329c09d50 SampleProject.BaseViewController
 ```
 
-### **visualize** - UIView를 이미지로 떠 Preview로 열어 보여주는 명령어
+### **visualize** - UIImage, CGImageRef, UIView, CALayer를 이미지로 만들어 Preview로 열어 보여주는 명령어, **Swift 지원**
 
 ```
 (lldb) visualize self.view
 
-/// runtime시
-(lldb) e -l swift --
-1 import UIKit
-2 let $view = unsafeBitCast(0x7f8527501000, to: UIView.self)
-3
-(lldb) visualize $view
-
-/// 또는 메모리 주소만 인자로 넘기는 것도 가능함.
 (lldb) visualize 0x7f8527501000
 ```
 
 ### **show/hide** - 특정 UIView나 CALayer를 숨기거나 보여주는 명렁어
 
 ```
-/// 해당 명령어는 objective-c 코드로 객체를 선언해야 사용 가능함.
 (lldb) pviews
 <UIWindow: 0x7f80f2e0f480; frame = (0 0; 414 736); gestureRecognizers = <NSArray: 0x6000011ecab0>; layer = <UIWindowLayer: 0x600001ffc660>>
    | <UIView: 0x7f80f2d0f1d0; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x600001f8b760>>
    |    | <UIButton: 0x7f80f2d0d540; frame = (164 318; 46 30); opaque = NO; autoresize = RM+BM; layer = <CALayer: 0x600001f8b700>>
    |    |    | <UIButtonLabel: 0x7f80f2c01f20; frame = (0.333333 6; 45.6667 18); text = 'Button'; opaque = NO; userInteractionEnabled = NO; layer = <_UILabelLayer: 0x600003ca6620>>
-(lldb) e -l objc -- UIView *$view = (UIView *)0x7f80f2d0d540
-(lldb) show $view
-(lldb) hide $view
+
+(lldb) hide 0x7f80f2c01f20
+(lldb) show 0x7f80f2c01f20
 ```
 
-### **present/dismiss** - 특정 UIViewController를 presnt하거나 dismiss 하는 명령어
+### **present/dismiss** - 특정 UIViewController를 present하거나 dismiss 하는 명령어
 
 ```
-/// 해당 명령어는 objective-c 코드로 객체를 선언해야 사용 가능함.
 (lldb) pvc
 <SampleProject.BaseViewController 0x7f80f2e0e400>, state: disappeared, view: <UIView 0x7f80f2d0f1d0> not in the window
    + <UIViewController 0x7f80f2d103c0>, state: disappeared, view: <UIView 0x7f80f2d08c30> not in the window, presented with: <_UIFullscreenPresentationController 0x7f80f2c0b850>
@@ -193,6 +248,7 @@ Use the following and (q) to quit.
 ```
 (lldb) ptv
 <UITableView: 0x7fada085dc00; frame = (0 0; 414 736); clipsToBounds = YES; autoresize = W+H; gestureRecognizers = <NSArray: 0x6000029668e0>; layer = <CALayer: 0x60000276da40>; contentOffset: {0, -20}; contentSize: {414, 489}; adjustedContentInset: {20, 0, 0, 0}>
+(lldb) ptv 0x7fada085dc00
 ```
 
 ### **pcells** - 현재 화면에 나타난 최상위의 UITableView에 visible cell을 출력하는 명령어
@@ -205,10 +261,6 @@ Use the following and (q) to quit.
 <UITableViewCell: 0x7fada084e400; frame = (0 118; 414 45); clipsToBounds = YES; autoresize = W; layer = <CALayer: 0x60000276d0c0>>,
 <UITableViewCell: 0x7fada085aa00; frame = (0 191; 414 45); clipsToBounds = YES; autoresize = W; layer = <CALayer: 0x60000276d220>>,
 <UITableViewCell: 0x7fada085c000; frame = (0 236; 414 45); clipsToBounds = YES; autoresize = W; layer = <CALayer: 0x60000276d360>>,
-<UITableViewCell: 0x7fada085ca00; frame = (0 281; 414 45); clipsToBounds = YES; autoresize = W; layer = <CALayer: 0x60000276d4a0>>,
-<UITableViewCell: 0x7fada085d000; frame = (0 354; 414 45); clipsToBounds = YES; autoresize = W; layer = <CALayer: 0x60000276d600>>,
-<UITableViewCell: 0x7fada1040200; frame = (0 399; 414 45); clipsToBounds = YES; autoresize = W; layer = <CALayer: 0x6000027696e0>>,
-<UITableViewCell: 0x7fada085d600; frame = (0 444; 414 45); clipsToBounds = YES; autoresize = W; layer = <CALayer: 0x60000276d720>>
 )
 
 ```
@@ -235,22 +287,6 @@ UIWindow:0x7fada06120b0
 |   |   |   UITableViewCellContentView:0x7fada0617060
 |   |   |   _UITableViewCellSeparatorView:0x7fada0617250
 |   |   |   _UITableViewCellSeparatorView:0x7fada0504900
-|   |   UITableViewCell:0x7fada085c000
-|   |   |   UITableViewCellContentView:0x7fada06168f0
-|   |   |   _UITableViewCellSeparatorView:0x7fada0616ae0
-|   |   |   _UITableViewCellSeparatorView:0x7fada05043e0
-|   |   UITableViewCell:0x7fada085aa00
-|   |   |   UITableViewCellContentView:0x7fada0616380
-|   |   |   _UITableViewCellSeparatorView:0x7fada0616570
-|   |   |   _UITableViewCellSeparatorView:0x7fada0503ec0
-|   |   UITableViewCell:0x7fada084e400
-|   |   |   UITableViewCellContentView:0x7fada0615cd0
-|   |   |   _UITableViewCellSeparatorView:0x7fada0615ec0
-|   |   |   _UITableViewCellSeparatorView:0x7fada0502430
-|   |   UITableViewCell:0x7fada0838200
-|   |   |   UITableViewCellContentView:0x7fada0615340
-|   |   |   _UITableViewCellSeparatorView:0x7fada0615740
-|   |   |   _UITableViewCellSeparatorView:0x7fada0501d10
 |   |   UITableViewCell:0x7fada084b200
 |   |   |   UITableViewCellContentView:0x7fada070e4e0
 |   |   |   _UITableViewCellSeparatorView:0x7fada070e9f0
@@ -273,14 +309,6 @@ UIWindow:0x7fada06120b0
 |   |   _UITableViewCellSeparatorView:0x7fada0624000
 |   |   _UITableViewCellSeparatorView:0x7fada0624210
 |   |   _UITableViewCellSeparatorView:0x7fada0624420
-|   |   _UITableViewCellSeparatorView:0x7fada0624630
-|   |   _UITableViewCellSeparatorView:0x7fada0624840
-|   |   _UITableViewCellSeparatorView:0x7fada0624a50
-|   |   _UITableViewCellSeparatorView:0x7fada0624c60
-|   |   _UITableViewCellSeparatorView:0x7fada0624e70
-|   |   _UITableViewCellSeparatorView:0x7fada0625080
-|   |   _UITableViewCellSeparatorView:0x7fada0625290
-|   |   _UITableViewCellSeparatorView:0x7fada06254a0
 |   |   UIImageView:0x7fada061f1c0
 |   |   UIImageView:0x7fada061ef90
 

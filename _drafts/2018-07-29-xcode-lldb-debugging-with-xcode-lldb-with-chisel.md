@@ -227,8 +227,14 @@ UIExtendedSRGBColorSpace 1 1 1 1
 (lldb) unborder 0x7f80f2d11b40
 ```
 
-### **alamborder/alamunborder** - Ambiguous Layouts View들만 border를 설정하거나 끄는 명령어
+### **mask/unmask** - 투명한 사각형을 View 또는 Layer 위에 노출시키거나 끄는 명령어
 
+```
+(lldb) fv UILabel
+0x7fdfeee04200 UILabel
+(lldb) mask 0x7fdfeee04200 --color red
+(lldb) unmask 0x7fdfeee04200
+```
 
 ### **vs** - 대화식으로 View를 계층구조 간 이동하도록 하는 명령어
 
@@ -320,6 +326,70 @@ UITableViewCell:0x7fada085d600
 |   _UITableViewCellSeparatorView:0x7fada0505a60
 ```
 
+### **alamborder/alamunborder** - Ambiguous Layouts View들만 border를 설정하거나 끄는 명령어
+
+Constraint를 잘못 적용하여 오토레이아웃 에러가 발생하는 경우, 어디서 잡아야할지 디버깅이 힘든 경우가 많습니다. 이때 `paltrace` 명령어를 실행하면 `AMBIGUOUS LAYOUT` 라는 표시를 볼 수 있습니다.
+
+```
+(lldb) paltrace
+
+•UIWindow:0x7fd17b512990 - AMBIGUOUS LAYOUT
+|   •UIView:0x7fd17b60d330
+|   |   *<UILayoutGuide: 0x6000030607e0 - "UIViewSafeAreaLayoutGuide", layoutFrame = {{0, 20}, {414, 716}}, owningView = <UIView: 0x7fd17b60d330; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x600000953e40>>>
+|   |   UIButton:0x7fd17b60b480'Button'
+|   |   |   UIButtonLabel:0x7fd17b4040f0'Button'
+|   |   *UILabel:0x7fd17b60d720'Label'- AMBIGUOUS LAYOUT for UILabel:0x7fd17b60d720'Label'.minY{id: 50}
+
+Legend:
+	* - is laid out with auto layout
+	+ - is laid out manually, but is represented in the layout engine because translatesAutoresizingMaskIntoConstraints = YES
+	• - layout engine host
+```
+
+명령어를 실행한 결과에서 UILabel에 오토레이아웃이 에러난 것을 알 수 있습니다. UILabel이 어디에 표시되어있는지 확인하기 위해 `alamborder` 를 사용하여 화면에서 확인할 수 있습니다.
+
+```
+(lldb) alamborder 0x7fd17b60d720 --color blue
+2018-08-02 01:46:47.432789+0900 ChiselTest[38046:2921119] [LayoutConstraints] Window has a view with an ambiguous layout. See "Auto Layout Guide: Ambiguous Layouts" for help debugging. Displaying synopsis from invoking -[UIView _autolayoutTrace] to provide additional detail.
+
+*UILabel:0x7fd17b60d720'Label'- AMBIGUOUS LAYOUT for UILabel:0x7fd17b60d720'Label'.minY{id: 50}
+
+Legend:
+	* - is laid out with auto layout
+	+ - is laid out manually, but is represented in the layout engine because translatesAutoresizingMaskIntoConstraints = YES
+	• - layout engine host
+2018-08-02 01:46:48.669301+0900 ChiselTest[38046:2921119] [LayoutConstraints] View has an ambiguous layout. See "Auto Layout Guide: Ambiguous Layouts" for help debugging. Displaying synopsis from invoking -[UIView _autolayoutTrace] to provide additional detail.
+
+*UILabel:0x7fd17b60d720'Label'- AMBIGUOUS LAYOUT for UILabel:0x7fd17b60d720'Label'.minY{id: 50}
+
+Legend:
+	* - is laid out with auto layout
+	+ - is laid out manually, but is represented in the layout engine because translatesAutoresizingMaskIntoConstraints = YES
+	• - layout engine host
+```
+
+`alamunborder` 명령어를 실행하여 설정되어 있던 border를 끌 수 있습니다.
+
+### **caflush** - 즉각적으로 화면을 다시 그리도록 하는 명령어
+
+```
+(lldb) fv UILabel
+0x7fd17b60d720 UILabel
+(lldb) e [((UILabel*) 0x7fd17b60d720) setBackgroundColor:[UIColor blueColor]]
+(lldb) caflush
+```
+
+### **pa11y** - 접근성이 설정되어 있는 모든 View를 출력하는 명령어
+
+```
+(lldb) pa11y
+UIWindow (id)[[UIApplication sharedApplication] keyWindow]
+   | (UILabel 0x00007fd17b60d720) Label
+   | (UIButton 0x00007fd17b60b480) Button
+```
+
 ## 참고자료
+
 * https://kapeli.com/cheat_sheets/LLDB_Chisel_Commands.docset/Contents/Resources/Documents/index
 * http://ios.137422.xyz/83589/
+* https://www.slideshare.net/YiyingTseng/debug-lldb-86558535

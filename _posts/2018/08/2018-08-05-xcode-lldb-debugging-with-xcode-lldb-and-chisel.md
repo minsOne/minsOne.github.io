@@ -9,7 +9,7 @@ tags: [Xcode, LLDB, lldb, debug, python, chisel, objc, objectie-c, swift]
 
 iOS 개발시 LLDB를 이용하여 디버깅을 하지만, 낮은 수준의 명령어들을 지원하기 때문에 조금은 불편한 점이 있습니다. 관련하여 Facebook에서 [Chisel](https://github.com/facebook/chisel)이라는 프로젝트를 통해 python을 이용하여 높은 수준의 명령어를 지원합니다.
 
-## Install
+## **Install**
 
 일반적으로 Homebrew를 사용하여 설치합니다.
 
@@ -27,7 +27,7 @@ $ echo 'command script import /usr/local/opt/chisel/libexec/fblldb.py' >> ~/.lld
 
 이제 Chisel 명령어들을 살펴보겠습니다.
 
-## Print Commands
+## **Print Commands**
 
 ### **pviews** - UIWindow에 표시되는 모든 UIView를 출력하는 명령어
 
@@ -192,7 +192,7 @@ UIExtendedSRGBColorSpace 1 1 1 1
  -->
 
 
-## Find Commands
+## **Find Commands**
 
 ### **fvc** - pvc와 비슷하지만 정규식을 사용하여 특정 UIViewController 클래스를 찾아 출력하는 명령어
 
@@ -214,7 +214,7 @@ UIExtendedSRGBColorSpace 1 1 1 1
  -->
 
 
-## Visualize Command
+## **Visualize Command**
 
 ### **visualize** - UIImage, CGImageRef, UIView, CALayer를 이미지로 만들어 Preview로 열어 보여주는 명령어
 
@@ -224,7 +224,7 @@ UIExtendedSRGBColorSpace 1 1 1 1
 (lldb) visualize 0x7f8527501000
 ```
 
-## Display Commands
+## **Display Commands**
 
 ### **caflush** - 즉각적으로 화면을 다시 그리도록 하는 명령어
 
@@ -303,7 +303,7 @@ UIExtendedSRGBColorSpace 1 1 1 1
 ```
 
 
-## Autolayout Commands
+## **Autolayout Commands**
 
 ### **paltrace** - SubView들의 Hierarchy를 출력하는 명령어, 기본은 Key Window로부터 시작함.
 
@@ -406,7 +406,7 @@ Legend:
 `alamunborder` 명령어를 실행하여 설정되어 있던 border를 끌 수 있습니다.
 
 
-## Flicker Commands
+## **Flicker Commands**
 
 ### **vs** - 대화식으로 View를 계층구조 간 이동하도록 하는 명령어
 
@@ -422,7 +422,7 @@ Use the following and (q) to quit.
 ```
 
 
-## Accessibility Commands
+## **Accessibility Commands**
 
 ### **pa11y** - 접근성이 설정되어 있는 모든 View를 출력하는 명령어
 

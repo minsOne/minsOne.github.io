@@ -9,10 +9,10 @@ kramdown:
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : 잉여 개발자
+title : 민소네
 tagline: git
 author :
-  name : 안 정민
+  name : 안정민
   email : jungminahn.minsone@gmail.com
   github : minsOne
 

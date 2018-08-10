@@ -211,3 +211,5 @@ case 2) case 1을 Driver로 변경한 코드
 	        cell.textLabel?.text = "\(result)"
 	    }
 	    .addDisposableTo(disposeBag)
+
+

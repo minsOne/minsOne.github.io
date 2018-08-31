@@ -47,7 +47,7 @@ iOS에서는 Accessibility 속성들을 제공합니다.
 
 모든 접근성 요소를 숨겨 초점이 이동하지 못하게 합니다.
 
-## UIAccessibility Focus
+## UIAccessibility Focus - NSObject Extension
 
 ### accessibilityElementDidBecomeFocused()
 
@@ -61,7 +61,7 @@ iOS에서는 Accessibility 속성들을 제공합니다.
 
 해당 접근성 요소에 초점이 걸려있는지 반환합니다.
 
-## UIAccessibility Action
+## UIAccessibility Action - NSObject Extension
 
 ### accessibilityActivate
 
@@ -73,8 +73,6 @@ iOS에서는 Accessibility 속성들을 제공합니다.
 ### WIP: accessibilityPerformMagicTap
 
 ## WIP: UIAccessibilityPostNotification
-
-### WIP: UIAccessibilityPostNotification
 
 ## WIP: Assistive Technology
 ### WIP: UIAccessibilityIsVoiceOverRunning

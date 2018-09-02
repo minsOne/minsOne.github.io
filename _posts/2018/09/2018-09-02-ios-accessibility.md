@@ -63,7 +63,7 @@ groupCStack.shouldGroupAccessibilityChildren = true
 * accessibilityViewIsModal
 : 해당 접근성 요소가 Modal 뷰인지 설정하여, 해당 요소로 초점이 이동되면 해당 뷰 내에 접근성 요소로만 이동이 가능하며, 다른 요소로 이동할 수 없습니다.
 
-### UIAccessibility Focus - NSObject Extension
+### UIAccessibility Focus
 
 * accessibilityElementDidBecomeFocused()
 : 해당 접근성 요소에 초점을 설정하도록 합니다.
@@ -87,3 +87,12 @@ groupCStack.shouldGroupAccessibilityChildren = true
 
 * isVoiceOverRunning
 : VoiceOver가 켜져있는지 여부를 반환합니다.
+
+## 접근성 확인 Tip
+
+* Chisel - LLDB
+: FaceBook에서 만든 [Chisel](https://github.com/facebook/chisel) 툴의 `pa11y` 과 `pa11yi` 등 명령어를 이용하여 접근성 관련 정보를 쉽게 확인할 수 있습니다.
+
+* Accessibility Inspector
+: Apple에서 기본적으로 제공하는 Inspector으로 접근성이 잘 적용되어있는지 확인할 수 있습니다.
+

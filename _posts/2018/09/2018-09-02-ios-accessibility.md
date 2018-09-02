@@ -3,7 +3,7 @@ layout: post
 title: "[iOS] 접근성 정리"
 description: ""
 category: "iOS/Mac"
-tags: [Accessibility, iOS, VoiceOver]
+tags: [Accessibility, iOS, VoiceOver, Accessibility]
 ---
 {% include JB/setup %}
 

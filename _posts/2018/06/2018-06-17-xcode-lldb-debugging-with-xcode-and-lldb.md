@@ -214,7 +214,7 @@ error: Error returning from frame 0 of thread 1: We only support setting simple 
 (lldb) down 5
 ```
 
-## Evaluatiing Expression - 표현식 계산하기
+## Evaluating Expression - 표현식 계산하기
 
 * 현재 frame에서 표현식 계산하기
 

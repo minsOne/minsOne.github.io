@@ -148,10 +148,10 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) thread jump --by 5 // 현재 줄에서 +5번째 줄로 이동
 (lldb) thread jump --by -5 // 현재 줄에서 -5번째 줄로 이동
 
-/// 현재 frame에서 Void를 반환하거나 특정 값을 반환(note: Swift에서는 거의 안됨)
+/// 현재 frame에서 Void를 반환하거나 특정 값을 반환
 (lldb) thread return 
 (lldb) thread return 0
-(lldb) thread return "aa"
+(lldb) thread return "aa" // Only Objc
 error: Error returning from frame 0 of thread 1: We only support setting simple integer and float return types at present..
 ```
 

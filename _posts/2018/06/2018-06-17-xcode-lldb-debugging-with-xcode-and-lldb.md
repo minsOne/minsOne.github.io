@@ -18,7 +18,7 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) c
 ```
 
-* **Step Over** - 현재 선택된 스레드에서 소스 수준의 한 단계를 진행.
+* **Step Over** - 현재 선택된 Frame에서 소스 수준의 한 단계를 진행.
 
 ```
 (lldb) thread step-over
@@ -26,7 +26,7 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) n
 ```
 
-* **Step Into** - 현재 선택된 스레드에서 소스 수준의 한 단계 안으로 들어감.
+* **Step Into** - 현재 선택된 Frame에서 소스 수준의 한 단계 안으로 들어감.
 
 ```
 (lldb) thread step-in
@@ -41,14 +41,14 @@ iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 
 (lldb) finish
 ```
 
-* **Instruction Level Step Into** - 현재 선택된 스레드에서 명령어 수준의 한 단계 안으로 들어감.
+* **Instruction Level Step Into** - 현재 선택된 Frame에서 명령어 수준의 한 단계 안으로 들어감.
 
 ```
 (lldb) thread step-inst
 (lldb) si
 ```
 
-* **Instruction Level Step Over** - 현재 선택된 스레드에서 명령어 수준의 한 단계를 진행.
+* **Instruction Level Step Over** - 현재 선택된 Frame에서 명령어 수준의 한 단계를 진행.
 
 ```
 (lldb) thread step-inst-over
@@ -283,7 +283,7 @@ Enter expressions, then terminate with an empty line to evaluate:
 
 * Printing Modes
 
-  * `frame variable (f v)` - Code를 실행하지 않으며, LLDB formatter를 사용
+  * `frame variable (fr v)` - Code를 실행하지 않으며, LLDB formatter를 사용
   * `expression -- (p)` - Code를 실행하며, LLDB formatter를 사용
   * `expression -O -- (po)` - Code를 실행하며, `debugDescription`와 같이 개발자가 만든 출력 형태를 사용
 

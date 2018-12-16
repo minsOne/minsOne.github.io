@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS] 의존성 분리하기(외부 라이브러리, iOS의 클래스) - Unit Test"
+title: "[iOS] 의존성 주입하기 - 외부 라이브러리, iOS 프레임워크
 description: ""
 category: "iOS/Mac"
 tags: [iOS, XCode, Project, Library, Dependency, Injection, Dependency Injection, DI]
@@ -13,9 +13,9 @@ tags: [iOS, XCode, Project, Library, Dependency, Injection, Dependency Injection
 
 그러면 어떻게 해야 할까요?
 
-답은 외부 라이브러리를 가지고, 외부에서 호출할 수 있게 인터페이스를 제공해주는 프로젝트를 만드는 것입니다. 그리고 외부에서 호출했을 때, 의도한 대로 잘 동작하는지 유닛 테스트를 합니다.
+답은 외부 라이브러리를 가지고, 외부에서 호출할 수 있게 인터페이스를 제공해주는 의존성 주입하는 프로젝트를 만드는 것입니다. 그리고 외부에서 호출했을 때, 의도한 대로 잘 동작하는지 유닛 테스트를 합니다.
 
-## 의존성 분리 테스트하기 - 외부 라이브러리
+## 의존성 주입하기 - 외부 라이브러리
 
 별도의 프로젝트를 만들어 외부 라이브러리를 가지는 프로젝트를 만드는 것은 환경에 따라 다르므로(?), 여기에서는 생략합니다.
 
@@ -193,7 +193,7 @@ class AppLogTest: XCTestCase {
 }
 ```
 
-## 의존성 분리 테스트하기 - iOS의 클래스
+## 의존성 주입하기 - iOS 프레임워크
 
 위와 같은 방법으로 iOS에서 지원하는 클래스 및 함수들은 위와 같이 작업이 가능합니다. 대표적으로 URLSession을 들 수 있습니다.
 

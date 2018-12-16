@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS] 의존성 주입하기 - 외부 라이브러리, iOS 프레임워크
+title: "[iOS] 의존성 주입하기 - 외부 라이브러리, iOS 프레임워크"
 description: ""
 category: "iOS/Mac"
 tags: [iOS, XCode, Project, Library, Dependency, Injection, Dependency Injection, DI]

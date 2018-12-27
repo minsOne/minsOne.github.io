@@ -287,6 +287,12 @@ Enter expressions, then terminate with an empty line to evaluate:
   * `expression -- (p)` - Code를 실행하며, LLDB formatter를 사용
   * `expression -O -- (po)` - Code를 실행하며, `debugDescription`와 같이 개발자가 만든 출력 형태를 사용
 
+* BreakPoint 설정된 코드를 실행시 Pause되도록 하기
+
+```
+(lldb) expr --ignore-breakpoints false -- <Expression>
+```
+
 ## BreakPoint - BreakPoint 설정하기
 
 ```

@@ -287,6 +287,12 @@ Enter expressions, then terminate with an empty line to evaluate:
   * `expression -- (p)` - Code를 실행하며, LLDB formatter를 사용
   * `expression -O -- (po)` - Code를 실행하며, `debugDescription`와 같이 개발자가 만든 출력 형태를 사용
 
+* BreakPoint 설정된 코드를 실행시 Pause되도록 하기
+
+```
+(lldb) expr --ignore-breakpoints false -- <Expression>
+```
+
 ## BreakPoint - BreakPoint 설정하기
 
 ```
@@ -397,3 +403,4 @@ Enter expressions, then terminate with an empty line to evaluate:
 * [Xcode LLDB 디버깅 테크닉](https://www.letmecompile.com/xcode-lldb-%EB%94%94%EB%B2%84%EA%B9%85-%ED%85%8C%ED%81%AC%EB%8B%89/)
 * [LLDB Debugging Cheat Sheet](https://gist.github.com/alanzeino/82713016fd6229ea43a8)
 * [Debugging a Debugger](http://idrisr.com/2015/10/12/debugging-a-debugger.html)
+* [Swift Heroes 18 - Debug like a Pro](https://youtu.be/RKEh640oFPM)

@@ -59,7 +59,7 @@ Application은 앱 구동시 처리하는 Layer로 가장 최상위 Layer로서 
 
 그리고 Application은 어떤 메인 서비스를 호출할 것인지를 정합니다. 예를 들어, 로그인 기능을 가진 앱인 경우, AuthToken을 기준으로 AuthToken이 발급되기 전, 후 서비스로 나눕니다. 
 
-즉, 어떤 메인 서비스를 호출할지를 특정 조건에 따라 결정하므로, 트리 구조로 서비스들이 구성됩니다.
+즉, 어떤 메인 서비스를 호출할지를 특정 조건에 따라 결정되므로, 트리 구조로 서비스들이 구성됩니다.
 
 <p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_application_main_layer.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
 

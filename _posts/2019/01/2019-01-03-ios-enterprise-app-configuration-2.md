@@ -50,7 +50,7 @@ UI 레이어는 View, ViewController, ViewModel 등 View에 관련된 것들을 
 **UI, Business, Resource Layer 그룹**
 <p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_domain_layer_group_1.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
 
-**각각 UI Layer Business Layer, Resource Layer 그룹**
+**각각의 UI Layer, Business Layer, Resource Layer 그룹**
 <p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_domain_layer_group_2.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
 
 ### 4. 메인 서비스, 어플리케이션

@@ -57,11 +57,9 @@ UI 레이어는 View, ViewController, ViewModel 등 View에 관련된 것들을 
 
 Application은 앱 구동시 처리하는 Layer로 가장 최상위 Layer로서 모든 레이어를 가집니다.
 
-그리고 Application은 메인 서비스 레이어를 가지는데, 어플리케이션의 상태에 따라 일반적(?)으로 AuthToken을 기준으로 AuthToken이 발급되기 전, 후 서비스로 나눕니다.
+그리고 Application은 어떤 메인 서비스를 호출할 것인지를 정합니다. 예를 들어, 로그인 기능을 가진 앱인 경우, AuthToken을 기준으로 AuthToken이 발급되기 전, 후 서비스로 나눕니다. 
 
-즉, 최초 설치 또는 AuthToken이 만료가 되어 시작하는 상태 또는 AuthToken을 가지고 있어 바로 로그인 할 수 있는 상태를 말합니다.
-
-그러므로 트리 구조로 서비스들이 구성됩니다.
+즉, 어떤 메인 서비스를 호출할지를 특정 조건에 따라 결정하므로, 트리 구조로 서비스들이 구성됩니다.
 
 <p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_application_main_layer.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
 

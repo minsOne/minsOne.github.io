@@ -2,7 +2,7 @@
 layout: post
 title: "2019년 1월 3주 개발 자료 모음집 - iOS, Swift"
 description: ""
-category: ""
+category: "programming"
 tags: [Swift, iOS]
 ---
 {% include JB/setup %}
@@ -22,6 +22,9 @@ tags: [Swift, iOS]
 * **[Money](https://github.com/Flight-School/Money)**
   - 통화 관련 라이브러리
   - [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) 규격을 따라 3자리의 통화 코드, 통화 이름, 소수점 자리수를 잘 지키고 있음.
+
+* **[Swift GYB](https://nshipster.co.kr/swift-gyb/), [원문](https://nshipster.com/swift-gyb/)
+  - Python의 [gyb.py](https://github.com/apple/swift/blob/master/utils/gyb.py)를 이용하여 템플릿 셋을 통해 Swift 코드를 생성하는 GYB를 설명하는 글.
 
 ## iOS
 

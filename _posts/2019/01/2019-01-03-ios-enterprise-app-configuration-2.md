@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "[iOS] Enterprise 규모 앱 환경 구성 - 2"
+title: "[iOS] Enterprise 규모 앱 환경 구성 - 3"
 description: ""
 category: "iOS/Mac"
 tags: [iOS, XCode, Project, CocoaPods, Carthage, Layer, Library, Framework]
 ---
 {% include JB/setup %}
 
-이번 글에서는 기존의 프로젝트에서 Layer들을 어떤 순서로 나눠야 하는지 기술해보려고 합니다.
+이번 글에서는 신규 프로젝트에서 Layer들을 어떤 순서로 나눠야 하는지 기술해보려고 합니다.
 
 ### 1. 라이브러리 모듈
 

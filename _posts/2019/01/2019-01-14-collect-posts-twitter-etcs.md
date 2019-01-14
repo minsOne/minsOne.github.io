@@ -2,7 +2,7 @@
 layout: post
 title: "2019년 1월 3주 개발 자료 모음집 - iOS, Swift"
 description: ""
-category: "programming"
+category: ""
 tags: [Swift, iOS]
 ---
 {% include JB/setup %}

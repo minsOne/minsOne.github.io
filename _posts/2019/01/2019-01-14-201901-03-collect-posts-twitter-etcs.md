@@ -36,3 +36,7 @@ tags: [Swift, iOS]
   - Framework 기반 iOS 앱 개발 방법
   - iOS 앱이 커지면 어떤 것을 Framework으로 나눌지 작성됨.
   - 현재 Swift 기반 프로젝트이고, 다수가 개발을 하다보니 컴파일 시간이 많이 걸리는 문제가 있어 Framework으로 분리하는 것이 대안으로 생각됨.
+
+* **[Swift with a hundred engineers 번역글](https://medium.com/@ririsid/swift-with-a-hundred-engineers-2f74ddde529a), [원문](https://www.skilled.io/u/swiftsummit/swift-with-a-hundred-engineers)
+  - 신뢰도 높은 아키텍쳐 설계 RIB
+  - 대규모 프로젝트에서 얻은 교훈 - 심각한 컴파일 시간, 무한 인덱싱, 도구 등의 해결

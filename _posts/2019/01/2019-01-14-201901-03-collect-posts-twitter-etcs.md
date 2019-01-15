@@ -40,3 +40,9 @@ tags: [Swift, iOS]
 * **[Swift with a hundred engineers 번역글](https://medium.com/@ririsid/swift-with-a-hundred-engineers-2f74ddde529a), [원문](https://www.skilled.io/u/swiftsummit/swift-with-a-hundred-engineers)
   - 신뢰도 높은 아키텍쳐 설계 RIB
   - 대규모 프로젝트에서 얻은 교훈 - 심각한 컴파일 시간, 무한 인덱싱, 도구 등의 해결
+    - 컴파일 시간은 많은 프레임워크로 쪼갬, 파일을 하나로 합침, 컴파일 옵션 수정, Buck 사용
+    - 많은 프레임워크의 로드로 시작속도 저하는 모든 심볼을 가져와 스태틱 바이너리에 연결하는 방법으로 해결
+
+* **[Scaling iOS at Uber](https://atscaleconference.com/videos/blazing-fast-scaling-ios-at-uber/)
+  - Uber 앱을 어떻게 관리하는지 등의 노하우가 담겨져있음. 해당 세션에서 발표된 내용이 정리된 [Uber의 글](https://eng.uber.com/ios-monorepo/)
+  - **[Buck](https://buckbuild.com/) - Build 툴로, 기존 Xcode로 빌드하는 것보다 속도가 훨씬 빠르다고 함.

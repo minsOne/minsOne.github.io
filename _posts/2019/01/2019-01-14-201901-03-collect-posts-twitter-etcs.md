@@ -23,7 +23,7 @@ tags: [Swift, iOS]
   - 통화 관련 라이브러리
   - [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) 규격을 따라 3자리의 통화 코드, 통화 이름, 소수점 자리수를 잘 지키고 있음.
 
-* **[Swift GYB](https://nshipster.co.kr/swift-gyb/), [원문](https://nshipster.com/swift-gyb/)
+* **[Swift GYB](https://nshipster.co.kr/swift-gyb/)**, [원문](https://nshipster.com/swift-gyb/)
   - Python의 [gyb.py](https://github.com/apple/swift/blob/master/utils/gyb.py)를 이용하여 템플릿 셋을 통해 Swift 코드를 생성하는 GYB를 설명하는 글.
 
 ## iOS
@@ -45,4 +45,4 @@ tags: [Swift, iOS]
 
 * **[Scaling iOS at Uber](https://atscaleconference.com/videos/blazing-fast-scaling-ios-at-uber/)**
   - Uber 앱을 어떻게 관리하는지 등의 노하우가 담겨져있음. 해당 세션에서 발표된 내용이 정리된 [Uber의 글](https://eng.uber.com/ios-monorepo/)
-  - **[Buck](https://buckbuild.com/) - Build 툴로, 기존 Xcode로 빌드하는 것보다 속도가 훨씬 빠르다고 함.
+  - **[Buck](https://buckbuild.com/)** - Build 툴로, 기존 Xcode로 빌드하는 것보다 속도가 훨씬 빠르다고 함.

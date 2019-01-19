@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2019년 1월 3주 개발 자료 모음집 - iOS, Swift"
+title: "2019년 1월 3주 개발 자료 모음집 - iOS, Swift, UI, UnitTest"
 description: ""
 category: "programming"
 tags: [Swift, iOS]
@@ -26,6 +26,10 @@ tags: [Swift, iOS]
 * **[Swift GYB](https://nshipster.co.kr/swift-gyb/)**, [원문](https://nshipster.com/swift-gyb/)
   - Python의 [gyb.py](https://github.com/apple/swift/blob/master/utils/gyb.py)를 이용하여 템플릿 셋을 통해 Swift 코드를 생성하는 GYB를 설명하는 글.
 
+* **SE-0240: Ordered Collection Diffing** [포럼](https://forums.swift.org/t/se-0240-ordered-collection-diffing/), [Proposal](https://github.com/apple/swift-evolution/blob/master/proposals/0240-ordered-collection-diffing.md)
+  - Diff 관련 제안서
+  - iOS 개발자들이 고대하던 기능.
+
 ## iOS
 
 * **[Bagel](https://github.com/yagiz/Bagel)**
@@ -37,7 +41,7 @@ tags: [Swift, iOS]
   - iOS 앱이 커지면 어떤 것을 Framework으로 나눌지 작성됨.
   - 현재 Swift 기반 프로젝트이고, 다수가 개발을 하다보니 컴파일 시간이 많이 걸리는 문제가 있어 Framework으로 분리하는 것이 대안으로 생각됨.
 
-* **[Swift with a hundred engineers 번역글](https://medium.com/@ririsid/swift-with-a-hundred-engineers-2f74ddde529a)**, **[원문](https://www.skilled.io/u/swiftsummit/swift-with-a-hundred-engineers)**
+* **[Swift with a hundred engineers](https://medium.com/@ririsid/swift-with-a-hundred-engineers-2f74ddde529a)**, **[원문](https://www.skilled.io/u/swiftsummit/swift-with-a-hundred-engineers)**
   - 신뢰도 높은 아키텍쳐 설계 RIB
   - 대규모 프로젝트에서 얻은 교훈 - 심각한 컴파일 시간, 무한 인덱싱, 도구 등의 해결
     - 컴파일 시간은 많은 프레임워크로 쪼갬, 파일을 하나로 합침, 컴파일 옵션 수정, Buck 사용
@@ -46,3 +50,20 @@ tags: [Swift, iOS]
 * **[Scaling iOS at Uber](https://atscaleconference.com/videos/blazing-fast-scaling-ios-at-uber/)**
   - Uber 앱을 어떻게 관리하는지 등의 노하우가 담겨져있음. 해당 세션에서 발표된 내용이 정리된 [Uber의 글](https://eng.uber.com/ios-monorepo/)
   - **[Buck](https://buckbuild.com/)** - Build 툴로, 기존 Xcode로 빌드하는 것보다 속도가 훨씬 빠르다고 함.
+
+* **[Building iOS Apps at Scale](https://academy.realm.io/posts/yusei-nishiyama-mobilization-2017-building-ios-apps-at-scale/)**
+  - Cookpad에서 앱을 어떻게 관리하는지 등의 노하우가 담겨져있음.
+
+* iOSConfSG 발표자료
+  - **[Behind the Scenes with Auto Layout or How to Solve Constraints with the Cassowary Algorithm](https://speakerdeck.com/vasarhelyia/behind-the-scenes-with-auto-layout-or-how-to-solve-constraints-with-the-cassowary-algorithm-iosconfsg?slide=9)**
+
+* Print나 NSLog 대신 **os_log**를 써보는 것은 어떨까?
+  - **[Clear and searchable logging in Swift with OSLog](https://www.lordcodes.com/posts/clear-and-searchable-logging-in-swift-with-oslog)**
+  - **[Logging - Apple Document](https://developer.apple.com/documentation/os/logging)**
+  - **[os_log - Apple Document](https://developer.apple.com/documentation/os/os_log)**
+
+## UI
+* **[UI 엔지니어링의 요소들](https://overreacted.io/ko/the-elements-of-ui-engineering/)**, **[원문](https://overreacted.io/the-elements-of-ui-engineering/)**
+
+## 개발
+* **[UnitTest - Martin Fowler](http://blog.weirdx.io/post/57004)**, **[원문](https://martinfowler.com/bliki/UnitTest.html)**

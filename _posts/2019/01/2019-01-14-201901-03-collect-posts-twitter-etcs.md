@@ -54,7 +54,7 @@ tags: [Swift, iOS]
 * **[Building iOS Apps at Scale](https://academy.realm.io/posts/yusei-nishiyama-mobilization-2017-building-ios-apps-at-scale/)**
   - Cookpad에서 앱을 어떻게 관리하는지 등의 노하우가 담겨져있음.
 
-* iOSConfSG 발표자료
+* [iOSConfSG 2019](https://2019.iosconf.sg/) 발표자료
   - **[Behind the Scenes with Auto Layout or How to Solve Constraints with the Cassowary Algorithm](https://speakerdeck.com/vasarhelyia/behind-the-scenes-with-auto-layout-or-how-to-solve-constraints-with-the-cassowary-algorithm-iosconfsg?slide=9)**
 
 * Print나 NSLog 대신 **os_log**를 써보는 것은 어떨까?

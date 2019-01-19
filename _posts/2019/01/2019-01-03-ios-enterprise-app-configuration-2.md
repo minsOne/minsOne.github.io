@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS] Enterprise 규모 앱 환경 구성 - 3"
+title: "[iOS] Enterprise 규모 앱 환경 구성 - 2"
 description: ""
 category: "iOS/Mac"
 tags: [iOS, XCode, Project, CocoaPods, Carthage, Layer, Library, Framework]

@@ -14,4 +14,4 @@ tags: [Swift, iOS]
 ## iOS
 
 * **[iOS Conference SG 2019](https://2019.iosconf.sg/)**
-  - [전체 발표자료](https://engineers.sg/conference/iosconfsg-2019)
+  - [전체 발표자료](https://engineers.sg/conference/iosconfsg-2019), [발표 영상 플레이리스트](https://www.youtube.com/playlist?list=PLED4k3CZkY9Qjo61LcuG56gwvEW-Bpbzs)

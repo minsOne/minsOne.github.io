@@ -35,6 +35,15 @@ tags: [Swift, iOS]
   - 옵션 버튼을 누른 상태에서 더블 클릭하면 설명이 나옴.
   <blockquote class="twitter-tweet" data-lang="ko"><p lang="en" dir="ltr">Pro tip: Wondering about an unfamiliar Xcode build setting? Try option+double clicking on it in the target editor for a descriptive tooltip. <a href="https://t.co/52ArF5zDKr">pic.twitter.com/52ArF5zDKr</a></p>&mdash; Brian Croom (@aikoniv) <a href="https://twitter.com/aikoniv/status/795311416030806016?ref_src=twsrc%5Etfw">2016년 11월 6일</a></blockquote>
 
+* **[Xcode 10.2 beta Release](https://developer.apple.com/documentation/xcode_release_notes/xcode_10_2_beta_release_notes)**
+  - iOS 12.2 부터는 Swift 라이브러리가 안들어가서 앱 용량이 줄 거라고 예상됨 - [Twitter](https://twitter.com/BalestraPatrick/status/1088565310691647489?fbclid=IwAR3vs5VhIL78P0vjuOcnKYD5JZp3n1RrCHqXwDWSvUvwI9zWiNme4GYeUGk)
+  - Swift 5를 사용할 수 있음.
+  - Xcode에서 디버깅시 LLDB를 콘솔 창이 아닌 터미널에서 열 수 있을 꺼라 예상됨 - [Twitter](https://twitter.com/Shashikant86/status/1088721185603502081)
+  - dependency cycle로 인한 컴파일 에러가 수정된 것으로 보임.
+  - 메모리 관리 강화 - 메모리 릭 발생하면 알려줄 것으로 보여짐.
+  - LLDB 디버거에 **frame variable**, **v** 명령어가 추가됨, p 또는 po 보다 더 빠르다고 함.
+  - Xcode coverage reports 차이를 지원하는 **xccov** 명령어가 추가됨.
+
 
 ## Tools
 

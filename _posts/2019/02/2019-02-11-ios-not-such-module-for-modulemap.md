@@ -16,7 +16,7 @@ tags: [iOS, XCode, Project, CocoaPods, Carthage, Framework]
 만약 없다면, 업체에 요청하시고, 그전까지는 modulemap을 만들어 넣어놓으시면 됩니다.
 
 ```
-Path : Module/module.modulemap
+Path : Framework이름.framework/Module/module.modulemap
 
 framework module [framework 이름] {
   umbrella header "[framework 이름].h"

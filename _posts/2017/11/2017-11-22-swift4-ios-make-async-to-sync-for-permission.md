@@ -63,9 +63,9 @@ extension PHPhotoLibrary {
 
         switch newStatus {
         case .authorized:
-            return status
+            return newStatus
         case .denied, .restricted, .notDetermined:
-            throw PHPhotoLibraryAuthorizationError.error(status)
+            throw PHPhotoLibraryAuthorizationError.error(newStatus)
         }
     }
 }

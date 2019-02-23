@@ -3,7 +3,7 @@ layout: post
 title: "[Shell]/dev/null로 출력 버리기"
 description: ""
 category: "Shell"
-tags: [shell, dev, null]
+tags: [shell]
 ---
 {% include JB/setup %}
 

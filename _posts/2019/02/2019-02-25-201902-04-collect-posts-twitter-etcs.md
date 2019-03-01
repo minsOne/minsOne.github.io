@@ -28,3 +28,8 @@ tags: [Python, OpenData]
 
 * [Swift Package Manager builds iOS frameworks on Xcode 10.2 beta](https://badootech.badoo.com/swift-package-manager-builds-ios-frameworks-updated-xcode-10-2-beta-19b3e6741bda)
   - XCode 10.2 beta에서는 [SE-0236](https://github.com/apple/swift-evolution/blob/master/proposals/0236-package-manager-platform-deployment-settings.md)가 채택되어 Package.swift 파일에서 플랫폼 버전을 지정할 수 있어, iOS 프레임워크를 SPM을 이용하여 만드는 글
+
+## 일반
+
+* (테스트 코드 없이 레거시 코드를 다 감수하시겠습니까?)[http://woowabros.github.io/experience/2019/02/27/Working_Effectively_with_Legacy_Code.html]
+  - 레거시 코드를 어떻게 건드리면서 작업해야하는지 설명하는 글

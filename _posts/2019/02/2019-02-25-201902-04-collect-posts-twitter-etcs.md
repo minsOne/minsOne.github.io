@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "2019년 2월 4주 개발 자료 모음집 - Python"
+title: "2019년 2월 4주 개발 자료 모음집 - Python, iOS, Swift"
 description: ""
 category: "programming"
-tags: [Python, OpenData]
+tags: [Python, OpenData, fomatter, SPM, Swift Package Manager]
 ---
 {% include JB/setup %}
 

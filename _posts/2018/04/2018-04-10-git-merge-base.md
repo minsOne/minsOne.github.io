@@ -29,6 +29,12 @@ $ git merge-base --fork-point A B
 $ git diff $(git merge-base --fork-point A)
 ```
 
+ex) GitLab에서 타겟 Branch와의 커밋 비교를 통해 변경된 파일은 다음과 같이 가져올 수 있습니다.
+
+```
+$ git diff --name-only $(git merge-base --fork-point origin/${gitlabTargetBranch}) $GIT_COMMIT
+```
+
 ## 출처
 
 * [stackoverflow](https://stackoverflow.com/a/29813554/2749449)

@@ -3,7 +3,7 @@ layout: post
 title: "[Swift] Method Swizzling이란?"
 description: ""
 category: "Mac/iOS"
-tags: [swift, objective-c, method, swizzling, method swizzling, extension, singleton, runtime, selector]
+tags: [swift, objective-c, swizzling, method swizzling, extension, runtime, selector, class_getInstanceMethod, method_exchangeImplementations]
 ---
 {% include JB/setup %}
 
@@ -15,77 +15,85 @@ Swizzling이란 뒤섞다라는 의미입니다. 그래서 Method Swizzling은 �
 
 #### 코드
 
-	extension UIViewController {
-		public override class func initialize() {
-			struct Static {
-				static var token: dispatch_once_t = 0
-			}
+```
+extension UIViewController {
+    class func swizzleMethod() {
+        let originalSelector = #selector(UIViewController.viewWillAppear(_:))
+        let swizzledSelector = #selector(UIViewController.minsone_viewWillAppear(animated:))
+        guard
+            let originalMethod = class_getInstanceMethod(UIViewController.self, originalSelector),
+            let swizzledMethod = class_getInstanceMethod(UIViewController.self, swizzledSelector)
+            else { return }
+        method_exchangeImplementations(originalMethod, swizzledMethod)
+    }
 
-			// 서브 클래스면 동작하지 않도록 한다.
-			if self !== UIViewController.self {
-				return
-			}
+     @objc public func minsone_viewWillAppear(animated: Bool) {
+        print("minsone_viewWillAppear", self)
+    }
+}
+```
 
-			dispatch_once(&Static.token) {
-				let originalSelector = Selector("viewWillAppear:")
-				let swizzledSelector = Selector("nsh_viewWillAppear:")
+그리고 원하는 동작을 하기 위해서는 `swizzleMethod()` 함수를 먼저 호출해줘야 합니다.
 
-				let originalMethod = class_getInstanceMethod(self, originalSelector)
-				let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-
-				let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
-
-				if didAddMethod {
-					class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
-				} else {
-					method_exchangeImplementations(originalMethod, swizzledMethod);
-				}
-			}
-		}
-
-		// MARK: - Method Swizzling
-
-		func nsh_viewWillAppear(animated: Bool) {
-			self.nsh_viewWillAppear(animated)
-			println("viewWillAppear: \(self)")
-		}
+```
+class AppDelegate: UIResponder, UIApplicationDelegate {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		...
+		UIViewController.swizzleMethod()
+		...
 	}
+}
+```
+
+그리고 swizzleMethod 메소드에 구현을 하므로, swizzleMethod를 가지는 프로토콜을 만들어, swizzling할 타입을 관리하여 일괄 호출하도록 합니다.
+
+```
+protocol SwizzlingMethodProtocol {
+	static func swizzleMethod()
+}
+
+extension UIViewController: SwizzlingMethodProtocol {
+	...
+}
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+	let swizzlingMethodTypes: [SwizzlingMethodProtocol.Type] = [UIViewController.self]
+
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		...
+		swizzlingMethodTypes.forEach { $0.swizzleMethod() }
+		...
+	}
+}
+```
 
 #### 코드 분석
 
 Method Swizzling은 영향이 전역으로 미치므로, Singleton을 통해서 한번 변경하면 다시 호출되지 않도록 합니다.
 
-	let originalSelector = Selector("viewWillAppear:")
-	let swizzledSelector = Selector("nsh_viewWillAppear:")
+```
+let originalSelector = #selector(UIViewController.viewWillAppear(_:))
+let swizzledSelector = #selector(UIViewController.minsone_viewWillAppear(animated:))
+```
 
 위의 코드는 Swizzling 할 메소드들의 Selector를 가져옵니다.
 
-	let originalMethod = class_getInstanceMethod(self, originalSelector)
-	let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
+```
+let originalMethod = class_getInstanceMethod(UIViewController.self, originalSelector)
+let swizzledMethod = class_getInstanceMethod(UIViewController.self, swizzledSelector)
+```
 
 UIViewController 클래스의 지정된 인스턴스 메소드를 반환합니다.
 
-	let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+추가가 되면 originalSelector와 swizzledSelector를 method_exchangeImplementations로 바꾸어 우리가 원하는 기능을 동작하게 합니다.
 
-그리고 originalSelector 이름과 swizzledMethod의 implementation를 UIViewController 클래스에 추가합니다.
-
-추가가 되면 originalSelector와 swizzledSelector를 class_replaceMethod로 바꾸어 우리가 원하는 기능을 동작하도록 하고, 그렇지 않으면 method_exchangeImplementations로 originalMethod와 swizzledMethod를 바꾸도록 합니다.
-
-	if didAddMethod {
-		class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
-	} else {
-		method_exchangeImplementations(originalMethod, swizzledMethod);
-	}
-
-#### 왜 initialize인가?
-
-기존에 Objective-C에서는 load 메소드는 클래스를 한 번만 호출하므로, Singleton을 사용할 필요가 없었습니다. 
-
-하지만 Swift에서는 load 메소드를 사용할 수 없어 initialize 메소드를 사용해야 합니다. 그리고 initialize 메소드는 클래스를 생성할 때마다 호출하므로, Singleton을 사용해야 합니다.
+```
+method_exchangeImplementations(originalMethod, swizzledMethod)
+```
 
 #### 결과
 
-	viewWillAppear: <TestView.ViewController: 0x78760d80> nsh_viewWillAppear 
+	viewWillAppear: <TestView.ViewController: 0x78760d80> minsone_viewWillAppear 
 	ViewWillAppear: <TestView.ViewController: 0x78760d80> viewWillAppear
 	viewDidAppear: <TestView.ViewController: 0x78760d80> viewDidAppear
 
@@ -95,4 +103,4 @@ UIViewController 클래스의 지정된 인스턴스 메소드를 반환합니�
 
 ### 참고 자료
 
-* [NSHipster](http://nshipster.com/swift-objc-runtime/)
+* [stackoverflow](https://stackoverflow.com/questions/52366310/swift-method-swizzling)

@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-그리고 swizzleMethod 메소드에 구현을 하므로, swizzleMethod를 가지는 프로토콜을 만들어, swizzling할 타입을 관리하여 일괄 호출하도록 합니다.
+그리고 swizzleMethod 메소드에 구현을 하므로, swizzleMethod를 가지는 프로토콜을 만들어, swizzling할 타입을 관리하고 일괄 호출하도록 합니다.
 
 ```
 protocol SwizzlingMethodProtocol {

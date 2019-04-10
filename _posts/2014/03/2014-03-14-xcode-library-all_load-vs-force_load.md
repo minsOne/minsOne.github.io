@@ -3,7 +3,7 @@ layout: post
 title: "[Xcode]Library 호출 시 사용하는 all_load, force_load"
 description: ""
 category: "Mac/iOS"
-tags: [xcode, framework, linker, all_load, force_load, kakaotalk, objc, library]
+tags: [Xcode, Framework, linker, all_load, force_load, kakaotalk, objc, library]
 ---
 {% include JB/setup %}
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Xcode][iOS] 프레임워크를 이용하여 한 군데서 리소스를 관리하고, 여러 곳에서 리소스 사용하기"
+title: "[Xcode][iOS] 프레임워크를 이용하여 한 프레임워크가 리소스를 관리하고, 여러 프레임워크가 리소스 사용하기"
 description: ""
 category: "iOS/Mac"
 tags: [Framework, UIImage, XCAssets, Bundle]

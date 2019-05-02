@@ -94,6 +94,55 @@ print(styleStr.str)
 
 ## NSAttributedString
 
+`StringInterpolation`을 만들고, 속성으로 `NSMutableAttributedString`를 가지도록 합니다. 그리고 문자열이 들어올때마다 `NSMutableAttributedString`를 만들어서 추가하도록 합니다.
+
+```
+public struct StringInterpolation: StringInterpolationProtocol {
+    public var attributedString: NSMutableAttributedString
+
+    public init(literalCapacity: Int, interpolationCount: Int) {
+        self.attributedString = NSMutableAttributedString()
+    }
+
+    public mutating func appendLiteral(_ literal: String) {
+        attributedString.append(NSAttributedString(string: literal))
+    }
+
+    public func appendInterpolation(_ string: String, attributes: [NSAttributedString.Key: Any]) {
+        let attr = NSAttributedString(string: string, attributes: attributes)
+        self.attributedString.append(attr)
+    }
+}
+```
+
+`ExpressibleByStringInterpolation` 프로토콜을 따르는 타입이 `StringInterpolation`을 통해 최종적으로 `NSMutableAttributedString`타입인 값을 얻을 수 있습니다.
+
+```
+public struct AttrString {
+    let attributedString: NSAttributedString
+}
+
+extension AttrString: ExpressibleByStringLiteral {
+    public init(stringLiteral: String) {
+        self.attributedString = NSAttributedString(string: stringLiteral)
+    }
+}
+
+extension AttrString: ExpressibleByStringInterpolation {
+    public init(stringInterpolation: StringInterpolation) {
+        self.attributedString = NSAttributedString(attributedString: stringInterpolation.attributedString)
+    }
+}
+
+let attr: AttrString = """
+\("Hello", attributes: [.foregroundColor: UIColor.blue]))
+"""
+let attrString = attr.attributedString
+```
+
+## Style을 이용한 NSAttributedString 만들기
+
+
 
 ## 참고자료
 

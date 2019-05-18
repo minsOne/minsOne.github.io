@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Swift 5] StringInterpolation, StringInterpolationProtocol, 그리고 NSAttributedString"
+title: "[Swift5] StringInterpolation, StringInterpolationProtocol, 그리고 NSAttributedString"
 description: ""
-category: ""
-tags: []
+category: "Programming"
+tags: [Swift, NSAttributedString, StringInterpolation, StringInterpolationProtocol]
 ---
 {% include JB/setup %}
 
@@ -133,7 +133,11 @@ extension AttrString: ExpressibleByStringInterpolation {
         self.attributedString = NSAttributedString(attributedString: stringInterpolation.attributedString)
     }
 }
+```
 
+이제 AttrString을 이용하여 쉽게 NSAttributedString을 얻을 수 있습니다.
+
+```
 let attr: AttrString = """
 \("Hello", attributes: [.foregroundColor: UIColor.blue]))
 """
@@ -142,13 +146,88 @@ let attrString = attr.attributedString
 
 ## Style을 이용한 NSAttributedString 만들기
 
+NSAttributedString에 사용하는 속성들을 우리가 쉽게 사용하기 위해 enum으로 만들 수 있습니다.
 
+```
+public struct Style {
+    public enum Attribute {
+        case font(UIFont)
+        case color(UIColor)
+        case backColor(UIColor)
+        
+        var key: NSAttributedString.Key {
+            switch self {
+            case .font: return .font
+            case .color: return .foregroundColor
+            case .backColor: return .backgroundColor
+            }
+        }
+        
+        var value: Any {
+            switch self {
+            case let .font(font): return font
+            case let .color(color): return color
+            case let .backColor(color): return color
+            }
+        }
+    }
+    
+    var attrs: [Attribute] = []
+    
+    public func font(_ font: UIFont) -> Style {
+        return set(.font(font))
+    }
+    
+    public func color(_ fgColor: UIColor) -> Style {
+        return set(.color(fgColor))
+    }
+    
+    public func backColor(_ bgColor: UIColor) -> Style {
+        return set(.color(bgColor))
+    }
+    
+    private func set(_ attr: Attribute) -> Style {
+        var new = self
+        new.attrs.append(attr)
+        return new
+    }
+    
+    func apply(to text: String) -> NSAttributedString {
+        let attributes = attrs.reduce([NSAttributedString.Key : Any]()) { (result, attr) in
+            var result = result
+            result.updateValue(attr.value, forKey: attr.key)
+            return result
+        }
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+}
+```
+
+이제 이전에 작성했던 StringInterpolation의 `func appendInterpolation(_ string: String, attributes: [NSAttributedString.Key: Any])` 함수의 attributed를 Style로 대체할 수 있습니다.
+
+```
+public func appendInterpolation(_ string: String, style: Style) {
+    let attr = style.apply(to: string)
+    self.attributedString.append(attr)
+}
+```
+
+그러면 AttrString은 다음과 같이 사용할 수 있습니다.
+
+```
+let richText: AttrString = """
+\("Hello world", style: Style().font(.systemFont(ofSize: 15)).color(.red).backColor(.blue))
+\("Good Bye", style: Style().font(.systemFont(ofSize: 20)).color(.green).backColor(.gray))
+"""
+
+label.attributedText = richText.attributedString
+```
 
 ## 참고자료
 
-https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/tokens/interpolated
-https://en.wikipedia.org/wiki/String_interpolation
-https://www.hackingwithswift.com/articles/178/super-powered-string-interpolation-in-swift-5-0
-http://alisoftware.github.io/swift/2018/12/16/swift5-stringinterpolation-part2/
-https://www.hackingwithswift.com/articles/126/whats-new-in-swift-5-0
-https://github.com/apple/swift-evolution/blob/master/proposals/0228-fix-expressiblebystringinterpolation.md
+* [MSDN - 문자열보간](https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/tokens/interpolated)
+* [Wikipedia - 문자열보간](https://en.wikipedia.org/wiki/String_interpolation)
+* [HackingWithSwift - 문자열보간](https://www.hackingwithswift.com/articles/178/super-powered-string-interpolation-in-swift-5-0)
+* [HackingWithSwift - Swift 5.0 변경사항](https://www.hackingwithswift.com/articles/126/whats-new-in-swift-5-0)
+* [alisoftware - 문자열보간](http://alisoftware.github.io/swift/2018/12/16/swift5-stringinterpolation-part2/)
+* [Apple - Swift SE-0228 문자열보간 제안서](https://github.com/apple/swift-evolution/blob/master/proposals/0228-fix-expressiblebystringinterpolation.md)

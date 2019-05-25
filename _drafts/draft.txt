@@ -1,18 +1,26 @@
+# Accessibility
 https://www.raywenderlich.com/845-ios-accessibility-tutorial-getting-started
 
-
+# Clone AppStore Design
 https://github.com/aunnnn/AppStoreiOS11InteractiveTransition.git
 https://medium.com/@aunnnn/making-app-store-today-ios-11-custom-transition-part-1-presentation-9e4ef99e75d3
 https://github.com/phillfarrugia/appstore-clone
 
-
+# Build
 https://medium.com/@h2s1880/hello-bazel-db5d237e204c
 https://tulsi.bazel.build/
 https://docs.bazel.build/versions/master/migrate-xcode.html
 
+# CADisplayLink
 https://medium.com/@duwei199714/animated-uilabel-with-cadisplaylink-9a761d693ca5
 https://github.com/Dywane/DWAnimatedLabel
 
+# Infinite uiscrollview
 https://medium.com/flawless-app-stories/infinite-uiscrollview-b516a5d14caf
 
+# DispatchSourceTimer
+http://abizern.org/2015/a-swift-repeating-timer/
+https://gist.github.com/minsOne/e594a48a824469e874bcce6067bc43aa
+
+# Particle
 https://zeddios.tistory.com/427

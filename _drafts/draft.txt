@@ -9,3 +9,10 @@ https://github.com/phillfarrugia/appstore-clone
 https://medium.com/@h2s1880/hello-bazel-db5d237e204c
 https://tulsi.bazel.build/
 https://docs.bazel.build/versions/master/migrate-xcode.html
+
+https://medium.com/@duwei199714/animated-uilabel-with-cadisplaylink-9a761d693ca5
+https://github.com/Dywane/DWAnimatedLabel
+
+https://medium.com/flawless-app-stories/infinite-uiscrollview-b516a5d14caf
+
+https://zeddios.tistory.com/427

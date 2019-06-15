@@ -52,5 +52,5 @@ class A {
 그러면 hasVisitedApp 변수를 접근해서 값을 할당하거나, 가져올 때 Storage의 value를 통해 Store에 접근하게 됩니다.
 
 ## 출처
-* WWDC - 세션은 까먹음...
+* WWDC2019 - [What's New in Swift](https://developer.apple.com/videos/play/wwdc2019/402/)
 * Swift Evolution - [SE-0258](https://github.com/apple/swift-evolution/blob/master/proposals/0258-property-delegates.md)

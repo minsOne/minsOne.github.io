@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift5.1]Property Wrapper 사용 - 맛보기"
+title: "[Swift5.1] Property Wrapper 사용 - 맛보기"
 description: ""
 category: "programming"
 tags: [propertyWrapper, Property Wrapper, SE-0258, Swift, Annotation]

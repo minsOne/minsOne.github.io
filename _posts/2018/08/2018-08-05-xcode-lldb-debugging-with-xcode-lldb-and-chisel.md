@@ -3,7 +3,7 @@ layout: post
 title: "[Xcode][LLDB]Debugging With Xcode, LLDB and Chisel"
 description: ""
 category: "iOS/Mac"
-tags: [Xcode, LLDB, lldb, debug, python, chisel, objc, objectie-c, swift]
+tags: [Xcode, LLDB, lldb, debug, python, Chisel, objc, objectie-c, swift]
 ---
 {% include JB/setup %}
 

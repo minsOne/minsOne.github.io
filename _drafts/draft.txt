@@ -32,3 +32,4 @@ http://blog.naver.com/PostView.nhn?blogId=bomyzzang&logNo=220217101708
 # Indicator Rx 관련 자료
 * https://github.com/RxSwiftCommunity/RxSwiftUtilities
 * https://stackoverflow.com/questions/41932734/how-to-show-hide-the-progresshud-with-mvvm-and-rxswift-in-swift
+* https://github.com/ReactiveX/RxSwift/blob/70b8a33c5c3f4c3b15ebf10b638d2b15cfafb814/RxSwift/Traits/Single.swift

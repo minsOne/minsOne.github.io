@@ -20,12 +20,12 @@ TestScheduler를 생성하고, 지정한 시간에 전달할 아이템을 가지
 ```swift
 	let scheduler = TestScheduler(initialClock: 0)
 	let xs = scheduler.createHotObservable([
-		next(150, 1),
-		next(210, 0),
-		next(220, 1),
-		next(230, 2),
-		next(240, 4),
-		completed(300)
+		.next(150, 1),
+		.next(210, 0),
+		.next(220, 1),
+		.next(230, 2),
+		.next(240, 4),
+		.completed(300)
 	])
 	let res = scheduler.start { xs.map { $0 * 2 } }
 ```
@@ -38,11 +38,11 @@ TestScheduler가 시작하면서, map 함수으로 아이템 값을 2배 만듭�
 
 ```
 	let correctMessages = [
-		next(210, 0 * 2),
-		next(220, 1 * 2),
-		next(230, 2 * 2),
-		next(240, 4 * 2),
-		completed(300)
+		.next(210, 0 * 2),
+		.next(220, 1 * 2),
+		.next(230, 2 * 2),
+		.next(240, 4 * 2),
+		.completed(300)
 	]
 
 	let correctSubscriptions = [
@@ -70,10 +70,10 @@ Hot Observable은 구독 여부에 상관없이 아이템을 발행하므로, �
 	let scheduler = TestScheduler(initialClock: 0)
 
 	let xs1 = scheduler.createColdObservable([
-		next(10, 1),
-		next(20, 2),
-		next(30, 3),
-		completed(100)
+		.next(10, 1),
+		.next(20, 2),
+		.next(30, 3),
+		.completed(100)
 		])
 
 	let res = scheduler.start { xs.map { $0 * 2 } }
@@ -85,10 +85,10 @@ Hot Observable이 아닌 Cold Observable이기 때문에 구독한 후에 아이
 
 ```swift
 	XCTAssertEqual(res.events, [
-		next(210, 1 * 2),
-		next(220, 2 * 2),
-		next(230, 3 * 2),
-		completed(300)
+		.next(210, 1 * 2),
+		.next(220, 2 * 2),
+		.next(230, 3 * 2),
+		.completed(300)
 		])
 
 	XCTAssertEqual(xs1.subscriptions, [

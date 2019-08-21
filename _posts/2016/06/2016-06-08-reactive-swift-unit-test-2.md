@@ -24,18 +24,18 @@ TestScheduler를 생성하고, 지정한 시간에 전달할 아이템을 가지
 ```swift
 	let scheduler = TestScheduler(initialClock: 0)
 	let xs = scheduler.createHotObservable([
-		next(70, 1),
-		next(110, 2),
-		next(220, 3),
-		next(270, 4),
-		next(340, 5),
-		next(410, 6),
-		next(520, 7),
-		next(630, 8),
-		next(710, 9),
-		next(870, 10),
-		next(940, 11),
-		next(1020, 12)
+		.next(70, 1),
+		.next(110, 2),
+		.next(220, 3),
+		.next(270, 4),
+		.next(340, 5),
+		.next(410, 6),
+		.next(520, 7),
+		.next(630, 8),
+		.next(710, 9),
+		.next(870, 10),
+		.next(940, 11),
+		.next(1020, 12)
 	])
 ```
 
@@ -47,13 +47,13 @@ TestScheduler를 생성하고, 지정한 시간에 전달할 아이템을 가지
 	var subscription: Disposable! = nil
 
 	// BehaviorSubject을 구독할 Observer 생성
-	let results1 = scheduler.createObserver(Int)
+	let results1 = scheduler.createObserver(Int.self)
 	var subscription1: Disposable! = nil
 
-	let results2 = scheduler.createObserver(Int)
+	let results2 = scheduler.createObserver(Int.self)
 	var subscription2: Disposable! = nil
 
-	let results3 = scheduler.createObserver(Int)
+	let results3 = scheduler.createObserver(Int.self)
 	var subscription3: Disposable! = nil
 ```
 
@@ -84,22 +84,22 @@ TestScheduler를 생성하고, 지정한 시간에 전달할 아이템을 가지
 	scheduler.start()
 
 	XCTAssertEqual(results1.events, [
-		next(300, 4),
-		next(340, 5),
-		next(410, 6),
-		next(520, 7)
+		.next(300, 4),
+		.next(340, 5),
+		.next(410, 6),
+		.next(520, 7)
 		])
 
 	XCTAssertEqual(results2.events, [
-		next(400, 5),
-		next(410, 6),
-		next(520, 7),
-		next(630, 8)
+		.next(400, 5),
+		.next(410, 6),
+		.next(520, 7),
+		.next(630, 8)
 		])
 
 	XCTAssertEqual(results3.events, [
-		next(900, 10),
-		next(940, 11)
+		.next(900, 10),
+		.next(940, 11)
 		])
 ```
 

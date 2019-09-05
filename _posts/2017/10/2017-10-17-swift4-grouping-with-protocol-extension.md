@@ -18,7 +18,7 @@ protocol TestType {
 	var test: TestProtocol { get }
 }
 
-class Test: TestType, TestType {
+class Test: TestProtocol, TestType {
 	init() {}
 	
 	var test: TestProtocol { return self }

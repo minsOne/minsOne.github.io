@@ -293,6 +293,37 @@ Enter expressions, then terminate with an empty line to evaluate:
 (lldb) expr --ignore-breakpoints false -- <Expression>
 ```
 
+* 메소드 및 클래스 선언하기
+
+특정한 메소드 및 클래스를 만들어 사용할 수 있습니다.
+
+```
+(lldb) po 
+Enter expressions, then terminate with an empty line to evaluate:
+1 class $A {
+2 var $b = 0
+3 }
+4 
+(lldb) po $A()
+<$A: 0x600001bc87e0>
+(lldb) po $A().$b
+0
+```
+
+또한, Extension에 함수를 만들어 사용할 수 있습니다.
+
+```
+(lldb) po
+Enter expressions, then terminate with an empty line to evaluate:
+1 extension ViewController {
+2 func $changeBgColor() {
+3 self.view.backgroundColor = .red
+4 }
+5 }
+6 
+(lldb) po self.$changeBgColor()
+```
+
 ## BreakPoint - BreakPoint 설정하기
 
 ```

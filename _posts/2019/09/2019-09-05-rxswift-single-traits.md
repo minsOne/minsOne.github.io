@@ -56,6 +56,8 @@ get(parameter: "")
 
 하지만 Single이 만능이 아닙니다. Stream에서 Single을 사용한다면 Single로 시작을 해야합니다. Observable로 시작해서 중간에 asSingle로 바꿔 Single을 엮는다거나 하게 되면 문제가 발생합니다.
 
-Observable은 completed 이벤트를 발행하는데, Single은 completed 이벤트를 발행할 수 없습니다. 즉, Single의 이벤트인 success 자체가 next, completed 두 개의 성격을 다 포함하고 있기 때문에, completed 이벤트가 들어오면 처리할 수 없어 `rxFatalErrorInDebug` 를 호출하게 됩니다. [Link](https://github.com/ReactiveX/RxSwift/blob/master/RxSwift/Traits/Single.swift#L71)
+Observable은 completed 이벤트를 발행하는데, Single은 completed 이벤트를 발행할 수 없습니다. 즉, Single의 이벤트인 success 자체가 next, completed 두 개의 성격을 다 포함하고 있기 때문에, completed 이벤트가 발행되었을 때 이전에 next 이벤트가 들어오지 않으면 에러를 전달하게 됩니다. [코드 1](https://github.com/ReactiveX/RxSwift/blob/master/RxSwift/Observables/SingleAsync.swift#L81)
 
-따라서 Single을 사용해야 한다면 반드시 Single로 시작하도록 하고, Observable로 시작하는 일이 없도록 합니다.
+또한, asSingle 오퍼레이터를 사용했을 때도 마찬가지로, completed 이벤트가 발행되었을 때 이전에 next 이벤트가 들어오지 않으면 에러를 전달하게 됩니다. [코드 2](https://github.com/ReactiveX/RxSwift/blob/master/RxSwift/Observables/AsSingle.swift#L32)
+
+따라서 Single을 사용해야 한다면 반드시 Single로 시작하도록 하고, Observable로 시작한 경우 불필요한 에러를 발행할 수 있기 때문에 가급적 지양하는 것이 좋습니다.

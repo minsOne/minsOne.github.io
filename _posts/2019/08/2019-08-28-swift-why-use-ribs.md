@@ -19,11 +19,14 @@ RIB에서 필요한 데이터를 정의하는 곳입니다. Dependency 프로토
 
 ```
 protocol GameDependency: Dependency {
+    /// 플레이어1 이름 데이터 정의
     var player1Name: String { get }
+    /// 플레이어2 이름 데이터 정의
     var player2Name: String { get }
 }
 
 final class GameComponent: Component<GameDependency> {
+    /// Builder에서 Component에 접근하기 위해 fileprivate으로 범위 설정
     fileprivate var player1Name: String {
         return dependency.player1Name
     }
@@ -58,6 +61,7 @@ RIB은 Builder로부터 시작한다라고 볼 수 있습니다. Builder는 각 
 
 ```
 protocol GameBuildable: Buildable {
+    /// build 함수로부터 Router를 얻어, 부모 RIB이 attach를 할 수 있도록 함.
     func build(withListener listener: GameListener) -> GameRouting
 }
 
@@ -68,8 +72,12 @@ final class GameBuilder: Builder<GameDependency>, GameBuildable {
 
     func build(withListener listener: GameListener) -> GameRouting {
         let component = GameComponent(dependency: dependency)
+
+        /// player1Name, player2Name, scoreStream는 component를 접근하여 데이터를 가져오며, 이는 직접 값을 접근하지 않도록 하기 위함.
+
         let viewController = GameViewController(player1Name: component.player1Name,
                                                 player2Name: component.player2Name)
+
         let interactor = GameInteractor(presenter: viewController,
                                         scoreStream: component.scoreStream)
         interactor.listener = listener
@@ -89,12 +97,13 @@ protocol GameInteractable: Interactable, OffGameListener, TicTacToeListener {
 }
 
 protocol GameViewControllable: ViewControllable {
+    /// ViewController에 구현될 함수를 정의하며, Router에서 present, dismiss, push, pop 정도의 행위만 하도록 정의함.
     func present(viewController: ViewControllable)
     func dismiss(viewController: ViewControllable)
 }
 
 final class GameRouter: Router<GameInteractable>, GameRouting {
-
+    /// Buildable을 인자로 받아 자식 RIB을 build하여 만들고, 현재 router에 attach하도록 함.
     init(interactor: GameInteractable,
          viewController: GameViewControllable,
          offGameBuilder: OffGameBuildable,
@@ -168,11 +177,14 @@ protocol GameRouting: ViewableRouting {
 
 protocol GamePresentable: Presentable {
     var listener: GamePresentableListener? { get set }
+
+    /// ViewController에 어떤 행위를 할지 정의함.
     func setCell(atRow row: Int, col: Int, withPlayerType playerType: PlayerType)
     func announce(winner: PlayerType?, withCompletionHandler handler: @escaping () -> ())
 }
 
 protocol GameListener: class {
+    /// 부모 RIB에 해당 행위를 호출한다고 정의함.
     func gameDidEnd(withWinner winner: PlayerType?)
 }
 
@@ -189,12 +201,14 @@ final class GameInteractor: PresentableInteractor<GamePresentable>, GameInteract
         presenter.listener = self
     }
 
+    /// ViewController와 상관없이 Interactor가 RIB이 부모 RIB에 Attach되면서 Active가 되는데, 그때 수행할 것을 정의함.
     override func didBecomeActive() {
         super.didBecomeActive()
 
         initBoard()
     }
 
+    /// 해당 RIB이 Detach되면서 Detactive될때 어떤 행동을 수행할 지 정의함.
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift5][RIBs] Uber의 RIBs 프로젝트에서 얻은 경험 - 프로토콜 지향 프로그래밍"
+title: "[Swift5][RIBs] Uber의 RIBs 프로젝트에서 얻은 경험 (1) - 프로토콜 지향 프로그래밍"
 description: ""
 category: "programming"
 tags: [iOS, Swift, Uber, RIBs, Protocol, DIP, POP, Protocol Oriented Programming]

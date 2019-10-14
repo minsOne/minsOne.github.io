@@ -30,7 +30,7 @@ struct Storage<T> {
     init(_ key: String) {
         self.key = key
     }
-    var value: T? {
+    var wrappedValue: T? {
         get {
             return Store.value(key: key) as? T
         }

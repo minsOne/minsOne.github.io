@@ -77,6 +77,14 @@ final class ParentBuilder: Builder<ParentDependency>, ParentBuildable {
 
 그렇다면 이런 동적인 데이터들은 어떻게 해야 할까요? 스펙이 확장될때마다 ParentBuilder의 build에 추가적으로 값을 더 받아야할까요?
 
+기존 스펙을 유지하면서 Business Logic만을 담당하는 RIB을 앞에 두는 방법과 새로운 Builder를 만드는 방법 두 가지를 사용할 수 있습니다.
+
+## Business Logic RIB 만들기
+
+말 그대로 Business Logic RIB을 만드는 것입니다. Child RIB의 Dependency를 건드릴 수 없기 때문에 Parent RIB과 Child RIB 사이에 RIB을 넣고, 해당 RIB에서 build 함수에 값을 받고, Component를 Child RIB의 Dependency를 만족시킵니다. 그러면 기존의 Parent RIB과 Child RIB을 수정하지 않아도 되므로 깔끔하게 문제가 해결됩니다.
+
+## 새로운 Builder를 만들기
+
 다시 한번 RIB의 B에 해당하는 Builder를 살펴봅시다.
 
 Builder는 Interactor, Router를 만드는 역할을 합니다. 다른 역할을 하는 Interactor, Router가 있다면 `Builder`가 적합한 Interactor와 Router를 선택하여 RIB을 만듭니다. 이 의미를 좀 더 확장하면, Builder도 여러가지 Builder가 있고 적합한 Builder를 선택할 수 있다는 의미입니다.

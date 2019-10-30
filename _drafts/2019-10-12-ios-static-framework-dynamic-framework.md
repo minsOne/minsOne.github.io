@@ -47,7 +47,7 @@ Info.plist
 
 Xcode에서 Framework를 만들면 기본적으로 Dynamic Framework으로 만들어집니다. Dynamic Framework는 동시에 여러 프레임워크 또는 프로그램에서 동일한 코드 사본을 공유하고 사용을 하므로, 메모리를 효율적으로 사용합니다. 동적으로 연결되어 있으므로, 전체 빌드를 다시 하지 않아도 새로운 프레임워크 사용이 가능합니다. 
 
-Static Linker를 통해 Dynamic Library Reference가 어플리케이션 코드에 들어가고 모듈 호출시 Stack에 있는 Library에 접근하여 사용합니다.
+Static Linker를 통해 `Dynamic Library Reference`가 어플리케이션 코드에 들어가고 모듈 호출시 Stack에 있는 Library에 접근하여 사용합니다.
 
 또한, 여러 버전의 library가 존재할 수 있기 때문에 다음과 같이 symbolic links를 구성하기도 합니다.
 
@@ -57,9 +57,16 @@ Static Linker를 통해 Dynamic Library Reference가 어플리케이션 코드�
 
 <p style="text-align:center;"><img src="/../../../../image/2019/10/2.png" style="width: 600px"/></p><br/>
 
-Static Framework는 Static Linker를 통해 Static Library 코드가 어플리케이션 코드 내로 들어가 Heap 메모리에 상주합니다. 따라서 Static Framework의 코드는 Linker를 통해 코드가 복사되어 적재가 되므로, Static Framework를 여러 Framework에서 사용하게 되면 코드 중복이 발생하게 됩니다. 
+Static Framework는 Static Linker를 통해 Static Library 코드가 어플리케이션 코드 내로 들어가 Heap 메모리에 상주합니다. 따라서 Static Library가 복사되므로, Static Framework를 여러 Framework에서 사용하게 되면 코드 중복이 발생하게 됩니다.
 
 코드가 복사되기 때문에 코드의 위치는 Framework가 아니라 어플리케이션에 위치하므로 Bundle의 위치는 Static Framework가 아닌 어플리케이션을 가르킵니다.
+
+# Dynamic, Static
+
+어떨때 Dynamic 또는 Static 을 사용해야 할까요? **일반적으로** 리소스를 가지고 있다면 Dynamic, 그렇지 않고 SDK 형태로 배포하는 경우 Static으로 합니다. 
+
+
+
 
 # Framework 관련 명령어
 

@@ -23,7 +23,7 @@ Xcode에서는 Framework 라는 것을 통해 모듈화 단위의 코드 및 리
 
 # Framework
 
-Framework는 Dynamic shared Library, Nib 파일, 이미지 파일, 다국어 문자, 헤더 파일, 레퍼런스 문서과 같이 공유 리소스를 패키지로 캡슐화 하는 계층 구조 파일 디렉토리를 말합니다. 그리고 Framework도 Bundle이며 NSBundle로 접근이 가능합니다. 또한 리소스 사본은 프로세스 수에 상관없이 항상 물리적으로 메모리에 상주하며 리소스 공유로 풋 프린트를 줄이고 성능을 향상 시킵니다.
+Framework는 Dynamic shared Library, Nib 파일, 이미지 파일, 다국어 문자열, 헤더 파일, 레퍼런스 문서과 같이 공유 리소스를 패키지로 캡슐화 하는 계층 구조 파일 디렉토리를 말합니다. 그리고 Framework도 Bundle이며 NSBundle로 접근이 가능합니다. 또한 리소스 사본은 프로세스 수에 상관없이 항상 물리적으로 메모리에 상주하며 리소스 공유로 풋 프린트를 줄이고 성능을 향상 시킵니다.
 
 Framework는 다음과 같은 기본 구조를 가집니다.
 

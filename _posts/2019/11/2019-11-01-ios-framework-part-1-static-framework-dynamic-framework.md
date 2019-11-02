@@ -167,6 +167,7 @@ $ nm RxSwift.framework/RxSwift
 * [Apple Document - Mach-O Programming Topics / Building Mach-O Files](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/MachOTopics/1-Articles/building_files.html)
 * [Apple Document - Dynamic Library Programming Topics / Overview of Dynamic Libraries](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/OverviewOfDynamicLibraries.html)
 * [Google - iOS Static Framework](https://code.google.com/archive/p/ios-static-framework/)
+* [RUNTASTIC - BASIC OVERVIEW OF STATIC AND DYNAMIC FRAMEWORKS ON IOS](https://www.runtastic.com/blog/en/frameworks-ios/)
 * [ModularFlowArchitecture](https://github.com/markjarecki/ModularFlowArchitecture)
 * [Building a dynamic modular iOS architecture](https://medium.com/fluxom/building-a-dynamic-modular-ios-architecture-1b87dc31278b)
 * [iOS Frameworks Part 1: A Treacherous Voyage Through Murky Waters](https://wundermanthompsonmobile.com/2016/05/ios-frameworks-part-1/)

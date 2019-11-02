@@ -177,3 +177,4 @@ $ nm RxSwift.framework/RxSwift
 * [Creating and Distributing an iOS Binary Framework](https://instabug.com/blog/ios-binary-framework/)
 * [Resource Bundles & Static Library in iOS](https://medium.com/@09mejohn/resource-bundles-in-ios-static-library-beba3070fafd)
 * [Deep dive into Swift frameworks](https://theswiftdev.com/2018/01/25/deep-dive-into-swift-frameworks/)
+* [Fat Framework 만들기](https://iamprgrmr.tistory.com/28)

@@ -181,3 +181,4 @@ $ nm RxSwift.framework/RxSwift
 * [Cocoapods Pod Merge](https://github.com/grab/cocoapods-pod-merge)
 * [Allegro - Static linking vs dyld3](https://allegro.tech/2018/05/Static-linking-vs-dyld3.html)
 * [iOS Universal Framework 빌드하기](http://theeye.pe.kr/archives/2750)
+* [Carthage Document - Build static frameworks to speed up your app’s launch times](https://github.com/Carthage/Carthage/blob/master/Documentation/StaticFrameworks.md)

@@ -178,3 +178,4 @@ $ nm RxSwift.framework/RxSwift
 * [Resource Bundles & Static Library in iOS](https://medium.com/@09mejohn/resource-bundles-in-ios-static-library-beba3070fafd)
 * [Deep dive into Swift frameworks](https://theswiftdev.com/2018/01/25/deep-dive-into-swift-frameworks/)
 * [Fat Framework 만들기](https://iamprgrmr.tistory.com/28)
+* [Cocoapods Pod Merge](https://github.com/grab/cocoapods-pod-merge)

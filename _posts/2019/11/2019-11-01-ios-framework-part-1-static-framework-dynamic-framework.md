@@ -179,3 +179,4 @@ $ nm RxSwift.framework/RxSwift
 * [Deep dive into Swift frameworks](https://theswiftdev.com/2018/01/25/deep-dive-into-swift-frameworks/)
 * [Fat Framework 만들기](https://iamprgrmr.tistory.com/28)
 * [Cocoapods Pod Merge](https://github.com/grab/cocoapods-pod-merge)
+* [Allegro - Static linking vs dyld3](https://allegro.tech/2018/05/Static-linking-vs-dyld3.html)

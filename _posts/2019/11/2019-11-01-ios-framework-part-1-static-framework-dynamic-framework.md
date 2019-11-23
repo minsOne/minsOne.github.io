@@ -158,6 +158,29 @@ $ nm RxSwift.framework/RxSwift
 
 * lipo : 유니버셜 프레임워크로 만들어주는 명령어로, 특정 아키텍처를 제거 또는 통합 등의 작업을 할 수 있습니다.
 
+```
+# 아키텍처 분리
+$ lipo RxSwift -thin i386 -output RxSwift_i386
+$ lipo RxSwift -thin x86_64 -output RxSwift_x86_64
+$ lipo RxSwift -thin armv7 -output RxSwift_armv7
+$ lipo RxSwift -thin arm64 -output RxSwift_arm64
+$ file RxSwift_i386 RxSwift_x86_64 RxSwift_armv7 RxSwift_arm64
+
+RxSwift_i386:   Mach-O dynamically linked shared library i386
+RxSwift_x86_64: Mach-O 64-bit dynamically linked shared library x86_64
+RxSwift_armv7:  Mach-O universal binary with 1 architecture: [arm_v7:Mach-O dynamically linked shared library arm_v7]
+RxSwift_armv7 (for architecture armv7):	Mach-O dynamically linked shared library arm_v7
+RxSwift_arm64:  Mach-O 64-bit dynamically linked shared library arm64
+
+# 아키텍처 통합
+$ lipo -create RxSwift_i386 RxSwift_x86_64 RxSwift_armv7 RxSwift_arm64 -output RxSwift_Universal
+$ file RxSwift_Universal
+RxSwift_Universal: Mach-O universal binary with 4 architectures: [i386:Mach-O dynamically linked shared library i386] [x86_64] [arm_v7] [arm64]
+RxSwift_Universal (for architecture i386):	Mach-O dynamically linked shared library i386
+RxSwift_Universal (for architecture x86_64):	Mach-O 64-bit dynamically linked shared library x86_64
+RxSwift_Universal (for architecture armv7):	Mach-O dynamically linked shared library arm_v7
+RxSwift_Universal (for architecture arm64):	Mach-O 64-bit dynamically linked shared library arm64
+```
 
 # 참조
 * [Apple Document - Framework Programming Guide / What is Frameworks?](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html#//apple_ref/doc/uid/20002303-BBCEIJFI)

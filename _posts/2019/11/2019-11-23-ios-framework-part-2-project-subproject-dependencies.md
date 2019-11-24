@@ -376,3 +376,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 * [WWDC 2016 - Optimizing App Startup Time](https://developer.apple.com/videos/play/wwdc2016/406/)
 * [Grab - Cocoapods Pod Merge](https://github.com/grab/cocoapods-pod-merge)
 * [iOSアプリの起動速度を2倍にするために、複数のDynamic FrameworkをStaticにして、ひとつのDynamic Frameworkを作る with Swift](https://medium.com/eureka-engineering/create-merged-framework-to-cut-appstartuptime-72ee67b2bbab)
+* [Understanding Objective-C Modules](https://samsymons.com/blog/understanding-objective-c-modules/)

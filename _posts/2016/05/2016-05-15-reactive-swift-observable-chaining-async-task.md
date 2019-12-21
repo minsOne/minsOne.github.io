@@ -157,7 +157,7 @@ iOS에서 비동기 작업을 가장 많이 하는 것이 네트워크입니다.
 
 [전체 코드](https://gist.github.com/minsOne/fddfa60bc13989bfd15707894f5d69b2)
 
-<br/><a data-flickr-embed="true"  href="https://www.flickr.com/photos/134677242@N06/26422927964/in/dateposted-public/" title="live"><img src="https://farm8.staticflickr.com/7657/26422927964_351a276f9d_z.jpg" width="349" height="640" alt="live"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<br/><img src="/../../../../image/flickr/26422927964_351a276f9d_z.jpg" width="349" height="640" alt="live"><br/>
 
 이제 비동기 작업의 콜백 지옥에서 벗어나게 되었습니다.(다른 방법도 많지만,,) 스트림 형태로 만들기 때문에, 더더욱 데이터 흐름을 생각하면서 Rx 코드를 작성하게 됩니다.
 

@@ -25,15 +25,15 @@ Swift에서 Array는 클래스 타입과 클래스가 아닌 타입을 지원합
 
 Swift는 `ContiguousArray`를 가지는데 C 배열 성능이 필요할 때 사용합니다. `ContiguousArray`는 요소가 항상 연속으로 저장되며, Array가 클래스가 아닌 타입을 사용할 때 ContiguousArray와 성능이 동일합니다.
 
-<img src="https://c4.staticflickr.com/6/5329/30342109715_b41cd03129_z.jpg" width="565" height="128" alt="ContiguousArray"><br/><br/>
+<img src="/../../../../image/flickr/30342109715_b41cd03129_z.jpg" width="565" height="128" alt="ContiguousArray"><br/><br/>
 
 Array는 Cocoa를 오가는 효율적인 전환을 위해 최적화 되었습니다. 클래스 타입일 때 완전히 연속적으로 요소를 저장하지는 않고, `NSArray`에 저장합니다.
 
-<img src="https://c5.staticflickr.com/6/5472/30045612340_273ae1f3b2_z.jpg" width="570" height="588" alt="ArrayImplementation"><br/><br/>
+<img src="/../../../../image/flickr/30045612340_273ae1f3b2_z.jpg" width="570" height="588" alt="ArrayImplementation"><br/><br/>
 
 `ArraySlice`는 `Array` 또는 `ContiguousArray`의 일부분이며, 배열 a에서의 a[10...20]과 같습니다. ArraySlice는 항상 연속적인 저장 공간과 C 배열과 같은 성능을 가집니다. ArraySlice는 일시적인 계산에 사용하는데 추천하며, ArraySlice 수명을 길게 늘이는 것을 권장하지 않습니다. 이는 공유 백업 버퍼의 일부분을 참조하고 있기 때문입니다.
 
-<img src="https://c4.staticflickr.com/6/5455/30256377571_a780a20c50_z.jpg" width="578" height="426" alt="Slice">
+<img src="/../../../../image/flickr/30256377571_a780a20c50_z.jpg" width="578" height="426" alt="Slice">
 
 ### Array 타입 변환
 

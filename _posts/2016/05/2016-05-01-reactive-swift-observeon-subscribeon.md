@@ -25,7 +25,7 @@ observeOn은 Observable이 Observer에게 알리는 스케쥴러를 다른 스�
 
 다음 그림을 한번 살펴보죠.
 
-<img src="https://farm8.staticflickr.com/7756/26417720444_7f391698b3_z.jpg" width="512" height="640" alt="schedulers"><br/><br/>
+<img src="/../../../../image/flickr/26417720444_7f391698b3_z.jpg" width="512" height="640" alt="schedulers"><br/><br/>
 
 위 그림에서 subscribeOn은 시작하는 스케쥴러를 나타내는데, subscribeOn 호출 시점과 상관없이 적용됩니다. observeOn은 호출 시점 아래의 스케쥴러가 영향을 받은 것을 알 수 있습니다.
 

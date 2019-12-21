@@ -25,7 +25,7 @@ Xcode에서 Playground라는 기능이 추가된 후로부터 빌드 후 검증 
 	let containerView = UIView(frame: CGRectMake(0, 0, 1024, 1024))
 	containerView.backgroundColor = UIColor.whiteColor()
 
-<br/><img src="https://farm6.staticflickr.com/5674/20743577562_7df735c72f.jpg" width="500" height="195" alt="gradientLayer1"><br/><br/>
+<br/><img src="/../../../../image/flickr/20743577562_7df735c72f.jpg" width="500" height="195" alt="gradientLayer1"><br/><br/>
 
 이제 그러데이션을 만들도록 합니다.
 
@@ -42,7 +42,7 @@ Xcode에서 Playground라는 기능이 추가된 후로부터 빌드 후 검증 
 
 containerView의 layer에 alphaGradientLayer를 붙여 containerView에 그라데이션이 적용된 것을 확인할 수 있습니다.
 
-<br/><img src="https://farm6.staticflickr.com/5667/20759872511_52ba529e5b.jpg" width="500" height="211" alt="gradientLayer3"><br/><br/>
+<br/><img src="/../../../../image/flickr/20759872511_52ba529e5b.jpg" width="500" height="211" alt="gradientLayer3"><br/><br/>
 
 만약 color의 값을 바꾼다면 실시간으로 갱신되어 색상이 바뀐 그러데이션 레이어를 볼 수 있습니다.
 

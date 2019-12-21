@@ -138,7 +138,7 @@ intervals에 기간을 추가해봅시다. 20일에 행사를 한다면 아래�
 
 업로드 한 뒤 itunesconnect에서 다음과 같이 확인할 수 있습니다.
 
-<img src="https://farm2.staticflickr.com/1610/24324088142_589f5a5f66_c.jpg" width="800" height="297" alt=""><br/>
+<img src="/../../../../image/flickr/24324088142_589f5a5f66_c.jpg" width="800" height="297" alt=""><br/>
 
 이제 itunesconnect에 들어가서 설정하지 않아도 빠르게 인앱을 변경할 수 있게 되었습니다.
 

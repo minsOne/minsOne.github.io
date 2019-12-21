@@ -20,15 +20,15 @@ Objective-C는 1~2분이면 빌드가 끝나고 시뮬레이터에서 동작하�
 
 1.일반적으로 컴파일러 최적화 레벨은 다음과 같이 설정되어 있습니다.
 
-<img src="https://c1.staticflickr.com/1/514/32285730156_5c3109dc80_o.png" width="748" height="146">
+<img src="/../../../../image/flickr/32285730156_5c3109dc80_o.png" width="748" height="146">
 
 2.다음과 같이 컴파일러 최적화 레벨을 설정합니다.
 
-<img src="https://c1.staticflickr.com/1/282/32174854382_013f7ae20c_o.png" width="768" height="146">
+<img src="/../../../../image/flickr/32174854382_013f7ae20c_o.png" width="768" height="146">
 
 3.다음과 같이 Custom Flags에 Swift Flag를 설정합니다.
 
-<img src="https://c1.staticflickr.com/1/336/32204985471_c6ff6601f7_o.png" width="571" height="142">
+<img src="/../../../../image/flickr/32204985471_c6ff6601f7_o.png" width="571" height="142">
 
 이제 클린 후 빌드를 수행하면 시간이 아주 많이 준 것을 확인할 수 있습니다.
 

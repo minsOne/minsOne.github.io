@@ -168,7 +168,7 @@ selectedColorSubject에 onCompleted()를 호출하는데, 이는 PublishSubject�
 
 이제 SecondVC에서 선택한 색상이 FirstVC 배경색이 바뀌는 것을 확인할 수 있습니다.
 
-<a data-flickr-embed="true"  href="https://www.flickr.com/photos/134677242@N06/33550828290/in/datetaken/" title="observable"><img src="https://c1.staticflickr.com/3/2906/33550828290_5dbc83dd68_o.jpg" width="374" height="682" alt="observable"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<img src="/../../../../image/flickr/33550828290_5dbc83dd68_o.png" width="374" height="682">
 
 ## 정리
 

@@ -19,21 +19,21 @@ Xcode에서 Storyboard나 Xib 화면에서 각기 다른 화면 크기에 맞는
 
 상단 메뉴에서 Assistant Editor로 변경하거나 우측 상단 메뉴 버튼에서도 변경할 수 있습니다.
 
-<img src="https://farm6.staticflickr.com/5826/20565644949_255aea5c2d_z.jpg" width="640" height="269" alt="preview_assistent_editor_1"><br/><br/>
+<img src="/../../../../image/flickr/20565644949_255aea5c2d_z.jpg" width="640" height="269" alt="preview_assistent_editor_1"><br/><br/>
 
-<br/><img src="https://farm1.staticflickr.com/573/20759312551_2a3131df4b_m.jpg" width="120" height="39" alt="preview_assistent_editor_2"><br/><br/>
+<br/><img src="/../../../../image/flickr/20759312551_2a3131df4b_m.jpg" width="120" height="39" alt="preview_assistent_editor_2"><br/><br/>
 
 이제 Storyboard 또는 Xib 파일을 선택하고 Assistant Editor창에서 다음과 같이 Storyboard 또는 Xib 파일을 선택합니다.
 
-<br/><img src="https://farm1.staticflickr.com/739/20129787784_18b3f1e6fc_z.jpg" width="640" height="348" alt="preview_assistent_editor_3"><br/><br/>
+<br/><img src="/../../../../image/flickr/20129787784_18b3f1e6fc_z.jpg" width="640" height="348" alt="preview_assistent_editor_3"><br/><br/>
 
 마지막으로 동일한 과정으로 Preview를 선택합니다.
 
-<br/><img src="https://farm6.staticflickr.com/5753/20565644609_7eb9b5e41d_z.jpg" width="640" height="185" alt="preview_assistent_editor_4"><br/><br/>
+<br/><img src="/../../../../image/flickr/20565644609_7eb9b5e41d_z.jpg" width="640" height="185" alt="preview_assistent_editor_4"><br/><br/>
 
 Assistant Editor에는 IPhone 4-inch Portrait이 보여집니다.
 
-<br/><img src="https://farm1.staticflickr.com/594/20131429343_93b8db9825_z.jpg" width="640" height="389" alt="preview_assistent_editor_5"><br/><br/>
+<br/><img src="/../../../../image/flickr/20131429343_93b8db9825_z.jpg" width="640" height="389" alt="preview_assistent_editor_5"><br/><br/>
 
 여러 화면을 추가한다면 Assistant Editor 좌측 하단의 + 버튼을 통해 3.5-inch, 4-inch, 4.7-inch, 5.5-inch, iPad를 추가할 수 있고, 화면을 회전시켜 Portrait 또는 Landscape를 볼 수 있습니다. 그리고 같은 크기의 Preview를 추가한다면 Portrait와 Landscape 화면을 동시에 볼 수 있습니다.preview
 
@@ -45,8 +45,8 @@ Label, Button 등에서 사용하는 Font를 화면 크기에 맞게 변경할 �
 
 Attributes Inspector 창에서 Font 속성 왼쪽에 + 버튼을 통해 Compact, Any, Regular 크기에 맞게 설정할 수 있습니다.
 
-<br/><img src="https://farm6.staticflickr.com/5760/20759312361_9cd8a53e32.jpg" width="260" height="134" alt="preview_assistent_editor_6"><br/><br/>
-<br/><img src="https://farm6.staticflickr.com/5673/20564402980_2382b7d673.jpg" width="404" height="231" alt="preview_assistent_editor_7"><br/><br/>
+<br/><img src="/../../../../image/flickr/20759312361_9cd8a53e32.jpg" width="260" height="134" alt="preview_assistent_editor_6"><br/><br/>
+<br/><img src="/../../../../image/flickr/20564402980_2382b7d673.jpg" width="404" height="231" alt="preview_assistent_editor_7"><br/><br/>
 
 ### 마무리
 

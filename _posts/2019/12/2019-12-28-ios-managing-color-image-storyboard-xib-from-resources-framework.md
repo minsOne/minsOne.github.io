@@ -54,24 +54,24 @@ public extension R {
 }
 
 public extension R.Image {
-    static var theme1: UIImage { UIImage.load(name: "theme1") }
-    static var theme2: UIImage { UIImage.load(name: "theme2") }
-    static var theme3: UIImage { UIImage.load(name: "theme3") }
-    static var theme4: UIImage { UIImage.load(name: "theme4") }
-    static var theme5: UIImage { UIImage.load(name: "theme5") }
-    static var theme6: UIImage { UIImage.load(name: "theme6") }
-    static var theme7: UIImage { UIImage.load(name: "theme7") }
-    static var theme8: UIImage { UIImage.load(name: "theme8") }
-    static var digits: UIImage { UIImage.load(name: "Digits") }
-    static var rotationLock: UIImage { UIImage.load(name: "rotation_lock") }
-    static var rotationUnLock: UIImage { UIImage.load(name: "rotation_unlock") }
+    static var theme1: UIImage { .load(name: "theme1") }
+    static var theme2: UIImage { .load(name: "theme2") }
+    static var theme3: UIImage { .load(name: "theme3") }
+    static var theme4: UIImage { .load(name: "theme4") }
+    static var theme5: UIImage { .load(name: "theme5") }
+    static var theme6: UIImage { .load(name: "theme6") }
+    static var theme7: UIImage { .load(name: "theme7") }
+    static var theme8: UIImage { .load(name: "theme8") }
+    static var digits: UIImage { .load(name: "Digits") }
+    static var rotationLock: UIImage { .load(name: "rotation_lock") }
+    static var rotationUnLock: UIImage { .load(name: "rotation_unlock") }
 }
 
 /// Extension.swift
 extension UIImage {
     static func load(name: String) -> UIImage {
         guard let image = UIImage(named: name, in: R.bundle, compatibleWith: nil) else {
-            assert(false, "이미지 로드 실패")
+            assert(false, "\(name) 이미지 로드 실패")
             return UIImage()
         }
         return image
@@ -102,16 +102,14 @@ public extension R {
 }
 
 public extension R.Color {
-    static var color1: UIColor {
-        UIColor.load(name: "Color1")
-    }
+    static var color1: UIColor { .load(name: "Color1") }
 }
 
 /// Extension.swift
 extension UIColor {
     static func load(name: String) -> UIColor {
         guard let color = UIColor(named: name, in: R.bundle, compatibleWith: nil) else {
-            assert(false, "Color 로드 실패")
+            assert(false, "\(name) Color 로드 실패")
             return UIColor()
         }
         return color

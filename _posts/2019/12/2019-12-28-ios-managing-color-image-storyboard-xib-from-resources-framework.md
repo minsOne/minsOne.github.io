@@ -135,9 +135,19 @@ Storyboard 파일을 가지기 위해서는 Dynamic 프레임워크를 만들어
 
 <p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/12/2.png" style="width: 600px"/></p><br/> 
 
-<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/12/4.png" style="width: 600px"/></p><br/> 
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/12/4.png" style="width: 600px"/></p><br/>
 
-그러면 리소스 프레임워크에서 Storyboard를 가져오는 코드를 만들어봅시다.
+그러면 다른 프레임워크에 있는 UIViewController 클래스를 어떻게 가져와서 각 요소에 연결시킬 수 있을까요?
+
+Storyboard에서 `View Controller Scene`를 선택하고, `Custom Class` 항목에 다른 프레임워크에 있는 `Class`와 `Module`로 지정합니다.
+
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/12/5.png" style="width: 600px"/></p><br/>
+
+그러면 `Connections Inspector` 항목에서 `Outlets`를 지정할 수 있습니다.
+
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/12/6.png" style="width: 600px"/></p><br/>
+
+이제 리소스 프레임워크에서 Storyboard를 가져오는 코드를 만들어봅시다.
 
 Storyboard의 변수 이름은 각 화면을 지정하여 `R.Storyboard.[화면 이름]` 과 같은 형태로 만듭니다.
 

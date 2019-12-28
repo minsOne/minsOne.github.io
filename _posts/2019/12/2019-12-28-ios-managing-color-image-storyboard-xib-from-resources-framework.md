@@ -135,6 +135,8 @@ Storyboard 파일을 가지기 위해서는 Dynamic 프레임워크를 만들어
 
 <p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/12/2.png" style="width: 600px"/></p><br/> 
 
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/12/4.png" style="width: 600px"/></p><br/> 
+
 그러면 리소스 프레임워크에서 Storyboard를 가져오는 코드를 만들어봅시다.
 
 Storyboard의 변수 이름은 각 화면을 지정하여 `R.Storyboard.[화면 이름]` 과 같은 형태로 만듭니다.

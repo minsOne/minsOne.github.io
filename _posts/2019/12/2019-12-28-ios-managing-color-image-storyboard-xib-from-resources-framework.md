@@ -120,6 +120,14 @@ extension UIColor {
 }
 ```
 
+이제 외부에서는 다음과 같이 색상을 불러 올 수 있습니다.
+
+```
+import Resources
+
+let color = R.Color.color1
+```
+
 ## Storyboard, Xib를 리소스 프레임워크에서 관리
 
 iOS 개발시 항상 논쟁이 되는 주제가 있습니다. 뷰를 그릴때 코드로 작성할 것이냐 Storyboard 또는 Xib로 할 것이냐라고 입니다. 둘다 맞는 말이기 때문에 논쟁이 끝이 없다고 생각합니다. 저는 Storyboard로 뷰를 많이 그리기 때문에 ViewController 클래스 파일과 Storyboard 파일이 항상 쌍으로 있습니다. 그리고 Storyboard 파일 관리를 별도로 생각하지 않았습니다. 하지만 프로젝트가 커짐에 따라 각 기능을 프레임워크로 분리해야할 필요가 있었고, ViewController의 Storyboard 파일도 이전 검토해야하는 문제가 생겼습니다. Storyboard 파일은 Bundle로 관리해야하기 때문이죠.

@@ -28,16 +28,7 @@ Resource 프레임워크는 `R` 이라는 타입으로 접근하여 사용할 �
 import Foundation
 
 public class R {
-    static let bundle = Bundle.current
-}
-
-/// Extension.swift
-import Foundation
-
-extension Bundle {
-    static var current: Bundle {
-        return Bundle(for: CurrentBundle.self)
-    }
+    static let bundle = Bundle(for: R.self)
 }
 ```
 
@@ -127,11 +118,11 @@ let color = R.Color.color1
 
 ## Storyboard, Xib를 리소스 프레임워크에서 관리
 
-iOS 개발시 항상 논쟁이 되는 주제가 있습니다. 뷰를 그릴때 코드로 작성할 것이냐 Storyboard 또는 Xib로 할 것이냐라고 입니다. 둘다 맞는 말이기 때문에 논쟁이 끝이 없다고 생각합니다. 저는 Storyboard로 뷰를 많이 그리기 때문에 ViewController 클래스 파일과 Storyboard 파일이 항상 쌍으로 있습니다. 그리고 Storyboard 파일 관리를 별도로 생각하지 않았습니다. 하지만 프로젝트가 커짐에 따라 각 기능을 프레임워크로 분리해야할 필요가 있었고, ViewController의 Storyboard 파일도 이전 검토해야하는 문제가 생겼습니다. Storyboard 파일은 Bundle로 관리해야하기 때문이죠.
+iOS 개발시 항상 논쟁이 되는 주제가 있습니다. 뷰를 그릴때 코드로 작성할 것이냐 Storyboard 또는 Xib로 할 것이냐라고 입니다. 둘다 맞는 말이기 때문에 논쟁이 끝이 없다고 생각합니다. 저는 Storyboard로 뷰를 많이 그리기 때문에 ViewController 클래스 파일과 Storyboard 파일이 항상 쌍으로 있습니다. 그리고 Storyboard 파일 관리를 별도로 생각하지 않았습니다. 하지만 프로젝트가 커짐에 따라 각 기능을 프레임워크로 분리해야할 필요가 있었고, UIViewController의 Storyboard 파일도 이전 검토해야하는 문제가 생겼습니다. Storyboard 파일은 Bundle로 관리해야하기 때문이죠.
 
 Storyboard 파일을 가지기 위해서는 Dynamic 프레임워크를 만들어야하는데, 각 기능마다 프레임워크로 만들게 되면 프레임워크 개수가 빠른 속도로 늘어날 뿐만 아니라, 기능을 더 작게 나누어 한 화면을 프레임워크로 만들게 되면 기하급수적으로 프레임워크가 늘어납니다. 어떻게 이 문제를 해결해야 할까요?
 
-**리소스 프레임워크에서 Storyboard와 Xib를 관리하면 됩니다.** 리소스 프레임워크에 관리하면 기능 단위의 프레임워크를 Static으로 만들어도 Bundle의 위치는 리소스 프레임워크이기 때문에 전혀 문제되지 않습니다. 그리고 Storyboard나 Xib에서 이미지와 색상을 지정하더라도 리소스 프레임워크의 Images.assets에서 이미지와 색상을 가져오기 때문에 문제가 없습니다.
+**Storyboard와 Xib를 리소스 프레임워크에서 관리하면 됩니다.** 리소스 프레임워크에 관리하면 화면 단위의 프레임워크를 Static으로 만들어도 Bundle의 위치가 리소스 프레임워크이기 때문에 문제되지 않습니다. 그리고 Storyboard나 Xib에서 이미지와 색상을 지정하더라도 리소스 프레임워크의 `Images.assets`에서 이미지와 색상을 가져오기 때문에 문제가 없습니다.
 
 <p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/12/2.png" style="width: 600px"/></p><br/> 
 

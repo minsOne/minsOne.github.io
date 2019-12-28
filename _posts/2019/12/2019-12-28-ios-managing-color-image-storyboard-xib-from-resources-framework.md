@@ -70,12 +70,11 @@ public extension R.Image {
 /// Extension.swift
 extension UIImage {
     static func load(name: String) -> UIImage {
-        if let image = UIImage(named: name, in: R.bundle, compatibleWith: nil) {
-            return image
-        } else {
+        guard let image = UIImage(named: name, in: R.bundle, compatibleWith: nil) else {
             assert(false, "이미지 로드 실패")
             return UIImage()
         }
+        return image
     }
 }
 ```

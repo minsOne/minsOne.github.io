@@ -23,7 +23,7 @@ Swift는 사용자 중위, 전위, 후위, 할당 연산자를 자유롭게 정�
 
 비트 NOT 연산자(`~`)는 모든 비트 수를 거꾸로 한다.
 
-<img src="/../../../../image/2014/09/bitwiseNOT_2x.png" alt="bitwiseNOT" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitwiseNOT_2x.png" alt="bitwiseNOT" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 비트 NOT 연산자는 전위 연산자이다.
 
@@ -34,7 +34,7 @@ Swift는 사용자 중위, 전위, 후위, 할당 연산자를 자유롭게 정�
 
 비트 AND 연산자(`&`)는 두 수의 비트를 AND 연산으로 결합한다.
 
-<img src="/../../../../image/2014/09/bitwiseAND_2x.png" alt="bitwiseAND" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitwiseAND_2x.png" alt="bitwiseAND" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 비트 AND 연산자는 중위 연산자이다.
 
@@ -46,7 +46,7 @@ Swift는 사용자 중위, 전위, 후위, 할당 연산자를 자유롭게 정�
 
 비트 OR 연산자(`|`)는 두 수의 비트를 OR 연산한다.
 
-<img src="/../../../../image/2014/09/bitwiseOR_2x.png" alt="bitwiseOR" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitwiseOR_2x.png" alt="bitwiseOR" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 비트 OR 연산자는 중위 연산자이다.
 
@@ -58,7 +58,7 @@ Swift는 사용자 중위, 전위, 후위, 할당 연산자를 자유롭게 정�
 
 비트 XOR 연산자는 배타적인 OR 연산자(`^`)로, 두 값을 XOR 연산한다.
 
-<img src="/../../../../image/2014/09/bitwiseXOR_2x.png" alt="bitwiseXOR" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitwiseXOR_2x.png" alt="bitwiseXOR" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 비트 XOR 연산자는 중위 연산자이다.
 
@@ -78,7 +78,7 @@ Swift는 사용자 중위, 전위, 후위, 할당 연산자를 자유롭게 정�
 2. 모든 비트는 정수의 저장공간 범위를 벗어나면 버려진다.
 3. 왼쪽이나 오른쪽으로 비트가 이동하면 그 공간에 0이 삽입된다.
 
-<img src="/../../../../image/2014/09/bitshiftUnsigned_2x.png" alt="bitshiftUnsigned" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitshiftUnsigned_2x.png" alt="bitshiftUnsigned" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 	let shiftBits: UInt8 = 4   // 00000100 in binary
 	shiftBits << 1             // 00001000
@@ -102,19 +102,19 @@ Unsigned 정수보다 signed 정수가 좀 더 복잡하다. 이는 가장 마�
 
 양수 4는 다음과 같이 표시된다.
 
-<img src="/../../../../image/2014/09/bitshiftSignedFour_2x.png" alt="bitshiftSignedFour" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitshiftSignedFour_2x.png" alt="bitshiftSignedFour" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 음수 -4는 다음과 같이 표시된다.
 
-<img src="/../../../../image/2014/09/bitshiftSignedMinusFour_2x.png" alt="bitshiftSignedMinusFour" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitshiftSignedMinusFour_2x.png" alt="bitshiftSignedMinusFour" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 음수 -4는 128 - 4인 값 124의 바이너리 값으로 가진다.
 
-<img src="/../../../../image/2014/09/bitshiftSignedMinusFourValue_2x.png" alt="bitshiftSignedMinusFourValue" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitshiftSignedMinusFourValue_2x.png" alt="bitshiftSignedMinusFourValue" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 다음은 signed 정수를 오른쪽으로 이동할 때, 빈 공간이 어떻게 채워지는지 나타내는 그림이다. 
 
-<img src="/../../../../image/2014/09/bitshiftSigned_2x.png" alt="bitshiftSigned" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/bitshiftSigned_2x.png" alt="bitshiftSigned" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 오른쪽으로 비트를 이동할 때, 부호 비트 값으로 빈 공간을 채운다.
 
@@ -139,7 +139,7 @@ Swift는 오버플로우를 지원하지 않는다. 만약 오버플로우가 �
 	willOverflow = willOverflow &+ 1
 	// willOverflow is now equal to 0
 
-<img src="/../../../../image/2014/09/overflowAddition_2x.png" alt="overflowAddition" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/overflowAddition_2x.png" alt="overflowAddition" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 #### 값 언더플로우(Value Underflow)
 
@@ -150,7 +150,7 @@ Swift는 오버플로우를 지원하지 않는다. 만약 오버플로우가 �
 	willUnderflow = willUnderflow &- 1
 	// willUnderflow is now equal to 255
 
-<img src="/../../../../image/2014/09/overflowUnsignedSubtraction_2x.png" alt="overflowUnsignedSubtraction" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/overflowUnsignedSubtraction_2x.png" alt="overflowUnsignedSubtraction" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 #### 0으로 나누기(Division by Zero)
 

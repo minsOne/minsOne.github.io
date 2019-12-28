@@ -13,8 +13,8 @@ tags: [swift, spritekit, skview, skscene, particle]
 
 프로젝트 생성 후 파티클을 생성합니다.
 
-<br/><img src="/../../../../image/flickr/22741999599_0c7b2ff5ae.jpg" width="500" height="355" alt=""><br/>
-<br/><img src="/../../../../image/flickr/22741999509_3e0b4b62e3.jpg" width="500" height="356" alt=""><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22741999599_0c7b2ff5ae.jpg" width="500" height="355" alt=""><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22741999509_3e0b4b62e3.jpg" width="500" height="356" alt=""><br/>
 
 파티클 이름을 `snow.sks`로 지정한 후, 눈 내리는 효과를 보여줄 Scene을 만듭니다.
 
@@ -106,7 +106,7 @@ tags: [swift, spritekit, skview, skscene, particle]
 
 <br/>특정 기간이 되거나 서버에서 눈 내리는 효과를 보여주라고 전달하면 눈 내리는 효과를 보여주면 됩니다.<br/>
 
-<img src="/../../../../image/flickr/22715895538_58c4f16d08.jpg" width="282" height="500" alt="twitterCover"><br/>
+<img src="{{ site.production_url }}/image/flickr/22715895538_58c4f16d08.jpg" width="282" height="500" alt="twitterCover"><br/>
 
 <div class="alert warning"><strong>주의</strong> : sceneView의 presentScene을 정리하지 않으면 계속 살아있기 때문에 성능에 영향을 줍니다. 따라서 여러 번 실행하여 성능에 문제가 없는지 확인을 하는 것이 중요합니다. 또한, sceneView와 snowScene의 userInteractionEnabled를 false로 설정하여 아래에 있는 뷰에 터치를 보내줄 수 있도록 합니다.</div>
 

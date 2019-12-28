@@ -77,7 +77,7 @@ C와 Objective-C의 산술 연산자와는 다르게 Swift 산술 연산자는 �
 
 다음은 9 % 4를 계산하여 어떻게 값을 얻는지 알 수 있음.
 
-<img src="/../../../../image/2014/08/remainderInteger_2x.png" alt="remainderInteger" style="width: 500px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/08/remainderInteger_2x.png" alt="remainderInteger" style="width: 500px;"/><br/>
 
 a % b에 % 연산자는 다음 방정식을 계산하고 나머지(remainder)를 반환.
 
@@ -96,7 +96,7 @@ C와 Objective-C의 나머지 연산자과는 다르게 Swift의 나머지 연�
 
 8을 2.5로 나누면 3과 같고 나머지는 0.5이며 나머지 연산자는 Double 타입의 0.5 값을 반환함.
 
-<img src="/../../../../image/2014/08/remainderfloat_2x.png" alt="remainderfloat" style="width: 500px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/08/remainderfloat_2x.png" alt="remainderfloat" style="width: 500px;"/><br/>
 
 
 ### 증감 연산자(Increment and Decrement Operators)

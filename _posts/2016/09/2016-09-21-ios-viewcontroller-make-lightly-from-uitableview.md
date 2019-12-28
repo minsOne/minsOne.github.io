@@ -13,7 +13,7 @@ tags: [UIViewController, UITableView, NSObject, Swift, UITableViewDelegate, UITa
 
 UIViewController가 UITableView 프로토콜을 따르면 코드의 양이 많아져 가독성이 떨어지게 되고, 분석도 어려워집니다.
 
-<img src="/../../../../image/flickr/29755304981_e7a0d11b61_z.jpg" width="346" height="540" alt="Untitled.001">
+<img src="{{ site.production_url }}/image/flickr/29755304981_e7a0d11b61_z.jpg" width="346" height="540" alt="Untitled.001">
 
 UITableView, 모델들 그리고 기타 View들이 한데 모인 UIViewController라면 더더욱 그렇습니다.
 
@@ -23,7 +23,7 @@ UITableView, 모델들 그리고 기타 View들이 한데 모인 UIViewControlle
 
 따라서 다양한 셀을 쉽게 다룰 수 있으며, 코드도 간결해집니다.
 
-<img src="/../../../../image/flickr/29755304841_a723eb09b3_z.jpg" width="640" height="480" alt="Untitled.004">
+<img src="{{ site.production_url }}/image/flickr/29755304841_a723eb09b3_z.jpg" width="640" height="480" alt="Untitled.004">
 
 ## AutoTable
 

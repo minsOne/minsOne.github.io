@@ -96,12 +96,12 @@ directionToHead의 타입은 이미 알려져 있어, 값을 설정할 때 표�
 
 예를 들어 두개의 다른 바코드 타입으로 부터 상품을 추적하는 재고 추적 시스템이 필요있다고 가정함. 어떤 제품은 0부터 9까지 숫자를 사용하는 UPC-A 형식의 1D 바코드로 꼬리표를 붙이임. 각각의 바코드는 "번호 체계" 숫자를 가지는데 다섯자리 "제조사 코드" 숫자와 다섯자리 "상품 코드" 숫자임. 이들 숫자 뒤에 각 코드가 제대로 확인되었는지 검증하기 위한 코드인 "확인"숫자를 붙임.
 
-<img src="/../../../../image/2014/08/barcode_UPC_2x.png" alt="barcode_UPC" style="width: 400x;"/><br/>	
+<img src="{{ site.production_url }}/image/2014/08/barcode_UPC_2x.png" alt="barcode_UPC" style="width: 400x;"/><br/>	
 
 다른 상품은 ISO 8859-1 문자가 사용가능한 2,953 글자 길이를 가지는 QR 코드 형식의 2D 바코드 꼬리표를 붙임.
 
 
-<img src="/../../../../image/2014/08/barcode_QR_2x.png" alt="barcode_QR" style="width: 400x;"/><br/>
+<img src="{{ site.production_url }}/image/2014/08/barcode_QR_2x.png" alt="barcode_QR" style="width: 400x;"/><br/>
 
 재고 추적 시스템은 4개의 정수인 튜플로서 UPC-A 바코드를 저장하고 임의의 길이의 문자열로 QR 코드 바코드를 저장하면 편할 것임.
 

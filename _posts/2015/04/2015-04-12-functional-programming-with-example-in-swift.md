@@ -63,7 +63,7 @@ tags: [functional programming, FP, swift, battle ship, refactoring, pure functio
 
 첫번째로 사거리 내에서 적군 함선이 있는지 확인하는 함수입니다.
 
-<img src="/../../../../image/flickr/20564775360_d91473dfe3.jpg" width="496" height="500" alt="inRange1"><br/>
+<img src="{{ site.production_url }}/image/flickr/20564775360_d91473dfe3.jpg" width="496" height="500" alt="inRange1"><br/>
 
 (0, 0)에서 target까지 거리를 구하여 사거리 안에 포함되어 있는지 확인합니다.
 
@@ -76,7 +76,7 @@ tags: [functional programming, FP, swift, battle ship, refactoring, pure functio
 
 <br/>이제 현재 자신의 함선이 이동하는 경우를 구해봅시다.
 
-<img src="/../../../../image/flickr/20130158534_f48a7cb215.jpg" width="448" height="437" alt="inRange2"><br/><br/>
+<img src="{{ site.production_url }}/image/flickr/20130158534_f48a7cb215.jpg" width="448" height="437" alt="inRange2"><br/><br/>
 
 (0,0)에서 ownPosition으로 이동하여 target이 사거리 안에 포함되어 있는지 확인합니다.
 
@@ -89,7 +89,7 @@ tags: [functional programming, FP, swift, battle ship, refactoring, pure functio
 
 <br/>적군 함선에게 발사하려면 최소 사거리보다 멀어야 되는 조건을 추가해 봅시다.
 
-<br/><img src="/../../../../image/flickr/20726495026_e18fdd3a5e.jpg" width="468" height="436" alt="inRange3"><br/><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/20726495026_e18fdd3a5e.jpg" width="468" height="436" alt="inRange3"><br/><br/>
 
 	let minimumDistance: Distance = 2.0
 

@@ -21,11 +21,11 @@ tags: [git, github, translate, collaborating, pull]
 
 1. Pull 요청 페이지를 열으세요.
 
-2. **Merge pull request** 버튼을 클릭하세요.<br/><img src="/../../../../image/2013/pullrequest-mergebutton.png" alt="Merge pull request button" style="width: 500px;"/><br/><br/>
+2. **Merge pull request** 버튼을 클릭하세요.<br/><img src="{{ site.production_url }}/image/2013/pullrequest-mergebutton.png" alt="Merge pull request button" style="width: 500px;"/><br/><br/>
 
-3. 커밋 메시지를 입력하세요.<br/><img src="/../../../../image/2013/pullrequest-commitmessage.png" alt="Commit message field" style="width: 500px;"/><br/><br/>
+3. 커밋 메시지를 입력하세요.<br/><img src="{{ site.production_url }}/image/2013/pullrequest-commitmessage.png" alt="Commit message field" style="width: 500px;"/><br/><br/>
 
-4. **Confirm Merge** 클릭하세요.<br/><img src="/../../../../image/2013/pullrequest-confirmmerge.png" alt="Confirm button" style="width: 500px;"/><br/><br/>
+4. **Confirm Merge** 클릭하세요.<br/><img src="{{ site.production_url }}/image/2013/pullrequest-confirmmerge.png" alt="Confirm button" style="width: 500px;"/><br/><br/>
 
 
 ### 로컬에서 합치기
@@ -36,7 +36,7 @@ tags: [git, github, translate, collaborating, pull]
 
 패치와 변경사항 적용은 가장 흔한 방법입니다. 이 방법은 커밋 히스토리를 수정하지 않고 유지할 것입니다.
 
-1. 합치기 버튼의 왼쪽에 있는 `command line`을 클릭합니다.<br/><img src="/../../../../image/2013/pullrequest-manualinstructions.png" alt="Merge pull information message" style="width: 500px;"/><br/><br/>
+1. 합치기 버튼의 왼쪽에 있는 `command line`을 클릭합니다.<br/><img src="{{ site.production_url }}/image/2013/pullrequest-manualinstructions.png" alt="Merge pull information message" style="width: 500px;"/><br/><br/>
 
 2. Pull 요청에 표시되는 지시를 따릅니다.<br/>주의: 모든 Pull 요청과는 다를 수 있습니다.
 

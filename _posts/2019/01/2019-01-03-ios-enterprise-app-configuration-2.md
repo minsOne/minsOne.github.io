@@ -35,23 +35,23 @@ tags: [iOS, XCode, Project, CocoaPods, Carthage, Layer, Library, Framework]
 
 UI 레이어는 View, ViewController, ViewModel 등 View에 관련된 것들을 가집니다.
 
-<p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_ui_layer.png" alt="UI Layer" style="width: 300px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/01/enterprise_ui_layer.png" alt="UI Layer" style="width: 300px"/></p><br/>
 
 리소스 레이어는 네트워크 요청, DB 조회 등의 서비스를 가지며, 비즈니스 레이어에서는 비즈니스 로직를 가지고, 리소스 레이어를 통해 데이터를 조회하거나 요청합니다.
 
-<p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_business_resource_layer.png" alt="Business Resource Layer" style="width: 300px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/01/enterprise_business_resource_layer.png" alt="Business Resource Layer" style="width: 300px"/></p><br/>
 
 그리고 UI 레이어는 비즈니스 레이어를 가지고 있어, UI 이벤트를 비즈니스 레이어에서 처리하고 응답받은 결과를 받아 처리하도록 합니다.
 
-<p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_ui_business_resource_layer.png" alt="UI Business Resource Layer" style="width: 300px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/01/enterprise_ui_business_resource_layer.png" alt="UI Business Resource Layer" style="width: 300px"/></p><br/>
 
 이와 같은 레이어들을 묶은 것을 도메인 레이어라고 하고, 개발 환경, 조직에 따라 `UI, Business, Resource` 를 한 세트로 묶거나 Layer 단위로 `UI Layer`만 묶고, `Business Layer`만 묶고, `Resource Layer`만 묶을 수도 있습니다.
 
 **UI, Business, Resource Layer 그룹**
-<p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_domain_layer_group_1.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/01/enterprise_domain_layer_group_1.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
 
 **각각의 UI Layer, Business Layer, Resource Layer 그룹**
-<p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_domain_layer_group_2.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/01/enterprise_domain_layer_group_2.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
 
 ### 4. 메인 서비스, 어플리케이션
 
@@ -61,7 +61,7 @@ Application은 앱 구동시 처리하는 Layer로 가장 최상위 Layer로서 
 
 즉, 어떤 메인 서비스를 호출할지를 특정 조건에 따라 결정되므로, 트리 구조로 서비스들이 구성됩니다.
 
-<p style="text-align:center;"><img src="/../../../../image/2019/01/enterprise_application_main_layer.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/01/enterprise_application_main_layer.png" alt="Domain Layer 1" style="width: 500px"/></p><br/>
 
 ## 정리 & 사족
 

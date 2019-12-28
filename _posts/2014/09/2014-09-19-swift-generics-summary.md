@@ -100,7 +100,7 @@ stack이라는 제네릭 컬렉션 타입을 작성한다. 스택은 값의 순�
 
 다음은 스택의 Push / Pop 행동을 보여주는 그림이다.
 
-<img src="/../../../../image/2014/09/stackPushPop_2x.png" alt="stackPushPop_2x" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/stackPushPop_2x.png" alt="stackPushPop_2x" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 다음은 제네릭이 아닌 버전의 스택 예제이다.
 
@@ -147,7 +147,7 @@ items라는 배열 속성은 스택 안에서 값을 저장한다. Stack은 두 
 
 다음은 스택에 네 개의 값이 들어가는 모습을 나타낸 그림이다.
 
-<img src="/../../../../image/2014/09/stackPushedFourStrings_2x.png" alt="stackPushedFourStrings" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/stackPushedFourStrings_2x.png" alt="stackPushedFourStrings" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 스택에서 마지막 값을 제거한다.
 
@@ -156,7 +156,7 @@ items라는 배열 속성은 스택 안에서 값을 저장한다. Stack은 두 
 
 다음은 스택에서 마지막 값이 나온 후의 모습을 나타낸 그림이다.
 
-<img src="/../../../../image/2014/09/stackPoppedOneString_2x.png" alt="stackPoppedOneString" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/stackPoppedOneString_2x.png" alt="stackPoppedOneString" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 
 ### 제네릭 타입 확장(Extending a Generic Type)

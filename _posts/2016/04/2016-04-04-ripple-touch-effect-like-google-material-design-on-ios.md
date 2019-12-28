@@ -7,7 +7,7 @@ tags: [ios, CALayer, CABasicAnimation, CAAnimationGroup, Material]
 ---
 {% include JB/setup %}
 
-<br/><img src="/../../../../image/flickr/25629656254_789d626d8e.jpg" width="315" height="500" alt=""><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/25629656254_789d626d8e.jpg" width="315" height="500" alt=""><br/>
 
 가끔씩 매터리얼 디자인의 물결 효과를 보면서 iOS에 적용해볼까 했지만, 이 효과때문에 [Material](https://github.com/CosmicMind/Material) 라이브러리를 추가해야하나 했습니다.
 그래서 CALayer를 이용해서 구현해보았습니다.
@@ -73,9 +73,9 @@ CATransform3DMakeScale을 사용하여 rippleEffectLayer를 늘리고, rippleEff
 
 다음은 위의 코드를 적용한 화면입니다.
 
-<img src="/../../../../image/flickr/26208502896_28934d832c.jpg" width="282" height="500" alt=""><br/>
+<img src="{{ site.production_url }}/image/flickr/26208502896_28934d832c.jpg" width="282" height="500" alt=""><br/>
 
 이러한 효과나 화면을 구성하는데는 Xcode Playground를 이용하여 화면을 바로 확인할 수 있으며, 화면 효과등을 실시간으로 보도록 `XCPlaygroundPage.currentPage.liveView`에 view를 할당하면 다음 영상처럼 확인할 수 있습니다.
 
-<img src="/../../../../image/flickr/25629851214_a1fb6aa4b0_c.jpg" width="282" height="500" alt=""><br/>
+<img src="{{ site.production_url }}/image/flickr/25629851214_a1fb6aa4b0_c.jpg" width="282" height="500" alt=""><br/>
 

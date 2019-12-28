@@ -15,7 +15,7 @@ frame은 외부에서 바라보는 좌표를 나타내고 bounds는 내부에서
 
 anchorPoint는 기본값으로 CALayer에 상대값으로 가지고 있기 때문에 (0.5, 0.5)를 가집니다.
 
-<img src="/../../../../image/2014/06/anchorPoint.png" alt="anchorPoint" style="width: 800px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/06/anchorPoint.png" alt="anchorPoint" style="width: 800px;"/><br/>
 
 iOS는 왼쪽 상단부터 (0,0)으로 시작하여 오른쪽 하단(1,1)이 됩니다.
 
@@ -61,7 +61,7 @@ Layer와 View의 Frame이 이동하였지만 Bounds, Center값은 변하지 않�
 
 다음은 1/8씩 회전한 결과입니다.
 
-<img src="/../../../../image/2014/06/rotation.gif" alt="rotation" style="width: 300px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/06/rotation.gif" alt="rotation" style="width: 300px;"/><br/>
 
 
 ### zPosition
@@ -70,7 +70,7 @@ CALayer에서는 zPosition을 이용하여 화면 앞으로 표시할 수 있습
 
 우선 다음과 같이 화면을 구성합니다.
 
-<img src="/../../../../image/2014/06/zPosition1.png" alt="zPosition1" style="width: 500px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/06/zPosition1.png" alt="zPosition1" style="width: 500px;"/><br/>
 
 빨간 뷰의 레이어의 zPosition을 수정하여 빨간 뷰를 앞으로 표시하도록 합니다.
 
@@ -83,4 +83,4 @@ CALayer에서는 zPosition을 이용하여 화면 앞으로 표시할 수 있습
 
 다음은 위의 코드 결과입니다. 빨간 뷰가 앞으로 온 것을 확인할 수 있습니다.
 
-<img src="/../../../../image/2014/06/zPosition2.png" alt="zPosition2" style="width: 500px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/06/zPosition2.png" alt="zPosition2" style="width: 500px;"/><br/>

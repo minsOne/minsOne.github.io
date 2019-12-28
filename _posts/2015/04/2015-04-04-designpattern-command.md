@@ -13,12 +13,12 @@ tags: [designPattern, command, interface, class, inheritance, constructor, abstr
 
 클라이언트(client)는 커맨드 객체를 생성하며, 인보커(invoker)에 커맨드 객체를 저장합니다. 또한, 커맨드 객체에는 리시버(receiver)에 대한 정보가 있습니다. 커맨드 객체에서 수행하는 메소드는 execute() 뿐이며, 캡슐화하여 리시버에 있는 특정 행동을 처리합니다. 클라이언트는 인보커에게 저장한 커맨드 객체를 수행하도록 요청합니다. 리시버에 있는 특정 행동을 하는 메소드가 호출됩니다.
 
-<br/><img src="/../../../../image/2015/Command_Design_Pattern_Class_Diagram.png" alt="Command_Design_Pattern_Class_Diagram" style="width: 600px;"/><br/><br/>
+<br/><img src="{{ site.production_url }}/image/2015/Command_Design_Pattern_Class_Diagram.png" alt="Command_Design_Pattern_Class_Diagram" style="width: 600px;"/><br/><br/>
 
 출처 : [위키피디아][Wikipedia Ko]
 
 다음은 커맨드 패턴으로 사용할 예제 UML입니다.
-<br/><img src="/../../../../image/2015/CP_Diagram.png" alt="CommandPattern-UML" style="width: 400px;"/><br/><br/>
+<br/><img src="{{ site.production_url }}/image/2015/CP_Diagram.png" alt="CommandPattern-UML" style="width: 400px;"/><br/><br/>
 
 Command에서 상속을 받아 LightOffCommand와 LightOnCommand 클래스를 만들며, execute를 통해 Light 객체를 제어합니다. Command 객체는 RemoteControl에서 관리를 하여 동작을 수행하도록 명령을 내립니다.
 

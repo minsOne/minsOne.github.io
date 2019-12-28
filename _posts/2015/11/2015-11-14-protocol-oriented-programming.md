@@ -13,7 +13,7 @@ tags: [apple, wwdc, swift, protocol, object, protocol-oriented, object-oriented]
 
 안녕하세요. 제 이름은 Dave Abrahams이며, Swift 표준 라이브러리에 테크니컬 리더이며, 오늘 여기에서 여러분과 이 자리에 함께할 수 있어 영광입니다. 이 방에서 여러분 모두를 볼 수 있음에 영광입니다. 다음 40분간 프로그래밍 생각의 일반적인 방법을 잠시 접어두세요. 우리가 여기에서 같이 하기가 쉽지는 않겠지만, 나와 같이한다면 가치 있는 시간이 될 것이라고 약속합니다. 나는 여기에서 Swift의 디자인 핵심 주제에 관해 이야기하고, 모든 것을 바꿀 수 있는 잠재력을 가진 프로그래밍 방법을 소개합니다. 
 
-<br/><img src="/../../../../image/flickr/23013618762_a46dd6e081.jpg" width="500" height="313" alt="POP0"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23013618762_a46dd6e081.jpg" width="500" height="313" alt="POP0"><br/>
 
 그러나 먼저, 내 친구를 소개합니다. Crusty입니다.
 
@@ -33,7 +33,7 @@ tags: [apple, wwdc, swift, protocol, object, protocol-oriented, object-oriented]
 
 클래스로 무엇을 할 수 있는지 보세요.' 먼저 관련된 데이터와 운영을 모을 수 있습니다.
 
-<br/><img src="/../../../../image/flickr/23038273041_29ff068819.jpg" width="500" height="313" alt="POP1"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23038273041_29ff068819.jpg" width="500" height="313" alt="POP1"><br/>
 
 그러고 나서 우리는 외부로부터 우리의 코드 내부를 분리하기 위한 벽을 만들 수 있고, 이는 불변성을 유지하기 위함입니다.
 
@@ -45,41 +45,41 @@ tags: [apple, wwdc, swift, protocol, object, protocol-oriented, object-oriented]
 
 이들 속성은 우리가 소프트웨어 개발에서 해결하려고 노력하는 문제들을 바로 해결합니다. 
 
-<br/><img src="/../../../../image/flickr/23038272841_1e0ce80af5.jpg" width="500" height="314" alt="POP2"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23038272841_1e0ce80af5.jpg" width="500" height="314" alt="POP2"><br/>
 
 이 시점에서 나는 나 자신이 꽤 영감을 얻었다지만, Crusty는 바로 콧방귀 뀌었습니다. 그는 나를 가라앉히도록 했습니다. 충분하지 않았다면, 잠시 뒤에 그가 끝냈을 것입니다. 이는 사실입니다. Swift에서 우리가 명명한 any 타입은 일급 클래스 시민이고 이는 모든 기능의 이점을 얻는 것이 가능합니다. 이전으로 돌아가서 주요 기능이 객체지향 프로그래밍으로 모든 것이 가능하다는 것을 알아내려고 노력했습니다. 
 
-<br/><img src="/../../../../image/flickr/22405933273_26fafbc0ba.jpg" width="500" height="314" alt="POP3"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22405933273_26fafbc0ba.jpg" width="500" height="314" alt="POP3"><br/>
 
 확실히 상속과 같이 클래스로만 할 수 있는 것한테서 와야 합니다. 이것은 이러한 구조가 코드 공유와 결이 고운 사용자 정의 둘 다 가능한 방법에 대한 구체적으로 생각하게 했습니다. 
 
-<br/><img src="/../../../../image/flickr/23013617572_233f2f3f5d.jpg" width="500" height="313" alt="POP4"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23013617572_233f2f3f5d.jpg" width="500" height="313" alt="POP4"><br/>
 
 예를 들면, 슈퍼클래스는 복잡한 로직을 가진 견고한 메소드를 정의할 수 있고, 서브클래스는 공짜로 슈퍼클래스에 모든 작업을 시킵니다. 서브클래스는 단지 슈퍼클래스를 상속받습니다. 슈퍼클래스 작성자가 서브클래스가 재정의할 수 있는 별도의 사용자 정의 지점으로 연산의 작은 부분으로 나누고, 사용자 정의가 상속받은 구현에 중첩될 때 진짜 마법이 일어납니다. 
 
-<br/><img src="/../../../../image/flickr/22405932993_9df54285bb.jpg" width="500" height="312" alt="POP5"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22405932993_9df54285bb.jpg" width="500" height="312" alt="POP5"><br/>
 
 이것은 확장이 가능한 유연성과 특정 변화가 가능한 동안에 어려운 로직를 재사용할 수 있습니다. 그리고 이제 나는 그를 이겼음을 확신했습니다.
 
 나는 Crusty에게 말했습니다. '분명히, 당신은 클래스 힘 앞에서 숙여야 합니다.' '잠시만 기다려' 그가 대답했습니다. '첫 번째로, 나는 항상 구조체를 사용자 정의하였습니다, 그리고 두 번째, 클래스는 강력하긴 하지만 그 비용에 관해 이야기합시다. 
 
-<br/><img src="/../../../../image/flickr/22608798077_6be3a6740f.jpg" width="500" height="312" alt="POP6"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608798077_6be3a6740f.jpg" width="500" height="312" alt="POP6"><br/>
 
 나는 클래스에 세 가지 큰 불만을 품고 있습니다,' Crusty가 말했습니다.
 
 그리고 그는 불만 사항을 늘여놓기 시작했습니다. 
 
-<br/><img src="/../../../../image/flickr/22405932753_459eb7ef48.jpg" width="500" height="314" alt="POP7"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22405932753_459eb7ef48.jpg" width="500" height="314" alt="POP7"><br/>
 
 '첫 번째, 당신은 자동 공유를 압니다.' 이제 이것이 어떻게 생겼는지를 모두 압니다.
 
 A는 B에게 완벽하고 참착하게 찾고 있는 데이터 일부를 넘겨주면, B는 '훌륭해, 대화가 끝났군.'이라고 생각합니다. 그러나 우리는 A와 B 서로가 그저 잘못된 일이 일어나는 세상에서 자신만의 매우 합리적인 견해를 가지는 상황에 놓입니다. 이는 현실적이기 때문입니다. 결국 A는 민감한 데이터에 질려서 대신에 조랑말을 좋아한다고 결정했습니다. 누가 조랑말을 안 좋아합니까? 
 
-<br/><img src="/../../../../image/flickr/23038271831_81f53fe22d.jpg" width="500" height="313" alt="POP8"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23038271831_81f53fe22d.jpg" width="500" height="313" alt="POP8"><br/>
 
 B가 이 데이터를 나중에, 훨씬 나중에 들춰낼 때까지는 완전히 괜찮습니다. B가 A로부터 가져오고 나선 깜짝 놀랄 변경이 있습니다. B는 데이터를 원하지만, A의 조랑말을 원한 게 아닙니다.
 
-<br/><img src="/../../../../image/flickr/22634888679_075133cfc5.jpg" width="500" height="313" alt="POP9"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22634888679_075133cfc5.jpg" width="500" height="313" alt="POP9"><br/>
 
 음, Crusty는 이런 방식에 대해 크게 고함쳤습니다. 첫 번째,' 그가 말했습니다. '코드에서 버그를 미친 듯이 짓누르기 위해 모든 것을 복사합니다.
 
@@ -87,25 +87,25 @@ B가 이 데이터를 나중에, 훨씬 나중에 들춰낼 때까지는 완전�
 
 그러나 lock은 코드를 느리게 하고 더 나아가서 심지어 교착상태로 될 수 있습니다. 그리고 이 모든 것에 복잡함이 추가되는데, 이들 효과는 버그, 한 단어로 요약될 수 있습니다.' 그러나 Cocoa 프로그래머에게는 뉴스가 아닙니다. 이는 새로운 것이 아닙니다. 
 
-<br/><img src="/../../../../image/flickr/22608781618_22456e1882.jpg" width="500" height="311" alt="POP10"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608781618_22456e1882.jpg" width="500" height="311" alt="POP10"><br/>
 
 우리는 @property(copy)와 같은 언어 특징의 조합과 수년에 걸쳐 이를 처리하는 코딩 규칙을 이미 적용해왔습니다. 그런데도 우리는 여전히 발목 잡혀있습니다.
 
-<br/><img src="/../../../../image/flickr/23027131315_a4c0b2cfb0.jpg" width="500" height="314" alt="POP11"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23027131315_a4c0b2cfb0.jpg" width="500" height="314" alt="POP11"><br/>
 
 예를 들어, 이것을 통해 반복하는 동안 가변 컬렉션 수정에 관한 Cocoa 문서에는 이러한 경고가 있습니다. 그렇죠? 이는 클래스에 고유 속성인 가변 상태의 공유가 암시적이기 때문입니다.
 
-<br/><img src="/../../../../image/flickr/22634888119_e58aecfb02.jpg" width="500" height="314" alt="POP12"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22634888119_e58aecfb02.jpg" width="500" height="314" alt="POP12"><br/>
 
 그러나 이는 Swift에 적용되지 않습니다. 왜냐구요? Swift 컬렉션은 모두 값 타입이기 때문입니다. 그래서 반복하는 것과 수정하는 것은 구분됩니다. 
 
-<br/><img src="/../../../../image/flickr/22634887839_f029b4153b.jpg" width="500" height="312" alt="POP13"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22634887839_f029b4153b.jpg" width="500" height="312" alt="POP13"><br/>
 
 Crusty의 불만 사항 두 번째, 클래스 상속이 너무 거슬립니다.
 
 첫 번째, 이것은 획일적입니다. 클래스와 오직 하나의 슈퍼클래스를 얻습니다. 만일 다중 추상 모델이 필요하면 어떻게 하나요? 컬렉션과 직렬화할 수 있나요? 그렇지 않다면 컬렉션과 직렬화는 클래스입니다. 클래스 상속은 단일 상속이기 때문에, 클래스는 관련될 수 있는 모든 것으로 비대해집니다. 또한 클래스를 정의한 순간 슈퍼클래스를 선택해야 합니다. 확장하기 전까지 말이죠. 다음으로, 슈퍼클래스가 저장 속성을 가진다면, 받아들여야 합니다. 선택권이 없습니다. 그러고 나서 저장 속성을 가지고 있으므로, 초기화를 해야 합니다. 그리고 Crusty가 말했습니다, '지정 편의(designated convenience)가 필요해.' 불변성을 까지 않고 슈퍼클래스와 상호작용하는 방법을 이해하고 있는지 확인해야 합니다. 그렇죠? 마지막으로, 클래스 작성자는 메소드가 해야 할 것을 알고 있는 것처럼 코드를 작성하는 것이 당연합니다. final 사용하지 않고, 메소드 오버라이드 할 기회를 차지 않고 말이죠. 이는 종종 중요하지만 실제로 재정의를 허락하는 것에 대한 불문율이며, 슈퍼 클래스 메소드를 묶어야 합니까? 그리고 슈퍼클래스 메소드를 묶으려고 한다면, 메소드의 시작 부분 또는 끝 부분 또는 중간 어디인가요? 반복해서, Cocoa 프로그래머에게는 새로운 것이 아닙니다, 그렇죠? 이는 Cocoa의 모든 곳에 우리가 위임 패턴(delegate pattern)을 사용하는 정확한 이유입니다.
 
-<br/><img src="/../../../../image/flickr/22634887399_6b6f8b775a.jpg" width="500" height="314" alt="POP14"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22634887399_6b6f8b775a.jpg" width="500" height="314" alt="POP14"><br/>
 
 Crusty의 불만 목록의 마지막으로, 클래스는 타입 관계에 문제가 되는 곳에서 정말로 나쁜 것으로 밝혀졌습니다.
 
@@ -117,7 +117,7 @@ Crusty의 불만 목록의 마지막으로, 클래스는 타입 관계에 문제
 
 무엇을 저기에 넣어야 할까요? 
 
-<br/><img src="/../../../../image/flickr/22608796347_691cf53e85.jpg" width="500" height="312" alt="POP15"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608796347_691cf53e85.jpg" width="500" height="312" alt="POP15"><br/>
 
 기억하세요, 우리는 아직 Ordered의 임의의 인스턴스에 대해 아무것도 아는 게 없습니다.
 
@@ -125,7 +125,7 @@ Crusty의 불만 목록의 마지막으로, 클래스는 타입 관계에 문제
 
 우리가 우리 자신에게 거짓말을 시작한 곳이 어디인지 깨닫지 못한다면, 그 이슈를 밖으로 치워버리고, 우리 각각의 Ordered의 서브클래스가 precedes를 구현한다고 우리 자신에게 말하는 동안, 우리는 괜찮을 것입니다. 그렇죠? 서브클래스의 문제입니다.
 
-<br/><img src="/../../../../image/flickr/22608796177_20310e2da0.jpg" width="500" height="313" alt="POP16"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608796177_20310e2da0.jpg" width="500" height="313" alt="POP16"><br/>
 
 Ordered 예제를 구현해봅시다. 여기 서브클래스입니다. 이것은 Double 값을 가지며 비교하기 위해 precedes를 재정의합니다. 그렇죠, 물론 예외는 있습니다. 이것은 동작하지 않습니다. "other"는 단지 숫자가 아닌 임의의 Ordered이며, 우리는 "other"가 value 속성을 가졌는지 알 수 없습니다. 사실, 이것은 text 속성을 가진 label일 수도 있습니다. 이제 올바른 타입을 얻기 위해 down-cast를 해야 할 필요가 있습니다. 그러나 잠깐, "other"가 label로 밝혀야 한다고 해야 하나요? 우리는 함정에 빠졌습니다. 그렇죠? 슈퍼클래스에 precedes 본문을 작성할 때 문제와 같은 냄새가 많이 납니다. 그리고 예전보다 더 나은 정답을 가지지 않습니다. 이것은 정적타입 safety hole입니다.
 
@@ -133,11 +133,11 @@ Ordered 예제를 구현해봅시다. 여기 서브클래스입니다. 이것은
 
 사실, 이것을 "코드 냄새"라고 사용할 수 있습니다. 
 
-<br/><img src="/../../../../image/flickr/23001079236_5468e0d272.jpg" width="500" height="313" alt="POP17"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23001079236_5468e0d272.jpg" width="500" height="313" alt="POP17"><br/>
 
 그래서 언제든지 코드에서 강제로 down-cast를 볼 수 있습니다. 이는 좋은 신호입니다. 일부 중요한 타입 연관성을 잃어버렸었고, 종종 추상화를 위해 클래스 사용하기 때문입니다. 
 
-<br/><img src="/../../../../image/flickr/22608779328_5f3d244971.jpg" width="500" height="314" alt="POP18"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608779328_5f3d244971.jpg" width="500" height="314" alt="POP18"><br/>
 
 분명하게 우리가 필요한 것은 더 나은 추상 메커니즘이며, 암시적인 공유를 허용하도록 강제하지 않거나, 타입 관계를 잃거나, 하나의 추상을 선택하라고 강제하고 우리가 타입을 정의할 때 하는 것이며; 원치 않는 인스턴스 데이터 또는 관련된 초기화 복잡성을 받아들이도록 강제하지 않거나 것입니다.
 
@@ -145,19 +145,19 @@ Ordered 예제를 구현해봅시다. 여기 서브클래스입니다. 이것은
 
 프로토콜은 이러한 이점을 모두 가지고 있으며, 이것은 우리가 Swift를 만든 이유이며, 우리는 첫 번째 프로토콜 지향 프로그래밍 언어를 만들었습니다.
 
-<br/><img src="/../../../../image/flickr/23013613972_112d06b444.jpg" width="500" height="313" alt="POP19"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23013613972_112d06b444.jpg" width="500" height="313" alt="POP19"><br/>
 
 Swift는 객체지향 프로그래밍에 훌륭하지만, generics에 표준 라이브러리에서 반복과 문자열 리터널 작업을 강조하려는 방법으로부터, 그 본질에서, Swift는 프로토콜지향입니다. 그리고 바라건대 여러분이 여기에 시간을 쓴다면, 여러분 자신이 조금 더 프로토콜지향으로 될 것입니다. 첫발을 내딛고자 한다면, Swift에 속담이 있습니다.
 
 클래스로 시작하지 마세요. 프로토콜로 시작하세요. 마지막 예제를 해보도록 합시다.
 
-<br/><img src="/../../../../image/flickr/22608794807_0f8efe083f.jpg" width="500" height="315" alt="POP20"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608794807_0f8efe083f.jpg" width="500" height="315" alt="POP20"><br/>
 
 첫 번째, 우리는 프로토콜이 필요하고, 곧바로 Swift 불만 사항으로 우리는 메소드 본문 여기에 넣을 수 없는데, 실제로는 꽤 좋습니다. precede가 구현된 정적 검사를 위한 동적 런타임 검사를 거래하는 것을 의미하기 때문입니다. 다음, 우리는 아무것도 재정의할 수 없다고 불평합니다.
 
 물론 우리는 아닙니다. 우리는 더는 기본클래스를 가지고 있지 않습니다, 그렇죠? 슈퍼클래스도 없고, 재정의도 없고요.
 
-<br/><img src="/../../../../image/flickr/23027128695_fab47e95fb.jpg" width="500" height="314" alt="POP21"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23027128695_fab47e95fb.jpg" width="500" height="314" alt="POP21"><br/>
 
 우리는 아마도 처음부터 number가 클래스가 되길 원하지 않습니다. 우리는 number와 같이 행동하길 원하기 때문이죠. 그럼 한 번에 두 가지를 하도록 구조체로 만듭니다. 나는 여기에서 잠시 멈추고 우리가 여기 온 것에 감사드립니다. 다시 전부 유효한 코드이기 때문입니다.
 
@@ -165,19 +165,19 @@ Swift는 객체지향 프로그래밍에 훌륭하지만, generics에 표준 라
 
 제 말은, 우리는 더는 fatal error를 가지지 않으나, 근본적인 정적 타입 safety hole을 해결하지 않았습니다. 우리는 여전히 강제 down-cast가 필요하므로 "other"는 여전히 임의의 Ordered입니다. 
 
-<br/><img src="/../../../../image/flickr/23001077686_1b18b4aafc.jpg" width="500" height="314" alt="POP22"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23001077686_1b18b4aafc.jpg" width="500" height="314" alt="POP22"><br/>
 
 이것을 number로 만드는 대신, 형 변환을 버립시다. 이제 Swift는 서명이 일치하지 않는다고 불평할 것입니다. 이것을 고치기 위해서 프로토콜 서명에 Ordered를 Self로 교체할 필요가 있습니다.
 
-<br/><img src="/../../../../image/flickr/23027127925_d8f6983f48.jpg" width="500" height="312" alt="POP23"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23027127925_d8f6983f48.jpg" width="500" height="312" alt="POP23"><br/>
 
 이것을 Self-requirement이라고 불립니다. 프로토콜에서 있는 Self를 볼 때, 프로토콜, 모델 타입을 준수하는 타입을 위한 placeholder입니다. 우리는 다시 유효한 코드를 가집니다. 이 프로토콜을 사용하는 방법을 살펴봅시다.
 
-<br/><img src="/../../../../image/flickr/22634884759_e0ea2d8fe7.jpg" width="500" height="313" alt="POP24"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22634884759_e0ea2d8fe7.jpg" width="500" height="313" alt="POP24"><br/>
 
 Ordered가 클래스였을 때 동작했던 binarySearch입니다. 우리가 Self-requirement를 Ordered에 추가하기 전에 또한 완벽하게 작업했습니다. 여기 Ordered의 배열은 주장입니다. 이는 우리가 다른 종류로 이루어진 Ordered의 배열을 다룰 것이라고 주장입니다. 그래서 이 배열은 숫자와 label을 같이 섞어서 포함할 수 있습니다. Ordered에 변화를 만들고 Self-requirement를 추가했습니다. 
 
-<br/><img src="/../../../../image/flickr/23038267551_eea242546b.jpg" width="500" height="311" alt="POP25"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23038267551_eea242546b.jpg" width="500" height="311" alt="POP25"><br/>
 
 컴파일러는 우리를 강제로 이와 같은 종류로 만들 것입니다. 이렇게 말이죠.
 
@@ -185,7 +185,7 @@ Ordered가 클래스였을 때 동작했던 binarySearch입니다. 우리가 Sel
 
 같은 종류의 배열은 우리가 원하는 것입니다. 
 
-<br/><img src="/../../../../image/flickr/23013612012_4365678dd8.jpg" width="500" height="313" alt="POP26"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23013612012_4365678dd8.jpg" width="500" height="313" alt="POP26"><br/>
 
 그래서 일단 프로토콜에 Self-requirement를 추가하면, 기능과 클래스가 훨씬 적게 겹치는 매우 다른 세상으로 프로토콜을 옮깁니다. 이것은 타입으로 사용을 중단합니다. 컬렉션은 다른 종류 대신 같은 종류가 됩니다.
 
@@ -193,13 +193,13 @@ Ordered가 클래스였을 때 동작했던 binarySearch입니다. 우리가 Sel
 
 나중에, 그것들 간의 가교를 만드는 방법을 보여줄 것입니다. 적어도 한 가지 방법을요. 나는 프로토콜의 정적 관점으로 동작하는 방법을 이해했지만, Crusty를 믿어야 할지 확신할 수 없었습니다. 프로토콜이 정말로 클래스를 대체할 수 있는지를. 그래서 나는 그에게 도전했습니다. 우리는 일반적으로 OOP를 사용하지만, 프로토콜을 사용하여 무언가를 만들 것입니다. 나는 그림 표면에 모양을 끌어다 놓고 상호작용하는 작은 다이어그램 앱이 있습니다. 그래서 나는 문서를 만들고 모델을 표시하기 위해 Crusty에게 물었습니다. 여기에 그가 생각했던 것이 있습니다.
 
-<br/><img src="/../../../../image/flickr/23013611632_eaaa20f670.jpg" width="500" height="313" alt="POP27"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23013611632_eaaa20f670.jpg" width="500" height="313" alt="POP27"><br/>
 
 첫 번째, 그는 몇 개의 초기 그림을 만들었습니다. 당신이 상상할 수 있듯이, Crusty는 정말로 GUI를 사용하지 않았습니다.
 
 그는 텍스트 맨에 가깝습니다. 그래서 그의 초기작은 이슈를 drawing 명령으로 출력합니다. 아마도 그의 주장을 증명하기에 충분하기에 나는 마지못해 인정했습니다. 
 
-<br/><img src="/../../../../image/flickr/22405927553_909d4bb438.jpg" width="500" height="313" alt="POP28"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22405927553_909d4bb438.jpg" width="500" height="313" alt="POP28"><br/>
 
 그러고 나서 그는 모든 그림 요소를 위한 공통 인터페이스를 제공하는 Drawable 프로토콜을 만들었습니다.
 
@@ -207,13 +207,13 @@ Ordered가 클래스였을 때 동작했던 binarySearch입니다. 우리가 Sel
 
 Polygon을 그리기 위해, 마지막 코너로 가서 모든 코너를 돌면서 선을 그립니다. 
 
-<br/><img src="/../../../../image/flickr/23001076106_0c1402373c.jpg" width="500" height="314" alt="POP29"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23001076106_0c1402373c.jpg" width="500" height="314" alt="POP29"><br/>
 
 여기에 Circle이 있습니다.
 
 다시, Circle은 값 타입이고, 다른 값 타입으로 만들어집니다. 이것은 구조체로 중심 좌표와 반지름을 포함합니다. Circle을 그리기 위해 우리는 0에서 2pi 반지름까지 지나는 호를 만듭니다. 이제 다이어그램으로 circle와 polygon을 만들 수 있습니다. 
 
-<br/><img src="/../../../../image/flickr/23013611022_08c00635ce.jpg" width="500" height="312" alt="POP30"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23013611022_08c00635ce.jpg" width="500" height="312" alt="POP30"><br/>
 
 이것은 다이어그램입니다. 다이어그램은 Drawable 입니다.
 
@@ -223,7 +223,7 @@ Polygon을 그리기 위해, 마지막 코너로 가서 모든 코너를 돌면�
 
 이것을 그리기 위해, 우리는 모든 요소를 통해 반복하고 각각을 그립니다. 이제 테스트해봅시다.
 
-<br/><img src="/../../../../image/flickr/22405926963_8bf52875c0.jpg" width="500" height="314" alt="POP31"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22405926963_8bf52875c0.jpg" width="500" height="314" alt="POP31"><br/>
 
 우리는 이것을 테스트할 것입니다. Crusty는 기묘하게 지정된 중심과 반지름으로 Circle을 만들었습니다.
 
@@ -231,7 +231,7 @@ Polygon을 그리기 위해, 마지막 코너로 가서 모든 코너를 돌면�
 
 그리고 나는 이것을 할 것이라고 그에게 말했고 그리곤 그가 말했습니다. '잠깐만 1분만, 원숭이 소년. 네가 그렇게 한다면, 나는 내 코드를 어떻게 테스트해야 할까?' 그러고 나서 테스트에 평문 사용을 위한 뛰어난 케이스를 설계했습니다. 우리가 하는 것에 일부가 바뀐다면, 바로 그것을 출력에서 볼 수 있습니다. 대신, 그는 우리에게 소규모 프로토콜지향 프로그래밍을 할 것을 제안했습니다.
 
-<br/><img src="/../../../../image/flickr/23027126045_14f344beae.jpg" width="500" height="313" alt="POP32"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23027126045_14f344beae.jpg" width="500" height="313" alt="POP32"><br/>
 
 그래서 그는 Renderer를 복사하고 프로토콜로 만들었습니다. 그러고 나서 본문을 삭제해야 합니다.
 
@@ -243,13 +243,13 @@ Polygon을 그리기 위해, 마지막 코너로 가서 모든 코너를 돌면�
 
 CGContext는 기본적으로 Renderer가 필요한 모든 것을 가지고 있습니다.' 사실, 일반적인 C 인터페이스의 한계 내에서는 이것은 기본적으로 Renderer입니다.
 
-<br/><img src="/../../../../image/flickr/22608791427_9141cbbaa2.jpg" width="500" height="313" alt="POP33"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608791427_9141cbbaa2.jpg" width="500" height="313" alt="POP33"><br/>
 
 '훌륭해,' Crusty가 말했습니다. '키보드 내놔.' 그는 나에게서 키보드를 낚아채고 뭔가를 했습니다. 너무 빨라서 나는 간신히 그것을 보았습니다. '잠시만,' 나는 말했습니다. '모든 CGContext에 Renderer를 만들기만 하나요?' 내 말은, 이것은 아직 아무것도 않지만, 신기했습니다. 나는 심지어 새로운 타입을 추가하지 않았습니다.
 
 '뭘 기다리고 있어?' Crusty가 말했습니다. '괄호 안을 채워 넣어.' 나는 필요한 CoreGraphics goop에 퍼부었고, playground에 이 모든 것을 저기에 던져놨습니다. 여러분은 이 playground를 내려받을 수 있고, 내가 여기에서 말하는 것 모두 돌려볼 수 있습니다. 끝난 후에 말이죠. 다시 예제로 돌아갑니다.
 
-<br/><img src="/../../../../image/flickr/23013609992_8b586c87dc.jpg" width="500" height="313" alt="POP34"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23013609992_8b586c87dc.jpg" width="500" height="313" alt="POP34"><br/>
 
 나를 놀리곤 Crusty는 이것을 했습니다. 이제, 그 시점에 Drawing이 무한 재귀로 가지 않는지 이유를 깨닫는 데 잠시 걸렸습니다. 그리고 좀 더 알기를 원한다면, 금요일에 이 세션에 가야 합니다. 그러나 이것은 또한 화면 전체가 바뀌지 않습니다.
 
@@ -259,11 +259,11 @@ CGContext는 기본적으로 Renderer가 필요한 모든 것을 가지고 있�
 
 그리고 이후에 우리는 코드 전부 이 방법을 적용했습니다. 프로토콜로 더 분리하는 것을 찾았고, 더 많은 테스트 할 수 있는 모든 것을 얻었습니다.
 
-<br/><img src="/../../../../image/flickr/23013609782_7e25644f35.jpg" width="500" height="311" alt="POP35"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23013609782_7e25644f35.jpg" width="500" height="311" alt="POP35"><br/>
 
 이 테스트 종류는 mock으로 얻는 것과 정말 유사하나 이것이 훨씬 더 낫습니다. mock은 본질에서 깨지기 쉽습니다. 그렇죠? 우리는 테스트 코드를 테스트 중인 코드의 상세 구현에다 결합해야 합니다. 그리고 취약성 때문에, Swift의 강력한 정적 타입 시스템과 잘 동작하지 않습니다. 프로토콜은 우리가 사용할 수 있고 언어에 의해 강제된 원칙적인 인터페이스를 줍니다. 그러나 여전히 우리가 필요한 모든 instrumentation에 연결할 수 있는 갈고리를 줍니다. 
 
-<br/><img src="/../../../../image/flickr/22608774928_c10a80bd90.jpg" width="500" height="310" alt="POP36"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608774928_c10a80bd90.jpg" width="500" height="310" alt="POP36"><br/>
 
 예제로 돌아가서, 이제 우리는 Bubble에 대해 심각하게 이야기할 필요가 있습니다. 우리는 이 다이어그램 앱이 아이들에게 인기 있고, 아이들이 Bubble을 좋아하길 원합니다.
 
@@ -271,7 +271,7 @@ CGContext는 기본적으로 Renderer가 필요한 모든 것을 가지고 있�
 
 여러분은 두 개의 원을 가지고 있습니다. 내가 context에 이 코드를 밀어 넣었을 때, Crusty는 정말로 흥분하기 시작했습니다. 모든 코드 반복은 그를 성질 더럽게 만들었고, Crusty가 행복하지 않다면 아무도 행복하지 않습니다.
 
-<br/><img src="/../../../../image/flickr/23001074426_81600009a7.jpg" width="500" height="312" alt="POP37"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23001074426_81600009a7.jpg" width="500" height="312" alt="POP37"><br/>
 
 '봐, 그들이 Circle을 전부 완성했어,' 그가 소리쳤습니다. '나는 그저 이것을 작성하길 원했어.' 나는 말했습니다, '진정해, Crusty. 진정해. 우리는 할 수 있어.'
 
@@ -279,7 +279,7 @@ CGContext는 기본적으로 Renderer가 필요한 모든 것을 가지고 있�
 
 test Renderer가 있습니다. 그러고 나서 CGContext도 있습니다.' 그 때 Crusty는 신발을 벗어 책상 위에서 쳤습니다, 우리는 다시 코드 반복을 했기 때문 있습니다. 그는 나에게서 키보드를 빼앗아 작업한 모든 것에 대해 혼자 투덜거리고, Swift의 새로운 기능 사용을 나에게 가르쳤습니다. 
 
-<br/><img src="/../../../../image/flickr/23001074156_9787cdabba.jpg" width="500" height="311" alt="POP38"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23001074156_9787cdabba.jpg" width="500" height="311" alt="POP38"><br/>
 
 이것은 프로토콜 확장입니다. 이것은 말합니다. '모든 Renderer의 모델은 circleAt의 구현 했습니다.' 이제 우리는 Renderer 모든 모델 간의 공유하는 구현 했습니다.
 
@@ -287,7 +287,7 @@ test Renderer가 있습니다. 그러고 나서 CGContext도 있습니다.' 그 
 
 정답은 프로토콜 요구사항은 사용자 정의 시점을 생성합니다. 어떻게 이것이 발생하는지 보려면, 이 메소드 본문을 접고 확장에 다른 메소드를 추가하세요.
 
-<br/><img src="/../../../../image/flickr/22608774108_e6c4189d02.jpg" width="500" height="316" alt="POP39"><br/> 
+<br/><img src="{{ site.production_url }}/image/flickr/22608774108_e6c4189d02.jpg" width="500" height="316" alt="POP39"><br/> 
 
 이제 우리는 이들 메소드 모두 구현하도록 Crusty의 TestRenderer를 확장할 수 있습니다. 그러고 나서 우리는 메소드들을 호출합니다. 이제 여기에서 일어나는 것은 전혀 놀라운 것이 아닙니다.
 
@@ -307,17 +307,17 @@ test Renderer가 있습니다. 그러고 나서 CGContext도 있습니다.' 그 
 
 그리고 잠시만 다른 이야길 하고 싶은데, 나는 여러분에게 표준 라이브러리와 프로토콜 확장과 함께 우리가 했던 일부와 몇 가지 기교를 보여줄 것입니다.
 
-<br/><img src="/../../../../image/flickr/22634880719_a0b70fe1ab.jpg" width="500" height="312" alt="POP41"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22634880719_a0b70fe1ab.jpg" width="500" height="312" alt="POP41"><br/>
 
 그래서, 첫 번째, 새로운 indexOf 메소드가 있습니다. 이것은 우리가 찾는 것과 같은 요소를 찾을 때까지 컬렉션의 index를 보여주고 index를 반환합니다. 그리고 찾지 못한다면, nil을 반환합니다. 간단하죠? 우리가 이러한 방법으로 작성한다면, 문제가 있습니다. 임의의 컬렉션 요소는 같음-같음으로 비교할 수 없는 걸 볼 수 있습니다.
 
-<br/><img src="/../../../../image/flickr/23027123905_0d1c92bd8e.jpg" width="500" height="311" alt="POP40"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23027123905_0d1c92bd8e.jpg" width="500" height="311" alt="POP40"><br/>
 
 그것을 고치기 위해, 확장을 제한할 수 있습니다. 이것은 새로운 특징의 다른 측면입니다. 컬렉션 요소 타입이 Equatable 일 때 이 확장을 적용한다고 말함으로써, 우리는 같음 비교 허용이 필요한 정보를 Swift에 줍니다.
 
 그래서 이제 우리는 제한된 확장의 간단한 예제를 보았습니다. 
 
-<br/><img src="/../../../../image/flickr/23001073046_0c6de4b482.jpg" width="500" height="313" alt="POP42"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23001073046_0c6de4b482.jpg" width="500" height="313" alt="POP42"><br/>
 
 binarySearch을 다시 논의합시다. 그리고 Int 배열에서 이것을 사용합시다.
 
@@ -327,13 +327,13 @@ Int는 Ordered에 일치하지 않습니다. 간단하게 수정합니다. 우�
 
 Crusty가 책상 위에서 치기 시작하기 전에, 우리는 이 물건을 고려하길 원합니다, 그렇죠? 작음 연산자는 Comparable 프로토콜에 존재합니다.
 
-<br/><img src="/../../../../image/flickr/22634880029_cfe0f22c5a.jpg" width="500" height="314" alt="POP43"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22634880029_cfe0f22c5a.jpg" width="500" height="314" alt="POP43"><br/>
 
 우리는 이것과 확장으로 비교하는 것을 하고자 합니다. 이렇게 말이죠.
 
 이제 우리는 이들 적합성을 위한 precedes를 제공합니다. 반면에, 이것은 정말 좋습니다. Double을 위한 바이너리 검색을 원할 때, 나는 이 적합성을 추가해야 하고 나는 이것을 할 수 있습니다. 
 
-<br/><img src="/../../../../image/flickr/23001071976_9d579bc3e6.jpg" width="500" height="311" alt="POP44"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23001071976_9d579bc3e6.jpg" width="500" height="311" alt="POP44"><br/>
 
 반면에 이것은 싫어하는 종류로, 내가 적합성을 없앨지라도, 여전히 Double을 움켜쥐고 있는 이 precedes 함수를 가집니다. 우리는 아마도 Double에 추가하는 것에 대해 조금 더 선택적으로 되길 원합니다. 내가 그것을 할 수 있을지라도, 나는 이것으로 binarySearch를 할 수 없습니다.
 
@@ -341,11 +341,11 @@ Crusty가 책상 위에서 치기 시작하기 전에, 우리는 이 물건을 �
 
 우리는 같은 추상을 얻었습니다. 같은 논리적인 추상은 다른 두 곳에서 왔으며, 우리는 그것들을 상호 운용하도록 만들었습니다. 박수에 감사드립니다, 그러나 나는 이것이 멋지다고 생각합니다.
 
-<br/><img src="/../../../../image/flickr/22405922573_37b652e54d.jpg" width="500" height="313" alt="POP45"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22405922573_37b652e54d.jpg" width="500" height="313" alt="POP45"><br/>
 
 이것은 완전히 생성된 binarySearch 서명으로 어떠한 컬렉션에 적합한 인덱스와 요소 타입에서 작동합니다. 나는 사람들이 거기에 불편해서 나간다고 이미 들을 수 있었습니다. 여기 본문을 작성하지 않을 것입니다. 이것은 이미 꽤 무서워 보이기 때문입니다. 그렇죠? Swift 1은 이것과 같은 많은 제네릭에 자유로운 함수가 있었습니다.
 
-<br/><img src="/../../../../image/flickr/22608787757_66deb78c74.jpg" width="500" height="313" alt="POP46"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608787757_66deb78c74.jpg" width="500" height="313" alt="POP46"><br/>
 
 Swift 2에서는 우리는 이것과 같이 메소드로 그것들을 만들기 위해 프로토콜 확장을 사용합니다. 이제 모든 사람은 명확하게 method y를 다 채우는 call site 향상에 초점을 맞춥니다. binarySearch 작성으로, 나는 저 서명을 위해 했던 것을 좋아합니다.
 
@@ -359,7 +359,7 @@ Swift 2에서는 우리는 이것과 같이 메소드로 그것들을 만들기 
 
 이것들은 여러분이 프로토콜 확장과 할 수 있는 멋진 것들의 일부입니다. 이제 가장 중요한 것을 위해, 나는 우리의 다이어그램 예제로 돌아가고자 합니다. 
 
-<br/><img src="/../../../../image/flickr/22634878539_b8ba2851d3.jpg" width="500" height="312" alt="POP47"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22634878539_b8ba2851d3.jpg" width="500" height="312" alt="POP47"><br/>
 
 항상 값 타입 equatable을 만드세요. 왜냐구요? 내가 말했기 때문입니다.
 
@@ -367,11 +367,11 @@ Swift 2에서는 우리는 이것과 같이 메소드로 그것들을 만들기 
 
 멋진 이야기이고 상세하게 이 이슈를 토론할 것입니다. 어쨌든, Equatable은 대부분 타입에 쉽습니다. 여러분이 이것과 같은 같음을 위해 일치하는 부분을 비교합니다. 그러나 이제 다이어그램에 일어난 일을 볼 것입니다. 
 
-<br/><img src="/../../../../image/flickr/23038261851_d7f45f0c8e.jpg" width="500" height="312" alt="POP48"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23038261851_d7f45f0c8e.jpg" width="500" height="312" alt="POP48"><br/>
 
 우리는 Drawable의 두 배열을 같음으로 비교할 수 없습니다.
 
-<br/><img src="/../../../../image/flickr/22405921733_8ff5e2ebb6.jpg" width="500" height="312" alt="POP49"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22405921733_8ff5e2ebb6.jpg" width="500" height="312" alt="POP49"><br/>
 
 우리는 각각의 요소를 비교하도록 할 수 있을 것입니다. 이렇게 말이죠.
 
@@ -385,7 +385,7 @@ Swift 2에서는 우리는 이것과 같이 메소드로 그것들을 만들기 
 
 그리고 Self-requirement는 Drawables을 분명하게 동일하고 고정되어 보내어진 세상에 넣습니다. 그러나 다이어그램은 정말로 Drawables의 다른 종류를 가진 배열이 필요합니다. 그래서 우리는 같은 다이어그램에 polygons과 circles를 넣을 수 있습니다. 그래서 Drawables은 다른 종류로, 동적으로 보내어진 세상에서 머무르도록 합니다. 그리고 우리는 모순을 얻습니다. 만든 Drawables equatable은 작동하지 않을 것입니다.
 
-<br/><img src="/../../../../image/flickr/22608770388_1f59bc333e.jpg" width="500" height="313" alt="POP50"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608770388_1f59bc333e.jpg" width="500" height="313" alt="POP50"><br/>
 
 우리는 새로운 isEqualTo 요구사항을 Drawables에 추가하는 것이 필요합니다.
 
@@ -395,7 +395,7 @@ Swift 2에서는 우리는 이것과 같이 메소드로 그것들을 만들기 
 
 통찰력으로, 우리는 그것들이 Equatable일 때 모든 Drawable을 위해 isEqualTo를 구현할 수 있습니다. 이처럼 말이죠.
 
-<br/><img src="/../../../../image/flickr/22608769868_c98cba408b.jpg" width="500" height="312" alt="POP51"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608769868_c98cba408b.jpg" width="500" height="312" alt="POP51"><br/>
 
 그래서 이것을 여러분에게 이것을 보여주도록 합니다. 확장은 우리가 말한 것입니다. 이것은 모든 Drawables이 Equatable을 위한 것입니다.--
 
@@ -403,7 +403,7 @@ Swift 2에서는 우리는 이것과 같이 메소드로 그것들을 만들기 
 
 그래서 큰 그림으로, 무슨 일이 여기에 일어났나요? 우리는 Drawables 구현을 다룹니다. 우리는 말합니다, '당신이 정말로 이동해서 다른 종류의 경우를 다루고자 한다면, 그렇게 하세요. 이동해서 isEqualTo를 구현합니다. 그러나 만약 여러분은 우리가 같은 종류의 비교를 표현하는 일반적인 방법을 사용하고자 한다면, 우리는 다른 종류의 비교에 모든 책임을 다룰 것입니다.' 그래서 정적 세상과 동적 세상 간의 가교를 놓는 것은 매우 멋진 설계 공간이고, 나는 당신에게 더 살펴보길 바랍니다. 이 특정한 문제는 우리가 같음의 지정된 속성을 사용하여 해결할 수 있지만, 문제는 다 같지 않습니다. 그리고 여러분이 할 수 있는 많은 멋진 것들이 있습니다. 같음 속성은 적용이 반드시 적용하지 않아도 되지만, 보편적으로 어떤 것이 적용되나요? 프로토콜 기반 설계입니다. 
 
-<br/><img src="/../../../../image/flickr/23027120275_93bb9f6213.jpg" width="500" height="313" alt="POP52"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23027120275_93bb9f6213.jpg" width="500" height="313" alt="POP52"><br/>
 
 나는 우리가 클래스를 사용할 때에 대해 마무리 하기 전에 몇 마디 하려고 합니다. 그것들은 그들 자리에 있어야 하기 때문입니다. 여러분이 정말로 암시적으로 공유하기 원할 때가 있습니다, 예를 들면, 값 타입의 중요한 연산을 이해할 수 없을 때, 이것을 복사하는 것과 같이 말이죠. 복사는 무엇을 의미하나요? 의미하는 것을 알아낼 수 없다면, 그러고 나서 여러분은 이것이 참조 타입이 되길 원할지도 모릅니다. 또는 비교라든지. 같은 것이죠.
 
@@ -419,7 +419,7 @@ value는 또 다른 중요한 부분입니다. 예를 들면, Window가 있습�
 
 추상을 위한 프로토콜을 사용합니다. 두 가지 경우입니다. 그래서 우리는 객체지향 세계에서 살고 있습니다. Cocoa와 Cocoa Touch는 객체를 다룹니다. 그것들은 여러분에게 기본 클래스를 줄 것이고 그것들에 서브클래스를 예상할 것입니다.
 
-<br/><img src="/../../../../image/flickr/22404346514_d2a3a2170c.jpg" width="500" height="314" alt="POP53"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22404346514_d2a3a2170c.jpg" width="500" height="314" alt="POP53"><br/>
 
 그들의 API에서 객체를 예상할 것입니다. 시스템과 싸우지 마세요. 그건 그냥 무의미합니다.
 
@@ -427,7 +427,7 @@ value는 또 다른 중요한 부분입니다. 예를 들면, Window가 있습�
 
 그래서 여러분이 클래스 말고 무언가를 리팩토링 하고 만들 때, 대신 값 타입 사용을 생각하세요. 
 
-<br/><img src="/../../../../image/flickr/22608785387_286e0473c6.jpg" width="500" height="312" alt="POP54"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/22608785387_286e0473c6.jpg" width="500" height="312" alt="POP54"><br/>
 
 요약합니다.
 

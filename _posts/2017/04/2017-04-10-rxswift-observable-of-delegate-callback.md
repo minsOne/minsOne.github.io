@@ -168,7 +168,7 @@ selectedColorSubject에 onCompleted()를 호출하는데, 이는 PublishSubject�
 
 이제 SecondVC에서 선택한 색상이 FirstVC 배경색이 바뀌는 것을 확인할 수 있습니다.
 
-<img src="/../../../../image/flickr/33550828290_5dbc83dd68_o.png" width="374" height="682">
+<img src="{{ site.production_url }}/image/flickr/33550828290_5dbc83dd68_o.png" width="374" height="682">
 
 ## 정리
 

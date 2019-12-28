@@ -36,7 +36,7 @@ SSL Certificate Check를 내려받아 실행권한을 주고 pem 파일의 남�
 
 그리고 애플 개발자 센터에서 다음과 같이 인증서가 만들어진 것을 확인할 수 있습니다.
 
-<br/><img src="/../../../../image/flickr/23606687693_4fb96da155_z.jpg" width="640" height="389" alt=""><br/><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23606687693_4fb96da155_z.jpg" width="640" height="389" alt=""><br/><br/>
 
 또한, bag attribute가 필요하다면 pem으로 내려받을 때 `-p` 옵션을 사용하여 받아 `p12` 파일을 openssl로 `pem` 파일을 만들면 됩니다.
 

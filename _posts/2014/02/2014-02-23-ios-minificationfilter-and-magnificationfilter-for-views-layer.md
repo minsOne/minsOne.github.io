@@ -24,7 +24,7 @@ magnificationFilter는 이미지 데이터의 크기를 늘릴때 사용합니�
 #### 값에 따른 효과 비교
 
 - 값이 linear인 경우
-<img src="/../../../../image/2014/02/layer-filterRendering-linear.png" alt="linear" style="width: 200px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/02/layer-filterRendering-linear.png" alt="linear" style="width: 200px;"/><br/>
 
 - 값이 nearest인 경우
-<img src="/../../../../image/2014/02/layer-filterRendering-nearest.png" alt="linear" style="width: 200px;"/>
+<img src="{{ site.production_url }}/image/2014/02/layer-filterRendering-nearest.png" alt="linear" style="width: 200px;"/>

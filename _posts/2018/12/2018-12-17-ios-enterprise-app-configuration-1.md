@@ -15,13 +15,13 @@ tags: [iOS, XCode, Project]
 
 iOS에서 큰 서비스를 하는 곳이 많지 않고, 그런 곳들이 자료를 공개하질 않아 다른 분야도 있지만 Apple의 Cocoa Layer를 살펴보았습니다. [출처](https://warosu.org/g/thread/S51910725#p51915219)
 
-<img src="/../../../../image/2018/12/cocoa_layered_architecture.jpg" alt="cocoa layered architecture" style="width: 900px;"/>
+<img src="{{ site.production_url }}/image/2018/12/cocoa_layered_architecture.jpg" alt="cocoa layered architecture" style="width: 900px;"/>
 
 Kernel - Core OS - Core Service - Media - App Kit 으로 구성되어 있습니다.
 
 위의 구조를 일부 차용하여 다음과 같이 구성하면 어떨까 싶습니다.<br/>
 
-<p style="text-align:center;"><img src="/../../../../image/2018/12/enterprise_application_layer.png" alt="application layered architecture" style="width: 300px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2018/12/enterprise_application_layer.png" alt="application layered architecture" style="width: 300px"/></p><br/>
 
 * Module : 라이브러리를 가진 프로젝트로, 특정 역할(네트워크, 이미지 다운로드, 커스텀 UI 등)을 수행하며, 외부에는 정의된 인터페이스를 통해서만 호출 가능하도록 한다. 라이브러리 교체가 필요한 경우, 다른 라이브러리로 교체가 가능해야한다.
 

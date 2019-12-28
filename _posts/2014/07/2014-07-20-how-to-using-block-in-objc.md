@@ -22,7 +22,7 @@ tags: [block, closure, first-class, reference, strong, weak, extention, typedef]
 
 블록은 다음과 같이 설명할 수 있습니다.
 
-<img src="/../../../../image/2014/07/block_explain_example.jpg" alt="block_explain_example"/><br/>
+<img src="{{ site.production_url }}/image/2014/07/block_explain_example.jpg" alt="block_explain_example"/><br/>
 
 또한, 블럭 `객체`이므로 id형태로 저장이 가능하므로 array, dictionary에도 저장하여 사용 가능합니다.
 

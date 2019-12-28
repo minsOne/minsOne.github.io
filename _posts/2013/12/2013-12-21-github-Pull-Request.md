@@ -40,9 +40,9 @@ Pull 요청은 특히 Fork와 Pull 모델에 유용한데 이는 당신의 fork�
 
 누군가가 변경사항을 Pull 하길 원하는 저장소로 이동하여 Pull 요청 버튼을 누릅니다.
 
-> 브랜치를 전환한다.<br/><img src="/../../../../image/2013/pick-your-branch.png" alt="브랜치 전환 이미지" style="width: 200px;"/><br/><br/>
+> 브랜치를 전환한다.<br/><img src="{{ site.production_url }}/image/2013/pick-your-branch.png" alt="브랜치 전환 이미지" style="width: 200px;"/><br/><br/>
 
-> Compare & review버튼을 클릭한다.<br/><img src="/../../../../image/2013/pull-request-start-review-button.png" alt="Compare review버튼을 클릭한다" style="width: 200px;"/><br/><br/>
+> Compare & review버튼을 클릭한다.<br/><img src="{{ site.production_url }}/image/2013/pull-request-start-review-button.png" alt="Compare review버튼을 클릭한다" style="width: 200px;"/><br/><br/>
 
 Pull 요청은 아무 브랜치나 커밋을 보낼 수 있지만 주제 브랜치는 후속 커밋이 필요한 경우 Pull 요청을 업데이트하도록 Push할 수 있게 사용하는 것이 좋습니다.
 

@@ -11,7 +11,7 @@ tags: [ios, opensource, license, settings, bundle, Acknowledgements]
 
 이렇게 말이죠.
 
-<img src="/../../../../image/flickr/26575344152_e05c2c1876_c.jpg" width="240" height="214" alt="settings_bundle"><br/><br/>
+<img src="{{ site.production_url }}/image/flickr/26575344152_e05c2c1876_c.jpg" width="240" height="214" alt="settings_bundle"><br/><br/>
 
 
 위와 같이 설정에 정보를 추가하기 위해 프로젝트에 `Settings Bundle`를 추가하고, Root.plist 파일을 열고 다음 코드로 변경합니다.

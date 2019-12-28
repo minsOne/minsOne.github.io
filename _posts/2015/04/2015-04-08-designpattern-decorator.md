@@ -11,7 +11,7 @@ tags: [designPattern, decorator, wrapper, swift, super, class, protocol, compone
 
 데코레이터 패턴은 기존의 코드를 건드리지 않고 확장하도록 합니다. 디자인의 원칙 중 하나인 OCP(Open-Closed Principle)을 준수합니다. 
 
-<br/><img src="/../../../../image/2015/Decorator_UML.png" alt="Decorator_UML" style="width: 400px;"/><br/><br/>
+<br/><img src="{{ site.production_url }}/image/2015/Decorator_UML.png" alt="Decorator_UML" style="width: 400px;"/><br/><br/>
 
 출처 : Head First Design Pattern
 

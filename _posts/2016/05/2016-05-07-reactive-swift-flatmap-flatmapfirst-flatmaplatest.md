@@ -11,7 +11,7 @@ tags: [swift, ReactiveX, RxSwift, flatMap, flatMapFirst, flatMapLatest, Observab
 
 Rx에서 Observable에서 발행한 아이템을 다른 Observable로 만들며, 만들어진 Observable에서 아이템을 발행합니다.<br/>
 
-<img src="/../../../../image/flickr/26230104214_635e66ac0b_z.jpg" width="640" height="310" alt="flatMap"><br/>
+<img src="{{ site.production_url }}/image/flickr/26230104214_635e66ac0b_z.jpg" width="640" height="310" alt="flatMap"><br/>
 
 <br/>RxSwift에서 제공하는 예제를 살펴보면 좀 더 쉽게 이해할 수 있습니다.
 
@@ -108,7 +108,7 @@ Rx에서 Observable에서 발행한 아이템을 다른 Observable로 만들며,
 flatMapFirst는 flatMap과 마찬가지로 새로운 Observable을 만들지만, 새로운 Observable은 동작이 다 끝날 때 까지 새로 발행된 아이템을 무시합니다.<br/>
 
 <!-- flamapfirst 이미지 -->
-<img src="/../../../../image/flickr/26249223923_1e42d18ae7_z.jpg" width="640" height="266" alt="flatmapfirst"><br/>
+<img src="{{ site.production_url }}/image/flickr/26249223923_1e42d18ae7_z.jpg" width="640" height="266" alt="flatmapfirst"><br/>
 
 위 이미지를 살펴보면, 빨강색 아이템이 발행되고 `flatMapFirst`를 통해 여러 개의 아이템이 발행합니다. 파란색 아이템은 발행되더라도 새로운 Observable에서 빨강색 아이템이 아직 발행이 끝나지 않았기 때문에 무시됩니다. 빨강색 아이템 모두 발행이 끝난 후, 노란색 아이템이 발행되면 무시되지 않고 `flatMapFirst`를 통해 아이템을 발행합니다.
 
@@ -158,7 +158,7 @@ flatMapFirst는 flatMap과 마찬가지로 새로운 Observable을 만들지만,
 flatMapLatest는 새로운 Observable을 만들고, 새로운 Observable이 동작하는 중에 새로 발행된 아이템이 전달되면, 만들어진 Observable은 dispose하고 새로운 Observable을 만듭니다.<br/>
 
 <!-- flatmaplatest 이미지 -->
-<img src="/../../../../image/flickr/26759629302_46b51c4526_z.jpg" width="640" height="350" alt="flatMapLatest"><br/>
+<img src="{{ site.production_url }}/image/flickr/26759629302_46b51c4526_z.jpg" width="640" height="350" alt="flatMapLatest"><br/>
 
 위 이미지를 살펴보면, 녹색 아이템이 발행되고 연이어 파란색 아이템이 발행됩니다. 녹색 아이템에서 만들어진 Observable이 아이템을 발행하다 파란색 아이템이 발행되면 녹색 아이템에서 만들어진 Observable을 dispose하고, 파란색 아이템에서 Observable이 만들어지고 아이템이 발행됩니다.
 

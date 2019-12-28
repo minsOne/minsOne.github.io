@@ -22,17 +22,17 @@ tags: [Xcode, Project, Framework, Static Framework, Dynamic Framework, Dependenc
 다음 단계를 통해 서브 프로젝트를 만들어봅시다.
 
 1.File -> New -> Project
-<p style="text-align:center;"><img src="/../../../../image/2019/11/1.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/1.png" style="width: 600px"/></p><br/>
 2.Framework를 선택
-<p style="text-align:center;"><img src="/../../../../image/2019/11/2.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/2.png" style="width: 600px"/></p><br/>
 3.Product Name을 지정
-<p style="text-align:center;"><img src="/../../../../image/2019/11/3.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/3.png" style="width: 600px"/></p><br/>
 4.서브 프로젝트가 만들어 지는 경로를 지정
-<p style="text-align:center;"><img src="/../../../../image/2019/11/4.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/4.png" style="width: 600px"/></p><br/>
 5.서브 프로젝트 추가 완료.
-<p style="text-align:center;"><img src="/../../../../image/2019/11/5.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/5.png" style="width: 600px"/></p><br/>
 6.General -> Frameworks, Libraries, and Embedded Content 에 Service.framework 추가
-<p style="text-align:center;"><img src="/../../../../image/2019/11/6.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/6.png" style="width: 600px"/></p><br/>
 
 # Dependencies, 그리고 Static, Dynamic Framework
 
@@ -47,15 +47,15 @@ Dynamic Library에 Static Library가 코드가 복사되기 때문에, 서브 �
 1.위의 1~2단계 동일
 
 2.Product Name을 지정
-<p style="text-align:center;"><img src="/../../../../image/2019/11/7.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/7.png" style="width: 600px"/></p><br/>
 3.서브 프로젝트가 만들어 지는 경로를 지정
-<p style="text-align:center;"><img src="/../../../../image/2019/11/8.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/8.png" style="width: 600px"/></p><br/>
 4.서브 프로젝트 추가 완료.
-<p style="text-align:center;"><img src="/../../../../image/2019/11/9.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/9.png" style="width: 600px"/></p><br/>
 5.`Build Settings -> Linking -> Mach-O Type` 에서 Static Library로 변경
-<p style="text-align:center;"><img src="/../../../../image/2019/11/10.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/10.png" style="width: 600px"/></p><br/>
 6.Service 프로젝트의 `Build Phases -> Dependencies` 에서 AppLogService 추가
-<p style="text-align:center;"><img src="/../../../../image/2019/11/11.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/11.png" style="width: 600px"/></p><br/>
 
 Service 프로젝트는 Dynamic Framework이며, AppLogService 프로젝트는 Static Framework이므로 Service 프로젝트가 빌드되면서 Service Dynamic Library에 AppLogService Static Library가 복사될 것 입니다.
 
@@ -115,7 +115,7 @@ Send Log : Start
 이제 생성된 Service 프레임워크의 Dynamic Library를 다음 단계를 통해 살펴봅시다.
 
 1.Service.project의 Product -> Service.framework 파일 선택 후, 오른쪽에서 Pull Path를 얻음.
-<p style="text-align:center;"><img src="/../../../../image/2019/11/12.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/12.png" style="width: 600px"/></p><br/>
 2.터미널을 열고 다음과 같이 명령을 실행.
 
 ```
@@ -198,7 +198,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 
 3.SampleApp의 Product -> SampleApp.app 파일 선택 후, 오른쪽에서 Pull Path를 얻음.
-<p style="text-align:center;"><img src="/../../../../image/2019/11/13.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/13.png" style="width: 600px"/></p><br/>
 4.터미널을 열고 다음과 같이 명령을 실행.
 
 ```
@@ -303,7 +303,7 @@ SampleApp에서 `import Service.AppLogService` 로 import 하면 `No such module
 modulemap을 이용하여 우리가 원하는 기능을 구현해보도록 합시다.
 
 1.Service 프로젝트 내 빈 `module.modulemap` 파일을 생성.
-<p style="text-align:center;"><img src="/../../../../image/2019/11/14.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/14.png" style="width: 600px"/></p><br/>
 2.`module.modulemap` 파일 내에 다음과 같이 코드를 추가.
 
 ```
@@ -317,7 +317,7 @@ framework module Service {
 
 3.Service 프로젝트의 Build Settings -> Packaging -> Module Map File 항목에 다음과 같이 코드를 추가.
 
-<p style="text-align:center;"><img src="/../../../../image/2019/11/15.png" style="width: 600px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/11/15.png" style="width: 600px"/></p><br/>
 4.Service 프로젝트의 Service.swift 파일에 `@_exported import AppLogService`를 다음과 같이 코드를 추가.
 
 ```

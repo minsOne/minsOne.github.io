@@ -58,7 +58,7 @@ UIAlertController를 만들고 다음으로 아이디와 비밀번호를 입력�
             completion: nil)
 
 <br/>위의 코드를 통해서 다음과 같은 입력받을 수 있는 창을 띄울 수 있습니다.
-<img src="/../../../../image/2015/uialertController_uitextfield.png" alt="" style="width: 300px;"/><br/><br/>
+<img src="{{ site.production_url }}/image/2015/uialertController_uitextfield.png" alt="" style="width: 300px;"/><br/><br/>
 
 ### 참고 자료
 

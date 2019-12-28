@@ -147,7 +147,7 @@ square 변수의 center 속성은 점 문법(square.center)로 접근되며 이�
 
 center 속성은 새로운 값 (15, 15)로 설정되며, 우측 방향으로 위로 이동함. 새로운 좌표는 아래 그림에서 오랜지 색상 사각형으로 보여짐. center 속성 값을 설정하기 위해 setter를 호출하는데 저장된 origin 속성의 값 x, y는 변경되며 새로운 좌표로 사각형이 이동함.
 
-<img src="/../../../../image/2014/09/computedProperties_2x.png" alt="computedProperties" style="width: 400px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/computedProperties_2x.png" alt="computedProperties" style="width: 400px;"/><br/>
 
 
 #### 축약 Setter 선언(Shorthand Setter Declaration)
@@ -331,7 +331,7 @@ C와 Objective-C에서 정적 상수와 변수를 전역 정적 변수로서 연
 
 아래 그림은 두 오디오 채널이 오디오 레벨 미터 모델과 어떻게 결합하는지를 보여줌. 채널의 오디오 레벨이 0일 때, 채널에는 아무런 빛이 없음. 오디오 레벨 10이면 채널에 모든 빛이 들어옴. 그림처럼 왼쪽 채널은 레벨 9이며 오른쪽 채널은 레벨 7임.
 
-<img src="/../../../../image/2014/09/staticPropertiesVUMeter_2x.png" alt="staticPropertiesVUMeter" style="width: 400px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/staticPropertiesVUMeter_2x.png" alt="staticPropertiesVUMeter" style="width: 400px;"/><br/>
 
 위 오디오 채널은 AudioChannel 구조체의 인스턴스로 표시할 있음.
 

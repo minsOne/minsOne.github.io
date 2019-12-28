@@ -113,7 +113,7 @@ ARC는 새로운 인스턴스를 만들고 더 이상 필요 없을 때 Person �
 
 두 인스턴스가 만들어지고 할당 된 후에 강력 참조가 어떻게 보이는지 다음 그림에서 나타난다. john 변수는 새로운 Person 인스턴스에 강력 참조를 가지며, number73 변수는 새로운 Apartment 인스턴스에 강력 참조를 가진다.
 
-<img src="/../../../../image/2014/09/referenceCycle01_2x.png" alt="referenceCycle01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/referenceCycle01_2x.png" alt="referenceCycle01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 이제 두 인스턴스를 연결하도록 Person는 apartment를 가지고, apartment는 tenant를 가지도록 한다. 느낌표를 사용하여 옵셔널 변수인 john과 number73를 언래핑하고 인스턴스에 접근하여 각 인스턴스의 속성에 설정한다.
 
@@ -122,7 +122,7 @@ ARC는 새로운 인스턴스를 만들고 더 이상 필요 없을 때 Person �
 
 두 인스턴스를 서로 연결한 후에 강력 참조가 보이는 그림이다.
 
-<img src="/../../../../image/2014/09/referenceCycle02_2x.png" alt="referenceCycle02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/referenceCycle02_2x.png" alt="referenceCycle02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 두 인스터느는 강력 참조 순환으로 연결된다. Person 인스턴스는 Apartment 인스턴르를 강력 참조로, Apartment 인스턴스는 Person 인스턴스를 강력 참조로 가진다. 그래서 john과 number73 변수가 쥐고 있는 강력 참조를 끊을 때, 참조 계수는 0으로 떨어지지 않고 ARC는 인스턴스를 할당 해제하지 않는다.
 
@@ -133,7 +133,7 @@ ARC는 새로운 인스턴스를 만들고 더 이상 필요 없을 때 Person �
 
 다음은 john과 number73이 nil로 설정된 후에 어떻게 강력 참조가 보이는지 나타낸 그림이다.
 
-<img src="/../../../../image/2014/09/referenceCycle03_2x.png" alt="referenceCycle03" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/referenceCycle03_2x.png" alt="referenceCycle03" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 Person 인스턴스와 Apartment 인스턴스 간의 강력 참조는 끊어지지 않고 남아있다.
 
@@ -177,11 +177,11 @@ Swift는 강력 순환 참조를 해결할 수 있는 두가지 방법 - 약한 
 
 두 변수(john과 number73)로부터 강력 참조와 두 인스턴스 간의 연결한다.
 
-<img src="/../../../../image/2014/09/weakReference01_2x.png" alt="weakReference01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/weakReference01_2x.png" alt="weakReference01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 Person 인스턴스는 강력 참조하는 Apartment 인스턴스를 가지지만, Apartment 인스턴스는 약한 참조하는 Person 인스턴스 가진다. 이는 강력 순환 참조가 깨어졌음을 의미한다.
 
-<img src="/../../../../image/2014/09/weakReference02_2x.png" alt="weakReference02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/weakReference02_2x.png" alt="weakReference02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 Person 인스턴스에 대한 강한 참조가 더이상 없기에 인스턴스는 할당 해제된다.
 
@@ -190,7 +190,7 @@ Person 인스턴스에 대한 강한 참조가 더이상 없기에 인스턴스�
 
 Apartment 인스턴스에 대한 강한 참조는 number73 변수에 대한 것만 남아있다. 강력 참조를 깬다면, Apartment 인스턴스에 대한 강한 참조가 남아있지 않게 된다.
 
-<img src="/../../../../image/2014/09/weakReference03_2x.png" alt="weakReference03" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/weakReference03_2x.png" alt="weakReference03" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 Apartment 인스턴스에 강력 참조는 할당 해제된다.
 
@@ -248,13 +248,13 @@ number73에 nil 값을 설정하여 Person 인스턴스와 Apartment 인스턴�
 
 다음은 두 인스턴스가 연결된 참조를 나타내는 그림이다.
 
-<img src="/../../../../image/2014/09/unownedReference01_2x.png" alt="unownedReference01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/unownedReference01_2x.png" alt="unownedReference01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 Customer 인스턴스는 CreditCard 인스턴스에 강력 참조를 가지며, CreditCard 인스턴스는 Customer 인스턴스에 미소유 참조를 가진다.
 
 미소유 customer 참조때문에, john 변수가 가지는 강력 참조를 깨면, Customer 인스턴스에 강력 참조는 더 이상 없다.
 
-<img src="/../../../../image/2014/09/unownedReference02_2x.png" alt="unownedReference01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/unownedReference02_2x.png" alt="unownedReference01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 Customer 인스턴스는 강력 참조가 없으므로 할당 해제된다. 그다음에 CreditCard 인스턴스도 강력 참조도 없기 때문에 할당 해제된다.
 
@@ -365,7 +365,7 @@ asHTML 속성은 인스턴스 메소드와 같이 명명되고 사용된다. asH
 
 HTMLElement 클래스는 기본 asHTML에 클로저와 인스턴스 간의 강력 순환 참조가 만들어진다.
 
-<img src="/../../../../image/2014/09/closureReferenceCycle01_2x.png" alt="closureReferenceCycle01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/closureReferenceCycle01_2x.png" alt="closureReferenceCycle01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 인스턴스의 asHTML 속성은 클로저의 강력 참조를 유지한다. 클로저 내에서 self를 참조하기 떄문에 클로저는 self를 획득한다. 이는 강력 참조가 HTMLElement 인스턴스를 유지한다. 강력 참조 순환은 둘 사이 간에 만들어진다.
 
@@ -449,7 +449,7 @@ HTMLElement 구현은 이전 구현과는 다르게 asHTML 클로저 안에 획�
 
 다음은 획득 목록을 통한 클로저와 인스턴스 간 참조가 보이는 그림이다.
 
-<img src="/../../../../image/2014/09/closureReferenceCycle02_2x.png" alt="closureReferenceCycle02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/closureReferenceCycle02_2x.png" alt="closureReferenceCycle02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 클로저에 미소유 참조는 HTMLElement 인스턴스가 더이상 강하게 유지되지 않게 한다. 만약 paragraph 변수에 nil로 강한 참조를 설정하면 HTMLElement 인스턴스는 할당 해제되고 디이니셜라이저 메시지가 출력된다.
 

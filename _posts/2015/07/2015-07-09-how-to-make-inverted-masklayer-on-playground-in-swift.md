@@ -53,7 +53,7 @@ kCAFillRuleEvenOdd는 CGPath가 홀수 일 경우 Path 내부에 Point가 위치
 
 containerView의 layer에 dimmedLayer를 추가하여 다음과 같이 내부 영역이 뚤려져있는 것을 확인할 수 있습니다.
 
-<br/><img src="/../../../../image/2015/dimmedLayer.png" alt="" style="width: 500px;"/><br/><br/>
+<br/><img src="{{ site.production_url }}/image/2015/dimmedLayer.png" alt="" style="width: 500px;"/><br/><br/>
 
 ### 코드
 

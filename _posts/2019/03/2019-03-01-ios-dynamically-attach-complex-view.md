@@ -11,7 +11,7 @@ XCode에서 제공하는 스토리보드는 애증의 기능입니다. 좋긴 �
 
 스토리보드에서는 특정 화면에서만 사용하는 일회성 뷰를 만들어 사용할 수 있습니다. 이렇게 말이죠.
 
-<p style="text-align:center;"><img src="/../../../../image/2019/03/001.png" style="width: 700px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/03/001.png" style="width: 700px"/></p><br/>
 
 일회성 뷰는 필요한 경우 다음과 같이 코드로 뷰를 붙여넣습니다.
 
@@ -35,6 +35,6 @@ class ViewController: UIViewController {
 
 이와 같이 동적으로 뷰를 추가하여 결과를 확인할 수 있습니다.
 
-<p style="text-align:center;"><img src="/../../../../image/2019/03/002.png" style="width: 300px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/03/002.png" style="width: 300px"/></p><br/>
 
 따라서 스토리보드의 작은 화면에 많은 UI 요소를 넣는 것 보단, 위와 같이 일회성 뷰를 만들어 정리하고, 코드로 넣는 방식이 더 나을 수도 있습니다.

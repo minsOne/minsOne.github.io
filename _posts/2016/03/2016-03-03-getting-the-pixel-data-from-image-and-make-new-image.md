@@ -13,7 +13,7 @@ tags: [ios, swift, UIGraphics, bitmap]
 
 색상 값을 얻는 방법은 Apple의 [Getting the pixel data from a CGImage object](https://developer.apple.com/library/mac/qa/qa1509/_index.html)에서 참고하였으며, 다음 이미지에서 색상 값을 추출하였으며, playground에 끌어놓아 선언하였습니다.
 
-<img src="/../../../../image/flickr/25173909930_358f916dbe.jpg" width="343" height="343" alt=""><br/>
+<img src="{{ site.production_url }}/image/flickr/25173909930_358f916dbe.jpg" width="343" height="343" alt=""><br/>
 
 	import UIKit
 
@@ -64,7 +64,7 @@ tags: [ios, swift, UIGraphics, bitmap]
 
 이제 우리는 투명 부분이었던 영역이 인근 색상으로 바뀐 이미지를 얻게 됩니다.
 
-<img src="/../../../../image/flickr/25102854129_bf2b60919f.jpg" width="343" height="343" alt=""><br/>
+<img src="{{ site.production_url }}/image/flickr/25102854129_bf2b60919f.jpg" width="343" height="343" alt=""><br/>
 
 ### 참고 자료
 

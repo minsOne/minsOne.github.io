@@ -38,13 +38,13 @@ git설정을 확인하기 위해 다음 명령을 실행하세요.
 
 이메일이 GitHub 계정에 연결되지 않는다면 추후 커밋에 올바르게 책임을 지도록 추가해야 합니다.
 
-1. [계정 설정](https://github.com/settings)으로 이동하세요.<br/><img src="/../../../../image/2013/userbar-account-settings.png" alt="Account settings button" style="width: 150px;"/><br/><br/>
+1. [계정 설정](https://github.com/settings)으로 이동하세요.<br/><img src="{{ site.production_url }}/image/2013/userbar-account-settings.png" alt="Account settings button" style="width: 150px;"/><br/><br/>
 
-2. [이메일](https://github.com/settings/emails)을 클릭하세요.<br/><img src="/../../../../image/2013/settings-sidebar-emails.png" alt="Account settings button" style="width: 150px;"/><br/><br/>
+2. [이메일](https://github.com/settings/emails)을 클릭하세요.<br/><img src="{{ site.production_url }}/image/2013/settings-sidebar-emails.png" alt="Account settings button" style="width: 150px;"/><br/><br/>
 
-3. "다른 이메일 주소 추가하기" 클릭하세요.<br/><img src="/../../../../image/2013/settings-email-add-another-email-address.png" alt="Email addition button" style="width: 150px;"/><br/><br/>
+3. "다른 이메일 주소 추가하기" 클릭하세요.<br/><img src="{{ site.production_url }}/image/2013/settings-email-add-another-email-address.png" alt="Email addition button" style="width: 150px;"/><br/><br/>
 
-4. 이메일 주소를 입력하고 "추가" 클릭하세요.<br/><img src="/../../../../image/2013/settings-email-add-form.png" alt="Add email button" style="width: 150px;"/><br/><br/>
+4. 이메일 주소를 입력하고 "추가" 클릭하세요.<br/><img src="{{ site.production_url }}/image/2013/settings-email-add-form.png" alt="Add email button" style="width: 150px;"/><br/><br/>
 
 추가 보안을 위해 [GitHub에 이메일 인증](https://help.github.com/articles/setting-up-email-verification)을 할 수 있습니다.
 

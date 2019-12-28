@@ -16,7 +16,7 @@ Xcode 10부터는 Run Script phases에 `Input File Lists` 라는 기능이 생�
 <br/>
 
 #### 기존 방식
-<p style="text-align:center;"><img src="/../../../../image/2019/03/003.png" style="width: 700px"/></p>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/03/003.png" style="width: 700px"/></p>
 
 #### **xcfilelist**를 이용한 방식
 
@@ -31,7 +31,7 @@ $(SRCROOT)/Carthage/Build/iOS/Hue.framework
 $(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework
 ```
 
-<p style="text-align:center;"><img src="/../../../../image/2019/03/004.png" style="width: 700px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2019/03/004.png" style="width: 700px"/></p><br/>
 
 ## 참고 자료
 

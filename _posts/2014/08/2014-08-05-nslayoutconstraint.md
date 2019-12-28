@@ -102,10 +102,10 @@ view1.attr1 = view2.attr2 * multiplier + constant<br/><br/>
 
 * 세로 이미지
 <!-- 세로 이미지 -->
-<img src="/../../../../image/2014/08/autolayout-portrait.png" alt="autolayout-portrait" style="width: 200px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/08/autolayout-portrait.png" alt="autolayout-portrait" style="width: 200px;"/><br/>
 * 가로 이미지
 <!-- 가로 이미지 -->
-<img src="/../../../../image/2014/08/autolayout-landscape.png" alt="autolayout-landscape" style="height: 200px;"/><br/><br/>
+<img src="{{ site.production_url }}/image/2014/08/autolayout-landscape.png" alt="autolayout-landscape" style="height: 200px;"/><br/><br/>
 
 이번에는 화면 크기에 대응하여 뷰의 크기가 바뀌는 코드입니다.
 
@@ -129,10 +129,10 @@ view1.attr1 = view2.attr2 * multiplier + constant<br/><br/>
 
 * 세로 이미지
 <!-- 세로 이미지 -->
-<img src="/../../../../image/2014/08/autolayout-response-portrait.png" alt="autolayout-response-portrait" style="width: 200px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/08/autolayout-response-portrait.png" alt="autolayout-response-portrait" style="width: 200px;"/><br/>
 * 가로 이미지
 <!-- 가로 이미지 -->
-<img src="/../../../../image/2014/08/autolayout-response-landscape.png" alt="autolayout-response-landscape" style="height: 200px;"/><br/><br/>
+<img src="{{ site.production_url }}/image/2014/08/autolayout-response-landscape.png" alt="autolayout-response-landscape" style="height: 200px;"/><br/><br/>
 
 
 ### 시각적 형식 언어(Visual Format Language)
@@ -196,10 +196,10 @@ view1.attr1 = view2.attr2 * multiplier + constant<br/><br/>
 
 * 세로 이미지
 <!-- 세로 이미지 -->
-<img src="/../../../../image/2014/08/autolayout-portrait-VFS.png" alt="autolayout-portrait-VFS" style="width: 200px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/08/autolayout-portrait-VFS.png" alt="autolayout-portrait-VFS" style="width: 200px;"/><br/>
 * 가로 이미지
 <!-- 가로 이미지 -->
-<img src="/../../../../image/2014/08/autolayout-landscape-VFS.png" alt="autolayout-landscape-VFS" style="height: 200px;"/><br/><br/>
+<img src="{{ site.production_url }}/image/2014/08/autolayout-landscape-VFS.png" alt="autolayout-landscape-VFS" style="height: 200px;"/><br/><br/>
 
 ### 화면 레아아웃 디버깅
 

@@ -40,7 +40,7 @@ tags: [swift, uibutton, drawRect, UIBezierPath, ovalInRect, stroke, IBDesignable
 
 위의 코드를 작성하고 Storyboard로 이동하면 렌더링되어 파란색 원이 그려져있는 것을 볼 수 있습니다.
 
-<br/><img src="/../../../../image/flickr/20564927100_3fe973bf47.jpg" width="500" height="417" alt="addbutton1"><br/><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/20564927100_3fe973bf47.jpg" width="500" height="417" alt="addbutton1"><br/><br/>
 
 다음으로 + 선을 그리도록 합니다.
 
@@ -120,6 +120,6 @@ tags: [swift, uibutton, drawRect, UIBezierPath, ovalInRect, stroke, IBDesignable
 
 이제 AddButton을 더 만들더라도 Storyboard의 Attributes inspector에서 Fill Color와 isAddButton 값을 변경하여 + 버튼 또는 - 버튼으로 보이도록 할 수 있습니다.
 
-<br/><img src="/../../../../image/flickr/20566166389_e2bb9dcbb9.jpg" width="398" height="500" alt="addbutton2"><br/><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/20566166389_e2bb9dcbb9.jpg" width="398" height="500" alt="addbutton2"><br/><br/>
 
 다음에는 Material 디자인을 적용한 UIButton을 하나씩 만들어보도록 하겠습니다.

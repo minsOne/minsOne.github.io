@@ -135,7 +135,7 @@ Swift는 두 가지 방식의 while문을 제공함.
 
 이번에 사용할 예제는 뱀과 사다리(폭포와 사다리로 알려진) 게임임.
 
-<img src="/../../../../image/2014/08/snakesAndLadders_2x.png" alt="snakesAndLadders" style="width: 400x;"/><br/>
+<img src="{{ site.production_url }}/image/2014/08/snakesAndLadders_2x.png" alt="snakesAndLadders" style="width: 400x;"/><br/>
 
 다음은 게임의 규칙
 
@@ -347,7 +347,7 @@ C에서의 `switch`문과는 다르게, Swift에서 Switch문은 "a"와 "A"는 �
 	}
 	// prints "(1, 1) is inside the box"
 
-<img src="/../../../../image/2014/08/coordinateGraphSimple_2x.png" alt="coordinateGraphSimple" style="width: 400x;"/><br/>
+<img src="{{ site.production_url }}/image/2014/08/coordinateGraphSimple_2x.png" alt="coordinateGraphSimple" style="width: 400x;"/><br/>
 
 C와는 다르게 Swift는 switch문에 여러개의 경우를 같은 값이나 여러 값을 비교함.
 
@@ -368,7 +368,7 @@ Switch문의 경우는 일치하는 값 또는 여러 값을 임시 상수나 �
 	}
 	// prints "on the x-axis with an x value of 2"
 
-<img src="/../../../../image/2014/08/coordinateGraphMedium_2x.png" alt="coordinateGraphMedium" style="width: 400x;"/><br/>	
+<img src="{{ site.production_url }}/image/2014/08/coordinateGraphMedium_2x.png" alt="coordinateGraphMedium" style="width: 400x;"/><br/>	
 
 위에서 임시 상수로 x, y가 선언되며 anotherPoint의 튜플에 매칭되어 상수로 사용할 수 있음. 또한, 상수 (x,y)  튜플에 매칭되어 마찬가지로 사용함.
 
@@ -391,7 +391,7 @@ Switch의 경우에서 `Where` 절은 부가적인 조건을 확인하기 위해
 	}
 	// prints "(1, -1) is on the line x == -y"
 
-<img src="/../../../../image/2014/08/coordinateGraphComplex_2x.png" alt="coordinateGraphComplex" style="width: 400x;"/><br/>	
+<img src="{{ site.production_url }}/image/2014/08/coordinateGraphComplex_2x.png" alt="coordinateGraphComplex" style="width: 400x;"/><br/>	
 
 Switch문은 좌표가 x==y일 때 녹색 사선에 있는지 x == -y일때 보라색 사선에 있는지, 그 외에 지점에 있는지 확인함.
 

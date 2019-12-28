@@ -12,7 +12,7 @@ tags: [designPattern, factory, pattern, interface, class, inheritance, construct
 팩토리 메소드 패턴에서는 객체 생성을 처리하는 클래스를 정의합니다. 다수의 클래스를 생성하고 상황에 맞는 클래스를 가지고 객체를 생성을 하는데 생성 클래스의 변경에 따른 소스 변경이 줄어듭니다. 그렇기때문에 생성되는 로직은 알 필요가 없고 클래스 객체만 그대로 가져다 사용을 하면 됩니다.
 
 다음은 팩토리 패턴으로 사용할 예제 UML입니다.
-<br/><img src="/../../../../image/2014/04/FactoryPattern-UML.png" alt="FactoryPattern-UML" style="width: 600px;"/><br/><br/>
+<br/><img src="{{ site.production_url }}/image/2014/04/FactoryPattern-UML.png" alt="FactoryPattern-UML" style="width: 600px;"/><br/><br/>
 
 UFOEnemyShip과 RocketEnemyShip은 EnemyShip에서 상속을 받아 객체를 생성을 하고 EnemyShipFactory에서는 Client에서 EnemyShip 클래스들을 생성할 부분을 가져와서 객체를 생성하여 반환하는 역할을 합니다.
 

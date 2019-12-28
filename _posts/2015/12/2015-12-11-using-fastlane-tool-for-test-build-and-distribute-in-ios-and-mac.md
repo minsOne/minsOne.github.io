@@ -9,7 +9,7 @@ tags: [ios, xcode, fastlane, scan, gym, snapshot, deliver, itunesconnect]
 
 뒤늦게 [fastlane](https://fastlane.tools)을 알게되었습니다. 아직 Xcode ci를 도입해야하는데 이런저런 사정이.. 귀차니즘과 함께하여 진행하질 못하였기에 이런저런 수작업으로 바이너리를 앱스토어에 올리고 있었습니다.
 
-<br/><img src="/../../../../image/flickr/23656007995_4f54706ceb_z.jpg" width="533" height="187" alt="logo-desktop-large"><br/>
+<br/><img src="{{ site.production_url }}/image/flickr/23656007995_4f54706ceb_z.jpg" width="533" height="187" alt="logo-desktop-large"><br/>
 
 fastlane은 특정 기능들을 묶어 실행하는 길, 통로라고 할 수 있습니다.
 

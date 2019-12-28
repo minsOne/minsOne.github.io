@@ -312,7 +312,7 @@ Swift는 클래스 타입에 모든 저장 속성에 초기 값을 받도록 도
 
 이들 규칙은 다음 그림으로 표현함.
 
-<img src="/../../../../image/2014/09/initializerDelegation01_2x.png" alt="initializerDelegation01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/initializerDelegation01_2x.png" alt="initializerDelegation01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 슈퍼클래스는 지정 이니셜라이저 하나와 편의 이니셜라이저 두개를 가진다. 편의 이니셜라이저는 다른 편의 이니셜라이저를 호출하고 지정 이니셜라이저 호출을 돌려준다. 이는 규칙 2와 3을 만족하며, 이 슈퍼클래스는 위에 슈퍼클래스가 없기 때문에 규칙 1이 적용되지 않는다.
 
@@ -324,7 +324,7 @@ Swift는 클래스 타입에 모든 저장 속성에 초기 값을 받도록 도
 
 아래 그림은 네개의 클래스 계층 구조이다. 이 그림에서 지정 이니셜라이저가 클래스 초기화를 위한 깔대기로서 계층 역활을 하는 것을 보여주며, 클래스 연쇄의 연관성을 간략하게 한다.
 
-<img src="/../../../../image/2014/09/initializerDelegation02_2x.png" alt="initializerDelegation02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/initializerDelegation02_2x.png" alt="initializerDelegation02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 #### 두 단계 초기화(Two-Phase Initialization)
 
@@ -365,7 +365,7 @@ Swift 컴파일러는 두 단계 초기화가 에러없이 완벽하도록 네�
 
 다음은 가상의 서브클래스와 슈퍼클래스를 호출하는 1단계 초기화 그림이다.
 
-<img src="/../../../../image/2014/09/twoPhaseInitialization01_2x.png" alt="twoPhaseInitialization01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/twoPhaseInitialization01_2x.png" alt="twoPhaseInitialization01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 초기화는 서브클래스 상에서 편의 이니셜라이저를 호출 시작한다. 편의 이니셜라이저는 속성을 수정하지 못한다. 같은 클래스에서 지정 클래스로 위임을 넘긴다.
 
@@ -377,7 +377,7 @@ Swift 컴파일러는 두 단계 초기화가 에러없이 완벽하도록 네�
 
 다음은 2단계 초기화 호출 그림이다.
 
-<img src="/../../../../image/2014/09/twoPhaseInitialization02_2x.png" alt="twoPhaseInitialization02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/twoPhaseInitialization02_2x.png" alt="twoPhaseInitialization02" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 슈퍼클래스의 지정 이니셜라이저는 인스턴스에 사용자 정의를 위한 기회를 이제 가진다.
 
@@ -474,7 +474,7 @@ Food라는 계층의 기반 클래스는 단순히 식품의 이름을 캡슐화
 
 다음은 Food 클래스에 이니셜라이저 연쇄를 보여주는 그림이다.
 
-<img src="/../../../../image/2014/09/initializersExample01_2x.png" alt="initializersExample01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/initializersExample01_2x.png" alt="initializersExample01" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 클래스는 기본 멤버 이니셜라이저는를 가지고 있지 않고 name이라는 인자를 기자는 지정 이니셜라이저를 제공한다. 이니셜라이저는 특정 이름을 가지는 새로운 Food 인스턴스를 만들도록 사용할 수 있다.
 
@@ -503,7 +503,7 @@ RecipeIngredient라는 Food의 서브클래스는 요리법에 재료를 모은�
 
 RecipeIngredient 클래스를 위한 이니셜라이저 연쇄를 보여주는 그림이다.
 
-<img src="/../../../../image/2014/09/initializersExample02_2x.png" alt="initializersExample03" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/initializersExample02_2x.png" alt="initializersExample03" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 RecipeIngredient 클래스는 단일 지정 이니셜라이저 init(name: String, quantity: Int)를 가지며, 새로운 RecipeIngredient 인스턴스의 모든 속성이 있도록 사용할 수 있다. 이니셜라이저는 quantity 인자를 quantity 속성에 넘겨줘 할당하는 것을 시작한다. 이니셜라이저는 Food 클래스의 init(name: String) 이니셜라이저에 위임을 한다. 이는 안전 점검 1을 만족하는 과정이다.
 
@@ -538,7 +538,7 @@ ShoppingListItem이라는 RecipeIngredient 서브클래스는 쇼핑 목록을 �
 
 밑에 그림은 세 개의 클래스의 이니셜라이저 연쇄를 보여준다.
 
-<img src="/../../../../image/2014/09/initializersExample03_2x.png" alt="initializersExample03" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/initializersExample03_2x.png" alt="initializersExample03" style="width: 600px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 새로운 ShoppingListItem 인스턴스는 상속받은 세 개의 이니셜라이저를 통해 만들 수 있다.
 
@@ -600,7 +600,7 @@ breakfastList라는 배열은 [ShoppingListItem]로 추론되는 타입이며, �
 
 다음은 Checkerboard라는 구조체로 Checker 게임 보드판을 만든 예제임.
 
-<img src="/../../../../image/2014/09/checkersBoard_2x.png" alt="checkersBoard" style="width: 500px;display: block;margin-left: auto;margin-right: auto;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/checkersBoard_2x.png" alt="checkersBoard" style="width: 500px;display: block;margin-left: auto;margin-right: auto;"/><br/>
 
 Checker 게임은 10x10 보드판이며, 흰색, 검은색 사각형을 가진다. 게임판으로 Checkerboard 구조체로 표현되며 boardColors라는 단일 속성을 가지는데 100개의 값의 배열이다. 검은 사각형은 true로 흰색 사각형은 false로 표시된다. boardColors 배열은 클로저로 색상 값이 설정 초기화된다.
 

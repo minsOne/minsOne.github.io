@@ -108,7 +108,7 @@ Matrix는 rows와 columns라는 두 개의 인자를 가지는 초기화를 지�
 
 앞선 예제에서 생성한 새로운 Matrix 인스턴스는 행과 열이 각각 두 개씩 있으며 Matrix 인스턴스에 grid 배열은 효과적으로 행렬을 눕힌 버전으로 왼쪽 위에서 오른쪽 아래로 읽음.
 
-<img src="/../../../../image/2014/09/subscriptMatrix01_2x.png" alt="subscriptMatrix01" style="width: 400px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/subscriptMatrix01_2x.png" alt="subscriptMatrix01" style="width: 400px;"/><br/>
 
 행렬에 값은 콤마로 나누는 서브스크립트 안에 행과 열 값을 넘겨서 설정할 수 있음.
 
@@ -117,7 +117,7 @@ Matrix는 rows와 columns라는 두 개의 인자를 가지는 초기화를 지�
 
 두개의 문은 서브스크립트의 setter을 호출하여 행렬의 위에서 오른쪽 위치에 1.5 값으로 설정하며 아래에서 왼쪽 위치에 3.2 값으로 설정함.
 
-<img src="/../../../../image/2014/09/subscriptMatrix02_2x.png" alt="subscriptMatrix02" style="width: 200px;"/><br/>
+<img src="{{ site.production_url }}/image/2014/09/subscriptMatrix02_2x.png" alt="subscriptMatrix02" style="width: 200px;"/><br/>
 
 Matrix 서브스크립트 getter와 setter는 서브스크립트의 행과 열 값이 유효한지 확인하는 assertion을 가짐. 이 assertion을 지원히기 위해 Matrix는 indexIsValidForRow(_:column)이라는 편리한 메소드를 포함하며, 요청한 row와 column이 행렬 범위 안에 있는지 확인함.
 

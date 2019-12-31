@@ -10,7 +10,7 @@ tags: [iOS, UIImage, Swift, imageLiteral, _ExpressibleByImageLiteral, Bundle, Fr
 Swift 3에서 이미지를 코드 상에서 볼 수 있는 문법이 추가되었습니다.
 
 ```
-let image = #imageLiteral(resourceName: "Screen Shot")
+let image = #imageLiteral(resourceName: "imageName")
 ```
 
 위 코드는 `libswiftUIKit.dylib`에서 `UIImage.init(named:)` 를 쉽게 사용할 수 있는 코드입니다. 
@@ -95,12 +95,12 @@ public extension R {
 이제 우리는 다음과 같이 imageLiteral을 이용하여 이미지를 불러올 수 있습니다.
 
 ```
-let screenshot1: R.Image = #imageLiteral(resourceName: "Screen Shot")
+let screenshot1: R.Image = #imageLiteral(resourceName: "imageName")
 UIImageView(image: screenshot.image)
 
-UIImageView(image: R.Image.name(#imageLiteral(resourceName: "Screen Shot")).image)
+UIImageView(image: R.Image.name(#imageLiteral(resourceName: "imageName")).image)
 ```
 
 # 참고자료
 * [Stackoverflow - Xcode8: Usage of image literals in frameworks](https://stackoverflow.com/a/46292441/2749449)
-* [Swift - _ExpressibleByImageLiteral](https://github.com/apple/swift/blob/master/stdlib/public/core/CompilerProtocols.swift#L939)
+* [Swift - CompilerProtocols](https://github.com/apple/swift/blob/master/stdlib/public/core/CompilerProtocols.swift#L939)

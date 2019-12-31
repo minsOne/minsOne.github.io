@@ -96,9 +96,9 @@ public extension R {
 
 ```
 let screenshot1: R.Image = #imageLiteral(resourceName: "Screen Shot")
-print(screenshot.image)
+UIImageView(image: screenshot.image)
 
-let screenshot2: UIImage? = R.Image.name(#imageLiteral(resourceName: "Screen Shot")).image
+UIImageView(image: R.Image.name(#imageLiteral(resourceName: "Screen Shot")).image)
 ```
 
 # 참고자료

@@ -37,7 +37,7 @@ $ brew install graphviz
 
 ## 2. 모든 XcodeProject 찾기
 
-아직 ruby가 익숙하지 않은 관계로 Shell 스크립트로 `*.xcodeproj` 폴더를 모두 찾을 것입니다.
+아직 ruby가 익숙하지 않은 관계로 Shell 스크립트로 `*.xcodeproj` 폴더를 모두 찾습니다.
 
 ```
 $ find . -name "*.xcodeproj" -not -path "./Carthage/*"
@@ -58,7 +58,7 @@ Framework 간의 연결을 먼저 확인할 예정이므로 앱 프로젝트는 
 
 ## 3. 프로젝트에서 사용하는 Framework 추출하기
 
-이제 **XcodeProj** Gem을 이용하여 각 프레임워크들이 사용하는 프레임워크를 찾을 것입니다.
+이제 **XcodeProj** Gem을 이용하여 각 프레임워크들이 사용하는 프레임워크를 찾습니다.
 
 ```
 # search_dependency_framework.rb
@@ -88,7 +88,7 @@ end
 puts "}"
 ```
 
-위 코드를 만들어 실행하면 다음과 같은 결과를 얻을 수 있습니다.
+위 코드를 만들어 실행하면 다음과 같은 결과를 얻습니다.
 
 ```
 digraph G {
@@ -118,7 +118,7 @@ digraph G {
 
 ## 4. Graphviz를 이용하여 그리기
 
-위에서 출력된 결과를 Graphviz를 이용해 다이어그램 그립니다.
+위에서 출력된 결과를 Graphviz를 이용해 다이어그램을 만듭니다.
 
 ```
 $ ruby search_dependency_framework.rb >> input.dot && dot -Tpdf input.dot -o digraph.pdf
@@ -128,7 +128,7 @@ $ ruby search_dependency_framework.rb >> input.dot && dot -Tpdf input.dot -o dig
 
 ## 5. App 프로젝트까지 포함한 다이어그램 그리기
 
-이제 앱까지 연결한 다이어그램을 그려보도록 하겠습니다.
+이제 앱까지 연결한 다이어그램을 만들어 보겠습니다.
 
 앱 프로젝트에서 사용하는 프레임워크를 추출해봅시다.
 
@@ -151,7 +151,7 @@ end
 puts "}"
 ```
 
-위 코드를 만들어 실행하면 다음과 같은 결과를 얻을 수 있습니다.
+위 코드를 만들어 실행하면 다음과 같은 결과를 얻습니다.
 
 ```
 digraph G {
@@ -216,7 +216,7 @@ end
 puts "}"
 ```
 
-위 코드를 실행하면 다음과 같은 결과를 얻을 수 있습니다.
+위 코드를 실행하면 다음과 같은 결과를 얻습니다.
 
 ```
 digraph G {
@@ -253,7 +253,7 @@ digraph G {
 }
 ```
 
-위에서 출력된 결과를 Graphviz를 이용해 다이어그램 그립니다.
+위에서 출력된 결과를 Graphviz를 이용해 다이어그램을 그립니다.
 
 ```
 $ ruby dependency_framework_digraph.rb >> input.dot && dot -Tpdf input.dot -o digraph.pdf

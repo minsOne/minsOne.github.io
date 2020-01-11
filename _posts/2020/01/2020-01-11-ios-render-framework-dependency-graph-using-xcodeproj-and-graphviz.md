@@ -111,6 +111,8 @@ digraph G {
 "GoogleAppMeasurement" -> "Analytics"
 "GoogleDataTransportCCTSupport" -> "Analytics"
 "StoreKit" -> "Analytics"
+"Clock" -> "MainFeature"
+"Settings" -> "MainFeature"
 }
 ```
 
@@ -185,6 +187,8 @@ app_path = "./DigitClockinSwift.xcodeproj"
 
 puts "digraph G {"
 
+graphes = []
+
 framework_paths.each do |path|
 	project = Xcodeproj::Project.open(path)
 	if project.targets.first.frameworks_build_phases.files.empty? == true or
@@ -193,7 +197,7 @@ framework_paths.each do |path|
 	end
 	project.targets.first.frameworks_build_phases.files.each do |framework|
 		framework.display_name.sub!("\.framework", "")
-		puts "\t\"#{framework.display_name}\" -> \"#{project.targets.first.product_name}\""
+		graphes.append("\t\"#{framework.display_name}\" -> \"#{project.targets.first.product_name}\"")
 	end
 end
 
@@ -201,8 +205,12 @@ project = Xcodeproj::Project.open(app_path)
 if project.targets.first.product_type == "com.apple.product-type.application"
 	project.frameworks_group.children.each do |child|
 		child.display_name.sub!("\.framework", "")
-		puts "\t\"#{child.display_name}\" -> \"#{project.targets.first.product_name}\""
+		graphes.append("\t\"#{child.display_name}\" -> \"#{project.targets.first.product_name}\"")
 	end
+end
+
+graphes.sort.each do |graph|
+	puts graph
 end
 
 puts "}"
@@ -211,35 +219,37 @@ puts "}"
 위 코드를 실행하면 다음과 같은 결과를 얻을 수 있습니다.
 
 ```
-digraph Line {
-	"Resources" -> "Settings"
-	"RIBs" -> "Settings"
-	"Settings" -> "Clock"
-	"RIBs" -> "Clock"
-	"Library" -> "ClockTimer"
-	"Library" -> "Resources"
-	"GoogleUtilities" -> "Analytics"
-	"FirebaseCoreDiagnostics" -> "Analytics"
-	"libsqlite3.0.tbd" -> "Analytics"
-	"GoogleDataTransport" -> "Analytics"
-	"Firebase" -> "Analytics"
-	"FIRAnalyticsConnector" -> "Analytics"
-	"FirebaseAnalytics" -> "Analytics"
-	"FirebaseInstanceID" -> "Analytics"
-	"nanopb" -> "Analytics"
-	"FirebaseCore" -> "Analytics"
-	"GoogleAppMeasurement" -> "Analytics"
-	"GoogleDataTransportCCTSupport" -> "Analytics"
-	"StoreKit" -> "Analytics"
-	"RxRelay" -> "DigitClockinSwift"
-	"RIBs" -> "DigitClockinSwift"
-	"RxSwift" -> "DigitClockinSwift"
-	"MainFeature" -> "DigitClockinSwift"
-	"Clock" -> "DigitClockinSwift"
-	"Settings" -> "DigitClockinSwift"
-	"Library" -> "DigitClockinSwift"
-	"Resources" -> "DigitClockinSwift"
+digraph G {
 	"Analytics" -> "DigitClockinSwift"
+	"Clock" -> "DigitClockinSwift"
+	"Clock" -> "MainFeature"
+	"FIRAnalyticsConnector" -> "Analytics"
+	"Firebase" -> "Analytics"
+	"FirebaseAnalytics" -> "Analytics"
+	"FirebaseCore" -> "Analytics"
+	"FirebaseCoreDiagnostics" -> "Analytics"
+	"FirebaseInstanceID" -> "Analytics"
+	"GoogleAppMeasurement" -> "Analytics"
+	"GoogleDataTransport" -> "Analytics"
+	"GoogleDataTransportCCTSupport" -> "Analytics"
+	"GoogleUtilities" -> "Analytics"
+	"Library" -> "ClockTimer"
+	"Library" -> "DigitClockinSwift"
+	"Library" -> "Resources"
+	"MainFeature" -> "DigitClockinSwift"
+	"RIBs" -> "Clock"
+	"RIBs" -> "DigitClockinSwift"
+	"RIBs" -> "Settings"
+	"Resources" -> "DigitClockinSwift"
+	"Resources" -> "Settings"
+	"RxRelay" -> "DigitClockinSwift"
+	"RxSwift" -> "DigitClockinSwift"
+	"Settings" -> "Clock"
+	"Settings" -> "DigitClockinSwift"
+	"Settings" -> "MainFeature"
+	"StoreKit" -> "Analytics"
+	"libsqlite3.0.tbd" -> "Analytics"
+	"nanopb" -> "Analytics"
 }
 ```
 

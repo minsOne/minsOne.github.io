@@ -185,8 +185,6 @@ framework_paths = [
 
 app_path = "./DigitClockinSwift.xcodeproj"
 
-puts "digraph G {"
-
 graphes = []
 
 framework_paths.each do |path|
@@ -197,7 +195,7 @@ framework_paths.each do |path|
 	end
 	project.targets.first.frameworks_build_phases.files.each do |framework|
 		framework.display_name.sub!("\.framework", "")
-		graphes.append("\t\"#{framework.display_name}\" -> \"#{project.targets.first.product_name}\"")
+		graphes.push("\t\"#{framework.display_name}\" -> \"#{project.targets.first.product_name}\"")
 	end
 end
 
@@ -205,9 +203,11 @@ project = Xcodeproj::Project.open(app_path)
 if project.targets.first.product_type == "com.apple.product-type.application"
 	project.frameworks_group.children.each do |child|
 		child.display_name.sub!("\.framework", "")
-		graphes.append("\t\"#{child.display_name}\" -> \"#{project.targets.first.product_name}\"")
+		graphes.push("\t\"#{child.display_name}\" -> \"#{project.targets.first.product_name}\"")
 	end
 end
+
+puts "digraph G {"
 
 graphes.sort.each do |graph|
 	puts graph

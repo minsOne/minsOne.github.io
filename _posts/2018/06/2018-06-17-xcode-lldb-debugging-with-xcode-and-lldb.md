@@ -9,6 +9,10 @@ tags: [Xcode, LLDB, lldb, debug, python]
 
 iOS 개발을 좀 더 잘하기 위해, 편하게 버그를 추적하기 위해 LLDB를 이용한 디버깅 방법을 기록합니다.
 
+## **Thread의 Stack, Frame**
+
+Thread가 생겨날 때, 해당 Thread를 위한 **Stack**이 만들어지며, 해당 **Stack**에는 Frame이 들어갑니다.
+
 ## **Execution Commands**
 
 * **Continue** - 정지된 프로그램 실행을 재개함.

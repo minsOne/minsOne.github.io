@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][Gem] XcodeProj Gem과 Graphviz를 이용하여 프로젝트의 Framework Dependency Diagram 그리기"
+title: "[iOS] XcodeProj Gem과 Graphviz를 이용하여 프로젝트의 Framework Dependency Diagram 그리기"
 description: ""
 category: "programming"
 tags: [Ruby, Gem, XcodeProj, Graphviz, Framework]

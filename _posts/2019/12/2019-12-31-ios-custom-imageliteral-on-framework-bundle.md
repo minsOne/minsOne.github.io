@@ -79,16 +79,23 @@ public class R {
 /// R+Image.swift
 import UIKit
 
-public extension R {
-  struct Image: _ExpressibleByImageLiteral {
-    public let image: UIImage?
-    public init(imageLiteralResourceName path: String) {
-      self.image = UIImage(named: path, in: R.bundle, compatibleWith: nil)
+extension R {
+    public struct Image: _ExpressibleByImageLiteral {
+        public let image: UIImage
+
+        public init(imageLiteralResourceName path: String) {
+            if let image = UIImage(named: path, in: R.bundle, compatibleWith: nil) {
+                self.image = image
+            } else {
+                assert(false, "해당 이미지가 없습니다.")
+                self.image = UIImage()
+            }
+        }
+
+        public static func name(_ image: Image) -> UIImage {
+            return image.image
+        }
     }
-    public static func name(_ image: Image) -> Image {
-      return image
-    }
-  }
 }
 ```
 
@@ -98,7 +105,7 @@ public extension R {
 let screenshot1: R.Image = #imageLiteral(resourceName: "imageName")
 UIImageView(image: screenshot.image)
 
-UIImageView(image: R.Image.name(#imageLiteral(resourceName: "imageName")).image)
+UIImageView(image: R.Image.name(#imageLiteral(resourceName: "imageName")))
 ```
 
 # 참고자료

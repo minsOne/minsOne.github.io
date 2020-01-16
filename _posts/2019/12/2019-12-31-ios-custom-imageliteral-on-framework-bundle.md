@@ -105,7 +105,17 @@ extension R {
 let screenshot1: R.Image = #imageLiteral(resourceName: "imageName")
 UIImageView(image: screenshot.image)
 
+
 UIImageView(image: R.Image.name(#imageLiteral(resourceName: "imageName")))
+
+
+extension UIImage {
+  static func literal(_ r: R.Image) -> Self {
+    return r.image
+  }
+}
+var aImage: UIImage { .literal(#imageLiteral(resourceName: "imageName")) }
+UIImageView(image: .literal(#imageLiteral(resourceName: "imageName")))
 ```
 
 # 참고자료

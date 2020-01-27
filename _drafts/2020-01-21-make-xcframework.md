@@ -36,3 +36,6 @@ https://instabug.com/blog/ios-binary-framework/
 https://instabug.com/blog/swift-5-module-stability-workaround-for-binary-frameworks/
 
 https://medium.com/@dcortes22/how-to-create-a-xcframework-2a166445a898
+
+https://pspdfkit.com/guides/ios/current/troubleshooting/removing-architectures/
+https://pspdfkit.com/guides/ios/current/getting-started/integrating-pspdfkit/

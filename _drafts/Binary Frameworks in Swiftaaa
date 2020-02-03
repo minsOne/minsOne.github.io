@@ -1,3 +1,35 @@
+WWDC 2019에서 [**Binary Frameworks in Swift**](https://developer.apple.com/videos/play/wwdc2019/416/) 라는 세션으로 XCFramework를 발표했습니다.
+
+xcodebuild archive -scheme XCFrameworkTest -archivePath "./build/ios.xcarchive" -sdk iphoneos SKIP_INSTALL=NO
+xcodebuild archive -scheme XCFrameworkTest -archivePath "./build/ios_sim.xcarchive" -sdk iphonesimulator SKIP_INSTALL=NO
+xcodebuild archive -scheme XCFrameworkTest -archivePath "./build/mac.xcarchive" SKIP_INSTALL=NO
+
+xcodebuild archive -scheme XCFrameworkTest -archivePath "./build/ios.xcarchive" -sdk iphoneos SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+
+xcodebuild -create-xcframework \
+    -framework "./build/mac.xcarchive/Products/Library/Frameworks/XCFrameworkTest.framework" \
+    -output "./build/XCFrameworkExample.xcframework"
+
+///
+xcodebuild -create-xcframework \
+    -framework "./build/ios.xcarchive/Products/Library/Frameworks/XCFrameworkExample.framework" \
+    -framework "./build/ios_sim.xcarchive/Products/Library/Frameworks/XCFrameworkExample.framework" \
+    -framework "./build/macos.xcarchive/Products/Library/Frameworks/XCFrameworkExample.framework" \
+    -output "./build/XCFrameworkExample.xcframework"
+
+
+
+# WWDC 2019 - Binary Frameworks in Swift 정리
+
+## Introducing XCFrameworks
+
+XCFramework는 Xcode11부터 제공하는 새로운 포맷으로 여러 Framework 변형을 묶어 배포할 수 있습니다. Xcode가 지원하는 모든 플랫폼을 지원하며, AppKit을 사용하는 Mac App, UIKit을 사용하는 MacApp도 지원합니다.
+
+
+
+Static 프레임워크와 해당 헤더도 묶을 수 있으며, Swift와 C 기반 코드의 바이너리 배포를 지원합니다.
+
+
 Binary Frameworks in Swift
 
 ## XCFramework 설명
@@ -133,13 +165,90 @@ usableFromInline으로 속성을 마크했기 때문에 가능합니다.
 외부 클라이언트가 임의로 읽거나 쓰는 것이 방지됩니다.
 그래서 internal이지만 usableFromInline 입니다.
 
+선언할때마다 결정된다는 점에 유의해야 합니다.
+currentCargo 속성은 internal이고, Module Interface에는 포함되지 않습니다.
+Module Interface에 canCarry 메소드의 본문이 있습니다.
+클라이언트가 해당 인터페이스에 대해 컴파일을 할 때, 해당 본문을 직접 코드에 복사하며, 체크중인 cargo에 대해 알고 있는 경우 더 최적화 할 수 있습니다.
+프레임워크 소유자가 메소드의 본문을 변경하고 클라이언트가 재컴파일을 하지 않으면 어떻게 될까요? 예를 들어, CargoShip이 Radioactive cargo는 운반할 수 없다는 새로운 규칙이 있다면 어떻게 될까요? 이 경우에는 문제가 생길 것입니다.
+이제 프로그램의 다른 두 부분에서 이 메소드가 무엇을 해야하는지 생각이 달라지기 때문입니다.
 
-이 경우, 앞에서 본 우주선 클래스의 CargoShip 서브 클래스가 있으며, CarCarShip이 일부화물을 운반 할 수 있는지 여부를 결정하는 canCarry 메소드가 있습니다.
-  나는 이것이 고객의 성과에 중요하다고 생각하기 때문에 이것을 무가치하게 만들었습니다.
-  이것이 할 일은이 메소드를 선언뿐만 아니라 본문의 공용 인터페이스의 일부로 만드는 것입니다.
-  그 효과는 해당 본문을 모듈 인터페이스 파일에 복사하는 것입니다.
-  매우 빠르게 읽는다면이 메소드가 CargoShip 클래스의 내부 속성을 참조한다는 것도 알 수 있습니다.
-  그 속성은 인라인에서 사용 가능한 것으로 표시했기 때문에 가능합니다.
-  이를 통해 두 세계를 모두 활용할 수 있습니다.
-  이 속성은 프레임 워크의 퍼블릭 인터페이스의 일부로 제공되지만, inlinable 코드에서만 사용할 수 있습니다.
-  외부 클라이언트가 임의로 읽거나 쓰는 것을 방지합니다.
+일반 Cargo인 경우는 클라이언트와 프레임워크는 괜찮다고 말합니다.
+그러나 Radioactive cargo를 테스트하려고 하면, 클라이언트 코드는 컴파일될 때 Module Interface에서 보았기때문에 괜찮다고 말할 것입니다.
+프레임워크는 새로운 버전의 메소드가 있지만 허용하지 않을 것입니다.
+프로그램에 심각한 논리 오류를 나타낼 수 있습니다.
+경험적으로 @inlinable 함수를 만든 프레임워크 작성자는 출력이나 관찰 가능한 동작을 변경하지 않아야 합니다.
+더 나은 알고리즘이나 fast pad를 추가하는 것은 괜찮지만, 함수의 관찰 가능한 동작을 변경하면 런타임시, 특정 입력에서만 볼 수 있는 미묘한 문제가 발생할 수 있습니다.
+이 작업을 해야한다면, 모든 클라이언트가 컴파일을 다시 해야합니다.
+
+다음으로 열거 형에 대해 이야기하고 싶습니다.
+스위프트 열거 형은 훌륭합니다.
+여기에서 한가지 이야기 할 것은 소스나 바이너리 호환성을 깨트리지 않고도 새로운 case를 enum에 추가할 수 있습니다.
+이는 클라이언트가 default case가 항상 있어야 한다는 것입니다.
+클라이언트에서는 Swift 4.2에서 도입한 @unknown default 구문을 사용하기로 결정했습니다.
+
+이는 enum에서 알려진 모든 case를 다뤘지만, 미래에 추가되는 case를 처리한다는 의미입니다. 
+
+///다른 효과로 앞에서 이야기한 것에서 클라이언트와 프레임워크 간의 handshake 종류로 enum의 크기와 정리가 필요한 지에 대한 것입니다.
+
+frozen 속성을 enum에 표시하면, 프레임워크 작성자는 향후 릴리즈에 새로운 case가 추가되지 않는는 약속을 할 수 있습니다.
+첫번째 효과로 클라이언트는 더이상 default case를 작성할 필요가 없습니다.
+컴파일러는 더 효율적으로 컴파일을 할 수 있습니다.
+클라이언트는 enum에 추가 case가 없어 정리할 필요가 없다고 가정할 수 있습니다.
+Flight Plan에 새로운 case를 추가했습니다.
+클라이언트 코드는 default case가 없으므로, @frozen enum에 새로운 case를 소스와 바이너리에 추가하고, Major 버전을 증가하고 모든 클라이언트에 컴파일을 다시 해야합니다.
+@frozen Struct도 거의 같습니다.
+기본적으로 바이너리 프레임워크의 struct는 새로운 stored 속성을 추가되거나 기존 속성일 재정렬하는데 문제 없지만, 클라이언트와 프레임워크 간의 handshake의 같은 종류와 추가 커뮤니케이션이 발생합니다.
+
+이것을 방지하기 위해 frozen layout을 가지는 것으로 알려진 struct는 @frozen 속성을 사용하여 stored 속성이 변경되지 않음을 약속할 수 있습니다.
+추가되거나 순서 변경 또는 제거되지 않습니다.
+그리고 다른 하나는 stored 속성의 타입은 모두 public이거나 @usableFromInline이어야 합니다.
+컴파일러가 클라이언트 코드로 작업할 때, 직접 구조체의 stored 속성을 조작하여 클라이언트 사이드에 매우 효율적인 코드를 생성하기를 원합니다.
+이는 매우 의미론적인 효과를 가지는데, 프레임워크 작성자는 @inlinable 생성자를 작성할 수 있습니다.
+생성자는 모든 stored 속성을 설정하는 것을 요구하는데, 컴파일러는 이후 버전의 프레임워크에서도 그렇게 할 것이라고 확신할 수 있습니다.
+Flexibility가 기본이라는 것을 상기시켜 이 섹션을 마무리 합니다.
+변경사항은 클라이언트에게 정말로 불편하다는 점입니다.
+클라이언트는 프레임워크 새 버전을 사용할지 여부를 다시 추측합니다 이는 어떤 방식으로든 깨질 수 있기 때문입니다.
+또한 다른 바이너리 프레임워크에 바이너리 프레임워크가 문제가 발생할 수 있습니다.
+이러한 속성은 클라이언트 코드에만 영향을 미칩니다.
+프레임워크 내에선 여전히 컴파일러 최적화의 모든 기능을 이용할 수 있습니다.
+@frozen 또는 @inlinable에 접근하기 전에 외부에서 프레임워크의 동작을 프로파일링하고 추가 성능이 필요하다는 것을 입증해야 합니다.
+그렇지 않으면 필요할 수 있으므로 Flexibility를 유지하세요.
+
+이제 마지막 섹션으로 고객의 경험이 최상인지를 확인하는 것입니다.
+
+Entitlements로 시작합니다.
+프레임워크는 작업이 끝났을 때 특정 Entitlements를 필요로 합니다. 기본부터 시작해봅시다.
+잠재적인 클라이언트가 프레임워크를 성공적으로 채택하기 위해 할일을 알 수 있도록 문서화를 해야합니다.
+또한, 특정 프레임워크의 권한 요청하는 것을 최소화하며, 이는 더 많은 컨텍스트에 적용할 수 있음을 의미합니다.
+프레임워크를 사용하여 더 많은 고객을 확보할 수 있습니다.
+프레임워크와 어플리케이션은 유저에게 권한을 요청할 수 있지만, 궁극적으로 권한 부여 여부는 고객의 선택임을 명심하십시오.
+특정 권한이 거부되면 프레임워크가 해당 거부를 정상적으로 처리하는지 확인해야 합니다.
+앱은 크래시나거나 작동이 멈추지 않아야 합니다.
+클라이언트는 포기하지 않고 프레임워크를 사용할 수 있도록 여전히 유용한 작업을 하도록 해야합니다.
+의존성은 Entitlements과 동일한 관심를 가지고 있습니다.
+Entitlements과 비슷하게, 프레임워크의 의존성은 어플리케이션의 의존성이 됩니다.
+그리고 다시 잠재 클라이언트가 무엇을 신청하는지 알 수 있도록 문서화를 시작해야 합니다.
+의존성을 최소화하여 클라이언트를 덜 요구하도록 합니다.
+신뢰 확장(extending trust)과 의존성이 차지하는 코드 사이즈와 같은 실제적인 문제도 적습니다.
+마지막으로 Build Libraries for Distribution 빌드 설정을 사용하여 모든 의존성을 빌드하여 바이너리 호환성 보장을 해야합니다.
+바이너리 프레임워크가 패키지에 의존할 수 없다는 특별한 의미가 있습니다.
+
+의존성 그래프를 봅시다.
+몇분 전에 프레임워크의 의존성이 앱에 종속된다고 말했습니다.
+앱이 패키지를 빌드할 때 특정 태그를 선택해야 합니다.
+프레임워크가 가지는 버전과 일치하지 않을 수 있습니다.
+호환되지 않을 수 있습니다.
+그 외에도 모든 프레임워크가 Build Libraries for Distribution로 호환되게 빌드될 수 있는 것은 아닙니다.
+이 설정은 지원되지 않습니다.
+마지막으로 말씀 드리고 싶은 것은 Objective-C Interface입니다.
+Swift 프레임워크 작성자는 Objective-C Interface가 대부분 있으며, 이는 Xcode 기본 템플릿이 Objective-C Umbrella Header와 Swift의 Objective-C 일부를 포함하는 생성된 Header가 설정되어 있습니다.
+Swift 코드에 Objective-C API가 없으면 Second Header를 전혀 설치할 필요가 없습니다.
+Swift Compiler - Genenal의 Install Objective-C Compatibility Header 빌드 설정을 끌 수 있습니다.
+프레임워크가 Objective-C API를 제공하지 않으면 Objective-C Import 구문을 지원할 이유가 없으며, Packing의 Defines Module Build 빌드 설정을 끌 수 있습니다.
+No로 설정하면 더 이상 유효한 Objective-C 코드가 아닙니다.
+Xcode가 생성한 Umbrella Header를 삭제할 수 있습니다.
+
+오늘 많은 것을 이야기 했지만 가장 중요한 것은 XCFrameworks입니다
+사용자가 매우 쉽게 여러 프레임워크 변형을 배포하기 위한 새로운 Bundle 형식입니다.
+XCFrameworks를 빌드하려면 적절한 바이너리 호환 프레임워크를 얻는데 필요한 항목인 Build Libraries for Distribution 빌드 설정을 켜야합니다.
+프레임워크 소유자는 고객에게 제공해야 할 책임을 잘 알고 있어야 최상의 서비스를 제공할 수 있습니다.

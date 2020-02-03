@@ -1,10 +1,3 @@
-Binary Frameworks in Swift
-
-## 요약
-
-* Xcode 11에서 XCFramework라는 새로운 포맷을 사용하여 바이너리 라이브러리를 배포할 수 있습니다.
-* XCFramework는 앞으로 Xcode 버전에서 여러가지 Framework를 묶는 새로운 방법입니다.
-* 단일 XCFramework는 시뮬레이터와 디바이스 Framework를 가집니다.
 
  [ Applause and Cheering ]  Good afternoon, everyone.
  My name is Harlan.
@@ -33,10 +26,19 @@ Binary Frameworks in Swift
  Because a single XCFramework can also contain a variant for any of the platforms that Xcode supports.
  You can also have a variant for Mac apps that use AppKit, and a variant for Mac apps that use UIKit.
  So, no matter which API your clients want to use, they will be able to use your framework effectively.
+
+
+
  And not only can you bundle up frameworks, but you can also use XCFrameworks to bundle up static libraries, and their corresponding headers.
+
+
  And Xcode will set up your client's search pads automatically.
+
+
  And of course--  XCFrameworks support binary distribution of Swift and C-based code.
  So, now I'd actually like to just show you how easy it is to get started using an XCFramework.
+
+
  So here, I've got a pretty simple iOS app.
  And I will go ahead and click Run to run it on the iPad Simulator.
  You can see, it has got a big, blue Launch button, and when you click it, it does nothing.
@@ -73,12 +75,18 @@ Binary Frameworks in Swift
  And when I click the Launch button, it picks a random name, and launches the UI.
  If I click it again, it will pick another name, and another.
  You get it.
+
  So, that's how to use an XCFramework for just one platform, but one of the great things about XCFrameworks is that you can put multiple variants in the same bundle.
  So just by dragging the one XCFramework in, not only am I able to build and run for the simulator, but if I select Generic iOS Device, then I can go to Product Archive, and build an archive for the App Store as well.
  So that is how easy it is to use an XCFramework from your code.
+
+
+
  So when you are making the choice to use a framework, it's really important to be aware of what you're making available to third party code.
  Importantly, you want to make sure that you trust the source of the framework.
  You trust that they're not going to introduce bugs or instability to your app, and you trust that they'll respect your user's privacy.
+
+
  For example, if you've been granted Entitlements for your application, and you use a framework, that framework is also granted those entitlements.
  And those permissions, if your users have granted them permissions.
  Additionally, if you're adopting a framework that expects a certain entitlement to be available, it's your responsibility to add that entitlement to your app.
@@ -98,6 +106,13 @@ Binary Frameworks in Swift
  So we have this code.
  Now, how do we make sure that we build this library for distribution? Well, in Xcode 11, there's a new Build setting called Build Libraries for Distribution.
  And it does exactly that.
+
+
+
+
+
+
+
  It turns on all the features that are necessary to build your library in such a way that it can be distributed.
  Now, let's talk about one of those features right now.
  If you've tried sending somebody a built Swift Framework before, you may have seen a variant of this error.
@@ -106,37 +121,61 @@ Binary Frameworks in Swift
  If it finds one of these files, it reads off the manifest of public APIs that you can call into, and lets you use them.
  Now, this Compiled Module Format is a binary format that basically contains internal compiler data structures.
  And since they're just internal data structures, they're subject to change with every version of the Swift Compiler.
+
+
+
  So what this means is that if one person tries to import a module using one version of Swift, and that module was created by another version of Swift, their compiler can't understand it, and they won't be able to use it.
  Well, in order to solve this version lock, Xcode 11 introduces a new format for Swift Modules, called Swift Module Interfaces.
+
+
  And just like the Compiled Module Format, they list out all the public APIs of a module, but in a textual form that behaves more like source code.
+
  And since they behave like source code, then future versions of the Swift Compiler will be able to import module interfaces created with older versions.
+
+
  And when you enable Build Libraries for Distribution, you're telling the compiler to generate one of these stable interfaces whenever it builds your framework.
+
+
  So, what does one of these interfaces actually look like? Let's take a look again at the source of FlightKit.
  So that is the source from FlightKit.
  And on the right, you'll see the Module Interface for FlightKit.
+
+
  Now, this is a lot, and it goes off the screen, so we are going to look at it piece by piece.
  So first you'll see this section of meta data.
  So this includes the version of the compiler that produced this interface, but it also contains the subset of command line flags that the Swift Compiler needs to import this as a module.
  Next, you'll see all the modules that this framework imports, and then we'll start seeing the types that are part of the interface.
+
  So, here's the public API of the Spaceship class.
  Now, I want you to notice three things here.
  Number one is that the public name property is included in the interface, but the private current location property is not.
  It's not part of the public API.
  Next, notice that the public initializer and the fly method are included in the interface.
+
+
  But their bodies are not included, again, because they're not part of the public API.
+
  And finally, notice that the class has a de-initializer in the interface, but there wasn't one written in the original source code.
+
  Now, when you write a class in Swift, and you don't provide an explicit de-initializer, the compiler generates one for you.
  And this sort of highlights one of the underlying principles of Module Interfaces.
+
  If this format is supposed to be stable across versions of the compiler, then the compiler should not make any assumptions about the underlying source code.
  So we include it in the Module Interface.
  Next, let's look at that Speed enum.
+
+
  Well, the first thing to see is that both cases of the enum are included.
  Those are part of the public API.
  However, in the interface, there's an explicit conformance to Hashable.
  And we list off the methods that are required to conform to both Hashable and Equitable.
+
  Well, this is because in Swift, if you make an enum without any associated values, then the compiler implicitly makes that conform to an Equitable and Hashable, and automatically derives the methods that are required.
  So, in the spirit of being explicit, and not making assumptions, it's included in the Module Interface.
+
+
  And finally, the Location struct is included as is, because it only has public stored properties, and does not declare any conformances.
+
  So that's a quick look at the Module Interface for FlightKit.
  Now that you've taken a look at what's inside a framework, let's talk about how to build a distributable binary XCFramework yourself.
  Well, the first step to building your framework is by building an archive.
@@ -144,21 +183,30 @@ Binary Frameworks in Swift
  And as an added benefit, this archive will also contain the debug information that corresponds to that build of your framework, which means if your clients have any crashes or any instability that originate in your framework, they'll be able to send it to you, and you will be able to look at the symbols and debug it.
  To Archive your framework, you can use the xcodebuild archive command.
  You'll pass in the scheme of your framework in your project, and list out the destinations that you'd like to compile it for.
+
+
  So if you're building for iOS, this can be one for the simulator, one for the device, and one for the Mac that's running UIKit.
  You will also need to pass the Skip Install build setting, and set it to No.
  This tells xcodebuild archive to install your framework in the resulting archive.
+
+
  So, by doing this, you will be building archives of each variant of your framework, and those will be available in the Archives directory in the Xcode Locations tab, in the Preferences window.
+
  Once you've built these archives, you can extract the frameworks, and bundle them up together in one XCFramework.
+
  And to do this, you'll run the xcodebuild -create-xcframework command.
  You'll pass in the path to each framework on disk, and then provide a path that you'd like the output XCFramework to be output to.
  So, that's how to build an XCFramework.
  And in summary, remember, you'll want to enable Build Libraries for Distribution, to make sure that your library is built to be distributed.
+
  You'll run xcodebuild archive, to build archives of your framework, and finally you'll run xcodebuild -create-xcframework, to package it up for distribution.
  And then you can start sending it to your clients, and they can start adopting it.
  So that was XCFrameworks.
  Now, my teammate, Jordan, will come up to talk to you about what you should consider as a framework author to make using your framework as smooth as possible.
- [ Applause and Cheering ]  Thanks Harlan.
+ [ Applause and Cheering ]  지.
  All right.
+
+
  So we saw how easy it was to bring one of these XCFrameworks into an app that is a client of the framework, and we saw the steps required to produce an XCFramework.
  But that's just the first step, because you're framework authors, and you're developing new capabilities every year, and making things better and better for your clients.
  So, in this section, I'm going to talk about three major things.
@@ -166,6 +214,8 @@ Binary Frameworks in Swift
  Trading some flexibility that Swift gives you for optimizability of your clients, and helping your clients have the smoothest experience possible.
  So, start with evolving your framework.
  And what do I mean when I say evolving your framework? Well, like I said, every time you release a new version of your framework, it will have new capabilities, new APIs, maybe some bug fixes, and we want to be able to do that without breaking source or binary compatibility.
+
+
  Now, why is binary compatibility important here? It's because you don't necessarily know who your clients are going to be.
  A lot of times it will just be an app target.
  They'll take your framework, bundle it up, and send it off to the store.
@@ -173,21 +223,28 @@ Binary Frameworks in Swift
  And in that case, the two of you probably have separate release schedules.
  They might get all the way up to version 2.
 1, while you're still working on your newest version.
- And when you finally do release that version 1.
-1, well, they shouldn't have to do any extra effort to adopt it.
+ And when you finally do release that version 1.1, well, they shouldn't have to do any extra effort to adopt it.
+
  You don't want to get in a situation where two binary frameworks are version locked with one another, because then the application who is using them might decide not to update.
- So, I'm saying here that the version of your framework is important, and not only do you want to put that on your website, and your documentation, but you should also put it in the framework itself, and the place to do that is the Bundle version string setting in the framework's Info.
-plist.
+
+ So, I'm saying here that the version of your framework is important, and not only do you want to put that on your website, and your documentation, but you should also put it in the framework itself, and the place to do that is the Bundle version string setting in the framework's Info.plist.
+
  This is the place for a human readable version number to communicate to your clients what changes you've made since the last release.
  And the way that we recommend to do that is with Semantic Versioning.
  Now, if you weren't in the Packages talk, I'll do a quick review of what Semantic Versioning is.
+
+
  The smallest component is the Patch Version, and represents when you make bug fixes, or implementation changes to your framework that shouldn't affect your clients.
  The middle component is for backwards compatible editions, new APIs, or new capabilities.
+
  And the Major component is for any breaking changes that you have to make, whether that's source breaking, binary breaking, or semantics breaking in a way where clients will have to rebuild, and possibly redo some of their client code, in order to adopt the new version of the framework.
+
+
  Let's see what this looks like in practice, with the FlightKit model objects.
  So here is the same thing on the left that we had from before.
  And now, on the right, I've made a bunch of changes to this framework.
  Let's go through them piece by piece and see how each change can affect the framework's version number.
+ 
  We'll start at the top.
  I've added a new private property to the Spaceship class.
  And I'm using it in the Spaceship's initializer.
@@ -198,6 +255,7 @@ plist.
  Now, the next change I've made here is to add a new method to the Spaceship class.
  It's a new public method, which means clients will start using it and depending on it.
  So, the right thing to do is to increment the Minor Version number.
+
  And you'll notice, I also reset the Patch Version to zero.
  Finally, I've also added a new parameter to the fly method.
  I've given it a default, so that most of the use sites won't have to change.
@@ -207,6 +265,7 @@ plist.
  Maybe I should have made a new overload instead? Now, these are all changes to the Spaceship class, but I've also changed some of the value types in FlightKit as well.
  I've added a new case to the Speed edum.
  I've made locations Hashable, so that clients can have sets of them, and this is my favorite change, I've added a new stored property to the Location struct, without breaking source or binary compatibility.
+
  Now, in Swift, all of these changes are backwards compatible, so I only need to bump the Minor Version number.
  Now, this flexibility here has some implications for how you design the API of your frameworks.
  The most important one is to start small.
@@ -214,6 +273,9 @@ plist.
  But it's really hard to remove something, because it will most likely break source or binary compatibility for at least one of your clients.
  For the things that you won't be able to change after the fact, like the names of your types, make sure you consider them carefully up front, that those names are not just going to make sense in this release, but also in all future releases.
  And finally, don't add extensibility too early.
+
+
+
  You don't need to make your classes open, or to provide arbitrary callbacks in the first version of your framework.
  Why is this important? Because it makes reasoning about your framework's behavior much harder when you have to consider what your clients might be doing at the same time.
  So, you can always make your classes open in the future.
@@ -236,15 +298,19 @@ plist.
  And so the client will also ask the framework to cleanup the enum value when it's done with it, and the framework will do so.
  Now, a couple of you in the audience at this point are probably getting a little antsy because we're talking about all this extra communication between the client and the framework, and that's because you have performance sensitive frameworks, and that's why the next section is about trading the flexibility that Swift is giving you for the optimizability of your clients.
  Now, this really is a tradeoff.
+
+
  As framework authors, we want the flexibility to change things, to add things, to improve things, without breaking source or binary compatibility.
  But in order for the compiler to make the client code as fast as possible, it needs to make assumptions about what's in the framework.
+
+
  And so Swift needs to be able to handle both sides of the spectrum.
  And the way that this works is through the Build Libraries for Distribution build setting.
  Harlan said before that this has multiple effects in addition to generating the Module Interface file, and one of those effects is to set the default to the Flexibility side.
  But again, Swift needs to be able to handle all of these use cases, and so in this section, I'm going to talk about what you can do once you've profiled the behavior of your framework from the outside, and seen that you need additional performance.
  And there's three ways to do that: inlinable functions, frozen enums, and frozen structs.
- So, we'll start with inlinable functions, a feature introduced last year in Swift 4.
-2.
+ So, we'll start with inlinable functions, a feature introduced last year in Swift 4.2.
+
  In this case, I have a CargoShip subclass of the Spaceship class we saw earlier, and it has a method canCarry that just determines whether the CargoShip is able to carry some piece of cargo.
  And I've made this inlinable, because I think that this is important for the performance of my clients.
  What this will do is make this method part of my public interface, not just its declaration, but also its body.
@@ -255,12 +321,17 @@ plist.
  The property is available as part of your framework's public interface, but it's only available to the inlinable code.
  It's still protected from being arbitrarily read or written by outside clients.
  So it's still internal, but usable from inline.
+
  And it's important to note that this is a per declaration decision.
  The current cargo property here that's also internal is not included in the Module Interface.
  So, okay, we have the body of the canCarry method in the Module Interface.
  And when a client is compiling against that interface, they'll be able to copy that body directly into their own code, and possibly optimize it even further if they know something about the cargo that's being checked.
+
  But what happens if the framework owner changes the body of the method, and the clients aren't recompiled? For example, what if there's a new rule that says that CargoShips are not allowed to carry Radioactive cargo? Well, in this case, we're going to run into trouble.
+
  Because now two different parts of the program have different ideas about what this method is supposed to do.
+
+
  And on some inputs, they're still going to agree, for some regular cargo, both the client and the framework will say that it's okay.
  But if we try to test Radioactive cargo, then the client code will say that it's okay, because that's what it saw in the Module Interface when it was compiled.
  While the framework has the new version of the method, and will disallow it.
@@ -268,18 +339,25 @@ plist.
  So, as a rule of thumb, if you're a framework author who has made a function inlinable, make sure not to change the output or observable behavior.
  It's okay to add a better algorithm, or some additional fast pads, but if you change the observable behavior of the function, then you could end up with these really subtle problems that are only visible at runtime, and possibly only under certain inputs.
  If you need to do this, all your clients need to recompile.
+
+
+
+
+
  So next I want to talk about enums.
  Swift enums are great.
  I love them.
  And one thing that we talked about here is that you can add new cases to an enum without breaking source or binary compatibility.
  What this means for clients is that they always have to have a default case when they switch over the enum.
- And in this client, they've decided to use the unknown default syntax that was also introduced in Swift 4.
-2.
+ And in this client, they've decided to use the unknown default syntax that was also introduced in Swift 4.2.
+
  What this means is that they've handled all the known cases in the enum but will still handle any future cases that are added, and this is necessary when switching over C enums, and also enums built in binary frameworks.
  The other effect that this has is what I talked about earlier, this sort of handshake between the client and the framework, about how big the enum is, and whether it needs any cleanup.
  But the example I've picked here is a Flight Plan.
  You can really only have one-way flights, or round-trip flights.
  So by marking this enum with the frozen attribute, then I as the framework author can promise that there are no new cases added in future releases of the framework.
+
+
  The first effect of this is that clients no longer have to write that default case.
  It can just go away.
  And next, the compiler is able to compile it more efficiently.
@@ -288,11 +366,14 @@ plist.
  Except I forgot something.
  There is another kind of Flight Plan.
  A multiHop flight.
+
  And now we're in trouble, because that client code no longer has a default case, so adding a new case to a frozen enum is both source and binary breaking and requires incrementing the Major Version and asking all clients to recompile.
  Now, after frozen enums, frozen structs are much the same.
  By default, a Struct in a binary framework can have new stored properties added, or the existing ones reordered without any trouble, but that does result in that same sort of handshake and extra communication between the client and the framework.
  So, in order to avoid this, for structs that are known to have a frozen layout, the frozen attribute can be used to promise that the stored properties will not change.
  They will not be added, or reordered, or removed.
+
+
  And the other thing that this does is require that the stored properties all have types that are public, or usable from inline.
  Because remember what the goal is here.
  We want the compiler when it's working with client code, to be able to manipulate the stored properties of this struct directly, so that it can generate more efficient code on the client side.
@@ -300,6 +381,8 @@ plist.
  An initializer is already required to set up all of the stored properties in the struct, but now the compiler can be sure that it will also do so in future versions of the framework.
  Now, I want to close up this section by reminding you that flexibility is the default for reasons.
  And the main one of these is that breaking changes are really inconvenient for their clients.
+
+
  A client is going to have-- make a second guess over whether or not to take the new version of your framework, because it might break them in some way.
  And you could also get into trouble when you have one binary framework depending on another.
  It's also worth the reminder that these attributes only affect client code.
@@ -308,6 +391,8 @@ plist.
  Otherwise, keep that flexibility because you may need it.
  Now, the last section I want to talk about is making sure that your client's experience is the best it can be.
  And this is going to mirror Harlan's section a lot from the first half of the talk.
+
+
  And so we'll start off with Entitlements.
  If your framework has certain Entitlements that it needs to get its job done, well, let's start with the basics.
  Make sure that you document them, so that any potential client knows what it needs to do to successfully adopt your framework.
@@ -315,6 +400,8 @@ plist.
  And you can get more clients using your framework.
  And finally, keep in mind that while both the framework and the application can request permissions from the user, it's ultimately the user's choice whether or not to grant them.
  So if you get denied a particular permission, make sure your framework handles that denial gracefully.
+
+
  It should not crash the app, it should not stop working.
  Make sure it still does something useful so that your clients can use the framework without having to give up.
  Now, Dependencies have a lot of the same concerns as Entitlements.
@@ -324,6 +411,8 @@ plist.
  Less in extending trust, and even practical matters like the code size taken up by your Dependencies.
  And finally, all of your Dependencies do have to be built with the Build Libraries for Distribution build setting in order to get that binary compatibility guarantee that we talked about.
  This does have a particular implication that binary frameworks cannot depend on Packages.
+
+
  Let's look at a Dependency graph.
  I said just a few minutes ago that the Dependencies of the framework become the Dependencies of the app.
  But when an app builds a package, it has to pick a particular tag to do so.
@@ -332,6 +421,7 @@ plist.
  And beyond that, not all frameworks can necessarily be built in a mode that is compatible with Build Libraries for Distribution.
  So this configuration is not supported.
  Now, the last thing I want to talk about is your Objective-C Interface.
+ 
  Yes, you, Swift framework authors, you have an Objective-C Interface, most likely, because Xcode's default template is set up for a mixed source framework that has both an Objective-C Umbrella Header, and a generated header containing the Objective-C parts of the Swift in your framework.
  But if your Swift code doesn't have any Objective-C API that it's trying to publish, well, you don't need to install that second header at all.
  There's an Install Objective-C Compatibility Header build setting that you can just turn off.

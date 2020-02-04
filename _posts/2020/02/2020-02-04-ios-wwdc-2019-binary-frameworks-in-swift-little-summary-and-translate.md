@@ -3,7 +3,7 @@ layout: post
 title: "[WWDC][Xcode] Binary Frameworks in Swift 살짝 정리"
 description: ""
 category: "iOS/Mac"
-tags: [Xcode, Framework, XCFramework, xcodebuild, inlinable, usableFromInline, frozen, Build Libraries for Distribution, swiftmodule, swiftinterface]
+tags: [Xcode, Framework, XCFramework, xcodebuild, inlinable, usableFromInline, frozen, Build Libraries for Distribution, swiftmodule, swiftinterface, Struct, Enum, Annotation, swift]
 ---
 {% include JB/setup %}
 

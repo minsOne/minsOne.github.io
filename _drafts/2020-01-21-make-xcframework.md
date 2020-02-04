@@ -1,11 +1,15 @@
 ---
 layout: post
-title: "[WWDC][2019] Binary Frameworks in Swift 정리"
+title: "[WWDC][2019] Binary Frameworks in Swift 살짝 정리"
 description: ""
 category: ""
-tags: []
+tags: [Xcode, Framework, XCFramework, inlinable, usableFromInline, frozen, Build Libraries for Distribution, swiftmodule, swiftinterface]
 ---
 {% include JB/setup %}
+
+# 들어가기 전
+
+[WWDC 2019 - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/) 세션의 발표를 번역 및 일부 요약하였습니다. XCFramework를 만드는 방법 및 프레임워크를 다룰 때 어떻게 해야하는지, 호환성은 어떻게 지켜야 하는지 등에 대하 많이 배울 수 있었던 세션이었습니다.
 
 ## Introducing XCFrameworks
 
@@ -361,63 +365,33 @@ Enum은 소스나 바이너리 호환성을 유지하면서 새로운 case를 en
 
 Struct는 새로운 stored 속성을 추가하거나 기존 속성을 재정렬하는데 문제는 없지만, 클라이언트와 프레임워크 간 Handshake와 같은 종류의 추가 커뮤니케이션이 발생합니다. 이를 방지하기 위해, Struct에 @frozen을 표시하여 stored 속성이 추가, 변경, 순서 변경 또는 제거가 되지 않을 것을 약속할 수 있습니다.
 
-또한, 컴파일러가 클라이언트에 매우 효율적인 코드를  stroed 속성이 모두 Public 이거나 @usableFromInline이어야 
+또한, 컴파일러가 클라이언트에 매우 효율적인 코드를 생성하도록 @inlinable을 생성자에 표기합니다. 이때 모든 stored 속성을 설정할 것을 요구합니다. 그래서 모든 stored 속성을 Public으로 접근 수준 제어하거나 또는 @usableFromInline을 표기해야 합니다.<br/>
 
-<br/><br/><br/><br/><br/><br/>
+<p style="text-align:center;"><img src="{{ site.development_url }}/image/2020/26.jpg" style="width: 600px"/></p><br/>
 
-이것을 방지하기 위해 frozen layout을 가지는 것으로 알려진 struct는 @frozen 속성을 사용하여 stored 속성이 변경되지 않음을 약속할 수 있습니다.
-추가되거나 순서 변경 또는 제거되지 않습니다.
-그리고 다른 하나는 stored 속성의 타입은 모두 public이거나 @usableFromInline이어야 합니다.
-컴파일러가 클라이언트 코드로 작업할 때, 직접 구조체의 stored 속성을 조작하여 클라이언트 사이드에 매우 효율적인 코드를 생성하기를 원합니다.
-이는 매우 의미론적인 효과를 가지는데, 프레임워크 작성자는 @inlinable 생성자를 작성할 수 있습니다.
-생성자는 모든 stored 속성을 설정하는 것을 요구하는데, 컴파일러는 이후 버전의 프레임워크에서도 그렇게 할 것이라고 확신할 수 있습니다.
-Flexibility가 기본이라는 것을 상기시켜 이 섹션을 마무리 합니다.
-변경사항은 클라이언트에게 정말로 불편하다는 점입니다.
-클라이언트는 프레임워크 새 버전을 사용할지 여부를 다시 추측합니다 이는 어떤 방식으로든 깨질 수 있기 때문입니다.
-또한 다른 바이너리 프레임워크에 바이너리 프레임워크가 문제가 발생할 수 있습니다.
-이러한 속성은 클라이언트 코드에만 영향을 미칩니다.
-프레임워크 내에선 여전히 컴파일러 최적화의 모든 기능을 이용할 수 있습니다.
-@frozen 또는 @inlinable에 접근하기 전에 외부에서 프레임워크의 동작을 프로파일링하고 추가 성능이 필요하다는 것을 입증해야 합니다.
-그렇지 않으면 필요할 수 있으므로 Flexibility를 유지하세요.
+프레임워크 변경사항은 클라이언트 또는 해당 프레임워크를 사용하는 다른 바이너리 프레임워크에 호환성 등의 문제가 발생할 수 있습니다. 따라서 @frozen 또는 @inlinable을 이용하기 전에 외부에서 프레임워크의 동작을 프로파일링 하고, 추가 성능이 필요한지를 입증해야 하며, 그렇지 않다면 **유연성 - Flexibility**를 유지해야 합니다.<br/><br/>
 
-이제 마지막 섹션으로 고객의 경험이 최상인지를 확인하는 것입니다.
+## Helping Your Clients
 
-Entitlements로 시작합니다.
-프레임워크는 작업이 끝났을 때 특정 Entitlements를 필요로 합니다. 기본부터 시작해봅시다.
-잠재적인 클라이언트가 프레임워크를 성공적으로 채택하기 위해 할일을 알 수 있도록 문서화를 해야합니다.
-또한, 특정 프레임워크의 권한 요청하는 것을 최소화하며, 이는 더 많은 컨텍스트에 적용할 수 있음을 의미합니다.
-프레임워크를 사용하여 더 많은 고객을 확보할 수 있습니다.
-프레임워크와 어플리케이션은 유저에게 권한을 요청할 수 있지만, 궁극적으로 권한 부여 여부는 고객의 선택임을 명심하십시오.
-특정 권한이 거부되면 프레임워크가 해당 거부를 정상적으로 처리하는지 확인해야 합니다.
-앱은 크래시나거나 작동이 멈추지 않아야 합니다.
-클라이언트는 포기하지 않고 프레임워크를 사용할 수 있도록 여전히 유용한 작업을 하도록 해야합니다.
-의존성은 Entitlements과 동일한 관심를 가지고 있습니다.
-Entitlements과 비슷하게, 프레임워크의 의존성은 어플리케이션의 의존성이 됩니다.
-그리고 다시 잠재 클라이언트가 무엇을 신청하는지 알 수 있도록 문서화를 시작해야 합니다.
-의존성을 최소화하여 클라이언트를 덜 요구하도록 합니다.
-신뢰 확장(extending trust)과 의존성이 차지하는 코드 사이즈와 같은 실제적인 문제도 적습니다.
-마지막으로 Build Libraries for Distribution 빌드 설정을 사용하여 모든 의존성을 빌드하여 바이너리 호환성 보장을 해야합니다.
-바이너리 프레임워크가 패키지에 의존할 수 없다는 특별한 의미가 있습니다.
+<p style="text-align:center;"><img src="{{ site.development_url }}/image/2020/27.jpg" style="width: 600px"/></p><br/>
 
-의존성 그래프를 봅시다.
-몇분 전에 프레임워크의 의존성이 앱에 종속된다고 말했습니다.
-앱이 패키지를 빌드할 때 특정 태그를 선택해야 합니다.
-프레임워크가 가지는 버전과 일치하지 않을 수 있습니다.
-호환되지 않을 수 있습니다.
-그 외에도 모든 프레임워크가 Build Libraries for Distribution로 호환되게 빌드될 수 있는 것은 아닙니다.
-이 설정은 지원되지 않습니다.
-마지막으로 말씀 드리고 싶은 것은 Objective-C Interface입니다.
-Swift 프레임워크 작성자는 Objective-C Interface가 대부분 있으며, 이는 Xcode 기본 템플릿이 Objective-C Umbrella Header와 Swift의 Objective-C 일부를 포함하는 생성된 Header가 설정되어 있습니다.
-Swift 코드에 Objective-C API가 없으면 Second Header를 전혀 설치할 필요가 없습니다.
-Swift Compiler - Genenal의 Install Objective-C Compatibility Header 빌드 설정을 끌 수 있습니다.
-프레임워크가 Objective-C API를 제공하지 않으면 Objective-C Import 구문을 지원할 이유가 없으며, Packing의 Defines Module Build 빌드 설정을 끌 수 있습니다.
-No로 설정하면 더 이상 유효한 Objective-C 코드가 아닙니다.
-Xcode가 생성한 Umbrella Header를 삭제할 수 있습니다.
+프레임워크가 성공적으로 채택되기 위해서는 어떤 일을 하는지 알 수 있도록 문서화가 필요합니다. 또한, 권한 요청을 최소화하며, 이는 더 많은 Context에 적용할 수 있습니다. 그리고 프레임워크와 어플리케이션은 유저에게 권한을 요청할 수 있지만, 궁극적으로 권한 부여 여부는 고객 선택입니다. 따라서 특정 권한이 거부되면 프레임워크가 이를 정상적으로 처리해야 하며, 어플리케이션이 크래시나거나 작동이 멈추면 안됩니다. 
 
-오늘 많은 것을 이야기 했지만 가장 중요한 것은 XCFrameworks입니다
-사용자가 매우 쉽게 여러 프레임워크 변형을 배포하기 위한 새로운 Bundle 형식입니다.
-XCFrameworks를 빌드하려면 적절한 바이너리 호환 프레임워크를 얻는데 필요한 항목인 Build Libraries for Distribution 빌드 설정을 켜야합니다.
-프레임워크 소유자는 고객에게 제공해야 할 책임을 잘 알고 있어야 최상의 서비스를 제공할 수 있습니다.
+따라서 프레임워크가 의존성을 최소화하여 어플리케이션에 적게 요구하고, 따라서 신뢰 확장(Extending Trust)와 의존성이 차지하는 코드 사이즈와 같은 문제가 적습니다.(Less in extending trust, and even practical matters like the code size taken up by your Dependencies.)
+마지막으로 Build Libraries for Distribution 빌드 설정을 설정하여 바이너리 호환성을 보장해야 하며, 이는 Package에 의존할 수 없다는 의미입니다.<br/>
+
+<p style="text-align:center;"><img src="{{ site.development_url }}/image/2020/27.jpg" style="width: 600px"/></p><br/><br/>
+
+Xcode 기본 템플릿에는 Objective-C Umbrella Header와 Swift의 Objective-C 일부를 포함하는 Header를 만들어주는 설정이 활성화되어 있습니다. 프레임워크가 Objective-C API를 제공하지 않으면 Objective-C 헤더를 생성할 필요가 없으므로, `Swift Compiler - Genenal의 Install Objective-C Compatibility Header` 빌드 설정을 비활성화 합니다. 
+
+<p style="text-align:center;"><img src="{{ site.development_url }}/image/2020/28.jpg" style="width: 600px"/></p><br/>
+
+그리고 Objective-C의 Import 구문을 지원할 필요가 없기 때문에 `Packaging - Defines Module` 빌드 설정을 비활성화 합니다. 그러면 Objective-C에 유효한 코드가 아니므로, Xcode가 생성하는 Umbrella Header도 제거됩니다.
+
+<p style="text-align:center;"><img src="{{ site.development_url }}/image/2020/29.jpg" style="width: 600px"/></p><br/>
+
+## Summary
+XCFramework는 사용자에게 여러 프레임워크 변형을 배포하기 위한 새로운 Bundle Format입니다. `Build Libraries for Distribution` 빌드 설정을 활성화 해야 바이너리 프레임워크의 호환성을 얻을 수 있으며 XCFrameworks를 만들 수 있습니다.
 
 
 ## 참고자료

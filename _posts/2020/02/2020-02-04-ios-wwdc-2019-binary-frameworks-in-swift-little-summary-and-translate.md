@@ -460,4 +460,5 @@ XCFramework는 사용자에게 여러 프레임워크 변형을 배포하기 위
 * Xcode and XCFrameworks — new format of packing frameworks ([EN](https://medium.com/trueengineering/xcode-and-xcframeworks-new-format-of-packing-frameworks-ca15db2381d3), [RU](https://habr.com/ru/company/true_engineering/blog/475816/))
 * [AppSpector - XCFrameworks Internals](https://appspector.com/blog/xcframeworks)
 * [How to create a XCFramework](https://medium.com/@dcortes22/how-to-create-a-xcframework-2a166445a898)
+* Presentation about Dependency management in Xcode 11 - [Slide](https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888), [Sample](https://github.com/bielikb/xcframeworks)
 <br/><br/>

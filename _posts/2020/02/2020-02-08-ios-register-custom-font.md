@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS] Framework에 있는 Custom Font 사용하기"
+title: "[iOS] Framework에 있는 Custom Font을 등록하여 사용하기"
 description: ""
 category: "iOS/Mac"
 tags: [SwiftUI, Font, CTFontManagerRegisterFontsForURL, View, AppDelegate]

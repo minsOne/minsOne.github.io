@@ -73,7 +73,7 @@ class Interactor: ViewStateListener {
   init() {
     self.state = ViewState()
     // 부모 class가 있다면, super.init() 호출
-    state.listener = self
+    self.state.listener = self
   }
 
   func onAppear() {

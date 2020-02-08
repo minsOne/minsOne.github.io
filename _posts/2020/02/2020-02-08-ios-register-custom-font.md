@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[iOS] Framework에 있는 Custom Font을 등록하여 사용하기"
+title: "[SwiftUI][iOS] Framework에 있는 Custom Font을 등록하여 사용하기"
 description: ""
 category: "iOS/Mac"
-tags: [SwiftUI, Font, CTFontManagerRegisterFontsForURL, View, AppDelegate]
+tags: [SwiftUI, iOS, Font, CTFontManagerRegisterFontsForURL, View, AppDelegate]
 ---
 {% include JB/setup %}
 
@@ -16,12 +16,9 @@ iOS 4.1 부터 현재 프로세스를 사용하고 있는 동안 등록하여 �
 private final class R {}
 
 func registerFont() {
-  guard let url = Bundle(for: R.self).url(forResource: "\(customFont)", withExtension: "ttf"),
-        CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil) 
-        else { 
-        	print("failed to regist \(fontName) font")
-        	return 
-        }
+  guard let url = Bundle(for: R.self).url(forResource: "\(custom_font_file_name)", withExtension: "ttf"),
+    CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil) 
+    else { print("failed to regist \(custom_font_file_name) font");return }
 }
 ```
 
@@ -32,16 +29,31 @@ import Font
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-  	Font.registerFont()
-  	...
+    Font.registerFont()
+    ...
   }
 }
 
 struct SomeView: View {
-	var body: some View {
-		Text("3333")
-            .font(Font.custom("custom font name", size: 100))
-	}
+  var body: some View {
+    Text("3333")
+        .font(Font.custom("custom font name", size: 100))
+  }
 }
+```
 
+만약 해당 Font를 등록했지만 이름이 무엇인지 알기 어려울 때, 모든 Font를 검색하여 찾을 수도 있습니다.
+
+```
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  	Font.registerFont()
+
+    for family in UIFont.familyNames {
+      print(family)
+      for names in UIFont.fontNames(forFamilyName: family) {
+        print"(=> \(names)")
+      }
+    }
+}
 ```

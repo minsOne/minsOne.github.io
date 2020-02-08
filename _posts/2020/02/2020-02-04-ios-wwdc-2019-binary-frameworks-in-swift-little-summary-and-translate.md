@@ -442,11 +442,11 @@ Struct는 새로운 stored 속성을 추가하거나 기존 속성을 재정렬�
 
 Xcode 기본 템플릿에는 `Objective-C Umbrella Header`와 Swift의 `Objective-C 일부를 포함하는 Header`를 만들어주는 설정이 활성화되어 있습니다. 
 
-프레임워크가 Objective-C API를 제공하지 않으면 Objective-C 헤더를 생성할 필요가 없으므로, `Swift Compiler - Genenal의 Install Objective-C Compatibility Header` 빌드 설정을 비활성화 합니다. 
+프레임워크가 Objective-C API를 제공하지 않으면 Objective-C 헤더를 생성할 필요가 없으므로, **Swift Compiler - Genenal**의 `Install Objective-C Compatibility Header` 빌드 설정을 비활성화 합니다.
 
 <p style="text-align:center;"><img src="{{ site.production_url }}/image/2020/28.jpg" style="width: 600px"/></p><br/>
 
-그리고 Objective-C의 import 구문을 지원할 필요가 없기 때문에 `Packaging - Defines Module` 빌드 설정을 비활성화 합니다. 그러면 Objective-C에 유효한 코드가 아니므로, Xcode가 생성하는 `Umbrella Header`도 제거됩니다.
+그리고 Objective-C의 import 구문을 지원할 필요가 없기 때문에 **Packaging** - `Defines Module` 빌드 설정을 비활성화 합니다. 그러면 Objective-C에 유효한 코드가 아니므로, Xcode가 생성하는 `Umbrella Header`도 제거됩니다.
 
 <p style="text-align:center;"><img src="{{ site.production_url }}/image/2020/29.jpg" style="width: 600px"/></p><br/>
 

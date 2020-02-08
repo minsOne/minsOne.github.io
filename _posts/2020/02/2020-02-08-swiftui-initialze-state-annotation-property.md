@@ -24,9 +24,9 @@ State 타입으로 값을 주입해야 합니다.
 struct SampleView {
   @State var text: String
   init(text: String) {
-    self.text = State<String>(initialValue: text)
+    self._text = State<String>(initialValue: text)
     // 또는 타입을 생략하고 사용할 수 있음.
-    // self.text = .init(initialValue: current)
+    // self._text = .init(initialValue: current)
   }
 }
 ```

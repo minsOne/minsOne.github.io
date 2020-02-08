@@ -47,6 +47,14 @@ struct MainView {
 <br/>이제 ViewState를 발행하는 Interactor에서 onAppear를 처리하도록 protocol을 정의합니다.
 
 ```
+struct MainView {
+  @ObservedObject var state: ViewState
+  var body: some View {
+  	Text(state.text)
+  	  .onAppear(perform: state.onAppear)
+  }
+}
+
 protocol ViewStateListener: class {
   func onAppear()
 }
@@ -55,7 +63,7 @@ class ViewState: ObservableObject {
   @Published var text: String = "Hello world"
   weak var listener: ViewStateListener?
   func onAppear() {
-  	listener.onAppear()
+  	listener?.onAppear()
   }
 }
 
@@ -63,9 +71,9 @@ class Interactor: ViewStateListener {
   @ObservedObject private var state: ViewState
 
   init() {
-    self._state = ViewState()
-    super.init()
-    _state.listener = self
+    self.state = ViewState()
+    // 부모 class가 있다면, super.init() 호출
+    state.listener = self
   }
 
   func onAppear() {

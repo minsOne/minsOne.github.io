@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[SwiftUI] View와 Interactor 간의 통신 - Delegate"
+title: "[SwiftUI] View와 Interactor 간의 통신을 ObservableObject으로 우회하여 통신하기 - Delegate 패턴"
 description: ""
 category: "SwiftUI"
 tags: [SwiftUI, View, Protocol, Delegate, ObservedObject, ObservableObject, Published]

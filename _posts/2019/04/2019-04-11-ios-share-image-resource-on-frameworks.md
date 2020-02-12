@@ -59,7 +59,7 @@ public enum R {
 import Resource
 
 ...
-let image = R.Image.aaa
+let image = R.Image.abc
 ...
 ```
 

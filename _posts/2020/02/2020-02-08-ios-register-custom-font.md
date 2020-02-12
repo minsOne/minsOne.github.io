@@ -9,7 +9,7 @@ tags: [SwiftUI, iOS, Font, CTFontManagerRegisterFontsForURL, View, AppDelegate]
 
 특정 디자인을 사용하기 위해 Custom Font를 사용해야하는 경우가 있습니다. 보통은 Plist에 등록을 해서 사용하라고 하지만, 다운받은 Font 또는 다른 Framework에 있는 Plist에 등록할 수 없습니다.
 
-iOS 4.1 부터 현재 프로세스를 사용하고 있는 동안 등록하여 사용할 수 `CTFontManagerRegisterFontsForURL` 함수가 있습니다. 이 함수를 이용하여 Framework에 있는 Font를 읽어와 특정 View에서 사용할 수 있습니다.
+iOS 4.1 부터 현재 프로세스를 사용하고 있는 동안 등록하여 사용할 수 있는 `CTFontManagerRegisterFontsForURL` 함수가 있습니다. 이 함수를 이용하여 Framework에 있는 Font를 읽어와 특정 View에서 사용할 수 있습니다.
 
 ```
 // Font.Framework

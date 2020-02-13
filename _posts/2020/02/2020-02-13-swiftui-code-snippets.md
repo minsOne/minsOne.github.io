@@ -23,11 +23,18 @@ tags: [SwiftUI, View]
 조건에 따라 transform을 호출하여 View에 반영할지 사용할때 유용한 코드.
 
 ```
-extension View {
+public extension View {
   func `if`<T: View>(_ conditional: Bool, transform: (Self) -> T) -> some View {
     Group {
       if conditional { transform(self) }
       else { self }
+    }
+  }
+
+  func `if`<T: View>(_ condition: Bool, `true` trueTransform: (Self) -> T, false falseTransform: (Self) -> T) -> some View {
+	Group {
+	  if condition { trueTransform(self) } 
+	  else { falseTransform(self) }
     }
   }
 }
@@ -52,7 +59,7 @@ struct ContentView: View {
 mask를 역으로 사용할때 유용한 코드.(예, 텍스트 색상을 그라데이션으로 설정함.)
 
 ```
-extension View {
+public extension View {
   func maskContent<T: View>(using: T) -> some View {
     using.mask(self)
   }

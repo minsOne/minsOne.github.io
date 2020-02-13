@@ -31,7 +31,7 @@ public extension View {
     }
   }
 
-  func `if`<T: View>(_ condition: Bool, `true` trueTransform: (Self) -> T, false falseTransform: (Self) -> T) -> some View {
+  func `if`<T: View>(_ condition: Bool, true trueTransform: (Self) -> T, false falseTransform: (Self) -> T) -> some View {
 	Group {
 	  if condition { trueTransform(self) } 
 	  else { falseTransform(self) }

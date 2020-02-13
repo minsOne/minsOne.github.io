@@ -71,7 +71,7 @@ public class R {
 }
 ```
 
-`imageLiteral` 문법은 Swift의 [**CompilerProtocols.swift**](https://github.com/apple/swift/blob/master/stdlib/public/core/CompilerProtocols.swift)의 [**_ExpressibleByImageLiteral**](https://github.com/apple/swift/blob/master/stdlib/public/core/CompilerProtocols.swift#L939) 프로토콜을 UIImage가 상속받아 사용할 수 있었습니다.
+`imageLiteral` 문법은 Swift의 [**CompilerProtocols.swift**](https://github.com/apple/swift/blob/master/stdlib/public/core/CompilerProtocols.swift)의 [**_ExpressibleByImageLiteral**](https://github.com/apple/swift/blob/master/stdlib/public/core/CompilerProtocols.swift#L939) 프로토콜을 UIImage가 따라서 사용할 수 있었습니다.
 
 그러면 Resource 프레임워크에 있는 이미지를 불러오는 Custom Imageliteral를 만들어봅시다.
 
@@ -97,6 +97,12 @@ extension R {
         }
     }
 }
+
+extension UIImage {
+  public static func rImage(_ r: R.Image) -> Self {
+    return r.image
+  }
+}
 ```
 
 이제 우리는 다음과 같이 imageLiteral을 이용하여 이미지를 불러올 수 있습니다.
@@ -108,14 +114,11 @@ UIImageView(image: screenshot.image)
 
 UIImageView(image: R.Image.name(#imageLiteral(resourceName: "imageName")))
 
-
-extension UIImage {
-  static func literal(_ r: R.Image) -> Self {
-    return r.image
-  }
+var aImage: UIImage { 
+  return .rImage(#imageLiteral(resourceName: "imageName")) 
 }
-var aImage: UIImage { .literal(#imageLiteral(resourceName: "imageName")) }
-UIImageView(image: .literal(#imageLiteral(resourceName: "imageName")))
+
+UIImageView(image: .rImage(#imageLiteral(resourceName: "imageName")))
 ```
 
 # 참고자료

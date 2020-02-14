@@ -52,7 +52,7 @@ struct ContentView: View {
 }
 ```
 
-**출처** : dotSwift 2020 - Tobias Due Munk - Prototyping Custom UI in SwiftUI
+**출처** : [dotSwift 2020 - Tobias Due Munk - Prototyping Custom UI in SwiftUI](https://www.youtube.com/watch?v=1BHHybRnHFE)
 
 ## maskContent <a id="view_maskContent"></a>
 
@@ -79,4 +79,4 @@ struct ContentView: View {
 }
 ```
 
-**출처** : dotSwift 2020 - Tobias Due Munk - Prototyping Custom UI in SwiftUI
+**출처** : [dotSwift 2020 - Tobias Due Munk - Prototyping Custom UI in SwiftUI](https://www.youtube.com/watch?v=1BHHybRnHFE)

@@ -9,7 +9,7 @@ tags: [Xcode, Framework, XCFramework, xcodebuild, inlinable, usableFromInline, f
 
 # 들어가기 전
 
-[WWDC 2019 - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/) 세션의 발표를 번역 및 일부 요약하였습니다. XCFramework를 만드는 방법 및 프레임워크를 다룰 때 어떻게 해야하는지, 호환성은 어떻게 지켜야 하는지 등에 대하 많이 배울 수 있었던 세션이었습니다.
+[WWDC 2019 - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/) 세션의 발표를 번역 및 일부 요약하였습니다. XCFramework를 만드는 방법 및 프레임워크를 다룰 때 어떻게 해야하는지, 호환성은 어떻게 지켜야 하는지 등에 대해 많이 배울 수 있었던 세션이었습니다.
 
 ## Introducing XCFrameworks
 

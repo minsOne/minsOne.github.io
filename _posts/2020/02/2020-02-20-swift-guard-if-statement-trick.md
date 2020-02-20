@@ -10,8 +10,7 @@ tags: [Swift, guard, if, case, Optional]
 값이 옵셔널이 아닌데, guard 또는 if let 문에 사용하고 싶을 경우가 있습니다. 그럴 경우, case를 이용하여 사용할 수 있습니다.
 
 ```
-let tmp1: Int = 0
-let tmp2: Int? = 1
+let tmp: Int = 0
 
 /// 컴파일 X
 guard let value = tmp else { return }

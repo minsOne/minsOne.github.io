@@ -21,7 +21,7 @@ if let value = tmp {
 /// 컴파일 O
 guard case let value = tmp else { return }
 if case let value = tmp {
-	...
+  ...
 }
 
 // 또는 Optional로 Wrapping하기

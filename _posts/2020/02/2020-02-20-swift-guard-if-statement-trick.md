@@ -3,7 +3,7 @@ layout: post
 title: "[Swift][Trick] 값이 옵셔널이 아닌데, guard 또는 if let 문에 사용"
 description: ""
 category: "programming"
-tags: [Swift, guard, if, case, optional]
+tags: [Swift, guard, if, case, Optional]
 ---
 {% include JB/setup %}
 

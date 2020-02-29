@@ -206,9 +206,15 @@ public struct Style {
 이제 이전에 작성했던 StringInterpolation의 `func appendInterpolation(_ string: String, attributes: [NSAttributedString.Key: Any])` 함수의 attributed를 Style로 대체할 수 있습니다.
 
 ```
-public func appendInterpolation(_ string: String, style: Style) {
-    let attr = style.apply(to: string)
-    self.attributedString.append(attr)
+public struct StringInterpolation: StringInterpolationProtocol {
+    ...
+
+    public func appendInterpolation(_ string: String, style: Style) {
+        let attr = style.apply(to: string)
+        self.attributedString.append(attr)
+    }
+
+    ...
 }
 ```
 

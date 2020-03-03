@@ -66,7 +66,7 @@ struct ContentView: View {
 }
 ```
 
-<p style="text-align:center;"><img src="{{ site.development_url }}/image/2020/02/3.png" style="width: 300px"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.production_url }}/image/2020/02/3.png" style="width: 300px"/></p><br/>
 
 만약 Pad의 크기를 더 크게 주면 어떨까요?
 
@@ -84,8 +84,8 @@ struct ContentView: View {
 ```
 
 <p style="text-align:center;">
-  <img src="{{ site.development_url }}/image/2020/02/4.png" style="width: 150px"/>
-  <img src="{{ site.development_url }}/image/2020/02/5.png" style="width: 400px"/>
+  <img src="{{ site.production_url }}/image/2020/02/4.png" style="width: 150px"/>
+  <img src="{{ site.production_url }}/image/2020/02/5.png" style="width: 400px"/>
 </p><br/>
 
 Portrait인 경우 Text View가 제대로 표시되지 않는 것을 확인할 수 있습니다. Text View의 Width 계산이 제대로 되지 않아 발생한 문제입니다. 따라서 Text View의 Frame Size를 설정하거나 또는 fixedSize 함수를 이용하여 size 계산을 돕도록 합니다.
@@ -105,6 +105,6 @@ struct ContentView: View {
 ```
 
 <p style="text-align:center;">
-  <img src="{{ site.development_url }}/image/2020/02/6.png" style="width: 150px"/>
-  <img src="{{ site.development_url }}/image/2020/02/7.png" style="width: 400px"/>
+  <img src="{{ site.production_url }}/image/2020/02/6.png" style="width: 150px"/>
+  <img src="{{ site.production_url }}/image/2020/02/7.png" style="width: 400px"/>
 </p><br/>

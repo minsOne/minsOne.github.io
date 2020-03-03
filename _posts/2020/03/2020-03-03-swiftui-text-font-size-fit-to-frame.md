@@ -91,8 +91,8 @@ struct ContentView: View {
 위의 코드를 실행하면 Frame에 맞춘 Text가 그려지는 것을 확인할 수 있습니다.
 
 <p style="text-align:center;">
-  <img src="{{ site.development_url }}/image/2020/02/4.png" style="width: 150px"/>
-  <img src="{{ site.development_url }}/image/2020/02/5.png" style="width: 400px"/>
+  <img src="{{ site.production_url }}/image/2020/03/4.png" style="width: 300px"/>
+  <img src="{{ site.production_url }}/image/2020/03/5.png" style="width: 300px"/>
 </p><br/>
 
 ## 정리

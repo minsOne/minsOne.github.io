@@ -43,4 +43,4 @@ struct ContentView: View {
 }
 ```
 
-valueProxy로 만든 Binding 변수는 Model 역할을 하는 value와 Slider 사이의 데이터 변환으로 쉽게 사용이 가능합니다.
+valueProxy로 만든 Binding 변수는 Model 역할을 하는 value와 Slider 사이의 데이터 변환으로 Model의 타입을 변경할 필요 없이 쉽게 사용이 가능합니다.

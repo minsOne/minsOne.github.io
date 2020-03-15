@@ -7,7 +7,11 @@ tags: [SwiftUI, Binding, initialization, initializer, init]
 ---
 {% include JB/setup %}
 
-View에서 Binding 변수를 가질때, 외부에서 Binding 변수를 주입해줘야 합니다. 그때 다음과 같이 코드를 사용하여 값을 주입할 수 있습니다.
+View에서 Binding 변수를 가질때, 외부에서 Binding 변수를 주입해줘야 합니다. 
+
+Binding 변수에 `_` 를 이용하여 접근하여 매개변수를 할당합니다.
+
+다음과 같이 코드를 사용하여 값을 주입할 수 있습니다.
 
 ```
 struct ContentView: View {

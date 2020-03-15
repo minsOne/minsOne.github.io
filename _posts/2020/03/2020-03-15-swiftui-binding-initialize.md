@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[SwiftUI] Binding 변수 주입하기 - Initialize"
+title: "[SwiftUI] Binding 변수 주입하기 - Initialization"
 description: ""
 category: "SwiftUI"
-tags: [SwiftUI, Binding, Initialize, Init]
+tags: [SwiftUI, Binding, initialization, initializer, init]
 ---
 {% include JB/setup %}
 

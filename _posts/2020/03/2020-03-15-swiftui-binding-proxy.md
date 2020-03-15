@@ -28,14 +28,19 @@ View에 맞는 Binding 변수를 만들어 주입하면 되지 않을까요?
 그래서 Custom Binding 변수를 만들어봅시다.
 
 ```
-@State private var value: Double = 0
+struct ContentView: View {
+  @State private var value: Double = 0
 
-let valueProxy = Binding<CGFloat>(
-	get: { CGFloat(self.value) },
-	set: { self.value = Double($0) }
-)
+  var body: some View {
 
-Slider(value: valueProxy, in: -100...100, step: 10)
+    let valueProxy = Binding<CGFloat>(
+      get: { CGFloat(self.value) },
+      set: { self.value = Double($0) }
+    )
+
+    return Slider(value: valueProxy, in: -100...100, step: 10)
+  }
+}
 ```
 
 valueProxy로 만든 Binding 변수는 Model 역할을 하는 value와 Slider 사이의 데이터 변환으로 쉽게 사용이 가능합니다.

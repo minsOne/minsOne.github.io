@@ -11,10 +11,10 @@ Slider 또는 TextField 등에서 값이 바꾸거나 바뀐 값을 참조할 �
 
 ```
 @Binding var text: String
-TextField("Title", text: $text)
+TextField("Title", text: text)
 
 @Binding var value: CGFloat
-Slider(value: $value)
+Slider(value: value)
 ```
 
 하지만 View에는 String, CGFloat 등 특정 타입만을 받도록 고정되어 있으며, 우리가 사용하는 Model에는 View에서 받는 타입과 같지 않을 수 있습니다.

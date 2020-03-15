@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[SwiftUI]Text의 Font Size를 Frame에 Fit하게 맞추기 - minimumScaleFactor"
+title: "[SwiftUI] Text의 Font Size를 Frame에 Fit하게 맞추기 - minimumScaleFactor"
 description: ""
 category: "SwiftUI"
 tags: [SwiftUI, Text, font, minimumScaleFactor]

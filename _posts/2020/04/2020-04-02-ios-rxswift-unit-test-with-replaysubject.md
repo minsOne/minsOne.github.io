@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][RxSwift 5.1] Unit Test 작성시 ReplaySubject의 createUnbounded를 이용하여 모든 이벤트를 저장하여 비교 테스트하기"
+title: "[iOS][RxSwift 5.1] Unit Test 작성시 ReplaySubject의 createUnbounded를 이용하여 모든 이벤트를 저장하고 비교 테스트하기"
 description: ""
 category: "iOS/Mac"
 tags: [iOS, RxSwift, Unit Test, ReplaySubject, createUnbounded, Buffer, toBlocking, Async, expectation, XCTestExpectation, wait, waitForExpectations]

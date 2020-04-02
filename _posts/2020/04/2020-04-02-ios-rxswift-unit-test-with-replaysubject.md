@@ -11,7 +11,7 @@ Unit Test에서 비동기를 테스트할 때, expectation을 이용하여 비�
 
 ```
 // 간단한 비동기 예제 코드
-func test_Async() {
+func test_async() {
   var a: Int?
   let exp = expectation(description: "Async Test")
 
@@ -30,8 +30,9 @@ func test_Async() {
 RxSwift에서는 RxTest에서 제공하는 `toBlocking` 이라는 연산자를 이용하여 테스트 할 수 있습니다.
 
 ```
-func test_blocking() {
+func test_async() {
   let expectedResult = [1,2,3]
+
   XCTAssertEqual(
     try Observable.from([1,2,3])
       .toBlocking(timeout: 1)
@@ -58,17 +59,21 @@ class A {
 class ListenerMock: Listener {
   var callCount = 0
   var callHandler: ((Int) -> Void)?
+
   init() {}
+
   func call(value: Int) {
     callCount += 1
     callHandler?(value)
   }
 }
 
-let listener = ListenerMock()
-let a = A()
-a.listener = listener
-a.listener?.call(value: 1)
+func test_async() {
+  let listener = ListenerMock()
+  let a = A()
+  a.listener = listener
+  a.listener?.call(value: 1)
+}
 ```
 
 위와 같이 A 클래스는 Listener를 변수로 가지며, Listener를 Mock으로 만들어서 A 에 주입할 수 있습니다. 그리고 listener의 call 함수를 호출합니다.
@@ -90,22 +95,24 @@ listener.handler = { value in
 만약 여러번이 호출되었다면 그 값을 저장한 후, 예측 결과와 비교를 하도록 테스트 해야합니다.
 
 ```
-let exp = expectation(description: "Async Test")
+func test_async() {
+  let exp = expectation(description: "Async Test")
 
-let expectedResults = [1,2,3]
-var actuallyResults = []
+  let expectedResults = [1,2,3]
+  var actuallyResults = []
 
-listener.callHandler = { value in
-  actuallyResults += [value]
-  if expectedResults.count == actuallyResults { exp.fulfill() }
+  listener.callHandler = { value in
+    actuallyResults += [value]
+    if expectedResults.count == actuallyResults { exp.fulfill() }
+  }
+
+  a.listener?.call(value: 1)
+  a.listener?.call(value: 2)
+  a.listener?.call(value: 3)
+
+  wait(for: [exp], timeout: 3)
+  XCTAssertEqual(expectedResults, expectedResults)
 }
-
-a.listener?.call(value: 1)
-a.listener?.call(value: 2)
-a.listener?.call(value: 3)
-
-wait(for: [exp], timeout: 3)
-XCTAssertEqual(expectedResults, expectedResults)
 ```
 
 위와 같이 테스트 코드를 작성해야 하며, exp를 fulfill() 호출을 해야 timeout이 발생하지 않습니다. 점점 테스트 코드 작성하기가 복잡해집니다. 이는 테스트 시점의 이벤트를 저장하고 있어야하여 발생한 문제입니다.
@@ -116,7 +123,9 @@ XCTAssertEqual(expectedResults, expectedResults)
 class ListenerMock: Listener {
   private var relay = ReplaySubject<Int>.createUnbounded()
   var stream: Observable<Int> { relay }
+
   init() {}
+
   func call(value: Int) {
     relay.onNext(value)
   }

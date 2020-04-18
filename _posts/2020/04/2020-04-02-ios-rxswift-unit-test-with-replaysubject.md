@@ -9,7 +9,7 @@ tags: [iOS, RxSwift, Unit Test, ReplaySubject, createUnbounded, Buffer, toBlocki
 
 Unit Test에서 비동기를 테스트할 때, expectation을 이용하여 비동기의 응답값을 테스트 합니다. 
 
-```
+```swift
 // 간단한 비동기 예제 코드
 func test_async() {
   var a: Int?
@@ -29,7 +29,7 @@ func test_async() {
 
 RxSwift에서는 RxTest에서 제공하는 `toBlocking` 이라는 연산자를 이용하여 테스트 할 수 있습니다.
 
-```
+```swift
 func test_async() {
   let expectedResult = [1,2,3]
 
@@ -46,7 +46,7 @@ func test_async() {
 
 구독 시점과 이벤트가 발행되는 시점이 다른 경우는 어떻게 해야할까요? 예를 들어, 구현체가 특정 조건을 따르는 Mock을 호출했을 때 호출이 몇번 되었는지 확인하는 테스트를 작성합니다.
 
-```
+```swift
 protocol Listener: class {
   func call(value: Int)
 }
@@ -80,13 +80,13 @@ func test_async() {
 
 우리가 만든 ListenerMock이 제대로 호출되었는지 테스트를 할 수 있습니다.
 
-```
+```swift
 XCTAssertEqual(listener.callCount, 1)
 ```
 
 하지만 함수가 호출되었을 때, 특별한 행위를 해야하는 경우는 Mock의 callHandler에 Closure를 할당해야합니다.
 
-```
+```swift
 listener.handler = { value in
   print(value)
 }
@@ -94,7 +94,7 @@ listener.handler = { value in
 
 만약 여러번이 호출되었다면 그 값을 저장한 후, 예측 결과와 비교를 하도록 테스트 해야합니다.
 
-```
+```swift
 func test_async() {
   let exp = expectation(description: "Async Test")
 
@@ -119,7 +119,7 @@ func test_async() {
 
 따라서 `ReplaySubject`의 `createUnbounded`를 이용하여 모든 이벤트를 저장하여 테스트하도록 작성해봅시다.
 
-```
+```swift
 class ListenerMock: Listener {
   private var relay = ReplaySubject<Int>.createUnbounded()
   var stream: Observable<Int> { relay }

@@ -7,7 +7,7 @@ tags: [iOS, Swift, Uber, RIBs, Adapter, Dependency]
 ---
 {% include JB/setup %}
 
-## Dynamic dependencies vs Static dependencies
+## Dependency
 
 RIBs에서는 의존성을 Static과 Dynamic 두 방식으로 주입할 수 있습니다. Static Dependency는 Dependency에 선언을 해놓고, 부모 RIB 또는 더 상위의 RIB의 Component에서 구현하는 방식입니다.
 

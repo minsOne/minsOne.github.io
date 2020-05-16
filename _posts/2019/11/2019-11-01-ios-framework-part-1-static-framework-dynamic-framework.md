@@ -182,12 +182,13 @@ RxSwift_Universal (for architecture armv7):	Mach-O dynamically linked shared lib
 RxSwift_Universal (for architecture arm64):	Mach-O 64-bit dynamically linked shared library arm64
 ```
 
-* otool : 바이너리 파일 분석 도구로, 바이너리에 연결되어 있는 Dynamic Framework를 확인하거나 디스어셈블링 등의 작업을 수행할 수 있습니다.
+* otool : 바이너리 파일 분석 도구로, 바이너리에 연결되어 있는 라이브러리를 확인하거나 디스어셈블링 등의 작업을 수행할 수 있습니다.
 
 ```
-# 연결되어 있는 Dynamic Framework 확인
+# 연결되어 있는 라이브러리 확인
 
 ## Dynamic
+
 $ otool -L RxSwift.framework/RxSwift
 RxSwift.framework/RxSwift:
 	@rpath/RxSwift.framework/RxSwift (compatibility version 1.0.0, current version 1.0.0)
@@ -213,7 +214,9 @@ RIBs.framework/RIBs:
 	@rpath/libswiftDispatch.dylib (compatibility version 1.0.0, current version 0.0.0)
 	@rpath/libswiftFoundation.dylib (compatibility version 1.0.0, current version 0.0.0)
 
+
 ## Static
+
 $ otool -L Firebase.framework/Firebase
 Firebase.framework/Firebase:
 

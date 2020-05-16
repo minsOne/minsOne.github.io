@@ -182,6 +182,61 @@ RxSwift_Universal (for architecture armv7):	Mach-O dynamically linked shared lib
 RxSwift_Universal (for architecture arm64):	Mach-O 64-bit dynamically linked shared library arm64
 ```
 
+* otool : 바이너리 파일 분석 도구로, 바이너리에 연결되어 있는 Dynamic Framework를 확인하거나 디스어셈블링 등의 작업을 수행할 수 있습니다.
+
+```
+# 연결되어 있는 Dynamic Framework 확인
+
+## Dynamic
+$ otool -L RxSwift.framework/RxSwift
+RxSwift.framework/RxSwift:
+	@rpath/RxSwift.framework/RxSwift (compatibility version 1.0.0, current version 1.0.0)
+	/System/Library/Frameworks/Foundation.framework/Foundation (compatibility version 300.0.0, current version 1673.126.0)
+	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1281.0.0)
+	/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation (compatibility version 150.0.0, current version 1673.126.0)
+	@rpath/libswiftCore.dylib (compatibility version 1.0.0, current version 1100.2.255)
+	@rpath/libswiftDispatch.dylib (compatibility version 1.0.0, current version 0.0.0)
+	@rpath/libswiftFoundation.dylib (compatibility version 1.0.0, current version 0.0.0)
+
+
+$ otool -L RIBs.framework/RIBs
+RIBs.framework/RIBs:
+	@rpath/RIBs.framework/RIBs (compatibility version 1.0.0, current version 1.0.0)
+	@rpath/RxRelay.framework/RxRelay (compatibility version 1.0.0, current version 1.0.0)
+	@rpath/RxSwift.framework/RxSwift (compatibility version 1.0.0, current version 1.0.0)
+	/System/Library/Frameworks/Foundation.framework/Foundation (compatibility version 300.0.0, current version 1673.126.0)
+	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1281.0.0)
+	/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation (compatibility version 150.0.0, current version 1673.126.0)
+	@rpath/libswiftCore.dylib (compatibility version 1.0.0, current version 1100.2.255)
+	@rpath/libswiftDispatch.dylib (compatibility version 1.0.0, current version 0.0.0)
+	@rpath/libswiftFoundation.dylib (compatibility version 1.0.0, current version 0.0.0)
+
+## Static
+$ otool -L Firebase.framework/Firebase
+Firebase.framework/Firebase:
+
+$ otool -L FirebaseCore.framework/FirebaseCore
+Archive : FirebaseCore.framework/FirebaseCore
+FirebaseCore.framework/FirebaseCore(FIRAnalyticsConfiguration.o):
+FirebaseCore.framework/FirebaseCore(FIRApp.o):
+FirebaseCore.framework/FirebaseCore(FIRAppAssociationRegistration.o):
+FirebaseCore.framework/FirebaseCore(FIRBundleUtil.o):
+FirebaseCore.framework/FirebaseCore(FIRComponent.o):
+FirebaseCore.framework/FirebaseCore(FIRComponentContainer.o):
+FirebaseCore.framework/FirebaseCore(FIRComponentType.o):
+FirebaseCore.framework/FirebaseCore(FIRConfiguration.o):
+FirebaseCore.framework/FirebaseCore(FIRCoreDiagnosticsConnector.o):
+FirebaseCore.framework/FirebaseCore(FIRDependency.o):
+FirebaseCore.framework/FirebaseCore(FIRDiagnosticsData.o):
+FirebaseCore.framework/FirebaseCore(FirebaseCore-dummy.o):
+FirebaseCore.framework/FirebaseCore(FIRErrors.o):
+FirebaseCore.framework/FirebaseCore(FIRLogger.o):
+FirebaseCore.framework/FirebaseCore(FIROptions.o):
+FirebaseCore.framework/FirebaseCore(FIRVersion.o):
+```
+
 # 참조
 * [Apple Document - Framework Programming Guide / What is Frameworks?](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html#//apple_ref/doc/uid/20002303-BBCEIJFI)
 * [Apple Document - Framework Programming Guide

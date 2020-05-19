@@ -139,7 +139,7 @@ $ nm Production.app/Production | grep RxSwift
 
 ![16]({{site.production_url}}/image/2020/05/16.png)
 
-### Local Swift Pakcage Manager
+### Local Swift Package Manager
 
 Xcode는 Local Swift Package도 지원합니다. Local Package를 이용하여 ProxyModular라는 Package를 만들고 사용할 Package를 추가하면, ProxyModular 패키지를 가져다 사용하는 곳에서는 RxSwift, RIBs, RxSwiftExt 같은 패키지도 사용할 수 있습니다.
 

@@ -201,7 +201,7 @@ let package = Package(
 
 <div class="alert warning"><strong>주의 : </strong>Local Swift Package를 이용하면, Object 파일이 생성되고 바이너리에 추가됩니다. 따라서 이 과정을 잘 알고 사용해야하며, <a href="{{site.production_url}}/ios/mac/ios-framework-part-1-static-framework-dynamic-framework">Framework Part 1 : Static Framework와 Dynamic Framework</a>에서 자세하게 확인할 수 있습니다.</div>
 
-예를 들어, A와 B 프레임워크가 Dynamic Framework이고, ProxyModular Package를 사용하면, A와 B 프레임워크의 바이너리에 ProxyModular과 ProxyModular의 의존 Package가 복사되어 들어갈려고 하므로, A와 B 프레임워크의 바이너리 내에 중복해서 있습니다. 따라서 이 경우, 컴파일러가 중복된다고 판단하고 **컴파일 에러**를 발생시킵니다.
+예를 들어, A와 B 프레임워크가 **Mach-O가 Dynamic Library인 Framework**이고, ProxyModular Package를 사용하면, A와 B 프레임워크의 바이너리에 ProxyModular과 ProxyModular의 의존 Package가 복사되어 들어갈려고 하므로, A와 B 프레임워크의 바이너리 내에 중복해서 있습니다. 따라서 이 경우, 컴파일러가 중복된다고 판단하고 **컴파일 에러**를 발생시킵니다.
 
 ![22]({{site.production_url}}/image/2020/05/22.png)
 

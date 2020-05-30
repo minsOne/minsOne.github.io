@@ -205,6 +205,35 @@ let package = Package(
 
 ![22]({{site.production_url}}/image/2020/05/22.png)
 
+이 경우는 Package의 라이브러리 타입을 dynamic으로 변경해줘야 합니다. library에 type 항목에 dynamic을 추가합니다.
+
+```
+// swift-tools-version:5.2
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+    name: "ProxyModular",
+    products: [
+        // Products define the executables and libraries produced by a package, and make them visible to other packages.
+        .library(
+            name: "ProxyModular",
+            type: .dynamic,
+            targets: ["ProxyModular"]),
+    ],
+    ...
+```
+
+이제 A 프로젝트의 프레임워크인 A 타겟에서 Framework, Libraries, and Embedded Content 항목에 있던 ProxyModular에 Embed 메뉴를 선택할 수 있습니다.
+
+![23]({{site.production_url}}/image/2020/05/23.png)
+
+ProxyModular는 Shared Library로, A와 B 프레임워크에서 ProxyModular의 Embed 설정을 Do Not Embed로 하고, App 프로젝트의 각 타겟에서는 ProxyModular의 Embed 상태를 Embed & Sign 로 설정합니다.
+
+![24]({{site.production_url}}/image/2020/05/24.png)
+
+이제 위에서 컴파일러가 에러를 발생하지 않고 컴파일이 성공합니다.
 
 ## 정리
 

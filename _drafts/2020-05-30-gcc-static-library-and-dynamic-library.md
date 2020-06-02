@@ -84,3 +84,4 @@ https://www.cs.odu.edu/~zeil/cs333/website-s12/Lectures/cppProgramStructure/page
 https://www.kdata.or.kr/info/info_04_view.html?field=&keyword=&type=techreport&page=168&dbnum=128161&mode=detail&type=techreport
 http://blog.naver.com/PostView.nhn?blogId=parkjy76&logNo=220925369874&parentCategoryNo=&categoryNo=23&viewDate=&isShowPopularPosts=true&from=search
 https://nicewoong.github.io/development/2018/02/24/c-library-gcc-compile/
+https://m.blog.naver.com/muyong1/40056025174

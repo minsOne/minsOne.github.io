@@ -43,20 +43,20 @@ protocol NavigateViewControllable: ViewControllable {
 
 extension NavigateViewControllable {
   func presentViewController(viewController: ViewControllable) {
-  	uiviewController.present(viewController.uiviewController, animated: true, completion: nil)
+    uiviewController.present(viewController.uiviewController, animated: true, completion: nil)
   }
   func presentNavigationViewController(root: ViewControllable) {
-  	let navi = UINavigationController(rootViewController: viewController.uiviewController)
-  	uiviewController.present(navi, animated: true, completion: nil)
+    let navi = UINavigationController(rootViewController: root.uiviewController)
+    uiviewController.present(navi, animated: true, completion: nil)
   }
   func dismissViewController(viewController: ViewControllable) {
-  	viewController.uiviewController.dismiss(animated: true, completion: nil)
+    viewController.uiviewController.dismiss(animated: true, completion: nil)
   }
   func pushViewController(viewController: ViewControllable) {
-  	navigationController?.pushViewController(viewController.uiviewController, animated: true)
+    uiviewController.navigationController?.pushViewController(viewController.uiviewController, animated: true)
   }
   func popViewController(viewController: ViewControllable) {
-  	viewController.uiviewController.navigationController?.popToViewController(uiviewController, animated: true)
+    uiviewController.navigationController?.popToViewController(uiviewController, animated: true)
   }
 }
 ```

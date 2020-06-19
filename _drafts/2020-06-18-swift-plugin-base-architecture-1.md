@@ -27,3 +27,4 @@ tags: []
 https://github.com/Vinodh-G/NewsApp 
 https://blog.usejournal.com/extending-your-modules-using-a-plugin-architecture-c1972735d728 
 https://gist.github.com/dehrom/ac1a50cfbee3b573fd590150e652f914 
+https://kdata.or.kr/info/info_04_view.html?field=&keyword=&type=techreport&page=223&dbnum=127607&mode=detail&type=techreport 

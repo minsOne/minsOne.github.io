@@ -142,6 +142,7 @@ class FeatureAPlugin: Plugable {
 * https://en.wikipedia.org/wiki/Plug-in_(computing)
 * https://javacan.tistory.com/entry/120
 * https://gunju-ko.github.io/toby-spring/2019/03/25/IoC-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-DI.html
+* https://develogs.tistory.com/7
 
 <!--
 //

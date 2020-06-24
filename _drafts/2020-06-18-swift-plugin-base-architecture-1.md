@@ -140,6 +140,7 @@ class FeatureAPlugin: Plugable {
 * https://gist.github.com/dehrom/ac1a50cfbee3b573fd590150e652f914 
 * https://kdata.or.kr/info/info_04_view.html?field=&keyword=&type=techreport&page=223&dbnum=127607&mode=detail&type=techreport 
 * https://en.wikipedia.org/wiki/Plug-in_(computing)
+* https://javacan.tistory.com/entry/120
 
 <!--
 //

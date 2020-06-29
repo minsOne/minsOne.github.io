@@ -146,6 +146,10 @@ class FeatureAPlugin: Plugable {
 * https://ilya.puchka.me/ioc-container-in-swift/
 * https://basememara.com/swift-dependency-injection-via-property-wrapper/
 * https://theswiftdev.com/swift-dependency-injection-design-pattern/
+* https://spring.io/blog/2010/06/01/what-s-a-plugin-oriented-architecture
+* https://www.youtube.com/watch?v=lOcJ2z-tgu0
+* Swinject to handle dependency injection, Felipe Garcia (English) https://www.youtube.com/watch?v=8a_oL8-ioqA
+* https://github.com/ivlevAstef/DITranquillity
 
 <!--
 //

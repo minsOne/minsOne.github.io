@@ -151,6 +151,8 @@ class FeatureAPlugin: Plugable {
 * Swinject to handle dependency injection, Felipe Garcia (English) https://www.youtube.com/watch?v=8a_oL8-ioqA
 * https://github.com/ivlevAstef/DITranquillity
 
+http://www.masterqna.com/android/88455/%EC%9D%B8%EC%95%B1-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%ED%8C%A8%ED%84%B4-%EB%AA%A8%EB%93%88-dynamic-delivery
+
 <!--
 //
 //  Copyright (c) 2017. Uber Technologies

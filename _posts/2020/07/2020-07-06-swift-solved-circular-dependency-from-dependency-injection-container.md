@@ -129,3 +129,107 @@ public class Container: ContainerAPI {
 ```
 
 두번째로, 메인 프로젝트에서는 인증 비밀번호 Inject 아이템을 만들고, 구현체를 세이프박스에서 사용하도록 Container에 등록합니다.
+
+```
+/// Module: Application
+/// File: SigningImplement.swift
+
+import DependencyContainer
+
+class SigningInjectItem: Injectable {
+  init() {}
+  var id: String = signingInjectId
+  func resolve() -> AnyObject {
+    SigningImplement()
+  }
+}
+
+public class SigningImplement: SigningInject {
+  func request(withSign parameter: [String:String], completion: (([String:String]) -> Void), failure: ((Error) -> Void)) {
+    completion(parameter)
+  }  
+}
+
+
+/// File: AppDelegate
+
+import DependencyContainer
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+    ...
+
+    Container.shared.regist(injectType: SigningInjectItem.self)
+
+    ...
+
+    return true
+  }
+}
+```
+
+인증기능이 Container에 등록되어, 이제 세이프박스에서 인증 기능을 꺼내어 사용할 수 있습니다.
+
+먼저 세이프박스에서 DependencyContainer를 연결합니다.
+
+<p style="text-align:center;">
+    <img src="{{ site.production_url }}/image/2020/07/20200706_7.png" style="width: 400px"/>
+</p><br/>
+
+이제 세이프박스에서 인증이 필요한 곳에서 Container에 등록된 SigningInjectItem을 꺼내어 resolve를 호출하여 인증 인터페이스인 SigningInject 타입 객체를 얻어 사용할 수 있습니다.
+
+```
+/// Module: SafeBox
+
+import DependencyContainer
+
+class SafeBoxVerifyService {
+  ...
+
+  func signing(parameter: [String:String], completion: (([String:String]) -> Void), failure: ((Error) -> Void)) {
+    guard let service = Container.shared.load(for: signingInjectId)?.resolve() as? SigningInject else {
+      failure(NSError(domain: "com.kakaobank.example", code: -1, userInfo: nil))
+      return
+    }
+    service.request(withSign: parameter, completion: completion, failure: failure)
+  }
+}
+```
+
+<br/>
+
+### 순환 종속성 관계(Circular Dependency): 카드 관리 ⇄ 입출금통장 관리
+
+순환 종속성 관계도 마찬가지로 Dependency Injection Container를 이용하여 풀 수 있습니다. DependencyContainer에서 카드 관리, 입출금통장 관리의  의존성 주입 프로토콜을 정의하고, 각 모듈에서는 구현하고, 메인 프로젝트는 카드 관리, 입출금통장 관리 모듈을 알고 있으므로, 인증 기능을 Container에 등록하듯 카드 관리와 입출금통장 관리도 Container에 등록이 가능합니다.
+
+즉, 카드 관리와 입출금통장 관리가 서로 종속성을 가지는 것이 아니라, DependencyContainer에 종속성을 가지도록 변경됩니다.
+
+<p style="text-align:center;">
+    <img src="{{ site.production_url }}/image/2020/07/20200706_8.png" style="width: 400px"/>
+</p><br/>
+
+그러면 카드 관리와 입출금통장 관리가 서로 종속성을 가지지 않도록 만들어봅시다.
+
+첫번째로 DependencyContainer 프로젝트에 카드 관리 의존성 프로토콜과 입출금통장 관리 의존성 프로토콜을 선언합니다.
+
+```
+/// Module: DependencyContainer
+/// File: ManagementCardInject.swift
+
+public static let managementCardInjectId = "ManagementCardInjectId"
+
+public protocol ManagementCardInject {
+  func viewController(with cardNumber: String) -> UIViewController
+}
+
+/// File: ManagementDemandDepositInject.swift
+
+public static let managementDemandDepositInjectId = "managementDemandDepositInjectId"
+
+public protocol ManagementDemandDepositInject {
+  func viewController(with accountNumber: String) -> UIViewController
+}
+```
+
+두번째로 카드 관리와 입출금통장 관리 모듈에서 Inject 프로토콜을 구현합니다.

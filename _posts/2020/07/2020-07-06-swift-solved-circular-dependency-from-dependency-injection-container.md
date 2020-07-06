@@ -28,11 +28,11 @@ tags: [Swift, DI, Dependency Injection, IoC, Container, Circular Dependency, Pro
   <img src="{{ site.production_url }}/image/2020/07/20200706_2.png" style="width: 300px"/>
 </p><br/>
 
-이 서비스에서 금액 입력 등의 기본적인 기능까지는 새로운 모듈에서 작업을 하였습니다. 그러나 마지막 인증 비밀번호를 입력하는 기능은 아직 모듈화가 되지 않았습니다. 가장 핵심이 되는 기능을 붙이지 못해 서비스가 만들어지지 못합니다.
+이 서비스에서 금액 입력 등의 기본적인 기능까지는 새로운 모듈에서 작업을 하였습니다. 그러나 마지막 인증 비밀번호를 입력하는 기능은 아직 모듈화가 되지 않았습니다. 가장 핵심이 되는 기능을 붙이지 못해 서비스가 만들어지지 않습니다.
 
 이런 경우는 어떻게 해야 할까요? 메인 프로젝트에서 세이프박스를 호출하니, 인증 기능을 Closure로 받아서 저장 후, 세이브 박스가 인증 Closure를 계속 가져다니다가 마지막에 처리하는 방식이 있습니다. 또는 세이프박스가 Delegate 방식을 이용해서 인증 기능을 세이프박스 호출한 객체에서 인증 기능을 구현하여 해결할 수 있습니다.
 
-여러모로 인증이라는 기능이 모듈로 분리되지 않아, 작업이 어렵습니다.
+여러모로 인증이라는 기능이 모듈로 분리되지 않아 어렵고 귀찮은 작업이 예상됩니다.
 
 두번째 예로, 카카오뱅크의 카드 서비스에서는 **카드 관리**라는 화면이 있습니다. 여기에는 연결된 **입출금 통장의 관리 화면**으로 진입을 할 수 있습니다. 그리고 입출금 통장 관리에서는 **연결된 카드의 관리 화면**으로 진입할 수 있습니다.
 
@@ -41,7 +41,7 @@ tags: [Swift, DI, Dependency Injection, IoC, Container, Circular Dependency, Pro
   <img src="{{ site.production_url }}/image/2020/07/20200706_4.png" style="width: 300px"/>
 </p><br/>
 
-즉, **카드 관리 -> 입출금 통장 관리 -> 카드 관리 -> 입출금 통장 관리 -> 카드 관리 -> ...** 와 같은 과정으로 진행됩니다. 각 서비스들을 아직 모듈로 분리하지 않았다면 이런 과정이 가능합니다. 하지만, 카드 관리와 입출금 통장 관리 서비스가 모듈화로 분리되면 어떨까요?
+즉, **카드 관리 -> 입출금 통장 관리 -> 카드 관리 -> 입출금 통장 관리 -> 카드 관리 -> ...** 와 같은 과정으로 진행됩니다. 각 서비스들을 아직 모듈로 분리하지 않았다면 이런 과정이 가능합니다. 하지만, 카드 관리와 입출금 통장 관리 서비스가 모듈로 분리되면 어떨까요?
 
 <p style="text-align:center;">
     <img src="{{ site.production_url }}/image/2020/07/20200706_5.png" style="width: 400px"/>
@@ -59,7 +59,7 @@ tags: [Swift, DI, Dependency Injection, IoC, Container, Circular Dependency, Pro
 
 ### Interface Injection: 세이프박스 → 인증비밀번호
 
-먼저 의존성을 담당할 별도의 프레임워크 - DependencyContainer 를 만듭니다.
+먼저 의존성을 담당할 별도의 프레임워크 - **DependencyContainer** 를 만듭니다.
 
 <p style="text-align:center;">
     <img src="{{ site.production_url }}/image/2020/07/20200706_6.png" style="width: 400px"/>
@@ -93,7 +93,7 @@ public class SigningImplement: SigningInject {
 }
 ```
 
-DependencyContainer 프로젝트에 Container를 만들어 의존성 주입 프로토콜을 구현한 구현체를 등록할 준비를 합니다. 
+DependencyContainer 프로젝트에 **Container**를 만들어 의존성 주입 프로토콜을 구현한 구현체를 **등록**할 준비를 합니다. 
 
 첫번째로, Injectable 프로토콜을 만들고 이 프로토콜을 등록시킬 Container를 만듭니다.
 
@@ -355,7 +355,7 @@ class ManagementDemandDepositRouter {
 
 ## 오픈소스 - [Dip](https://github.com/AliSoftware/Dip), [SwInject](https://github.com/Swinject/Swinject)
 
-위의 코드처럼 작성할 수도 있지만, Dependency Injection Container를 지원하는 오픈소스를 이용하여 위의 코드처럼 작성도 가능합니다.
+위의 코드처럼 작성할 수도 있지만, Dependency Injection Container를 지원하는 오픈소스를 이용하여 위의 코드처럼 작성 또는 군더더기 없이 작성 가능합니다.
 
 **[AliSoftware/Dip](https://github.com/AliSoftware/Dip)**와 **[Swinject](https://github.com/Swinject/Swinject)** 오픈소스를 이용하여 훨씬 더 풍부한 기능으로 코드 작성이 가능합니다.
 

@@ -233,3 +233,154 @@ public protocol ManagementDemandDepositInject {
 ```
 
 두번째로 카드 관리와 입출금통장 관리 모듈에서 Inject 프로토콜을 구현합니다.
+
+```
+/// Module: Card
+/// File: ManagementCardInjectImplement.swift
+
+import DependencyContainer
+
+public class ManagementCardInjectImplement: ManagementCardInject {
+  public func viewController(with cardNumber: String) -> UIViewController {
+    ...
+    let vc = ManagementCardViewController(cardNumber: cardNumber) 
+    return vc
+  }
+}
+
+
+/// Module: DemandDeposit
+/// File: ManagementDemandDepositInjectImplement.swift
+
+public class ManagementDemandDepositInjectImplement: ManagementDemandDepositInject {
+  public func viewController(with accountNumber: String) -> UIViewController {
+    ...
+    let vc = ManagementDemandDepositViewController(accountNumber: accountNumber)
+    return vc
+  }
+}
+```
+
+세번째로 메인 프로젝트에서 카드 관리 Inject 아이템, 입출금통장 관리 Inject 아이템을 만들고, 구현체를 카드 관리, 입출금통장 관리에서 사용하도록 Container에 등록합니다.
+
+```
+/// Module: Application
+/// File: ManagementCardInjectItem.swift
+
+import DependencyContainer
+import Card
+
+class ManagementCardInjectItem: Injectable {
+  init() {}
+  var id: String = managementCardInjectId
+  func resolve() -> AnyObject {
+    ManagementCardInjectImplement()
+  }
+}
+
+
+/// File: ManagementDemandDepositInjectItem.swift
+
+import DependencyContainer
+import DemandDeposit
+
+class ManagementDemandDepositInjectItem: Injectable {
+  init() {}
+  var id: String = managementDemandDepositInjectId
+  func resolve() -> AnyObject {
+    ManagementDemandDepositInjectImplement()
+  }
+}
+
+
+/// File: AppDelegate
+
+import DependencyContainer
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+    ...
+
+    Container.shared.regist(injectType: SigningInjectItem.self)
+    Container.shared.regist(injectType: ManagementCardInjectItem.self)
+    Container.shared.regist(injectType: ManagementDemandDepositInjectItem.self)
+
+    ...
+
+    return true
+  }
+}
+```
+
+마지막으로 카드 관리, 입출금통장 관리에서 DependencyContainer의 Container에 등록되어 있는 ManagementCardInject, ManagementDemandDepositInject 프로토콜을 구현한 구현체를 꺼내어 각 화면으로 이동할 수 있습니다.
+
+```
+/// Module: Card
+/// File: ManagementCardRouter.swift
+
+import DependencyContainer
+
+class ManagementCardRouter {
+  ...
+
+  func routeToManagementDemandDeposit(accountNumber: String) -> UIViewController? {
+    guard let managementDemandDepositInject = Container.shared.load(for: managementDemandDepositInjectId)?.resolve() as? ManagementDemandDepositInject else {
+      return nil
+    }
+    return managementDemandDepositInject.viewController(with: accountNumber)
+  }
+}
+
+
+/// Module: DemandDeposit
+/// File: ManagementDemandDepositRouter.swift
+
+import DependencyContainer
+
+class ManagementDemandDepositRouter {
+  ...
+  func routeToManagementCard(cardNumber: String) -> UIViewController? {
+    guard let managementCardInject = Container.shared.load(for: managementCardInjectId)?.resolve() as? ManagementCardInject else {
+      return nil
+    }
+    return managementCardInject.viewController(with: cardNumber)
+  }
+} 
+```
+
+이렇게 카드 관리와 입출금 통장 관리 간의 순환 종속 관계를 Dependency Injection Container를 이용하여 끊을 수 있습니다.
+
+## 오픈소스 - [Dip](https://github.com/AliSoftware/Dip), [SwInject](https://github.com/Swinject/Swinject)
+
+위의 코드처럼 작성할 수도 있지만, Dependency Injection Container를 지원하는 오픈소스를 이용하여 위의 코드처럼 작성도 가능합니다.
+
+**[AliSoftware/Dip](https://github.com/AliSoftware/Dip)**와 **[Swinject](https://github.com/Swinject/Swinject)** 오픈소스를 이용하여 훨씬 더 풍부한 기능으로 코드 작성이 가능합니다.
+
+
+
+
+
+# 참고자료 
+
+* https://github.com/Vinodh-G/NewsApp 
+* https://blog.usejournal.com/extending-your-modules-using-a-plugin-architecture-c1972735d728 
+* https://gist.github.com/dehrom/ac1a50cfbee3b573fd590150e652f914 
+* https://kdata.or.kr/info/info_04_view.html?field=&keyword=&type=techreport&page=223&dbnum=127607&mode=detail&type=techreport 
+* https://en.wikipedia.org/wiki/Plug-in_(computing)
+* https://javacan.tistory.com/entry/120
+* https://gunju-ko.github.io/toby-spring/2019/03/25/IoC-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-DI.html
+* https://develogs.tistory.com/7
+* https://ilya.puchka.me/ioc-container-in-swift/
+* https://basememara.com/swift-dependency-injection-via-property-wrapper/
+* https://theswiftdev.com/swift-dependency-injection-design-pattern/
+* https://spring.io/blog/2010/06/01/what-s-a-plugin-oriented-architecture
+* https://www.youtube.com/watch?v=lOcJ2z-tgu0
+* https://www.youtube.com/watch?v=8a_oL8-ioqA
+* https://github.com/ivlevAstef/DITranquillity
+* https://github.com/Angel-Cortez/example-buck-ribs-needle
+* https://greatshin.tistory.com/8
+* https://javacan.tistory.com/entry/120
+* https://martinfowler.com/eaaCatalog/plugin.html
+* https://black-jin0427.tistory.com/194
+* http://www.masterqna.com/android/88455/%EC%9D%B8%EC%95%B1-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%ED%8C%A8%ED%84%B4-%EB%AA%A8%EB%93%88-dynamic-delivery

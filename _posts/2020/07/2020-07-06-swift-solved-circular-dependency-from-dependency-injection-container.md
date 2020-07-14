@@ -447,6 +447,11 @@ class ManagementDemandDepositBuilder {
   * [IoC, DI, DIP 용어 정리](https://black-jin0427.tistory.com/194)
   * [객체 종속성이란? what is object dependency?](https://wiserloner.tistory.com/115)
   * [Unity Container: Constructor Injection](https://www.tutorialsteacher.com/ioc/constructor-injection-using-unity-container)
+  * [Dependency를 관리하는 방법](https://architecture101.blog/2008/12/07/dependency_managment/)
+  * [Dependency Analyzer를 이용한 순환적 의존관계 검출](https://blog.naver.com/suresofttech/220729875733)
 
 * Youtube
   * [Swinject to handle dependency injection](https://www.youtube.com/watch?v=8a_oL8-ioqA)
+
+* Wikipedia
+  * [Circular dependency](https://en.wikipedia.org/wiki/Circular_dependency)

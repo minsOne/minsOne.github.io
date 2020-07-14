@@ -108,7 +108,7 @@ public protocol Injectable {
 }
 
 
-/// File: Container
+/// File: Container.swift
 
 public protocol ContainerAPI {
   func regist(injectType: Injectable.Type)
@@ -153,7 +153,7 @@ public class SigningImplement: SigningInject {
 }
 
 
-/// File: AppDelegate
+/// File: AppDelegate.swift
 
 import DependencyContainer
 
@@ -183,18 +183,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ```
 /// Module: SafeBox
+/// File: SafeBoxVerifyService.swift
 
 import DependencyContainer
 
-class SafeBoxVerifyService {
-  ...
+protocol SafeBoxVerifyServicable {
+  var signingService: SigningInject { get }
+  func signing(parameter: [String:String], completion: (([String:String]) -> Void), failure: ((Error) -> Void))
+}
+
+struct SafeBoxVerifyService: SafeBoxVerifyServicable {
+
+  let signingService: SigningInject
+
+  init(signingService: SigningInject) {
+    self.signingService = signingService
+  }
 
   func signing(parameter: [String:String], completion: (([String:String]) -> Void), failure: ((Error) -> Void)) {
-    guard let service = Container.shared.load(for: signingInjectId)?.resolve() as? SigningInject else {
-      failure(NSError(domain: "com.kakaobank.example", code: -1, userInfo: nil))
-      return
+    signingService.request(withSign: parameter, completion: completion, failure: failure)
+  }
+}
+
+
+/// File: SafeBoxVerifyBuilder.swift
+
+class SafeBoxVerifyBuilder {
+  func build() -> SafeBoxVerifyServicable? {
+    guard let inject = Container.shared.load(for: signingInjectId)?.resolve() as? SigningInject else { 
+      return nil
     }
-    service.request(withSign: parameter, completion: completion, failure: failure)
+    return SafeBoxVerifyService(signingService: inject)
   }
 }
 ```
@@ -245,6 +264,7 @@ import DependencyContainer
 public class ManagementCardInjectImplement: ManagementCardInject {
   public func viewController(with cardNumber: String) -> UIViewController {
     ...
+
     let vc = ManagementCardViewController(cardNumber: cardNumber) 
     return vc
   }
@@ -257,6 +277,7 @@ public class ManagementCardInjectImplement: ManagementCardInject {
 public class ManagementDemandDepositInjectImplement: ManagementDemandDepositInject {
   public func viewController(with accountNumber: String) -> UIViewController {
     ...
+
     let vc = ManagementDemandDepositViewController(accountNumber: accountNumber)
     return vc
   }
@@ -295,7 +316,7 @@ class ManagementDemandDepositInjectItem: Injectable {
 }
 
 
-/// File: AppDelegate
+/// File: AppDelegate.swift
 
 import DependencyContainer
 
@@ -323,16 +344,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 import DependencyContainer
 
-class ManagementCardRouter {
-  ...
+protocol ManagementCardRouting {
+  var managementDemandDepositInject: ManagementDemandDepositInject { get }
+  func routeToManagementDemandDeposit(accountNumber: String) -> UIViewController
+}
 
-  func routeToManagementDemandDeposit(accountNumber: String) -> UIViewController? {
-    guard let managementDemandDepositInject = Container.shared.load(for: managementDemandDepositInjectId)?.resolve() as? ManagementDemandDepositInject else {
-      return nil
-    }
+class ManagementCardRouter: ManagementCardRouting {
+
+  let managementDemandDepositInject: ManagementDemandDepositInject
+
+  init(managementDemandDepositInject: ManagementDemandDepositInject) {
+    self.managementDemandDepositInject = managementDemandDepositInject
+  }
+
+  func routeToManagementDemandDeposit(accountNumber: String) -> UIViewController {
     return managementDemandDepositInject.viewController(with: accountNumber)
   }
 }
+
+/// File: ManagementCardBuilder.swift
+
+class ManagementCardBuilder {
+  func build() -> ManagementCardRouting? {
+    guard let inject = Container.shared.load(for: managementDemandDepositInjectId)?.resolve() as? ManagementDemandDepositInject else {
+      return nil
+    }
+    return ManagementCardRouter(managementDemandDepositInject: inject)
+  }
+}
+
 
 
 /// Module: DemandDeposit
@@ -340,15 +380,34 @@ class ManagementCardRouter {
 
 import DependencyContainer
 
-class ManagementDemandDepositRouter {
-  ...
-  func routeToManagementCard(cardNumber: String) -> UIViewController? {
-    guard let managementCardInject = Container.shared.load(for: managementCardInjectId)?.resolve() as? ManagementCardInject else {
-      return nil
-    }
+protocol ManagementDemandDepositRouting {
+  var managementCardInject: ManagementCardInject { get }
+  func routeToManagementCard(cardNumber: String) -> UIViewController
+}
+
+class ManagementDemandDepositRouter: ManagementDemandDepositRouting {
+
+  let managementCardInject: ManagementCardInject
+
+  init(managementCardInject: ManagementCardInject) {
+    self.managementCardInject = managementCardInject
+  }
+
+  func routeToManagementCard(cardNumber: String) -> UIViewController {
     return managementCardInject.viewController(with: cardNumber)
   }
 } 
+
+/// File: ManagementDemandDepositBuilder.swift
+
+class ManagementDemandDepositBuilder {
+  func build() -> ManagementDemandDepositRouting? {
+    guard let inject = Container.shared.load(for: managementCardInjectId)?.resolve() as? ManagementCardInject else {
+      return nil
+    }
+    return ManagementDemandDepositRouter(managementCardInject: inject)
+  }
+}
 ```
 
 이렇게 카드 관리와 입출금 통장 관리 간의 순환 종속 관계를 Dependency Injection Container를 이용하여 끊을 수 있습니다.

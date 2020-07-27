@@ -74,8 +74,10 @@ int multi(int a, int b) {
 
 ```
 $ gcc -c math.c -o math.o
+
 $ file math.o
 math.o: Mach-O 64-bit object x86_64
+
 $ nm math.o
 0000000000000020 T _multi
 0000000000000000 T _sum
@@ -94,6 +96,7 @@ $ ar rcs libmath.a math.o
 
 $ file libmath.a
 libmath.a: current ar archive random library
+
 $ nm libmath.a
 
 libmath.a(math.o):
@@ -268,7 +271,9 @@ math.c 라이브러리를 동적 라이브러리 파일로 만듭니다.
 
 ```
 $ gcc -c math.c -o math.o
+
 $ libtool -dynamic -o libmath.so math.o
+
 $ file libmath.so
 libmath.so: Mach-O 64-bit dynamically linked shared library x86_64
 ```
@@ -290,8 +295,12 @@ libmath.so: Mach-O 64-bit dynamically linked shared library x86_64
 라이브러리의 sum, multi 함수를 호출할 실행 파일에 동적 라이브러리 libmath.so를 연결하여 정상 출력되는지 확인합니다.
 
 ```
+# 직접 so 파일을 지정하는 경우
 $ gcc -Wall main.c -o main libmath.so
+
+# 라이브러리 경로만 지정하는 경우
 $ gcc -Wall main.c -o main -L. -lmath # -L 뒤에는 libmath.so가 있는 폴더를 지정 "."은 현재 경로
+
 $ ./main
 sum : 50
 multi : 400

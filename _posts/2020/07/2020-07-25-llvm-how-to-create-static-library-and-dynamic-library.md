@@ -470,4 +470,4 @@ Disassembly of section __TEXT,__text:
 * Lecture
   * [The Structure of a C++ Program - Separate Compilation](https://www.cs.odu.edu/~zeil/cs333/website-s12/Lectures/cppProgramStructure/pages/ar01s01s03.html)
 
-ps. OSX에서 기본 GCC가 LLVM이라고 알려주신 김정님꼐 감사드립니다.
+ps. OSX에서 기본 GCC가 LLVM이라고 알려주신 김정님께 감사드립니다.

@@ -267,7 +267,7 @@ Disassembly of section __TEXT,__text:
 
 math.c 라이브러리를 동적 라이브러리 파일로 만듭니다. 
 
-첫번째 방법은 libtool(ar)을 이용하여 동적 라이브러리를 만드는 방법입니다.
+첫번째 방법은 libtool을 이용하여 동적 라이브러리를 만드는 방법입니다.
 
 ```
 $ gcc -c math.c -o math.o

@@ -278,10 +278,10 @@ $ file libmath.so
 libmath.so: Mach-O 64-bit dynamically linked shared library x86_64
 ```
 
-두번째 방법은 gcc의 shared 옵션을 이용하여 바로 동적 라이브러리를 만드는 방법입니다.
+두번째 방법은 gcc의 shared 옵션을 이용하여 동적 라이브러리를 만드는 방법입니다.
 
 ```
-# 소스 파일에서 바로 만들기
+# 소스 파일에서 만들기
 $ gcc -shared -o libmath.so math.c
 
 # Object 파일 만든 후, 동적 라이브러리 만들기

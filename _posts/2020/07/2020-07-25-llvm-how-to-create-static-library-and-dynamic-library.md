@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "[GCC] 정적 라이브러리(Static Library), 동적 라이브러리(Shared Library) 만들기"
+title: "[LLVM] 정적 라이브러리(Static Library), 동적 라이브러리(Shared Library) 만들기"
 description: ""
 category: "programming"
-tags: [gcc, nm, ar, libtool, Static Library, Dynamic Library, objdump, otool, memory segments, linking, object file]
+tags: [gcc, LLVM, nm, ar, libtool, Static Library, Dynamic Library, objdump, otool, memory segments, linking, object file]
+alias: /programming/gcc-static-library-and-dynamic-library
 ---
 {% include JB/setup %}
 
@@ -34,6 +35,19 @@ tags: [gcc, nm, ar, libtool, Static Library, Dynamic Library, objdump, otool, me
 ## 라이브러리 작성
 
 덧셈과 곱셈 기능을 하는 라이브러리를 작성합니다.
+
+주의 : OSX 환경에서 라이브러리를 만드는 방법을 설명하며, OSX에서는 GCC가 LLVM으로 대신 사용되고 있습니다. [참고](https://ji007.tistory.com/m/entry/LLVM-Low-Level-Virtual-Machine)
+
+GCC 명령어 버전은 다음과 같습니다.
+
+```
+$ gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/4.2.1
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.5.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+```
 
 ### 정적 라이브러리 - Static Library
 
@@ -69,10 +83,15 @@ $ nm math.o
 
 math.o 파일이 생성되고, Object 파일을 확인할 수 있습니다. 그리고 sum, multi 함수가 있음을 알 수 있습니다.
 
-이제 libtool 명령어를 이용하여 정적 라이브러리 파일을 생성합니다.
+이제 libtool, ar 명령어를 이용하여 정적 라이브러리 파일을 생성합니다.
 
 ```
+# libtool로 정적 라이브러리 만들기
 $ libtool -static -o libmath.a math.o
+
+# ar로 정적 라이브러리 만들기
+$ ar rcs libmath.a math.o
+
 $ file libmath.a
 libmath.a: current ar archive random library
 $ nm libmath.a
@@ -239,7 +258,7 @@ Disassembly of section __TEXT,__text:
 
 실행 파일인 main 에 있는 sum, multi 함수의 어셈블리 코드와 정적 라이브러리인 libmath.a에 있는 sum, multi 함수의 어셈블리 코드가 같은 것을 확인할 수 있습니다.
 
-### 동적 라이브러리 - Dynamic Library
+### 동적 라이브러리 - Shared Library
 
 앞에서 만들었던 코드를 계속 이어서 사용합니다.
 

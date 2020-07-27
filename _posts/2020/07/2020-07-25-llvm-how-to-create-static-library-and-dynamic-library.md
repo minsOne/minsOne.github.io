@@ -34,8 +34,6 @@ alias: /programming/gcc-static-library-and-dynamic-library
 
 ## 라이브러리 작성
 
-덧셈과 곱셈 기능을 하는 라이브러리를 작성합니다.
-
 주의 : OSX 환경에서 라이브러리를 만드는 방법을 설명하며, 최신 OSX에서는 GCC가 LLVM으로 대신 사용되고 있습니다. [참고](https://ji007.tistory.com/m/entry/LLVM-Low-Level-Virtual-Machine)
 
 여기에 작성된 예제에서 사용한 GCC 버전은 다음과 같습니다.
@@ -48,6 +46,8 @@ Target: x86_64-apple-darwin19.5.0
 Thread model: posix
 InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 ```
+
+덧셈과 곱셈 기능을 하는 라이브러리를 작성해봅시다.
 
 ### 정적 라이브러리 - Static Library
 

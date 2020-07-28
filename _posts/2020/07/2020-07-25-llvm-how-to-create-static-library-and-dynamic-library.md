@@ -108,6 +108,7 @@ libmath.a(math.o):
 
 ```
 /// FileName: main.c
+#include <stdio.h>
 #include "math.h"
  
 int main()

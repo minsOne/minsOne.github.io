@@ -151,3 +151,6 @@ Component에 접근할 때, Component에 해당 이름이 같은 속성이 있�
   * [DuctTape](https://github.com/marty-suzuki/DuctTape)
   * [Compose](https://github.com/acecilia/Compose)
   * [SwiftyUserDefaults](https://github.com/sunshinejr/SwiftyUserDefaults)
+
+* Post
+  * [[Swift 5.1] 키 패스를 이용한 동적 멤버 찾아보기 (SE-0252)](https://seorenn.tistory.com/33)

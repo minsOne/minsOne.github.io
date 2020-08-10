@@ -48,7 +48,7 @@ protocol ParentDependency: Dependency {}
 final class ParentComponent: Component<ParentDependency>, ChildDependency {
 	let name: String
 
-	init(name: String) {
+	init(dependency: ParentDependency, name: String) {
 		self.name = name
 		super.init(dependency: dependency)
 	}
@@ -97,7 +97,7 @@ protocol ChildDynamicNameDependency: Dependency {}
 final class ChildDynamicNameComponent: Component<ChildDynamicNameDependency> {
 	fileprivate let name: String
 
-	init(name: String) {
+	init(dependency: ChildDynamicNameDependency, name: String) {
 		self.name = name
 		super.init(dependency: dependency)
 	}

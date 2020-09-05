@@ -34,19 +34,19 @@ RxTest를 사용하기 위해서는 RxTest에 RxSwift가 있는 경로를 알려
 Modular라는 새로운 프레임워크 프로젝트를 만듭니다. 이 프레임워크는 Dynamic으로, SwiftPM으로 RxSwift 라이브러리를 추가합니다.
 
 <p style="text-align:center;">
-    <img src="{{ site.production_url }}/image/2020/09/20200905_01.png" style="height: 400px"/>
+    <img src="{{ site.production_url }}/image/2020/09/20200905_01.png" style="width: 600px"/>
 </p><br/>
 
 RxTest는 테스트 할때 쓰이기 때문에 테스트 타겟에 추가합니다. 
 
 <p style="text-align:center;">
-    <img src="{{ site.production_url }}/image/2020/09/20200905_02.png" style="height: 400px"/>
+    <img src="{{ site.production_url }}/image/2020/09/20200905_02.png" style="width: 600px"/>
 </p><br/>
 
 하지만 RxTest는 실행 과정에 `@rpath/RxSwift.framework/RxSwift` 경로의 RxSwift를 찾을 수 없어 `image not found` 에러가 발생합니다.
 
 <p style="text-align:center;">
-    <img src="{{ site.production_url }}/image/2020/09/20200905_03.png" style="height: 400px"/>
+    <img src="{{ site.production_url }}/image/2020/09/20200905_03.png" style="width: 600px"/>
 </p><br/>
 
 RxTest는 RxSwift 코드가 복사된 Modular 라이브러리 경로로 설정해줘야 합니다.
@@ -75,7 +75,7 @@ RxTest.framework/RxTest:
 앱 타겟에 SwiftPM으로 RxSwift를 추가하였습니다.
 
 <p style="text-align:center;">
-    <img src="{{ site.production_url }}/image/2020/09/20200905_04.png" style="height: 400px"/>
+    <img src="{{ site.production_url }}/image/2020/09/20200905_04.png" style="width: 600px"/>
 </p><br/>
 
 RxSwift는 어플리케이션 실행 바이너리에 복사가 되었습니다. 라이브러리는 실행 바이너리를 링킹할 수 없습니다. 따라서 RxTest는 install_name_tool로 RxSwift 경로를 설정해주는 것이 불가능합니다.
@@ -83,7 +83,7 @@ RxSwift는 어플리케이션 실행 바이너리에 복사가 되었습니다. 
 그러면 테스트 타겟에 RxTest를 정적 라이브러리로 추가하면 어떨까요?
 
 <p style="text-align:center;">
-    <img src="{{ site.production_url }}/image/2020/09/20200905_05.png" style="height: 400px"/>
+    <img src="{{ site.production_url }}/image/2020/09/20200905_05.png" style="width: 600px"/>
 </p><br/>
 
 RxTest는 RxSwift에 의존성을 가지므로, 테스트 타겟에는 RxSwift, RxTest 코드가 모두 들어가게 됩니다. 앱, 테스트 모두 RxSwift가 존재하는 상황이 됩니다. 
@@ -91,7 +91,7 @@ RxTest는 RxSwift에 의존성을 가지므로, 테스트 타겟에는 RxSwift, 
 테스트를 실행하면 앱과 테스트에 RxSwift 클래스가 있다고 출력됩니다.
 
 <p style="text-align:center;">
-    <img src="{{ site.production_url }}/image/2020/09/20200905_06.png" style="height: 400px"/>
+    <img src="{{ site.production_url }}/image/2020/09/20200905_06.png" style="width: 600px"/>
 </p><br/>
 
 현재로선 별도의 방법이 없습니다. [Github Issue](https://github.com/ReactiveX/RxSwift/issues/2057) 

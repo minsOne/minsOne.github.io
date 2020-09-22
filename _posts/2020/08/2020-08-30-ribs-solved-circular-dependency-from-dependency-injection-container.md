@@ -50,17 +50,16 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
 /// File : BuilderContainer.swift
 
 public protocol BuilderContainable {
-  static func regist<T: Buildable>(builder: T.Type, with id: String) 
+  static func regist<T: Buildable>(builder: T.Type, with id: String)
   static func resolve(for id: String) -> Buildable.Type
 }
 
 public class BuilderContainer: BuilderContainable {
   public static let shared: BuilderContainer = BuilderContainer()
-  private var container: [String: BuilderContainerItem] = [:]
+  private var container: [String: Buildable.Type] = [:]
   
-  public static func regist<T: BuilderContainerItem>(builder: T.Type) {
-    let item = builder.init()
-    shared.container[item.id] = item
+  public static func regist<T: Buildable>(builder: T.Type, with id: String) {
+    shared.container[id] = builder
   }
   
   public static func resolve(for id: String) -> Buildable.Type {

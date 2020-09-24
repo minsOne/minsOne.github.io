@@ -124,7 +124,7 @@ digraph G {
 $ ruby search_dependency_framework.rb >> input.dot && dot -Tpdf input.dot -o digraph.pdf
 ```
 
-<p style="text-align:center;"><embed src="{{ site.production_url }}/image/2020/only_framework_dependency_digraph_for_DigitClockInSwift.pdf" type="application/pdf" height="500px" width="100%"></p><br/> 
+<p style="text-align:center;"><embed src="{{ site.production_url }}/image/2020/01/only_framework_dependency_digraph_for_DigitClockInSwift.pdf" type="application/pdf" height="500px" width="100%"></p><br/> 
 
 ## 5. App 프로젝트까지 포함한 다이어그램 그리기
 
@@ -259,7 +259,7 @@ digraph G {
 $ ruby dependency_framework_digraph.rb >> input.dot && dot -Tpdf input.dot -o digraph.pdf
 ```
 
-<p style="text-align:center;"><embed src="{{ site.production_url }}/image/2020/framework_dependency_digraph_for_DigitClockInSwift.pdf" type="application/pdf" height="500px" width="100%"></p><br/> 
+<p style="text-align:center;"><embed src="{{ site.production_url }}/image/2020/01/framework_dependency_digraph_for_DigitClockInSwift.pdf" type="application/pdf" height="500px" width="100%"></p><br/> 
 
 # 참고자료
 * [WebGraphviz](http://www.webgraphviz.com/)

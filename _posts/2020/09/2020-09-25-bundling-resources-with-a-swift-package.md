@@ -279,7 +279,7 @@ Modular 프로젝트에서 Features 패키지를 Linking 합니다.
     <img src="{{ site.production_url }}/image/2020/09/20200925_14.png" style="width: 600px"/>
 </p><br/>
 
-앞에서 ViewController에 버튼을 만들어 FeatureViewController를 띄웠습니다. 이번에도 FeatureA, B, C의 ViewController를 띄우기 위해 버튼을 만들어서 띄워봅시다.
+앞에서 ViewController에 버튼을 만들어 FeatureViewController를 띄웠습니다. 이번에도 FeatureA, B, C의 ViewController를 띄우도록 버튼을 만들어서 띄워봅시다.
 
 ```
 //

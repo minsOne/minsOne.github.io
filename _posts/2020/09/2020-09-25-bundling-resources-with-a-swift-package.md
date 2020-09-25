@@ -167,7 +167,7 @@ extension Foundation.Bundle {
 }
 ```
 
-App에서 Feature 모듈의 번들을 접근하도록 Feature 패키지에서 코드를 추가합니다.
+App에서 Feature 패키지의 번들을 접근하도록 Feature 패키지에서 코드를 추가합니다.
 
 ```
 /// Module: Feature
@@ -414,5 +414,6 @@ $ nm Frameworks/Modular.framework/Modular
 
 ## 참고자료
 
-* [Apple Document - Bundling Resources with a Swift Package](https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package)
-* [Apple Document - Localizing Package Resources](https://developer.apple.com/documentation/swift_packages/localizing_package_resources)
+* Apple Document
+  * [Bundling Resources with a Swift Package](https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package)
+  * [Localizing Package Resources](https://developer.apple.com/documentation/swift_packages/localizing_package_resources)

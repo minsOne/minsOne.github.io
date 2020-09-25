@@ -114,15 +114,14 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    let action = UIAction(title: "Present VC", handler: presentFeature)
     let button = UIButton(type: .system,
-                          primaryAction: UIAction(title: "Present VC",
-                          handler: { _ in
-                            print("Button tapped!")
-    }))
+                          primaryAction: action)
     button.frame = .init(x: 150, y: 300, width: 100, height: 100)
     button.backgroundColor = .orange
     self.view.addSubview(button)
   }
+  func presentFeature(_ action: UIAction) {}
 }
 ```
 

@@ -190,17 +190,14 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let button = UIButton(type: .system,
-                          primaryAction: UIAction(title: "Present VC",
-                          handler: { [weak self] _ in
-                            self?.presentFeature()
-    }))
+    let action = UIAction(title: "Present VC", handler: presentFeature)
+    let button = UIButton(type: .system, primaryAction: action)
     button.frame = .init(x: 150, y: 300, width: 100, height: 100)
     button.backgroundColor = .orange
     self.view.addSubview(button)
   }
 
-  func presentFeature() {
+  func presentFeature(_ action: UIAction) {
 	let storyboard = UIStoryboard(name: "FeatureViewController", bundle: Bundle.feature)
     let vc = storyboard.instantiateViewController(identifier: "FeatureViewController") as! FeatureViewController
     self.present(vc, animated: true, completion: nil)
@@ -302,20 +299,17 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     let actionA = UIAction(title: "Feature A", handler: presentFeatureA)
-    let buttonA = UIButton(type: .system,
-                           primaryAction: actionA)
+    let buttonA = UIButton(type: .system, primaryAction: actionA)
     buttonA.frame = .init(x: 150, y: 200, width: 100, height: 100)
     buttonA.backgroundColor = .orange
     
     let actionB = UIAction(title: "Feature B", handler: presentFeatureB)
-    let buttonB = UIButton(type: .system,
-                           primaryAction: actionB)
+    let buttonB = UIButton(type: .system, primaryAction: actionB)
     buttonB.frame = .init(x: 150, y: 350, width: 100, height: 100)
     buttonB.backgroundColor = .red
     
     let actionC = UIAction(title: "Feature C", handler: presentFeatureC)
-    let buttonC = UIButton(type: .system,
-                           primaryAction: actionC)
+    let buttonC = UIButton(type: .system, primaryAction: actionC)
     buttonC.frame = .init(x: 150, y: 500, width: 100, height: 100)
     buttonC.backgroundColor = .green
     

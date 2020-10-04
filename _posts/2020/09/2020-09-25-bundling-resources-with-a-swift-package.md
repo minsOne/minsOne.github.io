@@ -114,15 +114,14 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    let action = UIAction(title: "Present VC", handler: presentFeature)
     let button = UIButton(type: .system,
-                          primaryAction: UIAction(title: "Present VC",
-                          handler: { _ in
-                            print("Button tapped!")
-    }))
+                          primaryAction: action)
     button.frame = .init(x: 150, y: 300, width: 100, height: 100)
     button.backgroundColor = .orange
     self.view.addSubview(button)
   }
+  func presentFeature(_ action: UIAction) {}
 }
 ```
 
@@ -167,7 +166,7 @@ extension Foundation.Bundle {
 }
 ```
 
-App에서 Feature 모듈의 번들을 접근하도록 Feature 패키지에서 코드를 추가합니다.
+App에서 Feature 패키지의 번들을 접근하도록 Feature 패키지에서 코드를 추가합니다.
 
 ```
 /// Module: Feature
@@ -190,17 +189,14 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let button = UIButton(type: .system,
-                          primaryAction: UIAction(title: "Present VC",
-                          handler: { [weak self] _ in
-                            self?.presentFeature()
-    }))
+    let action = UIAction(title: "Present VC", handler: presentFeature)
+    let button = UIButton(type: .system, primaryAction: action)
     button.frame = .init(x: 150, y: 300, width: 100, height: 100)
     button.backgroundColor = .orange
     self.view.addSubview(button)
   }
 
-  func presentFeature() {
+  func presentFeature(_ action: UIAction) {
 	let storyboard = UIStoryboard(name: "FeatureViewController", bundle: Bundle.feature)
     let vc = storyboard.instantiateViewController(identifier: "FeatureViewController") as! FeatureViewController
     self.present(vc, animated: true, completion: nil)
@@ -282,7 +278,7 @@ Modular 프로젝트에서 Features 패키지를 Linking 합니다.
     <img src="{{ site.production_url }}/image/2020/09/20200925_14.png" style="width: 600px"/>
 </p><br/>
 
-앞에서 ViewController에 버튼을 만들어 FeatureViewController를 띄웠습니다. 이번에도 FeatureA, B, C의 ViewController를 띄우기 위해 버튼을 만들어서 띄워봅시다.
+앞에서 ViewController에 버튼을 만들어 FeatureViewController를 띄웠습니다. 이번에도 FeatureA, B, C의 ViewController를 띄우도록 버튼을 만들어서 띄워봅시다.
 
 ```
 //
@@ -302,20 +298,17 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     let actionA = UIAction(title: "Feature A", handler: presentFeatureA)
-    let buttonA = UIButton(type: .system,
-                           primaryAction: actionA)
+    let buttonA = UIButton(type: .system, primaryAction: actionA)
     buttonA.frame = .init(x: 150, y: 200, width: 100, height: 100)
     buttonA.backgroundColor = .orange
     
     let actionB = UIAction(title: "Feature B", handler: presentFeatureB)
-    let buttonB = UIButton(type: .system,
-                           primaryAction: actionB)
+    let buttonB = UIButton(type: .system, primaryAction: actionB)
     buttonB.frame = .init(x: 150, y: 350, width: 100, height: 100)
     buttonB.backgroundColor = .red
     
     let actionC = UIAction(title: "Feature C", handler: presentFeatureC)
-    let buttonC = UIButton(type: .system,
-                           primaryAction: actionC)
+    let buttonC = UIButton(type: .system, primaryAction: actionC)
     buttonC.frame = .init(x: 150, y: 500, width: 100, height: 100)
     buttonC.backgroundColor = .green
     
@@ -420,5 +413,6 @@ $ nm Frameworks/Modular.framework/Modular
 
 ## 참고자료
 
-* [Apple Document - Bundling Resources with a Swift Package](https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package)
-* [Apple Document - Localizing Package Resources](https://developer.apple.com/documentation/swift_packages/localizing_package_resources)
+* Apple Document
+  * [Bundling Resources with a Swift Package](https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package)
+  * [Localizing Package Resources](https://developer.apple.com/documentation/swift_packages/localizing_package_resources)

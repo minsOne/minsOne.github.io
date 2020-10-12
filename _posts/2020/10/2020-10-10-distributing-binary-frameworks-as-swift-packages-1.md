@@ -9,7 +9,7 @@ tags: [Swift, SwiftPM, SPM, Package, XCFramework, Binary Framework, xcodebuild, 
 
 Swift 5.3에서 여러 개의 XCFramework를 포함하는 Swift Package를 만들어서 배포할 수 있게 되었습니다. 즉, 소스가 공개되지 않은 3rd Party 라이브러리를 어떻게 잘 해서 Swift Package로 배포할 수 있다는 이야기입니다.
 
-XCFramework 관련해서 [이전 글]({{site.production_url/ios/mac/ios-wwdc-2019-binary-frameworks-in-swift-little-summary-and-translate}})에서 참고하시면 좋습니다.
+XCFramework 관련해서 [이전 글]({{  site.production_url }}/ios/mac/ios-wwdc-2019-binary-frameworks-in-swift-little-summary-and-translate)에서 참고하시면 좋습니다.
 
 대부분의 3rd Party 라이브러리는 Static Library, 또는 Dynamic Library로 배포합니다. 만약에 Mach-O 타입인 Static, Dynamic을 모른다면 먼저 공부하고 이 글을 보시는 것을 추천드립니다.
 

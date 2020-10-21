@@ -87,7 +87,7 @@ public protocol SigningInject {
 import DependencyContainer
 
 public class SigningImplement: SigningInject {
-  func request(withSign parameter: [String:String], completion: (([String:String]) -> Void), failure: ((Error) -> Void)) {
+  public func request(withSign parameter: [String:String], completion: (([String:String]) -> Void), failure: ((Error) -> Void)) {
     completion(parameter)
   }  
 }

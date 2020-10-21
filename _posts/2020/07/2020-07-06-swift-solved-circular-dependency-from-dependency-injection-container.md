@@ -71,7 +71,7 @@ tags: [Swift, DI, Dependency Injection, IoC, Container, Circular Dependency, Pro
 /// Module: DependencyContainer
 /// File: SigningInject.swift
 
-public static let signingInjectId = "SigningInjectId"
+public let signingInjectId = "SigningInjectId"
 
 public protocol SigningInject {
   func request(withSign parameter: [String:String], completion: (([String:String]) -> Void), failure: ((Error) -> Void))
@@ -238,7 +238,7 @@ class SafeBoxVerifyBuilder {
 /// Module: DependencyContainer
 /// File: ManagementCardInject.swift
 
-public static let managementCardInjectId = "ManagementCardInjectId"
+public let managementCardInjectId = "ManagementCardInjectId"
 
 public protocol ManagementCardInject {
   func viewController(with cardNumber: String) -> UIViewController
@@ -246,7 +246,7 @@ public protocol ManagementCardInject {
 
 /// File: ManagementDemandDepositInject.swift
 
-public static let managementDemandDepositInjectId = "managementDemandDepositInjectId"
+public let managementDemandDepositInjectId = "managementDemandDepositInjectId"
 
 public protocol ManagementDemandDepositInject {
   func viewController(with accountNumber: String) -> UIViewController

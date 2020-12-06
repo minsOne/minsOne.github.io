@@ -84,7 +84,7 @@ OTHER_SWIFT_FLAGS[config=PROD][sdk=*] = $(inherited) -DPROD
 <img src="{{ site.production_url }}/image/2020/12/20201207_08.png" style="width: 600px"/>
 </p><br/>
 
-shared.xcconfig의 GCC_PREPROCESSOR_DEFINITIONS 설정이 있으므로 앱 Config는 그 설정을 그대로 받도록 shared.xcconfig를 include 합니다. 각각의 파일로 만들면 추후 설정이 섞이지 않아도 되며, 공통으로 만들어지는 속성은 별도의 XCConfig 파일로 만들어서 include 하면 됩니다.
+shared.xcconfig의 OTHER_SWIFT_FLAGS 설정값이 있으므로 앱 Config는 그 설정을 그대로 받도록 shared.xcconfig를 include 합니다. 각각의 파일로 만들면 추후 설정이 섞이지 않아도 되며, 공통으로 만들어지는 속성은 별도의 XCConfig 파일로 만들어서 include 하면 됩니다.
 
 ```
 // FileName : app-dev.xcconfig

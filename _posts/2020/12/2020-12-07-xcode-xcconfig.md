@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Xcode Build Configuration Files - XCConfig"
+title: "[Xcode] Xcode Build Configuration Files - XCConfig"
 description: ""
 category: "iOS/Mac"
-tags: [XCode, XCConfig, Configuration, Workspace]
+tags: [Xcode, XCConfig, Configuration, Workspace]
 ---
 {% include JB/setup %}
 

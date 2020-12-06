@@ -184,3 +184,4 @@ Guide To Organizing Your iOS Debug, Development, and Release States With .xcconf
 * [The Unofficial Guide to xcconfig files](https://pewpewthespells.com/blog/xcconfig_guide.html)
 * [LetSwift 2017 - 토스 iOS 앱의 개발/배포 환경](https://www2.slideshare.net/MintakSon/ios-80115427)
 * [Medium - 당근마켓 iOS 프로젝트에 XcodeGen 도입하기](https://okanghoon.medium.com/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90-xcodegen-%EB%8F%84%EC%9E%85%ED%95%98%EA%B8%B0-d0fd54691aad)
+* [WWDC 2014 - Sharing code between iOS and OS X, PDF]({{ site.production_url }}/image/2020/12/233_sharing_code_between_ios_and_os_x.pdf)

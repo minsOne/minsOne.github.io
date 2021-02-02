@@ -97,7 +97,7 @@ ModuleA, ModuleB를 Static Library로 설정했기 때문에 App 바이너리에
 <img src="{{ site.production_url }}/image/2021/02/20210201_13.png" style="width: 800px"/>
 </p><br/>
 
-아까와 달리 Frameworks 폴더가 생겼고, Alamofire.framework 가 있는 것을 확인할 수 있습니다. 즉, 해당 결과물은 정상적으로 실행이 된다는 의미입니다.
+아까와 달리 Frameworks 폴더가 생겼고, Alamofire.framework 가 있는 것을 확인할 수 있습니다. 즉, 해당 결과물은 정상적으로 실행이 된다는 의미입니다.<br/><br/>
 
 #### 주의사항
 

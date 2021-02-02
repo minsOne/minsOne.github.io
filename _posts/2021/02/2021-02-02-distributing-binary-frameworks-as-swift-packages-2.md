@@ -77,7 +77,7 @@ App에서 ModuleA의 A 클래스, ModuleB의 B 클래스를 생성하여 정상�
 <img src="{{ site.production_url }}/image/2021/02/20210201_10.png" style="width: 800px"/>
 </p><br/>
 
-Frameworks 폴더도 없고, 깨끗합니다. 즉, 우리가 만든 XCFramework가 App 패키지 내에 복사되지 않았다는 의미입니다. 하지만 실행된 것은 시뮬레이터에서 하였기 때문에, 만약 디바이스로 실행했다면 Alamofire.framework를 찾지 못하고 종료될 것입니다.
+Frameworks 폴더도 없고, 깨끗합니다. 즉, 우리가 만든 XCFramework가 App 패키지 내에 복사되지 않았다는 의미입니다. 하지만 실행한 환경은 시뮬레이터이므로, 만약 디바이스로 실행했다면 Alamofire.framework를 찾지 못하고 종료됩니다.
 
 ModuleA, ModuleB를 Static Library로 설정했기 때문에 App 바이너리에 모든 코드가 복사됩니다. 그렇다면 App 프로젝트에 스위프트 패키지인 PackageWrapper를 연결하면 어떨까요? 
 

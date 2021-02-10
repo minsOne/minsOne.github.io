@@ -199,3 +199,8 @@ $ tree
 <p style="text-align:center;">
 <img src="{{ site.production_url }}/image/2021/02/20210210_5.png" style="width: 800px"/>
 </p><br/>
+
+
+## 참고
+
+* [Tuist Document - Get started](https://tuist.io/docs/usage/get-started/)

@@ -3,7 +3,7 @@ layout: post
 title: "[iOS][Tuist] 프로젝트 생성/관리 도구 Tuist(2) - StaticFramework"
 description: ""
 category: "Mac/iOS"
-tags: [Swift, Xcode, Tuist, XCConfig, Target, Scheme]
+tags: [Swift, Xcode, Tuist, XCConfig, Target, Scheme, Framework, Static, Dynamic, unitTest]
 ---
 {% include JB/setup %}
 
@@ -146,11 +146,17 @@ Total time taken: 4.699s
 
 
 ## 참고자료
+* Github
+  * [TuistSample](https://github.com/tomminges/TuistSample/blob/master/Project.swift)
+  * [MarvelApp](https://github.com/JulianAlonso/MarvelApp)
+  * [SkeletonMarvel](https://github.com/itsmathou/SkeletonMarvel)
+  * [microfeatures-example](https://github.com/tuist/microfeatures-example)
+  * [iOS-MVVM-ProjectTemplate](https://github.com/AckeeCZ/iOS-MVVM-ProjectTemplate)
+  * [TuistCarthage](https://github.com/fortmarek/TuistCarthage)
+  * [ComposableTuistArchitecture](https://github.com/fortmarek/ComposableTuistArchitecture)
+  * [ugglan](https://github.com/HedvigInsurance/ugglan)
+  * [SEC-Sport-Events-Calendar](https://github.com/wojtek717/SEC-Sport-Events-Calendar)
+  * [excelsior](https://github.com/JulianAlonso/excelsior)
 
-* [Github - TuistSample](https://github.com/tomminges/TuistSample/blob/master/Project.swift)
-* [Github - MarvelApp](https://github.com/JulianAlonso/MarvelApp)
-* [Github - SkeletonMarvel](https://github.com/itsmathou/SkeletonMarvel)
-* [Github - microfeatures-example](https://github.com/tuist/microfeatures-example)
-* [Github - iOS-MVVM-ProjectTemplate](https://github.com/AckeeCZ/iOS-MVVM-ProjectTemplate)
-* [Github - TuistCarthage](https://github.com/fortmarek/TuistCarthage)
-* [Blog - Our Journey to Generated Projects](https://www.ackee.cz/blog/en/tuist-our-journey-to-generated-projects/)
+* Blog
+  * [Our Journey to Generated Projects](https://www.ackee.cz/blog/en/tuist-our-journey-to-generated-projects/)

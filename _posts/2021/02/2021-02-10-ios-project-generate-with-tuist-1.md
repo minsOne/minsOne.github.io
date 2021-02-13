@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][Tuist] 프로젝트 생성/관리 도구 Tuist - 1"
+title: "[iOS][Tuist] 프로젝트 생성/관리 도구 Tuist(1)"
 description: ""
 category: "Mac/iOS"
 tags: [Swift, Xcode, XcodeGen, Tuist]

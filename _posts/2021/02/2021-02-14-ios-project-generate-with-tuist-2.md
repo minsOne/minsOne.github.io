@@ -142,6 +142,7 @@ Total time taken: 4.699s
 
 <p style="text-align:center;">
 <img src="{{ site.production_url }}/image/2021/02/20210214_2.png" style="width: 800px"/>
+<img src="{{ site.production_url }}/image/2021/02/20210214_3.png" style="width: 800px"/>
 </p><br/>
 
 

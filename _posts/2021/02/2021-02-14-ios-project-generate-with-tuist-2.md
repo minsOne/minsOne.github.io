@@ -148,6 +148,7 @@ Total time taken: 4.699s
 
 ## 참고자료
 * Github
+  * [Tuist - fixtures](https://github.com/tuist/tuist/tree/main/fixtures)
   * [TuistSample](https://github.com/tomminges/TuistSample/blob/master/Project.swift)
   * [MarvelApp](https://github.com/JulianAlonso/MarvelApp)
   * [SkeletonMarvel](https://github.com/itsmathou/SkeletonMarvel)

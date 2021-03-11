@@ -7,6 +7,8 @@ tags: [Swift, Xcode, XcodeGen, Tuist]
 ---
 {% include JB/setup %}
 
+<div class="alert warning"><strong>주의</strong> : 이 글에서 사용하는 Tuist 버전은 1.7.1 이므로 일부 동작이 다르게 될 수 있어 작업시 유의하시기 바랍니다.</div>
+
 Xcode로 개발하다보면 타겟에 새로운 파일을 추가하거나, 프레임워크를 만들거나 등등의 방법이 매우 좋지 않습니다. 그래서 [XcodeGen](https://github.com/yonaskolb/XcodeGen)과 같이 XcodeProj 파일을 만드는 도구를 이용하기도 합니다.
 
 하지만 XcodeGen은 YAML으로 관리하며, 해당 값들은 다 문자열을 입력해야합니다. 이러한 단점을 완벽하지는 않지만 자동완성을 지원해주는 도구인 [Tuist](https://github.com/tuist/tuist)가 있습니다.

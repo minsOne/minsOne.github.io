@@ -7,6 +7,8 @@ tags: [Swift, Xcode, Tuist, XCConfig, Target, Scheme, Framework, Static, Dynamic
 ---
 {% include JB/setup %}
 
+<div class="alert warning"><strong>주의</strong> : 사용한 Tuist 버전은 1.7.1 이므로 일부 동작이 다르게 될 수 있어 작업시 유의하시기 바랍니다.</div>
+
 이전 글에서 Tuist가 어떤 것인지 간략하게 살펴보았습니다.
 
 이번 글에서는 Tuist로 StaticFramework를 만드는 코드를 주석으로 설명을 붙여보려고 합니다. 더 자세한 설명은 [Tuist - Project description](https://tuist.io/docs/usage/project-description/)를 살펴보시기 바랍니다.

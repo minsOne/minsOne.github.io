@@ -12,6 +12,8 @@ https://github.com/JulianAlonso/excelsior/blob/acecfb60175c3608e67db00f960ed0e2e
 https://okanghoon.medium.com/xcode-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-tuist-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-6a92950780be
  -->
 
+ <div class="alert warning"><strong>주의</strong> : 이 글에서 사용하는 Tuist 버전은 1.7.1 이므로 일부 동작이 다르게 될 수 있어 작업시 유의하시기 바랍니다.</div>
+
 ## Extension
 
 ### Dependency

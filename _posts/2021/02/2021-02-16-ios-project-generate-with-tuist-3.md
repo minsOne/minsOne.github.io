@@ -157,6 +157,8 @@ Project 생성시 문자열을 넣어 만들어야 하는 부분들이 있습니
 <img src="{{ site.production_url }}/image/2021/02/20210216_4.png" style="width: 800px"/>
 </p><br/>
 
+여기에서 [예제](https://github.com/minsOne/TuistSample/tree/main/Example3)를 확인하실 수 있습니다.
+
 ## 참고자료
 
 * Github

@@ -7,7 +7,7 @@ tags: [Swift, Xcode, Tuist, XCConfig, Target, Scheme, Framework, Static, Dynamic
 ---
 {% include JB/setup %}
 
-<div class="alert warning"><strong>주의</strong> : 사용한 Tuist 버전은 1.7.1 이므로 일부 동작이 다르게 될 수 있어 작업시 유의하시기 바랍니다.</div>
+<div class="alert warning"><strong>주의</strong> : 이 글에서 사용하는 Tuist 버전은 1.7.1 이므로 일부 동작이 다르게 될 수 있어 작업시 유의하시기 바랍니다.</div>
 
 이전 글에서 Tuist가 어떤 것인지 간략하게 살펴보았습니다.
 
@@ -147,6 +147,7 @@ Total time taken: 4.699s
 <img src="{{ site.production_url }}/image/2021/02/20210214_3.png" style="width: 800px"/>
 </p><br/>
 
+여기에서 [예제](https://github.com/minsOne/TuistSample/tree/main/Example2)를 확인하실 수 있습니다.
 
 ## 참고자료
 * Github

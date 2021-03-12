@@ -203,6 +203,8 @@ $ tree
 </p><br/>
 
 
+여기에서 [예제](https://github.com/minsOne/TuistSample/tree/main/Example1)를 확인하실 수 있습니다.
+
 ## 참고
 
 * [Tuist Document - Get started](https://tuist.io/docs/usage/get-started/)

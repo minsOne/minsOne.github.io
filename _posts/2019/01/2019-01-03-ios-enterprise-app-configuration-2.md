@@ -19,7 +19,7 @@ tags: [iOS, XCode, Project, CocoaPods, Carthage, Layer, Library, Framework]
 
 그러므로 라이브러리를 Framework로 가지는 프로젝트를 만드는 것이 좋습니다.
 
-[의존성 주입하기](../ios-dependency-injection) 글의 방법을 이용하여 라이브러리와 본 프로젝트 간의 코드 커플링을 끊을 수 있고, 프로젝트 설정은 [Splitting A Workspace into Modules](https://edit.theappbusiness.com/modular-ios-splitting-a-workspace-into-modules-331293f1090)글과 같이 설정하거나 상황에 맞게 해야합니다.
+[의존성 주입하기](./ios-dependency-injection) 글의 방법을 이용하여 라이브러리와 본 프로젝트 간의 코드 커플링을 끊을 수 있고, 프로젝트 설정은 [Splitting A Workspace into Modules](https://edit.theappbusiness.com/modular-ios-splitting-a-workspace-into-modules-331293f1090)글과 같이 설정하거나 상황에 맞게 해야합니다.
 
 하지만 `RxSwift` 같은 라이브러리는 의존성 끊기가 어렵기 때문에 그냥 사용하는 것이 더 나을 수 있습니다. 일반적인 유틸성 라이브러리는 가져다 사용하지만, RxSwift와 같은 라이브러리는 라이브러리 위에서 개발하기 때문입니다.
 

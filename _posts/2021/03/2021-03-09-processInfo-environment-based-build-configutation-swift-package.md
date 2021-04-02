@@ -63,7 +63,26 @@ let package = Package(
 ```
 /// FileName: Package.swift
 
-...
+import PackageDescription
+
+let package = Package(
+    name: "ModuleA",
+    products: [
+        .library(
+            name: "ModuleA",
+            targets: ["ModuleA"]),
+    ],
+    dependencies: [
+    ],
+    targets: [
+        .target(
+            name: "ModuleA",
+            dependencies: []),
+        .testTarget(
+            name: "ModuleATests",
+            dependencies: ["ModuleA"]),
+    ]
+)
 
 print("Hello ModuleA Package")
 ```
@@ -127,9 +146,27 @@ $ USE_ANOTHER_DEP=1 open Package.swift
 ```
 /// FileName: Package.swift
 
-...
-
+import PackageDescription
 import Foundation
+
+let package = Package(
+    name: "ModuleA",
+    products: [
+        .library(
+            name: "ModuleA",
+            targets: ["ModuleA"]),
+    ],
+    dependencies: [
+    ],
+    targets: [
+        .target(
+            name: "ModuleA",
+            dependencies: []),
+        .testTarget(
+            name: "ModuleATests",
+            dependencies: ["ModuleA"]),
+    ]
+)
 
 print(ProcessInfo.processInfo.environment)
 ```
@@ -200,7 +237,7 @@ default:
 ModuleA.swift 파일에서도 Preprocessor로 분기 처리하여 어떻게 출력되는지 살펴봅시다.
 
 ```
-/// FileName: Package.swift
+/// FileName: ModuleA.swift
 
 public struct ModuleA {
     public init() {

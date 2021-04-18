@@ -102,5 +102,5 @@ func get_comparable_value() -> some Comparable {
 ## 출처
 
 * [Swift Forum : Type-Erasing in Swift AnyView behind the scenes](https://forums.swift.org/t/type-erasing-in-swift-anyview-behind-the-scenes/27952/2)
-* [Type Erasure In Swift](https://twittemb.github.io/swift/type%20erasure/protocol/generics/associatedtype/pattern/2017/11/09/type-erasure-in-swift/)
+* [Type Erasure In Swift](https://twittemb.github.io/posts/2017-11-09-TypeErasure/)
 * Apple SwiftUI - AnyView 주석

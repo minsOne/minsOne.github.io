@@ -111,7 +111,7 @@ graph TD;
 
 ## 서드파티 라이브러리 관리 - Dynamic Library
 
-예제로 사용할 Dynamic Library는 Facebook SDK입니다. [Facebook SDK iOS 저장소](https://github.com/facebook/facebook-ios-sdk)의 배포된 버전을 살펴보면 Dynamic Framework.zip 항목이 있습니다. 
+예제로 사용할 Dynamic Library는 Facebook SDK입니다. [Facebook SDK iOS 저장소](https://github.com/facebook/facebook-ios-sdk)의 배포된 버전을 살펴보면 FacebookSDK_Dynamic.framework.zip이 있습니다. 이를 내려받으면 프레임워크가 있습니다.
 
 ```
 FBSDKLoginKit.framework

@@ -277,8 +277,14 @@ ProcessInfo의 environment를 이용하여 기존 Xcode 프로젝트의 Preproce
 
 다음과 같이 Diamond dependency 구조로 하려고 합니다.
 
+{% mermaid align="center"%}
+graph LR;
+    App-->ModuleA;
+    ModuleA-->ModuleB-->ModuleD;
+    ModuleA-->ModuleC-->ModuleD;
+{% endmermaid %}
+
 <p style="text-align:center;">
-<img src="{{ site.production_url }}/image/2021/03/20210309_7.png" style="width: 400px"/>
 <img src="{{ site.production_url }}/image/2021/03/20210309_8.png" style="width: 800px"/>
 </p><br/>
 

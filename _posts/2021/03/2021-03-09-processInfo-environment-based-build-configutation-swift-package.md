@@ -19,8 +19,12 @@ Swift Package는 기본적으로 그자체만으로도 동작해야 합니다. �
 
 먼저 다음과 같은 구조를 가진 프로젝트를 만듭니다.
 
+{% mermaid %}
+graph LR;
+    App-->ModuleA;
+{% endmermaid %}
+
 <p style="text-align:center;">
-<img src="{{ site.production_url }}/image/2021/03/20210309_1.png" style="width: 400px"/>
 <img src="{{ site.production_url }}/image/2021/03/20210309_2.png" style="width: 800px"/>
 </p><br/>
 

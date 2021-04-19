@@ -19,10 +19,10 @@ Swift Package는 기본적으로 그자체만으로도 동작해야 합니다. �
 
 먼저 다음과 같은 구조를 가진 프로젝트를 만듭니다.
 
-{% mermaid %}
+<div class="mermaid"> 
 graph LR;
     App-->ModuleA;
-{% endmermaid %}
+</div>
 
 <p style="text-align:center;">
 <img src="{{ site.production_url }}/image/2021/03/20210309_2.png" style="width: 800px"/>
@@ -277,12 +277,12 @@ ProcessInfo의 environment를 이용하여 기존 Xcode 프로젝트의 Preproce
 
 다음과 같이 Diamond dependency 구조로 하려고 합니다.
 
-{% mermaid align="center"%}
+<div class="mermaid"> 
 graph LR;
     App-->ModuleA;
     ModuleA-->ModuleB-->ModuleD;
     ModuleA-->ModuleC-->ModuleD;
-{% endmermaid %}
+</div>
 
 <p style="text-align:center;">
 <img src="{{ site.production_url }}/image/2021/03/20210309_8.png" style="width: 800px"/>

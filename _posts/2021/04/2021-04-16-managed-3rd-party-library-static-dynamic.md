@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][Xcode] 3rd party 라이브러리 관리하기 - Static/Dynamic"
+title: "[iOS][Xcode] Third-Party 라이브러리 관리하기 - Library Library/Dynamic Library"
 description: ""
 category: ""
 tags: []
@@ -55,7 +55,9 @@ Static Library는 Static Linker를 통해 코드가 복사됩니다.
 
 이 방식은 이전에 설명한 [Swift Package Manager를 이용하여 패키지를 통합 관리하기]({{site.production_url}}/ios/mac/swift-package-manager-proxy-modular) 라는 글에서도 설명하였던 방식입니다.
 
-따라서 `ManageVenderStaticLibrary` 라이브러리는 Firebase Library를 다 품는 다이어그램 형태가 됩니다.
+따라서 `AbstractionThirdPartyLibrary` 라이브러리는 Firebase Library를 다 품는 다이어그램 형태가 됩니다.
+
+<!-- 그림으로 대체 -->
 
 {% mermaid %}
 graph TD;
@@ -72,23 +74,23 @@ graph TD;
 	Firebase
 	FIRAnalyticsConnector
 	end
-	Application-->ManageVenderStaticLibrary;
-    ManageVenderStaticLibrary-->PromisesObjC;
-    ManageVenderStaticLibrary-->GoogleUtilities;
-    ManageVenderStaticLibrary-->nanopb;
-    ManageVenderStaticLibrary-->GoogleDataTransport;
-    ManageVenderStaticLibrary-->GoogleAppMeasurement;
-    ManageVenderStaticLibrary-->FirebaseCoreDiagnostics;
-    ManageVenderStaticLibrary-->FirebaseInstallations;
-    ManageVenderStaticLibrary-->FirebaseAnalytics;
-    ManageVenderStaticLibrary-->FirebaseCore;
-    ManageVenderStaticLibrary-->Firebase;
-    ManageVenderStaticLibrary-->FIRAnalyticsConnector;
+	Application-->AbstractionThirdPartyLibrary;
+    AbstractionThirdPartyLibrary-->PromisesObjC;
+    AbstractionThirdPartyLibrary-->GoogleUtilities;
+    AbstractionThirdPartyLibrary-->nanopb;
+    AbstractionThirdPartyLibrary-->GoogleDataTransport;
+    AbstractionThirdPartyLibrary-->GoogleAppMeasurement;
+    AbstractionThirdPartyLibrary-->FirebaseCoreDiagnostics;
+    AbstractionThirdPartyLibrary-->FirebaseInstallations;
+    AbstractionThirdPartyLibrary-->FirebaseAnalytics;
+    AbstractionThirdPartyLibrary-->FirebaseCore;
+    AbstractionThirdPartyLibrary-->Firebase;
+    AbstractionThirdPartyLibrary-->FIRAnalyticsConnector;
 {% endmermaid %}
 
 위 다이어그램을 토대로 한번 적용해봅시다.
 
-1.`ManageVenderStaticLibrary` 라는 Dynamic Framework를 만듭니다. 
+1.`AbstractionThirdPartyLibrary` 라는 Dynamic Framework를 만듭니다. 
 
 <!-- 그림 1 -->
 
@@ -108,11 +110,11 @@ graph TD;
 
 <!-- 그림 5 -->
 
-이제 모든 과정이 끝났습니다. 이렇게 서드파티 라이브러리가 Static Library인 경우 하나로 합쳐 관리하면 관리이슈가 줄어듭니다.
+이제 모든 과정이 끝났습니다. 이렇게 서드파티 라이브러리가 Static Library인 경우 Dynamic Framework로 한 군데에서 관리하도록 하여 유지보수하는데 신경쓸 부분들이 줄어들게 됩니다.
 
 ## 서드파티 라이브러리 관리 - Dynamic Library
 
-예제로 사용할 Dynamic Library는 Facebook SDK입니다. [Facebook SDK iOS 저장소](https://github.com/facebook/facebook-ios-sdk)의 배포된 버전을 살펴보면 FacebookSDK_Dynamic.framework.zip이 있습니다. 이를 내려받으면 프레임워크가 있습니다.
+예제로 사용할 Dynamic Library인 서드파티 라이브러리는 Facebook SDK입니다. [Facebook SDK iOS 저장소](https://github.com/facebook/facebook-ios-sdk)의 배포된 버전(Tags)을 살펴보면 FacebookSDK_Dynamic.framework.zip이 있습니다. 내려받으면 프레임워크 파일이 있습니다.
 
 ```
 FBSDKLoginKit.framework
@@ -139,9 +141,13 @@ FBSDKLoginKit.framework/FBSDKLoginKit:
 ```
 
 
-Dynamic Library는 Static Library와는 다르게 코드가 복사되지 않고, 연결만 합니다. 따라서 배포되는 애플리케이션에 Dynamic Library가 포함되어야 합니다. 
+Dynamic Library는 Static Library와는 다르게 코드가 복사되지 않고, 연결만 합니다. 따라서 배포되는 애플리케이션에 Dynamic Library인 서드파티 라이브러리가 포함되어야 합니다. 
 
-따라서 Dynamic Library의 코드에서 우리가 사용할 수 있도록 인터페이스를 정의한 모듈 AbstractionVenderLibrary를 만들고, 애플리케이션에서 Dynamic Library로 부터 AbstractionVenderLibrary의 인터페이스로 코드를 만든 후, AbstractionVenderLibrary 모듈에 코드를 주입합니다.
+단순히 애플리케이션에 넣고 사용하는 것이 아니라, 서드파티 라이브러리에서 사용할 코드의 인터페이스를 AbstractionThirdPartyLibrary 모듈에서 정의하고, 애플리케이션에서는 AbstractionThirdPartyLibrary 모듈에서 정의한 인터페이스를 토대로 서드파티 라이브러리 코드를 감싼뒤 AbstractionThirdPartyLibrary 모듈에 주입합니다.
+
+다음과 같은 구조로 다이어그램이 만들어집니다.
+
+<!-- 그림으로 대체 -->
 
 {% mermaid %}
 graph TD;
@@ -151,15 +157,42 @@ graph TD;
 	end
 	Application-- Embed -->FBSDKLoginKit & FBSDKCoreKit;
 	Application-- Link -->ModuleA;
-	ModuleA-- Link -->AbstractionVenderLibrary;
-	Application-. Code Injection .->AbstractionVenderLibrary;
+	ModuleA-- Link -->AbstractionThirdPartyLibrary;
+	Application-. Code Injection .->AbstractionThirdPartyLibrary;
 {% endmermaid %}
+
+위 다이어그램을 토대로 한번 적용해봅시다.
+
+1.애플리케이션에 FacebookSDK를 추가합니다.
+
+<!-- 그림 1 -->
+
+2.AbstractionThirdPartyLibrary 모듈에서 사용할 FacebookSDK의 코드를 본따 인터페이스를 정의합니다.
+
+<!-- 그림 2 -->
+
+3.애플리케이션에서 AbstractionThirdPartyLibrary 모듈에 정의된 인터페이스를 토대로 Facebook SDK 코드를 감싼 Adapter 타입을 정의합니다.
+
+<!-- 그림 3 -->
+
+4.애플리케이션은 아까 정의한 Adapter를 AbstractionThirdPartyLibrary 모듈에 주입합니다.
+
+<!-- 그림 4 -->
+
+5.피처 모듈에서는 AbstractionThirdPartyLibrary 모듈에 주입된 Adapter 객체를 통해 FacebookSDK 코드를 실행합니다.
+
+<!-- 그림 5 -->
+
+피처 모듈은 직접적으로 서드파티 라이브러리인 FacebookSDK를 알지는 못하지만, 추상화시킨 Adapter를 통해 사용할 수 있게 됩니다. 즉, 피처를 개발함에 있어서 서드파티 라이브러리를 직접적으로 의존할 필요가 없어집니다.
+
 
 ## 서드파티 라이브러리 관리 - 종합
 
-Dynamic Library, Static Library를 관리하는 방법을 다루었습니다. 여기에서 조금 더 나아가서 두 가지를 합쳐보면 어떨까요?
+Dynamic/Static 서드파티 라이브러리를 관리하는 방법을 다루었습니다. 여기에서 조금 더 나아가서 두 가지를 합쳐보면 어떨까요?
 
-Static Library는 코드가 복사가 되지만 Dynamic은 애플리케이션에 임베드를 하고 모듈에 코드 주입합니다. 그러면 한 모듈에서 통합해서 해도 되지 않을까요?
+Static Library는 코드가 복사가 되지만 Dynamic은 Library는 애플리케이션에 임베드를 하고 AbstractionThirdPartyLibrary 모듈에 우리가 별도로 정의한 인터페이스를 구현한 코드 주입합니다. 그러면 한 모듈에서 서드파티 라이브러리를 모두 관리해도 되지 않을까요?
+
+<!-- 그림으로 대체 -->
 
 {% mermaid %}
 graph TD;
@@ -183,23 +216,24 @@ graph TD;
 	end
 
 	Application-- Embed -->FBSDKLoginKit & FBSDKCoreKit;
-	Application-. Embed .->AbstractionVenderLibrary;
+	Application-. Embed .->AbstractionThirdPartyLibrary;
 	Application-- Link -->ModuleA;
-	ModuleA-- Link -->AbstractionVenderLibrary;
-	Application-. FBSDK Code Injection .->AbstractionVenderLibrary;
+	ModuleA-- Link -->AbstractionThirdPartyLibrary;
+	Application-. FBSDK Code Injection .->AbstractionThirdPartyLibrary;
 
-	AbstractionVenderLibrary-->PromisesObjC;
-	AbstractionVenderLibrary-->GoogleUtilities;
-	AbstractionVenderLibrary-->nanopb;
-	AbstractionVenderLibrary-->GoogleDataTransport;
-	AbstractionVenderLibrary-->GoogleAppMeasurement;
-	AbstractionVenderLibrary-->FirebaseCoreDiagnostics;
-	AbstractionVenderLibrary-->FirebaseInstallations;
-	AbstractionVenderLibrary-->FirebaseAnalytics;
-	AbstractionVenderLibrary-->FirebaseCore;
-	AbstractionVenderLibrary-->Firebase;
-	AbstractionVenderLibrary-->FIRAnalyticsConnector;
+	AbstractionThirdPartyLibrary-->PromisesObjC;
+	AbstractionThirdPartyLibrary-->GoogleUtilities;
+	AbstractionThirdPartyLibrary-->nanopb;
+	AbstractionThirdPartyLibrary-->GoogleDataTransport;
+	AbstractionThirdPartyLibrary-->GoogleAppMeasurement;
+	AbstractionThirdPartyLibrary-->FirebaseCoreDiagnostics;
+	AbstractionThirdPartyLibrary-->FirebaseInstallations;
+	AbstractionThirdPartyLibrary-->FirebaseAnalytics;
+	AbstractionThirdPartyLibrary-->FirebaseCore;
+	AbstractionThirdPartyLibrary-->Firebase;
+	AbstractionThirdPartyLibrary-->FIRAnalyticsConnector;
 {% endmermaid %}
+
 
 
 <!-- 

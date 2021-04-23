@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift][SPM] Swift Package로 리소스 번들링하기"
+title: "[Swift][SwiftPM] Swift Package로 리소스 번들링하기"
 description: ""
 category: "programming"
 tags: [Swift, SwiftPM, SPM, Package, Resource, Bundle, Storyboard, Image]

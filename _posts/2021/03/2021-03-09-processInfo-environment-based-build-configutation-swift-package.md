@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift][SPM] Swift Package - ProcessInfo Environment 기반 빌드 환경설정"
+title: "[Swift][SwiftPM] Swift Package - ProcessInfo Environment 기반 빌드 환경설정"
 description: ""
 category: "programming"
 tags: [Swift, SPM, Swift Package Manager, Swift Package, Module, ProcessInfo]

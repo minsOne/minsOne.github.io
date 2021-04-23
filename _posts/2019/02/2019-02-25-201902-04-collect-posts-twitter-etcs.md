@@ -3,7 +3,7 @@ layout: post
 title: "2019년 2월 4주 개발 자료 모음집 - Python, iOS, Swift"
 description: ""
 category: "programming"
-tags: [Python, OpenData, fomatter, SPM, Swift Package Manager]
+tags: [Python, OpenData, fomatter, SPM, Swift Package Manager, SwiftPM]
 ---
 {% include JB/setup %}
 
@@ -27,7 +27,7 @@ tags: [Python, OpenData, fomatter, SPM, Swift Package Manager]
   - `gofmt` 처럼 빌트인으로 포맷터가 있고, 난립하고 있는 스타일 가이드를 통일 시켜달라는 의견
 
 * [Swift Package Manager builds iOS frameworks on Xcode 10.2 beta](https://badootech.badoo.com/swift-package-manager-builds-ios-frameworks-updated-xcode-10-2-beta-19b3e6741bda)
-  - XCode 10.2 beta에서는 [SE-0236](https://github.com/apple/swift-evolution/blob/master/proposals/0236-package-manager-platform-deployment-settings.md)가 채택되어 Package.swift 파일에서 플랫폼 버전을 지정할 수 있어, iOS 프레임워크를 SPM을 이용하여 만드는 글
+  - XCode 10.2 beta에서는 [SE-0236](https://github.com/apple/swift-evolution/blob/master/proposals/0236-package-manager-platform-deployment-settings.md)가 채택되어 Package.swift 파일에서 플랫폼 버전을 지정할 수 있어, iOS 프레임워크를 SwiftPM을 이용하여 만드는 글
 
 ## 일반
 

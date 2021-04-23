@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[SPM][Carthage] 라이브러리 Link 경로를 install_name_tool 을 이용하여 변경하기"
+title: "[SwiftPM][Carthage] 라이브러리 Link 경로를 install_name_tool 을 이용하여 변경하기"
 description: ""
 category: "programming"
 tags: [SwiftPM, SPM, Carthage, XCode, install_name_tool, RxSwift, RxTest]
@@ -27,7 +27,7 @@ RxTest.framework/RxTest:
 
 RxTest를 사용하기 위해서는 RxTest에 RxSwift가 있는 경로를 알려줘야 합니다. 다른 동적 라이브러리에 RxSwift가 된 경우, 어플리케이션 실행 바이너리에 복사가 된 경우가 있습니다. 두 경우에 어떻게 풀어볼지 살펴봅시다.
 
-**(정적 라이브러리 추가 방식은 SPM을 이용하고 있습니다.)**
+**(정적 라이브러리 추가 방식은 SwiftPM을 이용하고 있습니다.)**
 
 ### RxSwift가 다른 라이브러리에 복사 된 경우
 

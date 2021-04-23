@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift 5.3+] Binary Framework(XCFramework)를 Swift Package로 배포하기(2) - App에서 Binary Framework 사용하기"
+title: "[Swift 5.3+][SwiftPM] Binary Framework(XCFramework)를 Swift Package로 배포하기(2) - App에서 Binary Framework 사용하기"
 description: ""
 category: "programming"
 tags: [Swift, SwiftPM, SPM, Package, XCFramework, Binary Framework, xcodebuild, archive]

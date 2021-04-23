@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "[Swift 5.2] Swift Package Manager를 이용하여 패키지를 통합 관리하기 - Proxy Module"
+title: "[Swift 5.2][SwiftPM] Swift Package Manager를 이용하여 패키지를 통합 관리하기 - Proxy Module"
 description: ""
 category: "iOS/Mac"
-tags: [Swift, SPM, Swift Package Manager, Module, Carthage, Cocoapods, Local Swift Package]
+tags: [Swift, SPM, SwiftPM, Swift Package Manager, Module, Carthage, Cocoapods, Local Swift Package]
 ---
 {% include JB/setup %}
 
 # Swift Package Manager
 
-Swift Package Manager (이하 SPM)은 Xcode 11의 기능으로 추가되었습니다. 이에 따라 많은 오픈소스들이 SPM을 지원합니다. 대표적으로 Alamofire, SDWebImage, RxSwift, ReactorKit 등의 오픈소스가 있습니다.
+Swift Package Manager (이하 SwiftPM)은 Xcode 11의 기능으로 추가되었습니다. 이에 따라 많은 오픈소스들이 SwiftPM을 지원합니다. 대표적으로 Alamofire, SDWebImage, RxSwift, ReactorKit 등의 오픈소스가 있습니다.
 
 ## 현실적인 프로젝트 구조와 어려움
 
@@ -37,11 +37,11 @@ Cocoapods은 어느정도 해결해주기는 하지만, Podfile에 추가를 하
 
 ## Swift Package Manager
 
-Static Library, Static Framework, Dynamic Framework의 차이를 알아봤으니, 이제 Swift Package Manager(이하 SPM)을 한번 살펴봅시다.
+Static Library, Static Framework, Dynamic Framework의 차이를 알아봤으니, 이제 Swift Package Manager(이하 SwiftPM)을 한번 살펴봅시다.
 
-SPM은 종속성 관리를 위한 공식 도구입니다. Cocoapods, Carthage인 3rd Party 툴이 아닌 1st Party 입니다. 그래서 앞으로는 SPM을 적용하는 것이 장기적으로 좋을 것입니다.
+SwiftPM은 종속성 관리를 위한 공식 도구입니다. Cocoapods, Carthage인 3rd Party 툴이 아닌 1st Party 입니다. 그래서 앞으로는 SwiftPM을 적용하는 것이 장기적으로 좋을 것입니다.
 
-그러면 외부 저장소에 있는 라이브러리를 SPM으로 추가해봅시다.
+그러면 외부 저장소에 있는 라이브러리를 SwiftPM으로 추가해봅시다.
 
 1.General > Framework > **+** 버튼을 누릅니다.
 ![3]({{site.production_url}}/image/2020/05/3.png)
@@ -66,7 +66,7 @@ SPM은 종속성 관리를 위한 공식 도구입니다. Cocoapods, Carthage인
 
 <br/>
 
-위에서 SPM을 이용하여 프로젝트에 적용해보았습니다. 다음으로 SPM을 분석해봅시다.
+위에서 SwiftPM을 이용하여 프로젝트에 적용해보았습니다. 다음으로 SwiftPM을 분석해봅시다.
 
 우리가 추가한 라이브러리는 빌드가 되고 앱에 들어가게 됩니다. 그렇다면 빌드한 결과물은 어디에 있을까요? 결과물은 라이브러리와 연결된 타겟의 Products 폴더 내에 있습니다.
 
@@ -76,7 +76,7 @@ SPM은 종속성 관리를 위한 공식 도구입니다. Cocoapods, Carthage인
 
 ![11]({{site.production_url}}/image/2020/05/11.png)
 
-이는 SPM으로 빌드된 결과물이 앱 바이너리에 들어갔음을 추정할 수 있는데, 실제로 nm 명령어로 앱 바이너리를 살펴보면 RxSwift Symbol이 있는 것을 확인할 수 있습니다.
+이는 SwiftPM으로 빌드된 결과물이 앱 바이너리에 들어갔음을 추정할 수 있는데, 실제로 nm 명령어로 앱 바이너리를 살펴보면 RxSwift Symbol이 있는 것을 확인할 수 있습니다.
 
 ```
 $ nm Production.app/Production | grep RxSwift
@@ -103,9 +103,9 @@ $ nm Production.app/Production | grep RxSwift
 ...
 ```
 
-## Advanced Swift Package Manager - Framework와 SPM
+## Advanced Swift Package Manager - Framework와 SwiftPM
 
-그렇다면 우리는 SPM과 Framework의 특성을 이용하여 타겟과 라이브러리 간의 연결 수를 줄일 수 있습니다.
+그렇다면 우리는 SwiftPM과 Framework의 특성을 이용하여 타겟과 라이브러리 간의 연결 수를 줄일 수 있습니다.
 
 타겟과 라이브러리 사이에 Proxy 역할을 하는 Framework를 추가하여 다음과 같은 구조로 만들 수 있습니다.
 
@@ -117,7 +117,7 @@ $ nm Production.app/Production | grep RxSwift
 
 기능 개발에 필요한 라이브러리가 제거되거나 추가되더라도 쉽게 작업이 가능합니다. 마찬가지로 디버깅시 필요한 라이브러리도 쉽게 추가하거나 제거할 수 있습니다.
 
-**두번째로**, Swift 5.3 부터 SPM에 리소스를 넣거나 외부 라이브러리 바이너리를 패키징할 수 있도록 한다고 합니다. 그렇다면 미리 대응해놓으면 좋지 않을까요? 관련 제안 : [SE-0271(Resources)](https://github.com/apple/swift-evolution/blob/master/proposals/0271-package-manager-resources.md), [SE-0272(Binary Dependencies)](https://github.com/apple/swift-evolution/blob/master/proposals/0272-swiftpm-binary-dependencies.md), [SE-0278(Localized Resources)](https://github.com/apple/swift-evolution/blob/master/proposals/0278-package-manager-localized-resources.md)
+**두번째로**, Swift 5.3 부터 SwiftPM에 리소스를 넣거나 외부 라이브러리 바이너리를 패키징할 수 있도록 한다고 합니다. 그렇다면 미리 대응해놓으면 좋지 않을까요? 관련 제안 : [SE-0271(Resources)](https://github.com/apple/swift-evolution/blob/master/proposals/0271-package-manager-resources.md), [SE-0272(Binary Dependencies)](https://github.com/apple/swift-evolution/blob/master/proposals/0272-swiftpm-binary-dependencies.md), [SE-0278(Localized Resources)](https://github.com/apple/swift-evolution/blob/master/proposals/0278-package-manager-localized-resources.md)
 
 이제 위 구조로 프로젝트를 한번 만들어봅시다.
 
@@ -127,7 +127,7 @@ $ nm Production.app/Production | grep RxSwift
 
 ![13]({{site.production_url}}/image/2020/05/13.png)
 
-2.앞에서 Package를 추가했던 방식을 사용하여 [RxSwift](https://github.com/ReactiveX/RxSwift.git), [RIBs](https://github.com/uber/RIBs.git), [RxSwiftExt](https://github.com/RxSwiftCommunity/RxSwiftExt.git)을 추가하여 다음과 같이 추가되도록 합니다. 단, RIBs는 현재(2020.05.18) 기준 0.9.2 버전 릴리즈 노트에 SPM이 없기 때문에 master 브랜치를 바라보도록 합니다.
+2.앞에서 Package를 추가했던 방식을 사용하여 [RxSwift](https://github.com/ReactiveX/RxSwift.git), [RIBs](https://github.com/uber/RIBs.git), [RxSwiftExt](https://github.com/RxSwiftCommunity/RxSwiftExt.git)을 추가하여 다음과 같이 추가되도록 합니다. 단, RIBs는 현재(2020.05.18) 기준 0.9.2 버전 릴리즈 노트에 SwiftPM이 없기 때문에 master 브랜치를 바라보도록 합니다.
 
 ![14]({{site.production_url}}/image/2020/05/14.png)
 

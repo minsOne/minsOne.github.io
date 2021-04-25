@@ -359,14 +359,17 @@ public class ViewController: UIViewController, FBSharingDelegate {
   }
   
   public func sharerDidCompleteWithResults(results: [String : Any]) {
+    defer { dialog = nil }
     print(#function)
   }
   
   public func sharerDidFailWithError(error: Error) {
+    defer { dialog = nil }
     print(#function)
   }
   
   public func sharerDidCancel() {
+    defer { dialog = nil }
     print(#function)
   }
 }

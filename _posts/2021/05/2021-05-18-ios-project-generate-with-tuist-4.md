@@ -7,9 +7,11 @@ tags: [Swift, Xcode, Plugin, Tuist]
 ---
 {% include JB/setup %}
 
-[Tuist 1.33.0](https://github.com/tuist/tuist/releases/tag/1.33.0)에서 Plugin 이라는 기능이 생겼습니다.
+[Tuist 1.33.0](https://github.com/tuist/tuist/releases/tag/1.33.0)에서 Plugin 이라는 기능이 생겼습니다. 
 
-기존에는 Manifests의 Tuist ProjectDescriptionHelpers에 추가해야만 기능을 추가하거나 확장할 수 있었습니다.
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Celebrating Friday with a new release - 1.33.0, Plugin!<br><br>🔌 Plugin support! Documentation is still in progress but will soon be available <br>📦 tuist graph for only subset of targets <a href="https://twitter.com/adellibovi?ref_src=twsrc%5Etfw">@adellibovi</a><br>📊 Analytics events<br><br>Check out the full changelog here: <a href="https://t.co/CLSTv1nXwf">https://t.co/CLSTv1nXwf</a></p>&mdash; Tuist.swift (@tuistio) <a href="https://twitter.com/tuistio/status/1357803802896793600?ref_src=twsrc%5Etfw">February 5, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<br/>기존에는 Manifests의 Tuist ProjectDescriptionHelpers에 추가해야만 기능을 추가하거나 확장할 수 있었습니다.
 
 하지만 Plugin을 통해서 비대해지는 ProjectDescriptionHelpers의 기능을 일부 이전하여 모듈을 사용하는 방식으로 쉽게 사용하도록 돕습니다.
 

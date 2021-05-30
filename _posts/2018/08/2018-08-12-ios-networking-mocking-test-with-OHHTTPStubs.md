@@ -24,11 +24,14 @@ NSURLSessionConfiguration를 swizzling을 하여 테스트할 API를 호출하�
 그러면 OHHTTPStubs를 이용하여 URLSession으로 요청을 보내기 전에 어떤 응답값을 내려보낼지 작업을 먼저 합니다.
 
 ```
+import OHHTTPStubs
+import OHHTTPStubsSwift
+
 stub(condition: { (request) -> Bool in
     return (request.url?.absoluteString == "https://google.com/helloworld")
-}) { request -> OHHTTPStubsResponse in
+}) { request -> HTTPStubsResponse in
     let stubData = "Hello World!".data(using: String.Encoding.utf8)
-    return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+    return HTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
 }
 ```
 
@@ -72,13 +75,16 @@ response : <NSHTTPURLResponse: 0x600002e9eac0> { URL: https://google.com/hellowo
 우선 간편하게 `stub`을 사용할 수 있도록 `stub` 함수를 가공합니다.
 
 ```
+import OHHTTPStubs
+import OHHTTPStubsSwift
+
 /// 1. URL와 Response에 특정 문자열만 String을 내려주는 Stub
 func stub(url: String, data str: String) {
     stub(condition: { (request) -> Bool in
         return (request.url?.absoluteString == url)
-    }) { (request) -> OHHTTPStubsResponse in
+    }) { (request) -> HTTPStubsResponse in
         let stubData = str.data(using: .utf8)
-        return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        return HTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
     }
 }
 
@@ -90,8 +96,8 @@ func stub(url: String, bundle: (name: String, extension: String)) {
         else { return }
     stub(condition: { (request) -> Bool in
         return (request.url?.absoluteString == url)
-    }) { (request) -> OHHTTPStubsResponse in
-        return OHHTTPStubsResponse(data: stubData, statusCode:200, headers:nil)
+    }) { (request) -> HTTPStubsResponse in
+        return HTTPStubsResponse(data: stubData, statusCode:200, headers:nil)
     }
 }
 
@@ -102,8 +108,8 @@ func stub(url: String, path: String) {
         else { return }
     stub(condition: { (request) -> Bool in
         return (request.url?.absoluteString == url)
-    }) { (request) -> OHHTTPStubsResponse in
-        return OHHTTPStubsResponse(data: stubData, statusCode:200, headers:nil)
+    }) { (request) -> HTTPStubsResponse in
+        return HTTPStubsResponse(data: stubData, statusCode:200, headers:nil)
     }
 }
 ```

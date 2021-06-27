@@ -51,6 +51,30 @@ Result : nil
 */
 ```
 
-이러한 코드는 `if let` 문이 간결한 조건일때 은근히 유용하게 사용되며, 복잡한 `if` 문에서 사용은 지양하는 것이 좋을 것 같습니다. 
+만약 map이나 flatMap에서 받은 결과를 변수에 저장해야 한다면, 해당 타입은 어떻게 될까요?
 
-또한, map과 flatMap은 적절하게 필요한 상황에 따라 사용하면 됩니다.
+```
+let a: String? = "10"
+let b: String? = nil
+
+let c: Int?? = a.map { Int($0) } 
+let d: Int? = b.flatMap { Int($0) }
+```
+
+a 값을 map으로 변환할 떄, `Int.init()` 에서 값이 옵셔널로 반환되기 때문에 (Int?)? 형태가 됩니다. 그래서 변수 c의 타입이 `Int??`로 정의됩니다. 
+
+b 값을 flatMap으로 변환할 때 `Int.init()` 에서 값이 옵셔널이 반환되더라도 flatMap은 Int를 반환하므로 (Int)? 형태를 취합니다.. 그래서 변수 d의 타입은 `Int?`로 정의됩니다.
+
+따라서 체이닝이 연속될때는 flatMap을 쓰며, map은 return이 Void 인 경우 사용하면 좋습니다.
+
+```
+let a: String? = "5"
+let b: String? = nil
+
+a.map { Int($0) }.map { String($0) } // Compile Error
+a.flatMap { Int($0) }.map { String($0) } // Ok
+
+func returnVoid() {
+  a.flatMap { Int($0) }.flatMap { String($0)}.map { print($0) } // Ok
+}
+```

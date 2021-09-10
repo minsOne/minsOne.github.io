@@ -45,10 +45,9 @@ User Inteface는 다음과 같은 구조를 가지고 있습니다.
 
 디자인 시스템 모듈은 리소스를 의존성을 가지며, 또한, SwiftUI, [FlexLayout](https://github.com/layoutBox/FlexLayout), [Yoga](https://github.com/facebook/yoga), [SnapKit](https://github.com/SnapKit/SnapKit), [Texture](https://github.com/TextureGroup/Texture), [Render](https://github.com/alexdrone/Render) 등을 사용하여 애플리케이션의 디자인을 구현하기 위해 기반을 마련하도록 만드는 모듈입니다. 기본적인 컴포넌트를 제공하여 디자인 시스템 모듈을 가져다 기능 화면들을 구성할 수 있도록 제공합니다.
 
-### Feature UserInterface
+### Feature UserInterface, Action, State
 
 디자인 시스템 모듈에 의존성을 가져 기능별 View, ViewController을 빠르게 구성합니다. 그리고 어떤 상태를 받을지, 어떤 액션을 넘겨줄지 정의합니다. 이는 화면 개발시 의존성을 최대한 끊고, 상태만 받아 업데이트를 하고, 액션을 listener에 전달하기만 하면 됩니다. 기능에 의존성이 없어지기 때문에 화면을 빠르게 확인하고 개발이 가능합니다.
-
 
 ### Feature UserInterface DemoApp
 
@@ -64,13 +63,17 @@ Uber의 [RIBs](https://github.com/uber/RIBs) 아키텍처를 도입하여, Prese
 
 <p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/09/20210901_04.png"/></p>
 
-### Presentation
+### Presentation - State, Action, Mapper, Presentation
 
-Presentation에서 RIB을 사용합니다. Presentation 모듈은 User Interface를 알도록 합니다. 안드로이드와 구조와 다르게 적용하였습니다. 이는 Builder를 통해서 Interactor, Router를 만들고, ViewController는 UserInterface 모듈로부터 가져와 생성하는 것을 지원하도록 합니다. 
+UserInterface의 State, Action과 동일한 구조를 가집니다. 이는 Presentation 모듈이 UserInterface 모듈과 강결합을 하지 않기 위함입니다. Interactor, Router를 테스트하기 위해 UserInterface에 정의된 타입을 가져다 사용하게 되면 강결합이 발생하는데, Presentation 모듈에 중복된 코드가 있다면 모듈간의 결합도를 줄여지게 됩니다.
 
-사실 여기 구조에서는 UserInterface 모듈의 Feature ViewController과 Presentation의 Interactor, Router, Builder는 한 묶음으로 구성되어 있습니다. 개발자는 이를 한 묶음으로 취급하지만, 코드에서는 서로는 모르도록 한 것일 뿐입니다.
+UserInterface 모듈에서 전달한 Action을 Presentation 모듈에 정의된 Action으로 변환해서 Interactor에 전달합니다. 그리고 Interactor에서 처리된 State를 UserInterface 모듈에 전달하기 위해 UserInterface 모듈에 정의된 State로 변환해야합니다. 이를 Mapper에서 처리하도록 합니다.
 
-(RIB의 Builder는 Interactor, Router, ViewController를 묶어주는 역할을 하기 때문에, Builder는 별도로 분리하여 클린 아키텍처를 구성하도록 하는 역할을 하면 UserInterface, Presentation 모듈 간의 의존성을 생기지 않도록 하여 개발하는 부분을 고민하고 있습니다.)
+Presentation는 UserInterface의 ViewController를 가져 Interactor에 Action을 전달하거나, State를 전달받고, Router를 통해 UserInterface 모듈의 UIViewController를 업데이트하는 등의 역할을 합니다.
+
+### Presentation - Interactor, Router, Builder
+
+Interactor는 비지니스로직을 처리를 담당하며, Router는 라우팅을 담당합니다. 그리고 Builder는 Presentation, Interactor, Router, UserCase 등을 묶어 하나의 단위로 묶어줍니다 Uber의 RIBs 역할을 그대로 수행합니다.
 
 ### Domain
 

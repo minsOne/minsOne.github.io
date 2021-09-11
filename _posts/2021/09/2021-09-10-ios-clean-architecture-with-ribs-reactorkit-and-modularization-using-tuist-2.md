@@ -100,6 +100,9 @@ Projects
   * ResourcePackage - 앱에서 사용하는 리소스를 통합 관리하는 `프로젝트` 입니다.
   * UserInterfaceLibraryManager - UserInferface에서 사용할 라이브러리를 관리하는 `프로젝트` 입니다.
 
+**4.** 위와 같이 역할별로 프로젝트를 구성하면 다음과 같은 프로젝트 구조 그래프를 그릴 수 있습니다.
+
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/09/20210910_01.png"/></p>
 
 ## Tuist 코드 작성
 

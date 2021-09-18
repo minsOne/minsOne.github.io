@@ -73,11 +73,11 @@ Presentation는 UserInterface의 ViewController를 가져 Interactor에 Action�
 
 ### Presentation - Interactor, Router, Builder
 
-Interactor는 비지니스로직을 처리를 담당하며, Router는 라우팅을 담당합니다. 그리고 Builder는 Presentation, Interactor, Router, UserCase 등을 묶어 하나의 단위로 묶어줍니다 Uber의 RIBs 역할을 그대로 수행합니다.
+Interactor는 비지니스로직을 처리를 담당하며, Router는 라우팅을 담당합니다. 그리고 Builder는 Presentation, Interactor, Router, UseCase 등을 묶어 하나의 단위로 묶어줍니다 Uber의 RIBs 역할을 그대로 수행합니다.
 
 ### Domain
 
-UserCase 인터페이스를 정의하면 Presentation에 Interactor가 UserCase를 가져다 호출하도록 합니다. Repository는 인터페이스를 정의하도록만 합니다. 이는 Repository는 API, Security 등의 모듈들이 필요하기 때문에, 이를 가져다 사용하게 되면, 해당 의존성이 추가됩니다. 그러면 도메인 모듈을 빌드하기 위해 API, Security 등의 모듈을 빌드하므로 빌드시간이 늘어납니다. 따라서 생산성이 떨어지고, 코드가 복잡해지는 것을 방지하기 위해 도메인 모듈만을 빌드 하도록 합니다.
+UseCase 인터페이스를 정의하면 Presentation에 Interactor가 UseCase를 가져다 호출하도록 합니다. Repository는 인터페이스를 정의하도록만 합니다. 이는 Repository는 API, Security 등의 모듈들이 필요하기 때문에, 이를 가져다 사용하게 되면, 해당 의존성이 추가됩니다. 그러면 도메인 모듈을 빌드하기 위해 API, Security 등의 모듈을 빌드하므로 빌드시간이 늘어납니다. 따라서 생산성이 떨어지고, 코드가 복잡해지는 것을 방지하기 위해 도메인 모듈만을 빌드 하도록 합니다.
 
 하지만 Repository 구현체를 사용해야하는데, 이는 DIContainer를 이용하여 Repository 구현체를 사용할 수 있도록 [Swinject](https://github.com/Swinject/Swinject)를 이용합니다. 이는 의존성을 추가하지 않고, 코드를 짧게 하고, 생산성을 높여줍니다.
 

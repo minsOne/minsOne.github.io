@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][SwiftPM][Xcode 13.0+] SwiftPM로 RxSwift 사용할 때 RxBlocking, RxTest를 유닛테스트에서 사용하기"
+title: "[iOS][SwiftPM][Xcode 13.0] SwiftPM로 RxSwift 사용할 때 RxBlocking, RxTest를 유닛테스트에서 사용하기 - 절반해결(코드복사)"
 description: ""
 category: "iOS/Mac"
 tags: [Swift, SwiftPM, SPM, Package, Framework, Library, Dynamic Framework, Static Library]

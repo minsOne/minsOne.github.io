@@ -11,21 +11,21 @@ tags: [Swift, SwiftPM, SPM, Package, Framework, Library, Dynamic Framework, Stat
 
 RxSwift를 SwiftPM을 이용하여 쉽게 사용할 수 있습니다. 서드파티 라이브러리를 관리하는 모듈인 ThirdPartyLibraryManager 프레임워크를 만들고, 이 모듈에서 RxSwift, RxCocoa, RxRelay를 의존성 가집니다.
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_01.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_01.png"/></p>
 
 그리고 유닛 테스트 타겟에서 RxBlocking, RxTest를 의존성 추가해서 RxSwift를 사용한 코드를 테스트하려고 합니다.
 
 SampleAppTests에 RxTest, RxBlocking 의존성 가지도록 하였습니다.
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_02.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_02.png"/></p>
 
 다음으로 유닛 테스트코드에서 RxBlocking, RxTest를 import 하는 코드를 추가하였습니다.
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_03.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_03.png"/></p>
 
 이제 유닛 테스트를 실행하면 다음과 같이 RxSwift의 클래스가 ThirdPartyLibraryManager 프레임워크의 ThirdPartyLibraryManager와 SampleAppTests XCTest의 SampleAppTests에 코드가 중복되어있다고 콘솔에 출력되었습니다.
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_04.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_04.png"/></p>
 
 분명 유닛 테스트 타겟에 RxBlocking, RxTest를 의존성만 가지도록 했는데, RxSwift 코드가 왜 중복되었을까요?
 
@@ -43,15 +43,15 @@ SwiftPM이 RxSwift을 추가해주는 것을 막을 방법은 없습니다. 그�
 
 RxTestPackage는 Dynamic Framework로 만들며, ThirdPartyLibraryManager, XCTest 프레임워크를 의존성 가지게 합니다. 그리고 RxSwift 저장소에 있는 RxBlocking, RxTest 소스를 그대로 추가합니다. (컴파일 오류 부분은 적당히 수정하시면 됩니다.)
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_07.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_07.png"/></p>
 
 다음으로 유닛 테스트 타겟이 ThirdPartyLibraryManager와 RxTestPackage를 의존성 가지도록 합니다. 
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_08.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_08.png"/></p>
 
 다음으로 유닛 테스트를 실행하면 이전에는 RxSwift 코드가 중복되었다고 했지만, 이제는 유닛 테스트 관련 로그만 출력됨을 확인할 수 있습니다. 그리고 RxBlocking 라이브러리에서 제공하던 toBlocking 유닛 테스트 코드에서 사용 가능함을 확인할 수 있습니다.
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_09.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_09.png"/></p>
 
 SwiftPM이 서드파티 라이브러리를 쉽게 추가할 수 있게 해주지만, 어떻게 동작하는지 잘 알고, 유연하게 대응하는 것이 중요하다고 생각합니다.
 
@@ -67,15 +67,15 @@ Package.swift를 통해 SwiftPM으로 RxNimble만 추가하게 되면 앞에서 
 
 먼저 RxTestPackage에 Quick, Nimble을 SwiftPM으로 추가합시다.
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_11.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_11.png"/></p>
 
 다음으로 RxNimble은 소스를 복사해 RxTestPackage에 추가합니다. (컴파일 오류 부분은 적당히 수정하시면 됩니다.)
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_12.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_12.png"/></p>
 
 유닛 테스트 코드에서 Nimble, Quick을 import 할 수 있고, RxNimble에서 Observable expect 코드가 사용 가능한 것을 확인할 수 있습니다.
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_13.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_13.png"/></p>
 
 <br/>위의 결과물은 [여기](https://github.com/minsOne/Experiment-Repo/tree/master/20211213-SampleApp)에서 확인하실 수 있습니다.
 

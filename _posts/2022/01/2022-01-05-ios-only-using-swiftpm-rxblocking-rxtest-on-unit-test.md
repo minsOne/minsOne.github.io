@@ -15,9 +15,9 @@ Xcode 13.0을 받아서 아래에 기술할 방법을 사용하였을 때도 되
 
 우선 이전 글에서 테스트 타겟이 RxBlocking, RxTest를 의존성 가지도록 작업하였을 때, 모듈이 중복해서 적재되어 경고가 발생했었습니다.
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_02.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_02.png"/></p>
 
-<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_04.png" style="height: 600px"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2021/12/20211213_04.png"/></p>
 
 위에서 모듈이 중복해서 적재된다는 경고는 RxBlocking, RxTest이 RxSwift를 의존성을 가져서입니다.
 

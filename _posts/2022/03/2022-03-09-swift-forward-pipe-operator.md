@@ -11,6 +11,8 @@ tags: ["Swift", "Operator", "Pipe", "ForwardPipe", "infix", "precedencegroup"]
 
 파이프 연산자는 단순히 왼쪽에 있는 값을 오른쪽에 있는 함수의 인자에 넣는 것입니다. 
 
+Elm, F#는 |>, Closure는 ->, --> 연산자 등이 있지만 Swift에는 없습니다. Swift에서 다음과 같이 구현하면 파이프 연산자를 사용할 수 있습니다.
+
 ```swift
 precedencegroup ForwardPipe {
     associativity: left
@@ -52,7 +54,7 @@ class A {
     }
     
     func getValue() -> Int {
-        return add(lhs: 123, rhs: 456)
+        return (123, 456) |> add
         // or
         return 123.add(rhs: 456)
     }
@@ -66,3 +68,8 @@ extension Int {
 ```
 
 그리고 Optional은 map, flatMap을 이용하여 데이터 변환을 할 수도 있습니다. [관련 글](https://minsone.github.io/programming/swift-optional-map-nil-coalescing)
+
+<!-- 
+예제로 사용할 코드
+https://gist.github.com/kristopherjohnson/ed97acf0bbe0013df8af
+ -->

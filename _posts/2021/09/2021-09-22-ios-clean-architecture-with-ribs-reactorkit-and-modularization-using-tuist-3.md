@@ -7,6 +7,12 @@ tags: [Swift, Xcode, Clean Architecture, RIBs, ReactorKit, Tuist]
 ---
 {% include JB/setup %}
 
+* [1편 - 설계편]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-1)
+* [2편 - Tuist]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-2)
+* [3편 - UserInterface]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-3)
+* [4편 - Presentation, Domain]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-4)
+* [5편 - Repository, Data, DI Container]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-5)
+
 ## 들어가기 전
 
 iOS 개발은 프론트 개발입니다. 즉, 화면을 만들고 이를 사용자에게 보여주는 것이 중요합니다. 따라서 화면을 빠르게 개발하여 확인할 수 있어야 합니다. 

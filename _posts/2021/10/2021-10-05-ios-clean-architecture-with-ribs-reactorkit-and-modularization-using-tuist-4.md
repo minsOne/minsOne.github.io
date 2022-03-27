@@ -7,6 +7,12 @@ tags: [Swift, Xcode, Clean Architecture, RIBs, ReactorKit, Tuist]
 ---
 {% include JB/setup %}
 
+* [1편 - 설계편]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-1)
+* [2편 - Tuist]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-2)
+* [3편 - UserInterface]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-3)
+* [4편 - Presentation, Domain]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-4)
+* [5편 - Repository, Data, DI Container]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-5)
+
 ## Presentation
 
 UI에서 입력받은 값을 넘겨받고, 상태를 만들어 UI에 전달하는 모듈로, UI에 강하게 의존관계가 형성됩니다.
@@ -244,7 +250,7 @@ final class FeatureInteractor:
 
 Router는 기존 RIBs에서 하던 방식대로 그대로 사용합니다. FeatureViewControllable 프로토콜에 정의를 하면, Presenter에서 구현을 하면 됩니다. Presenter는 UI 모듈에 상태를 넘겨줄 수 있기 때문입니다.
 
-```
+```swift
 /// Module: FeaturePresentation
 /// FileName: Router.swift
 
@@ -278,7 +284,7 @@ final class FeatureRouter:
 
 Builder는 Interactor, Router의 presenter를 주입할 때, UI 모듈의 ViewController가 아닌 Presentation 모듈에 작성한 Presenter를 넣어주면 됩니다.
 
-```
+```swift
 /// Module: FeaturePresentation
 /// FileName: Builder.swift
 

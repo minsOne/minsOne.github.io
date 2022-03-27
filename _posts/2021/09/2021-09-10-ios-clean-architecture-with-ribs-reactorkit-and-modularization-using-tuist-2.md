@@ -7,6 +7,12 @@ tags: [Swift, Xcode, Clean Architecture, RIBs, ReactorKit, Tuist]
 ---
 {% include JB/setup %}
 
+* [1편 - 설계편]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-1)
+* [2편 - Tuist]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-2)
+* [3편 - UserInterface]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-3)
+* [4편 - Presentation, Domain]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-4)
+* [5편 - Repository, Data, DI Container]({{BASE_PATH}}/mac/ios/ios-clean-architecture-with-ribs-reactorkit-and-modularization-using-tuist-5)
+
 ## 들어가기 전
 
 Tuist를 이용하여 프로젝트를 구성할 것이므로, 어떻게 구조를 잡을 것인지 염두하고 작업해야 합니다. 그래야 모듈을 쉽게 추가할 수 있어, 확장이 가능합니다.

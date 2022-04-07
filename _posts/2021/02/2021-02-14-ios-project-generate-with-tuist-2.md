@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][Tuist] 프로젝트 생성/관리 도구 Tuist(2) - StaticFramework"
+title: "[iOS][Tuist 1.7.1] 프로젝트 생성/관리 도구 Tuist(2) - StaticFramework"
 description: ""
 category: "Mac/iOS"
 tags: [Swift, Xcode, Tuist, XCConfig, Target, Scheme, Framework, Static, Dynamic, unitTest]

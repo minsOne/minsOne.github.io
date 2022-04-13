@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][Tuist] 프로젝트 생성/관리 도구 Tuist(5) - Local Swift Package와 Proxy Swift Package"
+title: "[iOS][Tuist 1.7.1] 프로젝트 생성/관리 도구 Tuist(5) - Local Swift Package와 Proxy Swift Package"
 description: ""
 category: "Mac/iOS"
 tags: [Swift, Xcode, Tuist, Swift Package, SwiftPM]

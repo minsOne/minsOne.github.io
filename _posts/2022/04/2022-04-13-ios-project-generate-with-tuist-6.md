@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][Tuist] 프로젝트 생성/관리 도구 Tuist(6) - ProcessInfo Environment 기반 프로젝트 생성"
+title: "[iOS][Tuist 2.7.2] 프로젝트 생성/관리 도구 Tuist(6) - ProcessInfo Environment 기반 프로젝트 생성"
 description: ""
 category: ""
 tags: [Swift, Xcode, Tuist, Environment, ProcessInfo]

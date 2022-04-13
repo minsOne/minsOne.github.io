@@ -92,6 +92,10 @@ $ TUIST_DEPLOY=App tuist generate
 
 환경변수를 넣지 않고 `tuist generate`를 실행하면 DevApp 애플리케이션 타겟만 있는 프로젝트가 생성됩니다.
 
+```
+$ tuist generate
+```
+
 <p style="text-align:left;"><img src="{{ site.production_url }}/image/2022/04/20220413_03.png"/></p>
 
 ## 정리

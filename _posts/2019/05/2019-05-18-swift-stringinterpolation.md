@@ -229,6 +229,25 @@ let richText: AttrString = """
 label.attributedText = richText.attributedString
 ```
 
+또는 NSAttributedString의 init을 확장하여 다음과 같이 코드를 작성할 수 있습니다.
+
+```
+extension NSAttributedString {
+    convenience init(richText: () -> AttrString) {
+        self.init(attributedString: richText().attributedString)
+    }
+}
+
+...
+
+let attr = NSAttributedString(richText: {
+    """
+    \("Hello world", style: Style().font(.systemFont(ofSize: 15)).color(.red).backColor(.blue))
+    \("Good Bye", style: Style().font(.systemFont(ofSize: 20)).color(.green).backColor(.gray))
+    """
+})
+```
+
 ## 참고자료
 
 * [MSDN - 문자열보간](https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/tokens/interpolated)

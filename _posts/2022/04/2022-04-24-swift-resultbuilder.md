@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "[Swift 5.4+] SE-0289 ResultBuilder"
-description: ""
-category: ""
-tags: []
+tags: [Swift, _functionBuilder, resultBuilder, NSAttributedString]
 ---
 {% include JB/setup %}
+
+## ResultBuilder
 
 Swift 5.4에서 [SE-0289의 ResultBuilder](https://github.com/apple/swift-evolution/blob/main/proposals/0289-result-builders.md)가 도입되었습니다. 
 
@@ -33,7 +33,7 @@ Property Wrapper인 `@resultBuilder` 를 추가하고 build 함수들을 구현�
 * `Component`는 부분 또는 결합된 결과가 가질 수 있는 타입
 * `FinalResult`을 변환된 함수에서 최종 반환된 타입
 
-```
+```swift
 @resultBuilder
 struct ExampleResultBuilder {
   /// 변환된 함수의 개별 명령문 표현식 타입, buildExpression()이 제공되지 않으면 기본값은 Component

@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "[iOS][Xcode 13.2.1][Tuist 3.3] 프로젝트 생성/관리 도구 Tuist(7) - Preview를 사용할 수 없다면 DemoApp과 Inject의 Hot Reload를 이용해서 빠른 개발하기"
-tags: [iOS, Hot Reload, Preview, App, Inject, Tuist]
-published: false
+title: "[iOS][Xcode 13.3.1][Tuist 3.3] 프로젝트 생성/관리 도구 Tuist(7) - DemoApp과 Inject의 Hot Reload를 이용해서 빠른 개발하기"
+tags: [iOS, Hot Reload, Preview, Inject, Tuist, InjectionIII]
 ---
 {% include JB/setup %}
 
@@ -67,7 +66,7 @@ let targets: [Target] = [
           platform: .iOS,
           product: .app,
           bundleId: "kr.minsone.app",
-          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
           sources: ["App/Sources/**"],
           resources: ["App/Resources/**"],
           dependencies: [
@@ -91,7 +90,7 @@ let targets: [Target] = [
           platform: .iOS,
           product: .framework,
           bundleId: "kr.minsone.features",
-          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
           sources: ["Source/Feature/**"],
           dependencies: [
             .project(target: "FeatureDeposit", path: "../FeatureDeposit")
@@ -101,7 +100,7 @@ let targets: [Target] = [
           platform: .iOS,
           product: .app,
           bundleId: "kr.minsone.features.demoApp",
-          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
           sources: ["App/DemoApp/**"],
           resources: ["App/DemoApp/Resources/**"],
           dependencies: [
@@ -127,14 +126,14 @@ let targets: [Target] = [
           platform: .iOS,
           product: .staticLibrary,
           bundleId: "kr.minsone.feature.deposit.ui",
-          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
           sources: ["Source/UI/**"]
          ),
     .init(name: "FeatureDepositUIPreviewApp",
           platform: .iOS,
           product: .app,
           bundleId: "kr.minsone.feature.deposit.uipreviewApp",
-          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
           sources: ["App/UIPreviewApp/Sources/**"],
           resources: ["App/UIPreviewApp/Resources/**"],
           dependencies: [
@@ -147,7 +146,7 @@ let targets: [Target] = [
           platform: .iOS,
           product: .staticLibrary,
           bundleId: "kr.minsone.feature.deposit",
-          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
           sources: ["Source/Feature/**"],
           dependencies: [
             .target(name: "FeatureDepositUI")
@@ -157,7 +156,7 @@ let targets: [Target] = [
           platform: .iOS,
           product: .app,
           bundleId: "kr.minsone.feature.deposit.demoApp",
-          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
           sources: ["App/DemoApp/Sources/**"],
           resources: ["App/DemoApp/Resources/**"],
           dependencies: [
@@ -176,7 +175,7 @@ let project: Project =
 
 위의 Project manifest를 기반으로 `tuist generate`를 실행하여 프로젝트를 생성합니다.
 
-<p style="text-align:left;"><img src="{{ site.development_url }}/image/2022/04/20220430_01.png"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2022/04/20220430_01.png"/></p>
 
 그리고 FeatureDepositUI 모듈에 ViewController.swift 파일을 생성하고 FeatureDepositUIPreviewApp에서 해당 ViewController를 사용하도록 합니다.
 
@@ -232,5 +231,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 이제 FeatureDepositUIPreviewApp을 실행하면 FeatureDepositUI의 ViewController가 노출됩니다.
 
-<p style="text-align:left;"><img src="{{ site.development_url }}/image/2022/04/20220430_02.png"/></p>
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2022/04/20220430_02.png"/></p>
 
+다음으로, InjectionIII와 Inject 라이브러리를 이용하여 Hot Reload를 이용하여 개발해보도록 합니다. FeatureDepositUIPreviewApp 타겟을 기반으로 프로젝트를 생성하도록 `tuist generate`를 사용합니다.
+
+```
+$ tuist generate FeatureDepositUIPreviewApp
+```
+
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2022/04/20220430_03.png"/></p>
+
+FeatureDepositUIPreviewApp의 AppDelegate에 Inject를 이용한 코드를 추가합시다.
+
+```swift
+import UIKit
+import FeatureDepositUI
+import Inject
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+    ) -> Bool {
+        let vc = Inject.ViewControllerHost(ViewController())
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        self.window = window
+
+        return true
+    }
+}
+```
+
+그리고 빌드, 실행해봅시다.
+
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2022/04/20220430_04.png"/></p>
+
+콘솔창에서 `InjectionIII.app` 이 실행되지 않았다고 출력되었습니다. `InjectionIII.app` 를 실행하고 다시 빌드, 실행을 해봅시다.
+
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2022/04/20220430_05.png"/></p>
+
+시뮬레이터에서 FeatureDepositUIPreviewApp앱은 실행되고, 프로젝트 디렉토리를 선택하라는 팝업이 뜹니다. 이때, Tuist로 생성한 워크스페이스가 있는 폴더를 선택합니다.
+
+그러면 콘솔창에 InjectionIII와 연결되었다고 출력됩니다.
+
+<p style="text-align:left;"><img src="{{ site.production_url }}/image/2022/04/20220430_06.png"/></p>
+
+이제 FeatureDepositUI의 ViewController 코드를 수정하면 바로 시뮬레이터의 FeatureDepositUIPreviewApp에 반영되는 것을 확인할 수 있습니다.
+
+<p style="text-align:center;">
+	<br/><video src="{{ site.production_url }}/image/2022/04/20220430_07.mov" width="800px" controls autoplay loop></video>
+</p><br/>
+
+## 참고자료
+
+* Github
+  * [johnno1962/InjectionIII](https://github.com/johnno1962/InjectionIII)
+  * [krzysztofzablocki/Inject](https://github.com/krzysztofzablocki/Inject)

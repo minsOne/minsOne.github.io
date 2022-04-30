@@ -41,3 +41,196 @@ UI는 사실 시행착오를 겪으면서 작업해야하는 기능입니다. �
 
 여기에서 Preview 기능까지는 아니지만, DemoApp에서 Hot Reload를 할 수 있도록 해주는 툴인 InjectionIII - [MacApp](https://apps.apple.com/us/app/injectioniii/id1380446739?mt=12), [Github](https://github.com/johnno1962/InjectionIII)과 [Inject 라이브러리](https://github.com/krzysztofzablocki/Inject)를 이용하여 개발할 수 있습니다.
 
+위의 구조를 축약하여 `Application --> Features --> FeatureDeposit --> FeatureDepositUI` 구조를 가지는 프로젝트를 만들어봅시다.
+
+<div class="mermaid" style="display:flex;justify-content:center;"> 
+graph TD;
+    Application-->Features
+    Features-->FeatureDeposit
+    subgraph FeatureDepositGroup
+    FeatureDeposit-->FeatureDepositUI
+    FeatureDepositDemoApp-->FeatureDeposit
+    FeatureDepositUIPreviewApp-->FeatureDepositUI
+    end
+</div>
+
+그럼 UI의 DemoApp을 가지는 구조로 Tuist 코드를 작성해봅시다.
+
+```swift
+/// FileName: Projects/Application/Project.swift
+
+import ProjectDescription
+import ProjectDescriptionHelpers
+
+let targets: [Target] = [
+    .init(name: "Application",
+          platform: .iOS,
+          product: .app,
+          bundleId: "kr.minsone.app",
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          sources: ["App/Sources/**"],
+          resources: ["App/Resources/**"],
+          dependencies: [
+            .project(target: "Features", path: "../Features")
+          ]
+         )
+]
+
+let project = Project.init(name: "Application",
+                           organizationName: "minsone",
+                           targets: targets)
+
+/// -----------------------------------------------------------------------------
+
+/// FileName : Projects/Feature/Features/Project.swift
+import ProjectDescription
+import ProjectDescriptionHelpers
+
+let targets: [Target] = [
+    .init(name: "Features",
+          platform: .iOS,
+          product: .framework,
+          bundleId: "kr.minsone.features",
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          sources: ["Source/Feature/**"],
+          dependencies: [
+            .project(target: "FeatureDeposit", path: "../FeatureDeposit")
+          ]
+         ),
+    .init(name: "FeaturesDemoApp",
+          platform: .iOS,
+          product: .app,
+          bundleId: "kr.minsone.features.demoApp",
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          sources: ["App/DemoApp/**"],
+          resources: ["App/DemoApp/Resources/**"],
+          dependencies: [
+            .target(name: "Features")
+          ]
+         )
+]
+
+let project: Project =
+    .init(name: "Features",
+          organizationName: "minsone",
+          targets: targets)
+
+
+/// -----------------------------------------------------------------------------
+
+/// FileName : Projects/Feature/FeatureDeposit/Project.swift
+import ProjectDescription
+import ProjectDescriptionHelpers
+
+let targets: [Target] = [
+    .init(name: "FeatureDepositUI",
+          platform: .iOS,
+          product: .staticLibrary,
+          bundleId: "kr.minsone.feature.deposit.ui",
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          sources: ["Source/UI/**"]
+         ),
+    .init(name: "FeatureDepositUIPreviewApp",
+          platform: .iOS,
+          product: .app,
+          bundleId: "kr.minsone.feature.deposit.uipreviewApp",
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          sources: ["App/UIPreviewApp/Sources/**"],
+          resources: ["App/UIPreviewApp/Resources/**"],
+          dependencies: [
+            .target(name: "FeatureDepositUI"),
+            .package(product: "Inject"),
+          ],
+          settings: .settings(base: ["OTHER_LDFLAGS": "$(inherited) -Xlinker -interposable"])
+         ),
+    .init(name: "FeatureDeposit",
+          platform: .iOS,
+          product: .staticLibrary,
+          bundleId: "kr.minsone.feature.deposit",
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          sources: ["Source/Feature/**"],
+          dependencies: [
+            .target(name: "FeatureDepositUI")
+          ]
+         ),
+    .init(name: "FeatureDepositDemoApp",
+          platform: .iOS,
+          product: .app,
+          bundleId: "kr.minsone.feature.deposit.demoApp",
+          deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
+          sources: ["App/DemoApp/Sources/**"],
+          resources: ["App/DemoApp/Resources/**"],
+          dependencies: [
+            .target(name: "FeatureDeposit"),
+            .package(product: "Inject"),
+          ]
+         )
+]
+
+let project: Project =
+    .init(name: "FeatureDeposit",
+          organizationName: "minsone",
+          packages: [.remote(url: "https://github.com/krzysztofzablocki/Inject.git", requirement: .revision("0844cfbd6af3d30314adb49c8edf22168d254467"))],
+          targets: targets)
+```
+
+위의 Project manifest를 기반으로 `tuist generate`를 실행하여 프로젝트를 생성합니다.
+
+<p style="text-align:left;"><img src="{{ site.development_url }}/image/2022/04/20220430_01.png"/></p>
+
+그리고 FeatureDepositUI 모듈에 ViewController.swift 파일을 생성하고 FeatureDepositUIPreviewApp에서 해당 ViewController를 사용하도록 합니다.
+
+```swift
+/// FileName : Projects/Feature/FeatureDeposit/Source/UI/ViewController.swift
+
+import UIKit
+
+public class ViewController: UIViewController {
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+
+        let label = UILabel()
+        label.text = "Hello UIKit"
+        label.font = .boldSystemFont(ofSize: 50)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+}
+
+/// -----------------------------------------------------------------------------
+
+/// FileName : Projects/Feature/FeatureDeposit/App/UIPreviewApp/Sources/AppDelegate.swift
+
+import UIKit
+import FeatureDepositUI
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+    ) -> Bool {
+        let vc = ViewController()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        self.window = window
+
+        return true
+    }
+}
+```
+
+이제 FeatureDepositUIPreviewApp을 실행하면 FeatureDepositUI의 ViewController가 노출됩니다.
+
+<p style="text-align:left;"><img src="{{ site.development_url }}/image/2022/04/20220430_02.png"/></p>
+

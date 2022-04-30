@@ -288,6 +288,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	<br/><video src="{{ site.production_url }}/image/2022/04/20220430_07.mov" width="800px" controls autoplay loop></video>
 </p><br/>
 
+위에서 작업한 모든 코드는 [여기](https://github.com/minsOne/Experiment-Repo/tree/master/20220430-DemoAppSample) 에서 확인하실 수 있습니다.
+
 ## 참고자료
 
 * Github

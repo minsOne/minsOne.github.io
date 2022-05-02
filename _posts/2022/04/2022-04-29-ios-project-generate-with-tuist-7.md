@@ -276,7 +276,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 <p style="text-align:left;"><img src="{{ site.production_url }}/image/2022/04/20220430_05.png"/></p>
 
-시뮬레이터에서 FeatureDepositUIPreviewApp앱은 실행되고, 프로젝트 디렉토리를 선택하라는 팝업이 뜹니다. 이때, Tuist로 생성한 워크스페이스가 있는 폴더를 선택합니다.
+시뮬레이터에서 FeatureDepositUIPreviewApp앱은 실행되고, 프로젝트 디렉토리를 선택하라는 다이얼로그가 뜨면, Tuist로 생성한 워크스페이스가 있는 폴더를 선택합니다.
 
 그러면 콘솔창에 InjectionIII와 연결되었다고 출력됩니다.
 

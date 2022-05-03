@@ -285,6 +285,13 @@ Enter expressions, then terminate with an empty line to evaluate:
 (lldb) expr self.navigationController?.pushViewController($vc, animated: true)
 ```
 
+* 애니메이션 Transaction을 즉시 실행하기
+
+```
+(lldb) expr -l swift -- import UIKit 
+(lldb) expr -l swift -- CATransaction.flush()
+```
+
 * Printing Modes
 
   * `frame variable (fr v)` - Code를 실행하지 않으며, LLDB formatter를 사용

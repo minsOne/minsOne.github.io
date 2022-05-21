@@ -94,7 +94,8 @@ let targets: [Target] = [
           sources: ["Source/Feature/**"],
           dependencies: [
             .project(target: "FeatureDeposit", path: "../FeatureDeposit")
-          ]
+          ],
+          settings: .settings(base: ["OTHER_LDFLAGS": "$(inherited) -all_load"])
          ),
     .init(name: "FeaturesDemoApp",
           platform: .iOS,
@@ -105,7 +106,8 @@ let targets: [Target] = [
           resources: ["App/DemoApp/Resources/**"],
           dependencies: [
             .target(name: "Features")
-          ]
+          ],
+          settings: .settings(base: ["OTHER_LDFLAGS": "$(inherited) -all_load"])
          )
 ]
 
@@ -127,7 +129,8 @@ let targets: [Target] = [
           product: .staticLibrary,
           bundleId: "kr.minsone.feature.deposit.ui",
           deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
-          sources: ["Source/UI/**"]
+          sources: ["Source/UI/**"],
+          settings: .settings(base: ["OTHER_LDFLAGS": "$(inherited) -all_load"])
          ),
     .init(name: "FeatureDepositUIPreviewApp",
           platform: .iOS,
@@ -140,7 +143,7 @@ let targets: [Target] = [
             .target(name: "FeatureDepositUI"),
             .package(product: "Inject"),
           ],
-          settings: .settings(base: ["OTHER_LDFLAGS": "$(inherited) -Xlinker -interposable"])
+          settings: .settings(base: ["OTHER_LDFLAGS": "$(inherited) -Xlinker -interposable -all_load"])
          ),
     .init(name: "FeatureDeposit",
           platform: .iOS,
@@ -150,7 +153,8 @@ let targets: [Target] = [
           sources: ["Source/Feature/**"],
           dependencies: [
             .target(name: "FeatureDepositUI")
-          ]
+          ],
+          settings: .settings(base: ["OTHER_LDFLAGS": "$(inherited) -all_load"])
          ),
     .init(name: "FeatureDepositDemoApp",
           platform: .iOS,
@@ -162,7 +166,8 @@ let targets: [Target] = [
           dependencies: [
             .target(name: "FeatureDeposit"),
             .package(product: "Inject"),
-          ]
+          ],
+          settings: .settings(base: ["OTHER_LDFLAGS": "$(inherited) -Xlinker -interposable -all_load"])
          )
 ]
 

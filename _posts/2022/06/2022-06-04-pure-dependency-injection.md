@@ -1,20 +1,10 @@
 ---
 layout: post
-title: "[iOS][Swift]solved Circular dependency using Pure Dependency Injection"
+title: "[iOS][Swift] Pure Dependency Injection"
 description: ""
 tags: []
-published: false
 ---
 {% include JB/setup %}
-
-프로토콜이 정의만 된 모듈,
-App 모듈에서 의존성을 구현하여 di 하도록 함.
-
-
-Ref :
-Mobile Act ONLINE #6 | uber/needleを用いたモジュール間の画面遷移とDI
-- https://www.youtube.com/watch?v=6vUpxUW_PGI
-- https://scrapbox.io/ikesyo/Mobile_Act_ONLINE_%236_%7C_uber%2Fneedle%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E9%96%93%E3%81%AE%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E3%81%A8DI
 
 <div class="alert warning"><strong>경고</strong>:본 내용은 이해하면서 작성하는 글이기 때문에 잘못된 내용이 포함될 수 있습니다. 따라서 언제든지 내용이 수정되거나 삭제될 수 있습니다. 잘못된 내용이 있는 부분이 있어 의견 주시면 공부하여 올바른 내용으로 반영하도록 하겠습니다.</div><br/>
 
@@ -172,116 +162,8 @@ func openDeposit() {
 
 따라서 Service Locator 패턴을 이용하여 Container에 주입하는 것 보다는 손이 많이 가지만 최상위 레이어에서 요구하는 protocol을 준수하는 구현체를 만들어 주입할 수 있어 런타임시 발생할 수 있는 문제가 없어집니다.
 
----
 
-두 번째 예제로, 만약 예금과 적금 모듈이 서로 의존관계가 형성되는 경우는 어떻게 해야할까요?
-
-<div class="mermaid" style="display:flex;justify-content:center;"> 
-graph TD;
-    subgraph AppGroup
-    App-->전자서명
-    end
-
-    subgraph FeatureGroup
-    Feature-->예금
-    Feature-->적금
-    예금-->적금
-    적금-->예금
-    end
-
-    App-->Feature
-</div>
-
-예금에서 적금 모듈에 사용하는 코드를 Protocol로 만들어 FeatureDependencies 모듈에 정의합니다. 마찬가지로 적금에서 예금 모듈에 사용하는 코드를 Protocol로 만들어 FeatureDependencies 모듈에 정의합니다.
-
-그러면 아까와 같은 구조가 만들어집니다.
-
-<div class="mermaid" style="display:flex;justify-content:center;"> 
-graph TD;
-    subgraph AppGroup
-    App-->전자서명
-    end
-
-    subgraph FeatureGroup
-    Feature-->예금
-    Feature-->적금
-    end
-
-    subgraph FeatureCoreGroup
-    FeatureDependencies
-    end
-
-    App-->Feature
-    예금-->FeatureDependencies
-    적금-->FeatureDependencies
-</div>
-
-단, 이전 예제에서는 전자서명을 구현하였지만, 지금은 예금에서 필요한 코드, 적금에서 필요한 코드를 구현해야 합니다.
-
-```swift
-/// ModuleName : FeatureDependencies
-public protocol DepositOpenBuildable {
-    func build() -> UIViewController
-}
-
-public protocol SavingsOpenBuildable {
-   func build(id: String) -> UIViewController
-}
-
-public protocol FeatureDepositComponentable {
-    func depositOpenBuild() -> DepositOpenBuildable
-}
-
-public protocol FeatureSavingsComponentable {
-    func savingsOpenBuild() -> SavingsOpenBuildable
-}
-
-/// ModuleName: DepositOpenPackage
-protocol DepositOpenDependency {
-    var savingsOpenBuiler: SavingsOpenBuildable { get }
-}
-
-public struct DepositOpenBuilder: DepositOpenDependency, DepositOpenBuildable {
-    public let savingsOpenBuiler: SavingsOpenBuildable
-    public init(dependency: DepositOpenDependency) {
-        self.savingsOpenBuiler = dependency.savingsOpenBuiler
-    }
-    public func build() -> UIViewController {
-        ...
-    }
-}
-
-public struct FeatureDepositComponent: DepositOpenDependency, FeatureDepositComponentable {
-    public let dependency: DepositOpenDependency
-    public init(dependency: DepositOpenDependency) {
-        self.dependency = dependency
-    }
-
-    public func depositOpenBuild() -> DepositOpenBuildable { DepositOpenBuilder(dependency: dependency) }
-}
-
-/// ModuleName : SavingsOpenPackage
-protocol SavingsOpenDependency {
-    var depositOpenBuiler: DepositOpenBuildable { get }
-}
-
-public struct SavingsOpenBuilder: SavingsOpenDependency, SavingsOpenBuildable {
-    public let depositOpenBuiler: DepositOpenBuildable
-    public init(dependency: SavingsOpenDependency) {
-        self.depositOpenBuiler = dependency.depositOpenBuiler
-    }
-    public func savingsBuild(id: String) {
-        ...
-    }
-}
-
-public struct FeatureSavingsComponent: SavingsOpenDependency, FeatureSavingsComponentable {
-    public let dependency: SavingsOpenDependency
-    public init(dependency: SavingsOpenDependency) {
-        self.dependency = dependency
-    }
-
-    public func savingsOpenBuild() -> SavingsOpenBuildable { SavingsOpenBuilder(dependency: dependency) }
-}
-
-```
+## 참고자료
+- Mobile Act ONLINE #6 | uber/needleを用いたモジュール間の画面遷移とDI
+  - https://www.youtube.com/watch?v=6vUpxUW_PGI
+  - https://scrapbox.io/ikesyo/Mobile_Act_ONLINE_%236_%7C_uber%2Fneedle%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E9%96%93%E3%81%AE%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E3%81%A8DI

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "[iOS][Swift] Pure Dependency Injection"
+title: "[iOS][Swift] Pure Dependency Injection - 레거시와 신규 모듈"
 description: ""
-tags: []
+tags: [RIBs, Builder, Dependency, module, legacy]
 ---
 {% include JB/setup %}
 

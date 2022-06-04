@@ -218,6 +218,38 @@ error: Error returning from frame 0 of thread 1: We only support setting simple 
 (lldb) down 5
 ```
 
+* **Assembly Register Calling Convention** - 어셈블리 레지스터 호출 규칙
+
+```
+/// 현재 스레드의 범용 레지스터를 보여주기
+(lldb) register read
+(lldb) re r
+
+/// 현재 스레드의 모든 레지스터를 보여주기
+(lldb) register read --all
+(lldb) re r -a
+
+/// 현재 스레드의 rax, rsp, rbp 레지스터 값을 보여주기
+(lldb) register read rax rsp rbp
+
+/// 현재 스레드의 범용 레지스터의 값을 특정 포맷으로 포맷으로 보여주기
+(lldb) register read --format binary // Binary
+(lldb) register read --format decimal // Decimal
+(lldb) register read --format hex
+(lldb) re r -f b
+(lldb) re r -f d
+
+/// register rax에 123 값을 기록하기
+(lldb) register write rax 123
+
+/// 현재 명령어에서 8 바이트 만큼 앞으로 점프하기
+(lldb) register write pc `$pc+8`
+```
+
+* 함수를 호출할 때, Parameter로 사용되는 Register
+  * RDI, RSI, RDX, RCX, R8, R9 (Argument의 순서대로 정의함, 주의. 최신 Xcode 버전에서는 맞는지 확실치 않음)
+
+
 ## Evaluating Expression - 표현식 계산하기
 
 * 현재 frame에서 표현식 계산하기
@@ -401,9 +433,9 @@ Enter expressions, then terminate with an empty line to evaluate:
 * Python을 LLDB Script로 사용할 수 있음.
 
 ```
-(lldb) script print 1 + 2 // Output: 3
+(lldb) script print(1 + 2) // Output: 3
 (lldb) script import os
-(lldb) script print os.getcwd()
+(lldb) script print(os.getcwd())
 ```
 
 * import - 필요한 script 소스를 import하여 사용함.

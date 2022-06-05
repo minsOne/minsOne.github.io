@@ -57,7 +57,7 @@ UnitTests 타겟은 `FeatureDepositUI` 모듈의 테스트를 위해 만들었�
 위와 같이 타겟을 만들고 `tuist generate` 를 이용하여 프로젝트 생성하면, HOST Application 항목에 `FeatureDepositUIPreviewApp` 앱 타겟이 추가되어 있는 것을 확인할 수 있습니다.
 
 <p style="text-align:center;">
-<img src="{{ site.production_url }}/image/2022/06/20220605_01.png" style="width: 600px"/>
+<img src="{{ site.production_url }}/image/2022/06/20220605_01.png"/>
 </p><br/>
 
 HOST Application에 추가되어 있으면 테스트시 `FeatureDepositUIPreviewApp` 앱이 기동하므로, 단순 빌드 및 검증만 하기 위해서는 HOST Application에서 제거를 해야합니다.
@@ -86,7 +86,7 @@ let targets: [Target] = [
 TEST_TARGET_NAME은 Tuist에서 만들어주는 값으로, 이것을 활용하여 BUNDLE_LOADER 값을 넣어줄 수 있습니다.
 
 <p style="text-align:center;">
-<img src="{{ site.production_url }}/image/2022/06/20220605_02.png" style="width: 600px"/>
+<img src="{{ site.production_url }}/image/2022/06/20220605_02.png"/>
 </p><br/>
 
 위와 같이 HOST Application이 Custom으로 변경됩니다.
@@ -94,7 +94,7 @@ TEST_TARGET_NAME은 Tuist에서 만들어주는 값으로, 이것을 활용하�
 그리고 FeatureDepositUI 타겟으로 테스트를 실행하면 다음과 같이 UIPreview 데모앱도 빌드 되는 것을 확인할 수 있습니다.
 
 <p style="text-align:center;">
-<img src="{{ site.production_url }}/image/2022/06/20220605_03.png" style="width: 600px"/>
+<img src="{{ site.production_url }}/image/2022/06/20220605_03.png"/>
 </p><br/>
 
 CI가 구축되어 있다면, CI가 돌면서 모듈을 테스트할 때 테스트 타겟을 빌드하고 테스트하게 되는데, 데모앱이 HOST Application으로 등록되어 있지 않으니 기동되지 않습니다. 빌드만 수행하므로 모듈을 리팩토링 하더라도 데모앱을 수정하지 않으면 테스트 타겟을 빌드하다가 에러가 발생하게 됩니다. 그러므로 데모앱을 지속적으로 관리할 수 있습니다.

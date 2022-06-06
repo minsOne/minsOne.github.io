@@ -60,6 +60,12 @@ UnitTests 타겟은 `FeatureDepositUI` 모듈의 테스트를 위해 만들었�
 <img src="{{ site.production_url }}/image/2022/06/20220605_01.png"/>
 </p><br/>
 
+그리고 Build Phases의 Dependencies에 `FeatureDepositUIPreviewApp` 앱 타겟이 추가되어 있는 것을 확인할 수 있습니다. 이는 UnitTest 타겟이 빌드될때 `FeatureDepositUIPreviewApp` 앱 타겟도 빌드함을 의미합니다.
+
+<p style="text-align:center;">
+<img src="{{ site.production_url }}/image/2022/06/20220605_04.png"/>
+</p><br/>
+
 HOST Application에 추가되어 있으면 테스트시 `FeatureDepositUIPreviewApp` 앱이 기동하므로, 단순 빌드 및 검증만 하기 위해서는 HOST Application에서 제거를 해야합니다.
 
 HOST Application 항목을 제거하기 위해선 TEST_HOST의 값을 제거해야합니다. TEST_HOST의 값은 제거하면, BUNDLE_LOADER는 TEST_HOST 값을 사용하는데, 없어지므로, 기존 TEST_HOST의 값을 사용해서 넣어줘야 합니다. 

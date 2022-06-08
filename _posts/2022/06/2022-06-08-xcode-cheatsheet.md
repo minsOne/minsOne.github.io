@@ -1,12 +1,30 @@
 ---
 layout: post
-title: "xcode Environment Variables CheatSheet"
+title: "Xcode CheatSheet - 작성중"
 tags: []
 published: false
 ---
 {% include JB/setup %}
 
+## Xcode Defaults
 
+```
+alias cXed='rm -rf ~/Library/Saved\ Application\ State/com.apple.dt.Xcode.savedState && xed .'
+alias clearXcode='rm -rf ~/Library/Saved\ Application\ State/com.apple.dt.Xcode.savedState'
+```
+https://github.com/ctreffs/xcode-defaults
+
+## Enviroment
+
+## Simulator
+
+```
+xcrun simctl openurl booted 'file:///Users/my.user/Desktop/my.cer'
+SIM_UDID=$(xcrun simctl list devices | grep Booted | awk -F'[\(\)]' '{print $2}')
+```
+```
+xcrun simctl erase all
+```
 <!-- 
 DYLD_ROOT_PATH
 DYLD_PATHS_ROOT

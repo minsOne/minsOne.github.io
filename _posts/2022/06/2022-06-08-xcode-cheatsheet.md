@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Xcode CheatSheet - 작성중"
+title: "[Xcode 14.0 beta1] Xcode CheatSheet - 작성중"
 tags: []
 published: false
 ---
@@ -8,23 +8,46 @@ published: false
 
 ## Xcode Defaults
 
+* Xcode를 열었을때, 가장 마지막에 열었던 프로젝트나 파일을 자동으로 여는 상태 제거
+
+```shell
+$ rm -rf ~/Library/Saved\ Application\ State/com.apple.dt.Xcode.savedState
 ```
-alias cXed='rm -rf ~/Library/Saved\ Application\ State/com.apple.dt.Xcode.savedState && xed .'
-alias clearXcode='rm -rf ~/Library/Saved\ Application\ State/com.apple.dt.Xcode.savedState'
+
+* 프로젝트 빌드 후, 상단에 시간 대신 빌드 경과 시간을 노출해줌.
+
 ```
-https://github.com/ctreffs/xcode-defaults
+$ defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES
+```
+
+
 
 ## Enviroment
 
 ## Simulator
 
+* 기동중인 시뮬레이터에 인증서 등의 파일을 열도록 함
 ```
-xcrun simctl openurl booted 'file:///Users/my.user/Desktop/my.cer'
-SIM_UDID=$(xcrun simctl list devices | grep Booted | awk -F'[\(\)]' '{print $2}')
+$ xcrun simctl openurl booted 'file:///Users/my.user/Desktop/my.cer'
 ```
+
+* 기동중인 시뮬레이터 목록의 UDID 출력
 ```
-xcrun simctl erase all
+$ xcrun simctl list devices | grep Booted | awk -F'[\(\)]' '{print $2}'
 ```
+
+모든 시뮬레이터를 지우는 명령
+```
+$ xcrun simctl erase all
+```
+
+```
+$ man dyld
+```
+
+
+<!-- https://github.com/ctreffs/xcode-defaults -->
+
 <!-- 
 DYLD_ROOT_PATH
 DYLD_PATHS_ROOT

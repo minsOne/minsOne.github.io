@@ -146,7 +146,3 @@ class Alpha {
 before Hello Alpha 만 출력하고 10초 뒤에 출력될 After Hello Alpha가 출력되지 않습니다.
 
 deinit 된 후에도 계속 동작할 수 있는 코드들은 위와 같이 Bag과 같이 관리하거나 별도의 변수로 담아 직접 cancel() 호출하는 등의 방법으로 불필요한 동작을 수행하지 않도록 하는 것이 중요합니다.
-
-## 참고자료
-
-* [RxSwift를 직접 구현해보기 - Event, Disposable, Observer, Observable]({{ site.production_url }}/programming/swift4-implement-own-rx-event-disposable-observer-observable)

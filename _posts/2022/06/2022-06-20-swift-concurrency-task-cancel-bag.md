@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift 5.7+][Concurrency] Task의 CancelTaskBag"
+title: "[Swift 5.7+][Concurrency] Task의 CancelTaskBag 구현하기"
 tags: [swift, Concurrency, Task, cancel, AnyCancelTaskBag, AnyCancellableTask]
 ---
 {% include JB/setup %}

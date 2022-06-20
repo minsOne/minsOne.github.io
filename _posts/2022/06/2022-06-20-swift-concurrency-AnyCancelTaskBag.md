@@ -93,6 +93,8 @@ Task는 cancel 함수가 있으므로, 별도로 구현할 필요가 없습니�
 public final class AnyCancelTaskBag {
     private var tasks: [any AnyCancellableTask] = []
     
+    public init() {}
+
     public func add(task: any AnyCancellableTask) {
         tasks.append(task)
     }

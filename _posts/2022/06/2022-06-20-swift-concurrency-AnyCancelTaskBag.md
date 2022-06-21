@@ -57,8 +57,9 @@ class Alpha {
     init() {
         print("\(Date()) init")
         self.task = Task {
+            print("\(Date()) Before Hello Alpha")
             try await Task.sleep(nanoseconds: 10 * 1_000_000_000)
-            print("\(Date()) Hello Alpha")
+            print("\(Date()) After Hello Alpha")
         }
     }
     

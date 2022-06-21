@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift 5.7+][Concurrency] Task 사용시 weak self를 사용하자"
+title: "[Swift 5.7+][Concurrency] Class에서 Task 사용시 weak self를 사용하자"
 tags: [Swift, Concurrency, Task, weak, self, ARC, Closures, Capture list, reference count]
 ---
 {% include JB/setup %}
@@ -65,7 +65,7 @@ class Alpha {
 
 위와 같이 version이라는 변수를 쉽게 접근하여 사용할 수 있습니다. 하지만, 객체의 deinit은 After Hello Alpha 문자열이 출력된 뒤에 deinit 문자열이 출력되었습니다.
 
-즉, Capture List를 통해 self의 레퍼런스 카운트가 증가되었음을 확인할 수 있습니다. 따라서 version을 사용하려면 기존 클로저에서 작업하던 방식인 weak self를 이용하여 레퍼런스 카운트를 증가시키지 못하도록 해야합니다.
+즉, Capture List로 self의 레퍼런스 카운트가 증가되었음을 확인할 수 있습니다. 따라서 version을 사용하려면 기존 클로저에서 작업하던 방식인 weak self를 이용하여 레퍼런스 카운트를 증가시키지 못하도록 해야합니다.
 
 ```swift
 class Alpha {

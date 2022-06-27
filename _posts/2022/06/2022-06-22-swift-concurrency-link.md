@@ -40,3 +40,5 @@ tags: [Swift, Concurrency]
   - [Sharing Data Across Tasks with the @TaskLocal property wrapper in the new Swift Concurrency Model](https://www.andyibanez.com/posts/sharing-data-across-tasks-tasklocal-new-swift-concurrency-model/)
   - [Logger - 1711-Games/LGN-Log](https://github.com/1711-Games/LGN-Log)
   - [TransactionId - What are Swift Concurrency’s task local values?](https://www.donnywals.com/what-are-swift-concurrencys-task-local-values/)
+
+* [Swift Concurrency를 이용한 표시 재개하는 UIViewController 구현 - Mirrativ Tech Blog](https://tech.mirrativ.stream/entry/2022/05/31/120125)

@@ -5,7 +5,7 @@ tags: [Swift, Concurrency, Task, cancel, AsyncStream, AsyncThrowingStream, unfol
 ---
 {% include JB/setup %}
 
-Concurrency에서는 AsyncStream가 AsyncSequence을 준수하여 비동기 Iterator를 직접 구현하지 않고도 비동기 시퀀스를 쉽게 작성할 수 있습니다.
+Concurrency에서는 AsyncStream이 AsyncSequence을 준수하여 비동기 Iterator를 직접 구현하지 않고도 비동기 시퀀스를 쉽게 작성할 수 있습니다.
 
 AsyncStream의 Continuation에서 yield를 통해 데이터를 스트림에 제공하거나, 더이상 데이터를 받지 못하는 경우, finish를 호출합니다. 혹은 데이터가 성공 또는 실패인지를 `yield.(with: .success())`, `yield.(with: .failure())` 로 전달 가능합니다. failure로 전달할때는 AsyncThrowingStream을 사용하면 됩니다.
 

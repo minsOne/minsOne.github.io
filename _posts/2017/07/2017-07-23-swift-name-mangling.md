@@ -58,12 +58,26 @@ $ xcrun nm -g test
 
 Mangling된 것을 알아볼 수 있도록 만들어줍니다.
 
-```
+```shell
 $ xcrun swift-demangle __TFC4test7MyClass9calculatefT1xSi_Si
 _TFC4test7MyClass9calculatefT1xSi_Si ---> test.MyClass.calculate (x : Swift.Int) -> Swift.Int
 
 $ xcrun swift-demangle _TFCCC4test1a1b1c1dfS2_FT1zS0_1xS1_1vFT1xSi_Si_OVS_1e1f
 _TFCCC4test1a1b1c1dfS2_FT1zS0_1xS1_1vFT1xSi_Si_OVS_1e1f ---> test.a.b.c.d (test.a.b.c) -> (z : test.a, x : test.a.b, v : (x : Swift.Int) -> Swift.Int) -> test.e.f
+```
+
+`nm`과 `awk`를 활용하여 바이너리에서 Mangling된 코드를 확인할 수 있습니다.
+
+```shell
+$ nm __BINARY__ | awk '{ print $3 }' | xargs xcrun swift-demangle {} \;
+
+{} ---> {}
+_$s10FlexLayout0A0C6layout4modeyAC0B4ModeO_tFfA_ ---> default argument 0 of FlexLayout.Flex.layout(mode: FlexLayout.Flex.LayoutMode) -> ()
+_$s12CoreGraphics7CGFloatVyACxcSzRzlufCSi_Tgq5 ---> generic specialization <serialized, Swift.Int> of CoreGraphics.CGFloat.init<A where A: Swift.BinaryInteger>(A) -> CoreGraphics.CGFloat
+_$s16FeatureDepositUI11hasSafeAreaSbvg ---> FeatureDepositUI.hasSafeArea.getter : Swift.Bool
+_$s16FeatureDepositUI14ViewControllerC04loadD0yyF ---> FeatureDepositUI.ViewController.loadView() -> ()
+_$s16FeatureDepositUI14ViewControllerC04loadD0yyFTo ---> @objc FeatureDepositUI.ViewController.loadView() -> ()
+...
 ```
 
 ### 참고 자료

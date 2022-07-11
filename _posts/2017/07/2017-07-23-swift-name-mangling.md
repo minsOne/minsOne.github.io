@@ -69,14 +69,19 @@ _TFCCC4test1a1b1c1dfS2_FT1zS0_1xS1_1vFT1xSi_Si_OVS_1e1f ---> test.a.b.c.d (test.
 `nm`과 `awk`를 활용하여 바이너리에서 Mangling된 코드를 확인할 수 있습니다.
 
 ```shell
-$ nm __BINARY__ | awk '{ print $3 }' | xargs xcrun swift-demangle {} \;
+$ nm __BINARY__ | awk '{ print $3 }' | xargs xcrun swift-demangle --compact {} \;
 
-{} ---> {}
-_$s10FlexLayout0A0C6layout4modeyAC0B4ModeO_tFfA_ ---> default argument 0 of FlexLayout.Flex.layout(mode: FlexLayout.Flex.LayoutMode) -> ()
-_$s12CoreGraphics7CGFloatVyACxcSzRzlufCSi_Tgq5 ---> generic specialization <serialized, Swift.Int> of CoreGraphics.CGFloat.init<A where A: Swift.BinaryInteger>(A) -> CoreGraphics.CGFloat
-_$s16FeatureDepositUI11hasSafeAreaSbvg ---> FeatureDepositUI.hasSafeArea.getter : Swift.Bool
-_$s16FeatureDepositUI14ViewControllerC04loadD0yyF ---> FeatureDepositUI.ViewController.loadView() -> ()
-_$s16FeatureDepositUI14ViewControllerC04loadD0yyFTo ---> @objc FeatureDepositUI.ViewController.loadView() -> ()
+{}
+FeatureDepositUI.hasSafeArea.getter : Swift.Bool
+protocol descriptor for FeatureDepositUI.InjectionKey
+protocol requirements base descriptor for FeatureDepositUI.InjectionKey
+reflection metadata field descriptor FeatureDepositUI.InjectionKey
+FeatureDepositUI.InjectedValues.networkProvider.modify : FeatureDepositUI.NetworkProviding
+FeatureDepositUI.InjectedValues.networkProvider.modify : FeatureDepositUI.NetworkProviding with unmangled suffix ".resume.0"
+FeatureDepositUI.InjectedValues.networkProvider.getter : FeatureDepositUI.NetworkProviding
+key path getter for FeatureDepositUI.InjectedValues.networkProvider : FeatureDepositUI.NetworkProviding : FeatureDepositUI.InjectedValues
+key path setter for FeatureDepositUI.InjectedValues.networkProvider : FeatureDepositUI.NetworkProviding : FeatureDepositUI.InjectedValues
+property descriptor for FeatureDepositUI.InjectedValues.networkProvider : FeatureDepositUI.NetworkProviding
 ...
 ```
 

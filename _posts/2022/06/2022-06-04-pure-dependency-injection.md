@@ -12,7 +12,7 @@ tags: [RIBs, Builder, Dependency, module, legacy]
 
 유저에게 좋지 않은 경험을 선사하기 때문에 해당 문제를 잘 해결해야 합니다.
 
-[예전 글]({{ site.production_url/programming/swift-solved-circular-dependency-from-dependency-injection-container }})에서 Container를 이용하여 모듈의 순환관계를 푸는 글을 올렸었습니다.
+[예전 글]({{ site.production_url }}/programming/swift-solved-circular-dependency-from-dependency-injection-container)에서 Container를 이용하여 모듈의 순환관계를 푸는 글을 올렸었습니다.
 
 이번에는 Pure DI 관점으로 푼다면 정적 언어의 특성을 이용하기 때문에 안정적으로 순환관계를 풀 수 있지 않을까 싶습니다.
 

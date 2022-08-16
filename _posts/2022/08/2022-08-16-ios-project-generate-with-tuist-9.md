@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][Tuist] 프로젝트 생성/관리 도구 Tuist(9) - Tuist 버전 고정하고 사용하기(.tuist-version)"
+title: "[iOS][Tuist] 프로젝트 생성/관리 도구 Tuist(9) - Tuist 버전 고정하고 사용하기 .tuist-version"
 tags: [Tuist]
 ---
 {% include JB/setup %}

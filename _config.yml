@@ -134,3 +134,5 @@ JB :
 
 mermaid:
   src: '/assets/mermaid-8.9.2/mermaid.min.js'
+
+future: true

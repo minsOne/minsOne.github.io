@@ -274,3 +274,7 @@ $ ruby generate_xctestplan.rb > TestPlan/FullTest.xctestplan
 ```
 $ xcodebuild test -scheme Application -testPlan FullTest -destination 'platform=iOS Simulator,OS=16.0,name=iPhone 13'
 ```
+
+## 정리
+
+* [Xcodeproj](https://github.com/CocoaPods/Xcodeproj)를 활용하여 프로젝트 파일에서 정보를 추출하고, 그 정보를 이용하여 xctestplan 파일을 생성

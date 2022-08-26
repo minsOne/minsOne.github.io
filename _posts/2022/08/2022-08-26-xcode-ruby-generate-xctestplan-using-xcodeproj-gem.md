@@ -29,7 +29,7 @@ Xcode 11에서 테스트를 모아서 관리하는 Xcode Test Plans 기능을 �
 해당 기능을 통해 여러 프로젝트의 테스트 타겟을 통합하여 테스트 관리가 가능합니다.
 
 <p style="text-align:center;">
-<img src="{{ site.production_url }}/image/2022/08/20220826_01.png" style="width: 600px"/>
+<img src="{{ site.production_url }}/image/2022/08/20220826_01.png" style="width: 800px"/>
 </p><br/>
 
 해당 xctestplan 파일의 소스를 살펴보면 다음과 같이 되어 있습니다.
@@ -101,8 +101,8 @@ Xcode 11에서 테스트를 모아서 관리하는 Xcode Test Plans 기능을 �
 만약에 ModuleA 프로젝트의 ModuleA 스킴에서 `FullTest.xctestplan`을 테스트 플랜으로 가지게 되면, `ApplicationTests`과 `ApplicationUITests` 테스트 타겟은 missing으로 출력이 됩니다.
 
 <p style="text-align:center;">
-<img src="{{ site.production_url }}/image/2022/08/20220826_02.png" style="width: 600px"/>
-<img src="{{ site.production_url }}/image/2022/08/20220826_03.png" style="width: 600px"/>
+<img src="{{ site.production_url }}/image/2022/08/20220826_02.png" style="width: 800px"/>
+<img src="{{ site.production_url }}/image/2022/08/20220826_03.png" style="width: 800px"/>
 </p><br/>
 
 missing으로 표시되는 테스트는 수행되지 않습니다.

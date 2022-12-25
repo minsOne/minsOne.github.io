@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[iOS][Xcode 13.3.1][Tuist 3.3.0] 프로젝트 생성/관리 도구 Tuist(7) - DemoApp과 Inject의 Hot Reload를 이용해서 빠른 개발하기"
+title: "[iOS][Xcode 13.3.1][Tuist 3.3.0[InjectionIII] 프로젝트 생성/관리 도구 Tuist(7) - DemoApp과 Inject의 Hot Reload를 이용해서 빠른 개발하기"
 tags: [iOS, Hot Reload, Preview, Inject, Tuist, InjectionIII]
 ---
 {% include JB/setup %}

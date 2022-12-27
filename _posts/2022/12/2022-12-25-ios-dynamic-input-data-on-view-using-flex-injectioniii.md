@@ -211,6 +211,38 @@ class ViewControllerListenerMock: ViewControllerListener {
 
 <br/><video src="{{ site.production_url }}/image/2022/12/20221225_02.mp4" width="800" controls autoplay></video><br/>
 
+FLEX의 registerSimulatorShortcut 함수를 래핑한 코드입니다.
+
+```swift
+import Foundation
+import FLEX
+
+public struct SimulatorShortcut {
+
+    /// 시뮬레이터에서 키보드 입력을 받아 block을 수행하는 기능
+    ///
+    /// FLEX의 registerSimulatorShortcut 함수를 조금 더 쉽게 사용하기 위해 래핑함
+    ///
+    /// - Parameters:
+    ///   - key: 키보드에서 입력받을 키
+    ///   - modifiers: shift, command, alt/option 등의 Modifier 키
+    ///   - action: 키와 Modifier 키 조합을 눌렀을 때, 메인스레드에서 실행하는 block
+    ///   - description: '?' 키를 눌렀을 때 help 메뉴에서 표시하는 설명
+    public static func register(with key: String,
+                                modifiers: UIKeyModifierFlags? = nil,
+                                action: @escaping () -> Void,
+                                description: String = "") {
+        let modifiers: UIKeyModifierFlags = modifiers ?? .init(rawValue: 0)
+
+        FLEXManager.shared
+            .registerSimulatorShortcut(withKey: key,
+                                       modifiers: modifiers,
+                                       action: action,
+                                       description: description)
+    }
+}
+```
+
 ## 참고자료
 
 * Github

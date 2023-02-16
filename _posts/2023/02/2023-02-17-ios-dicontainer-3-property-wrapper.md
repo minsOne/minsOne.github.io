@@ -143,7 +143,7 @@ list.forEach { $0.output() }
 //   Hello SampleClass
 ```
 
-모듈에 SampleClass 이름을 가진 클래스는 하나 밖에 없기 때문에, filter를 통해 일치하는 클래스는 하나만 존재하는 것을 확인할 수 있습니다.<br/><br/><br/>
+모듈에 SampleClass 이름을 가진 클래스는 하나 밖에 없기 때문에, filter, compactMap을 통해 일치하는 클래스는 하나만 존재하는 것을 확인할 수 있습니다.<br/><br/><br/>
 
 추출한 클래스 목록에서 특정 클래스를 찾을 수 있다면, 특정 프로토콜을 채택한 타입도 찾을 수 있지 않을까요?
 

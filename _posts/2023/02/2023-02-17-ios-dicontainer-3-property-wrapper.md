@@ -134,11 +134,13 @@ let list = Runtime.classList
     .compactMap { $0 as? SampleClass.Type }
 
 dump(list)
-// Output : ▿ 1 element
-//          - ModuleName.SampleClass #0
+// Output : 
+//   ▿ 1 element
+//     - ModuleName.SampleClass #0
 
 list.forEach { $0.output() }
-// Output : Hello SampleClass
+// Output : 
+//   Hello SampleClass
 ```
 
 모듈에 SampleClass 이름을 가진 클래스는 하나 밖에 없기 때문에, filter를 통해 일치하는 클래스는 하나만 존재하는 것을 확인할 수 있습니다.
@@ -182,8 +184,8 @@ dump(list)
 
 list.forEach { $0.output() }
 // Output : 
-///  Hello SampleClassString String
-///  Hello SampleClassInt Int
+//   Hello SampleClassString String
+//   Hello SampleClassInt Int
 ```
 
 compactMap으로 타입 캐스팅을 통해서 SampleProtocol을 채택한 클래스를 쉽게 찾을 수 있었습니다.

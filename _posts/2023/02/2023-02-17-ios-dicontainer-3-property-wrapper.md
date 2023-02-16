@@ -143,11 +143,9 @@ list.forEach { $0.output() }
 //   Hello SampleClass
 ```
 
-모듈에 SampleClass 이름을 가진 클래스는 하나 밖에 없기 때문에, filter를 통해 일치하는 클래스는 하나만 존재하는 것을 확인할 수 있습니다.
+모듈에 SampleClass 이름을 가진 클래스는 하나 밖에 없기 때문에, filter를 통해 일치하는 클래스는 하나만 존재하는 것을 확인할 수 있습니다.<br/><br/><br/>
 
----
-
-추출한 클래스 목록에서 특정 클래스를 찾을 수 있다면 특정 프로토콜을 채택한 타입도 찾을 수 있지 않을까요?
+추출한 클래스 목록에서 특정 클래스를 찾을 수 있다면, 특정 프로토콜을 채택한 타입도 찾을 수 있지 않을까요?
 
 ```swift
 protocol SampleProtocol: AnyObject {
@@ -189,6 +187,12 @@ list.forEach { $0.output() }
 ```
 
 compactMap으로 타입 캐스팅을 통해서 SampleProtocol을 채택한 클래스를 쉽게 찾을 수 있었습니다.
+
+---
+
+<br/>iOS 16.0, macOS 13.0 이상에서는 [ObjCClassList](https://developer.apple.com/documentation/objectivec/objcclasslist) 구조체를 통해서 안전하게 접근할 수 있을 것 같습니다. 하지만 타겟 버전을 올리기 위해서는 시간이 많이 흘러야하므로, 다음에 해당 구조체를 이용하여 코드를 전환하면 좋을 것 같습니다.
+
+<br/>
 
 ## 참고자료
 

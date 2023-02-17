@@ -214,3 +214,5 @@ compactMap으로 타입 캐스팅을 통해서 SampleProtocol을 채택한 클�
   * [nihp-public/covid-19-app-ios-ag-public](https://github.com/nihp-public/covid-19-app-ios-ag-public/blob/master/NHS-COVID-19/Core/Sources/Scenarios/Runner/ScenarioId.swift)
   * [SpectralDragon/DITranquillity](https://github.com/SpectralDragon/DITranquillity/blob/master/Sources/Scan/DIScan.swift)
   * [sushinoya/lumos](https://github.com/sushinoya/lumos/blob/master/Lumos/Lumos/Sources/RuntimeQueries.swift)
+
+* [Big Nerd Ranch - Inside the Bracket](https://bignerdranch.com/?s=Inside+the+Bracket)

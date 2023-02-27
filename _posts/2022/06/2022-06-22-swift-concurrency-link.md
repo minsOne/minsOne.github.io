@@ -43,7 +43,8 @@ tags: [Swift, Concurrency]
 
 * [Swift Concurrency를 이용한 표시 재개하는 UIViewController 구현 - Mirrativ Tech Blog](https://tech.mirrativ.stream/entry/2022/05/31/120125)
 * [Apple의 샘플 프로젝트에서 Swift Concurrency 이행의 에센스를 배운다 - Mirrativ Tech Blog](https://tech.mirrativ.stream/entry/2022/05/18/110030)
-
+* [Swift Concurrency 치트 시트](https://zenn.dev/koher/articles/swift-concurrency-cheatsheet)
+* [Swift Concurrency in GoodNotes](https://speakerdeck.com/inamiy/swift-concurrency-in-goodnotes)
 * Github
   * [Apple/swift-async-algorithms](https://github.com/apple/swift-async-algorithms)
   * [reddavis/Asynchrone](https://github.com/reddavis/Asynchrone) - Extensions and additions to AsyncSequence, AsyncStream and AsyncThrowingStream

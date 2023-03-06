@@ -5,17 +5,17 @@ tags: [Swift, Dependency Injection, objc, objc_getClassList, UnsafeMutablePointe
 ---
 {% include JB/setup %}
 
-이번 글에서는 모든 클래스 목록을 알아보도록 하겠습니다. Swift 언어에서는 모듈을 import 하지 않고는 타입을 알 수 없으며, 타입 정보를 동적으로도 얻을 수 없습니다. 
+이번 글에서는 Swift의 모든 클래스 목록을 알아내는 방법에 대해 알아보겠습니다. Swift에서는 모듈을 import 하지 않으면 타입 정보를 얻을 수 없습니다. 
 
-Swift만 사용한다면 강타입 언어로서 그럴 수 있지만, iOS, MacOS 등의 환경에서 사용하는 Swift는 조금 다른 의미를 지닙니다. Foundation 모듈과 Objective-C를 적절히 이용하면 모든 클래스 목록을 추출할 수 있습니다.
+그러나 iOS, macOS 등의 환경에서 사용하는 Swift는 Objective-C의 Runtime을 이용하여 모든 클래스 목록을 얻을 수 있습니다.
 
 ## Objective-C Runtime
 
-[Objective-C Runtime 도큐먼트](https://developer.apple.com/documentation/objectivec)를 보면 Objective-C 런타임 및 Objective-C 루트 유형의 low-level에 접근할 수 있습니다.
+[Objective-C Runtime](https://developer.apple.com/documentation/objectivec)의 문서를 보면 Objective-C 런타임 및 Objective-C 루트 유형의 low-level에 접근할 수 있습니다.
 
-이 중에서 [objc_getClassList](https://developer.apple.com/documentation/objectivec/1418579-objc_getclasslist)를 한번 살펴봅시다.
+이 중에서 [objc_getClassList](https://developer.apple.com/documentation/objectivec/1418579-objc_getclasslist) 함수를 한번 살펴볼 필요가 있습니다.
 
-`objc_getClassList` 함수는 등록된 클래스 정의 목록을 얻을 수 있다고 합니다.
+`objc_getClassList` 함수는 등록된 클래스 정의 목록을 얻을 수 있습니다.
 
 ```objectivec
 int numClasses;
@@ -52,9 +52,7 @@ struct Runtime {
 }
 ```
 
-위 함수에서 클래스 배열 포인터와 클래스 개수를 얻어낼 수 있었습니다.
-
-그러면 해당 함수에서 얻은 포인터와 클래스 개수를 활용하여 모든 클래스 목록을 얻어봅시다.
+위 함수에서는 클래스 배열 포인터와 클래스 개수를 얻을 수 있습니다. 이제 해당 함수에서 얻은 포인터와 클래스 개수를 이용하여 모든 클래스 목록을 얻어봅시다.
 
 ```swift
 struct Runtime {
@@ -67,7 +65,7 @@ struct Runtime {
 }
 ```
 
-이렇게 얻은 클래스 목록은 다음과 같습니다.
+이렇게 얻은 클래스 목록은 다음과 같습니다:
 
 ```swift
 dump(Runtime.classList)
@@ -143,9 +141,9 @@ list.forEach { $0.output() }
 //   Hello SampleClass
 ```
 
-모듈에 SampleClass 이름을 가진 클래스는 하나 밖에 없기 때문에, filter, compactMap을 통해 일치하는 클래스는 하나만 존재하는 것을 확인할 수 있습니다.<br/><br/><br/>
+모듈에 SampleClass 이름을 가진 클래스는 하나 밖에 없기 때문에, filter와 compactMap을 이용하여 일치하는 클래스가 하나만 반환되는 것을 확인할 수 있습니다.
 
-추출한 클래스 목록에서 특정 클래스를 찾을 수 있다면, 특정 프로토콜을 채택한 타입도 찾을 수 있지 않을까요?
+추출된 클래스 목록에서 특정 클래스를 찾을 수 있다면, 해당 클래스가 채택한 특정 프로토콜도 찾아볼 수 있습니다. 
 
 ```swift
 protocol SampleProtocol: AnyObject {
@@ -186,11 +184,12 @@ list.forEach { $0.output() }
 //   Hello SampleClassInt Int
 ```
 
-compactMap으로 타입 캐스팅을 통해서 SampleProtocol을 채택한 클래스를 쉽게 찾을 수 있었습니다.
+compactMap을 사용하여 타입 변환을 통해 SampleProtocol을 채택한 클래스를 쉽게 찾을 수 있었습니다.
 
 ---
 
-<br/>iOS 16.0, macOS 13.0 이상에서는 [ObjCClassList](https://developer.apple.com/documentation/objectivec/objcclasslist) 구조체를 통해서 안전하게 접근할 수 있을 것 같습니다. 하지만 타겟 버전을 올리기 위해서는 시간이 많이 흘러야하므로, 다음에 해당 구조체를 이용하여 코드를 전환하면 좋을 것 같습니다.
+<br/>
+iOS 16.0, macOS 13.0부터 지원하는 [ObjCClassList](https://developer.apple.com/documentation/objectivec/objcclasslist) 구조체를 통해 안전하게 클래스 리스트에 접근할 수 있습니다.
 
 <br/>
 

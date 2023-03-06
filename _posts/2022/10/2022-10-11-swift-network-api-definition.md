@@ -5,13 +5,15 @@ tags: [Swift, Protocol, Codable, Encodable, Decodable, associatedtype]
 ---
 {% include JB/setup %}
 
+네트워크 관련 코드는 처음에는 쉽게 작성할 수 있지만 API의 규모와 복잡도가 늘어날수록 관리하는 일이 많아집니다. 이를 해결하기 위해 체계적인 구조를 갖추어 코드의 유지보수성을 향상시키는 것이 중요합니다.
+
 네트워크 관련 코드는 처음에는 쉽게 작성할 수 있지만, API가 늘어날 수록 관리해야할 일이 필요합니다. 그래서 어느정도 체계적인 구조를 갖춰야 합니다.
 
 관련해서 [ishkawa/APIKit](https://github.com/ishkawa/APIKit)에서 API 코드를 추상 레이어를 만들고 구현하도록 합니다.
 
-해당 라이브러리를 영감을 받아 만들면서, 좀 더 유연하게 대응할 수 있도록 하는 코드를 설계하려고 합니다.
+해당 라이브러리를 영감을 받아 만들면서, 더욱 유연하고 확장 가능한 코드를 설계하려고 합니다.
 
-네트워크를 추상화한 모듈과, 그 모듈을 통해 구현 타입을 작성하는 모듈 구조로 설계합니다.
+네트워크를 추상화한 모듈과, 해당 모듈을 활용하여 구현 타입을 작성하는 모듈의 구조를 따르는 설계를 만듭니다.
 
 <div class="mermaid" style="display:flex;justify-content:center;"> 
 graph TD;
@@ -25,7 +27,7 @@ graph TD;
 
 네트워크 관련 코드를 추상화하는 모듈입니다.
 
-먼저 NetworkAPIDefinition 프로토콜을 정의합니다.
+이를 위해서, NetworkAPIDefinition 프로토콜을 먼저 정의합니다.
 
 ```swift
 /// ModuleName : NetworkAPIKit
@@ -34,7 +36,7 @@ graph TD;
 public protocol NetworkAPIDefinition {}
 ```
 
-NetworkAPI 타입을 정의하고, 해당 타입에서 Nested 구조로 관리하도록 합니다.
+NetworkAPI 타입을 정의하고, 이를 Nested 구조로 관리하도록 합니다.
 
 ```swift
 /// ModuleName : NetworkAPIKit
@@ -43,7 +45,7 @@ NetworkAPI 타입을 정의하고, 해당 타입에서 Nested 구조로 관리�
 public enum NetworkAPI {}
 ```
 
-그리고 사용할 URL을 정의할 구조체를 정의합니다.
+또한, 사용할 URL을 정의할 구조체도 함께 정의합니다.
 
 ```swift
 /// ModuleName : NetworkAPIKit
@@ -91,7 +93,7 @@ extension NetworkAPI.URLInfo {
 }
 ```
 
-그리고 URLRequest에서 사용할 Method를 정의합니다.
+그리고 URLRequest에서 사용할 HTTP Method를 정의합니다.
 
 ```swift
 /// ModuleName : NetworkAPIKit
@@ -105,7 +107,7 @@ public extension NetworkAPI {
 }
 ```
 
-그러면 네트워크를 요청할 추가정보인, Method, Header, Parameter를 추가하여, `NetworkAPIDefinition`를 다시 정의합니다.
+그리고 네트워크 요청 시 사용되는 Method, Header, Parameter와 같은 추가정보를 포함할 수 있도록 `NetworkAPIDefinition`을 재정의합니다.
 
 ```swift
 /// ModuleName : NetworkAPIKit
@@ -122,7 +124,7 @@ public protocol NetworkAPIDefinition {
 }
 ```
 
-`Method`, `Headers`, `Parameter`  정보는 URLRequest에서 사용할 정보이므로, URLRequest를 위한 자료구조를 만들어 다루도록 합니다.
+`Method`, `Headers`, `Parameter` 정보는 URLRequest에서 사용할 정보이기 때문에, URLRequest를 위한 자료구조를 만들어서 이를 다루도록 합니다.
 
 ```swift
 /// ModuleName : NetworkAPIKit
@@ -157,7 +159,7 @@ extension NetworkAPI.RequestInfo {
 }
 ```
 
-그러면 이제 NetworkAPIDefinition는 다음과 같이 코드가 정리됩니다.
+이렇게 정리된 `NetworkAPIDefinition`는 아래와 같습니다.
 
 ```swift
 /// ModuleName : NetworkAPIKit
@@ -175,7 +177,7 @@ public protocol NetworkAPIDefinition {
 }
 ```
 
-그러면 우리는 NetworkAPIDefinition를 통해서 URLSession으로 요청할 수 있는 코드를 만들 수 있습니다.
+`NetworkAPIDefinition`를 이용해서 URLSession으로 요청할 수 있는 코드를 만들 수 있습니다
 
 ```swift
 /// ModuleName : NetworkAPIKit
@@ -202,11 +204,11 @@ public extension NetworkAPIDefinition {
 }
 ```
 
-명세를 기반으로 네트워크 요청을 추상화 하였습니다.
+명세를 기반으로 하는 네트워크 요청을 추상화 하였습니다.
 
 ## NetworkAPIs
 
-이제 NetworkAPIs 모듈에서는 NetworkAPIKit 모듈의 NetworkAPIDefinition를 준수하는 타입을 구현합니다.
+`NetworkAPIs` 모듈에서는 `NetworkAPIKit` 모듈의 `NetworkAPIDefinition`을 준수하는 타입을 구현합니다. 이를 통해 `NetworkAPIKit`에서 정의한 규약을 따르는 일관성 있는 네트워크 요청 코드를 작성할 수 있습니다
 
 ```swift
 /// ModuleName : NetworkAPIs
@@ -272,11 +274,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-정상적으로 GitHub의 네트워크 API를 요청하고 받았음을 확인할 수 있습니다.
+정상적으로 GitHub의 네트워크 API를 요청하고 받았으며, 응답 결과를 확인할 수 있습니다.
 
 ## 정리
 
-`NetworkAPIs` 모듈의 `GitHubAPI+Users.swift` 파일에 작성된 코드는 네트워크 API 명세를 나타내며, 해당 API를 확인할 때, 이 파일만 보면 어떤 정보를 보내고, 받는지 확인을 할 수 있습니다.
+"맞습니다. `GitHubAPI+Users.swift` 파일은 해당 API에 대한 명세를 담고 있어, 어떤 정보를 보내고 받을 수 있는지 확인할 수 있습니다. 이를 통해 코드의 일관성과 유지보수성을 높임과 동시에 API 엔드포인트를 효과적으로 관리할 수 있습니다."
+
+`NetworkAPIs` 모듈의 `GitHubAPI+Users.swift` 파일은 해당 API에 대한 명세를 담고 있어, 어떤 정보를 보내고 받을 수 있는지 확인할 수 있습니다. 이를 통해 코드의 일관성과 유지보수성을 높임과 동시에 API 엔드포인트를 효과적으로 관리할 수 있습니다.
 
 ## 코드
 

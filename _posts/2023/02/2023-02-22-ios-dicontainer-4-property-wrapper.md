@@ -12,15 +12,15 @@ classList
     .compactMap { $0 as? any SampleProtocol.Type }
 ```
 
-하지만, 프로젝트 규모가 커져 코드가 많아지면 클래스 숫자도 늘어나게 됩니다. 이때 수만, 수십만의 클래스를 타입 캐스팅으로 특정 프로토콜을 찾는데는 비용이 많이 듭니다.
+하지만, 프로젝트 규모가 커져서 코드가 많아지면 클래스 숫자도 증가하게 됩니다. 이때는 수만, 수십만 개의 클래스를 타입 캐스팅으로 특정 프로토콜을 찾는 데 많은 비용이 듭니다.
 
-또한, 프로토콜을 캐스팅하는데는 성능이 느리다고 합니다. (관련 소스 분석중)
+또한, 프로토콜을 캐스팅하는 데는 성능이 느리다는 것이 알려져 있습니다. (관련 소스 분석 중)
 
-그럼 어떤 방법을 사용하면 좀 더 빠르게 타입을 찾을 수 있을까요?
+그렇다면, 어떤 방법을 사용하면 더 빠르게 타입을 찾을 수 있을까요?
 
-타입의 이름을 얻어, 그 타입의 이름에 특정 문자가 포함된 것을 찾는 방법, 특정 이름을 변수로 가진 타입을 찾는 방법 그리고 해당 타입의 Super Class와 일치하는지를 찾는 방법 등이 있을 것입니다,
+타입의 이름을 얻어 그 이름에 특정 문자가 포함된 것을 찾는 방법, 특정 이름을 변수로 가진 타입을 찾는 방법 그리고 해당 타입의 슈퍼 클래스와 일치하는지를 찾는 방법 등이 있을 것입니다.
 
-이들 방법을 한번 사용해서 타입을 찾고, 그 뒤에 캐스팅을 하면 캐스팅하는 비용이 줄어들지 않을까 합니다.
+이러한 방법들을 한 번 사용해서 타입을 찾은 다음에 캐스팅을 하면 캐스팅 비용이 줄어들지 않을까요?
 
 <br/>
 
@@ -70,11 +70,11 @@ struct Runtime {
 }
 ```
 
-`class_getName`([Source Code](https://github.com/apple-oss-distributions/objc4/blob/689525d556eb3dee1ffb700423bccf5ecc501dbf/runtime/objc-runtime-new.mm#L6234))는 demangleName을 가져와 사용하므로, 비용이 비싸지 않습니다. 따라서 문자열 비교한 후, 타입 캐스팅을 하니 타입 캐스팅 할 일이 줄어들어 비용이 줄어듭니다.
+`class_getName`([Source Code](https://github.com/apple-oss-distributions/objc4/blob/689525d556eb3dee1ffb700423bccf5ecc501dbf/runtime/objc-runtime-new.mm#L6234))는 demangleName을 가져와 사용하므로 비용이 비싸지 않습니다. 따라서 문자열 비교한 후 타입 캐스팅을 하면 타입 캐스팅 비용이 줄어드ㅂ니다
 
-하지만, 클래스 이름에 `sample` 문자열이 포함되어 있지 않은 타입이라면, 해당 조건에 만족하지 못하고 찾는데 실패합니다. 
+하지만, 클래스 이름에 `sample` 문자열이 포함되어 있지 않은 타입일 경우 해당 조건을 만족하지 못하고 찾는데 실패할 수 있습니다.
 
-`SampleProtocol` 프로토콜을 채택한 타입 이름의 규칙이 있다면 위와 같은 방식도 괜찮을 수 있습니다.
+만약 `SampleProtocol` 프로토콜을 채택한 타입 이름에 규칙이 있다면, 위와 같은 방식도 괜찮을 수 있습니다.
 
 ### 2. 특정 이름을 변수로 가진 타입 찾기
 
@@ -103,17 +103,17 @@ struct Runtime {
 }
 ```
 
-`class_getName`를 사용했던 위의 코드와 거의 유사하게 코드가 작성되었습니다. `class_getInstanceVariable`([Source Code](https://github.com/apple-oss-distributions/objc4/blob/689525d556eb3dee1ffb700423bccf5ecc501dbf/runtime/objc-class.mm#L606))는 실제로 `_class_getVariable`([Source Code](https://github.com/apple-oss-distributions/objc4/blob/689525d556eb3dee1ffb700423bccf5ecc501dbf/runtime/objc-runtime-new.mm#L7418))를 사용하고 있고, 해당 이름을 가진 변수가 있는지 확인후, 없으면 super class에 가서 찾는 재귀방식을 취하고 있습니다.
+`class_getName`를 사용했던 위의 코드와 거의 유사하게 코드가 작성되었습니다. `class_getInstanceVariable`([Source Code](https://github.com/apple-oss-distributions/objc4/blob/689525d556eb3dee1ffb700423bccf5ecc501dbf/runtime/objc-class.mm#L606))는 실제로 `_class_getVariable`([Source Code](https://github.com/apple-oss-distributions/objc4/blob/689525d556eb3dee1ffb700423bccf5ecc501dbf/runtime/objc-runtime-new.mm#L7418))를 사용하고 있고, 해당 이름을 가진 변수가 있는지 확인한 후 없으면 `Super Class`에서 재귀적으로 검색합니다.
 
-상속 받은 클래스가 적은 경우는 괜찮지만, 많은 경우는 `class_getName` 보다 비싼 비용을 지불해야 됩니다. 따라서 좋은 방법이라고 하긴 어렵습니다.
+상속 받은 클래스가 적은 경우에는 문제가 되지 않지만, 많은 경우에는 `class_getName` 보다 더 비용이 많이 듭니다. 따라서 이 방법이 좋은 방법인지는 의문입니다.
 
-유사하게 클래스 변수를 찾는 `class_getClassVariable` 함수도 있으나 방식은 동일합니다.
+비슷한 방식으로 클래스 변수를 찾는 `class_getClassVariable` 함수가 있지만, 방식은 동일합니다.
 
 ### 3. 해당 타입의 Super Class와 일치한 타입 찾기
 
-위의 두 방식은 키를 문자열로 만들어 비교하도록 하는 방식이었습니다. 강타입의 특성을 활용하기 어려운 방식으로, 이름이 바뀌게 되면 해당 방식으로는 원하는 타입을 찾을 수 없습니다.
+위의 두 가지 방식은 문자열로 된 키를 사용하여 비교하는 방식입니다. 이 방식은 강타입 언어의 특성을 활용하기 어렵습니다. 또한 이름이 바뀌면 이 방식으로는 원하는 타입을 찾을 수 없습니다. 
 
-특정 클래스를 상속받도록 만들면 우리가 원하는 타입을 찾을 수 있지 않을까요?
+만약에 특정 클래스를 상속받도록 만들면 우리가 원하는 타입을 찾을 수 있지 않을까요?
 
 ```swift
 open class SampleScanType {
@@ -154,10 +154,9 @@ struct Runtime {
 }
 ```
 
-클래스에서 Super Class의 타입을 얻어와, 준비했던 Super Class와 타입이 일치하는지 비교를 합니다. `class_getSuperclass`([Source Code](https://github.com/apple-oss-distributions/objc4/blob/689525d556eb3dee1ffb700423bccf5ecc501dbf/runtime/objc-class.mm#L799))는 Super Class가 있으면 해당 Super Class 타입을 주고, 없으면 nil을 반환하며, 준비했던 Super Class와 비교를 하니 타입 캐스팅을 덜 하게 되어 비용이 줄어듭니다.
+클래스에서 Super Class의 타입을 가져와 준비한 Super Class와 타입이 일치하는지 비교합니다. `class_getSuperclass`([Source Code](https://github.com/apple-oss-distributions/objc4/blob/689525d556eb3dee1ffb700423bccf5ecc501dbf/runtime/objc-class.mm#L799))는 Super Class가 있으면 해당 Super Class 타입을 반환하고, 없으면 nil을 반환합니다. 준비한 Super Class와 비교하여 타입 캐스팅을 덜 하게 되어 비용이 줄어듭니다.
 
-또한, 별도의 문자열이 아닌, 강타입 언어의 특성을 활용했기 때문에 안전하게 클래스 목록을 얻을 수 있습니다.
-
+또한, 별도의 문자열이 아닌 강타입 언어의 특성을 활용하여 안전하게 클래스 목록을 얻을 수 있습니다.
 
 ## 참고자료
 

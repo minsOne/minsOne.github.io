@@ -5,7 +5,7 @@ tags: [Swift, "@_implements", Protocol]
 ---
 {% include JB/setup %}
 
-우리는 아주 가끔 특정 프로토콜에서 정의된 속성과 함수 이름이 다른 프로토콜과 겹칠 때가 있습니다.
+가끔씩, 특정 프로토콜에서 정의된 속성과 함수 이름이 다른 프로토콜에서 겹칠 때가 있습니다.
 
 ```swift
 /// Module: Alpha
@@ -25,9 +25,7 @@ public protocol ServiceInterface {
 }
 ```
 
-위와 같이 두 모듈에서 선언된 프로토콜 `ServiceInterface`은 `value` 라는 속성의 타입만 다를 뿐입니다.
-
-그러면 이를 구현하는 타입에서 update 함수는 동일하니 정의할 순 있지만, value 속성은 Int, String 타입을 둘다 가져야 하는데, 컴파일러에서 이를 지원해주지 않습니다.
+두 모듈에서 선언된 `ServiceInterface` 프로토콜은 `value` 속성의 타입만 다르며, `update` 함수는 동일합니다. 이를 구현하는 타입에서는 `value`의 속성 Int와 String 타입을 둘다 가져야 하는데, 컴파일러는 이를 지원해주지 않습니다.
 
 ```swift
 /// Module: App
@@ -41,9 +39,7 @@ struct ServiceImpl: Alpha.ServiceInterface, Beta.ServiceInterface {
 }
 ```
 
-위 코드는 에러가 발생합니다.
-
-그러면 일반적인 방법은 두 프로토콜을 나누어 각 프로토콜을 준수하는 타입을 만들고, 해당 타입을 속성으로 가지는 방식이 있습니다.
+위 코드에서는 에러가 발생합니다. 일반적으로 이러한 경우는 각 프로토콜을 준수하는 별도의 타입을 만들어 해당 타입을 속성으로 사용하는 방식을 사용합니다.
 
 ```swift
 /// Module: App
@@ -73,7 +69,7 @@ let service = Service(alphaService: AlphaServiceImpl(),
 
 <br/>
 
-Swift에서 비공식적으로 지원하는 [`@_implements`](https://github.com/apple/swift/blob/main/docs/ReferenceGuides/UnderscoredAttributes.md#_implementsprotocolname-requirement) 속성을 이용하여 다른 이름으로 불릴 수 있게 할 수 있습니다.
+Swift에서는 비공식적으로 지원하는 [`@_implements`](https://github.com/apple/swift/blob/main/docs/ReferenceGuides/UnderscoredAttributes.md#_implementsprotocolname-requirement) 속성을 사용하여 다른 이름으로 불리게 할 수 있습니다.
 
 ```swift
 /// Module: App
@@ -109,7 +105,7 @@ class ServiceImpl: Alpha.ServiceInterface, Beta.ServiceInterface {
 }
 ```
 
-컴파일러가 중간에서 바꿔치기 때문에 사용할때, 명시적인 타입을 사용해야 의도한 대로 동작하게 됩니다.
+컴파일러는 중간에 코드를 바꿔치기할 수 있어서 의도한 대로 동작하지 않을 수 있습니다. 이러한 경우에는 명시적인 타입을 사용하여 의도한 대로 동작하도록 구현하는 것이 좋습니다.
 
 ```swift
 let serviceAlpha: Alpha.ServiceInterface = ServiceImpl()

@@ -18,7 +18,7 @@ func recursive(from view: UIView) -> UIView? {
 }
 ```
 
-하지만 view는 superview를 알고 있기 때문에, sequence를 이용하여 특정 superview를 찾을 수 있습니다.
+물론, view는 superview를 알고 있기 때문에, superview를 찾기 위해선 sequence를 이용할 수 있습니다. 여러 view가 존재하는 경우, 알맞은 조건문과 타입 캐스팅을 사용하여 원하는 superview를 찾을 수 있습니다. 이를 통해 함수를 더욱 간단하고 명확하게 작성할 수 있습니다.
 
 ```swift
 func recursive(from view: UIView) -> UIView? {

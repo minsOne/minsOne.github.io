@@ -5,7 +5,7 @@ tags: [Xcode, Ruby, Gem, Cocoapods, Xcodeproj, xctestplan]
 ---
 {% include JB/setup %}
 
-들어가기 전에 여기에서 사용하는 프로젝트의 구조는 다음과 같습니다.
+다음과 같이, 이 프로젝트는 다음과 같은 구조를 갖고 있습니다.
 
 ```
 ├── Application.xcworkspace
@@ -24,15 +24,15 @@ tags: [Xcode, Ruby, Gem, Cocoapods, Xcodeproj, xctestplan]
 
 ------
 
-Xcode 11에서 테스트를 모아서 관리하는 Xcode Test Plans 기능을 출시하였습니다. 참고 : [WWDC 2019 - Testing in Xcode](https://developer.apple.com/videos/play/wwdc2019/413/)
+Xcode 11부터는, 테스트를 모아서 관리할 수 있는 Xcode Test Plans 기능을 출시하였습니다. 참고 : [WWDC 2019 - Testing in Xcode](https://developer.apple.com/videos/play/wwdc2019/413/)
 
-해당 기능을 통해 여러 프로젝트의 테스트 타겟을 통합하여 테스트 관리가 가능합니다.
+Xcode Test Plans 기능은 여러 프로젝트의 테스트 타겟을 통합하여 관리할 수 있으므로, 이를 통해 테스트 관리를 보다 효율적으로 수행할 수 있습니다.
 
 <p style="text-align:center;">
 <img src="{{ site.production_url }}/image/2022/08/20220826_01.png" style="width: 800px"/>
 </p><br/>
 
-해당 xctestplan 파일의 소스를 살펴보면 다음과 같이 되어 있습니다.
+해당 `xctestplan` 파일의 소스코드를 살펴보면 다음과 같습니다.
 
 ```json
 {
@@ -94,11 +94,11 @@ Xcode 11에서 테스트를 모아서 관리하는 Xcode Test Plans 기능을 �
 }
 ```
 
-`containerPath`의 상대경로는 어떤 프로젝트의 스킴에서 실행하느냐에 따라 경로가 결정됩니다. 
+어떤 프로젝트의 스킴에서 실행하는지에 따라 `containerPath`의 상대경로가 결정됩니다.
 
-위의 정보에서는 `containerPath` 경로가 Application에서 시작하므로, xctestplan이 정상적으로 보여집니다.
+위의 정보에서는 `containerPath` 경로가 Application에서 시작하므로, `xctestplan`이 정상적으로 보여집니다.
 
-만약에 ModuleA 프로젝트의 ModuleA 스킴에서 `FullTest.xctestplan`을 테스트 플랜으로 가지게 되면, `ApplicationTests`과 `ApplicationUITests` 테스트 타겟은 missing으로 출력이 됩니다.
+만약에 `ModuleA` 프로젝트의 `ModuleA` 스킴에서 `FullTest.xctestplan`을 테스트 플랜으로 설정하게 되면, `ApplicationTests`과 `ApplicationUITests` 테스트 타겟은 missing으로 표시됩니다.
 
 <p style="text-align:center;">
 <img src="{{ site.production_url }}/image/2022/08/20220826_02.png" style="width: 800px"/>
@@ -107,9 +107,9 @@ Xcode 11에서 테스트를 모아서 관리하는 Xcode Test Plans 기능을 �
 
 missing으로 표시되는 테스트는 수행되지 않습니다.
 
-따라서 어떤 스킴에서 Test Plans을 수행할 것인지 결정해야 합니다. 여기에선 Application 프로젝트의 Application 스킴을 기반으로 작업할 것입니다.
+따라서 어떤 스킴에서 Test Plans을 수행할 것인지 결정해야 합니다. 이번 경우에는 `Application` 프로젝트의 `Application` 스킴을 기반으로 작업할 것입니다.
 
-다음으로, xctestplan의 `identifier`를 알아봅시다. `identifier`는 테스트 타겟의 UUID를 나타냅니다. 이 정보를 얻기 위해서는 `xcodeproj`의 `project.pbxproj` 파일을 열어서 테스트 타겟의 정보를 분석해야 합니다. 이 부분은 `CocoaPods/Xcodeproj` Gem [Github](https://github.com/CocoaPods/Xcodeproj)을 활용합니다.
+다음으로 `xctestplan`의 `identifier`를 알아보겠습니다. `identifier`는 테스트 타겟의 UUID를 나타냅니다. 이 정보를 얻기 위해서는 `xcodeproj`의 `project.pbxproj` 파일을 열어서 테스트 타겟의 정보를 분석해야 합니다.  이 부분은 `CocoaPods/Xcodeproj` Gem [Github](https://github.com/CocoaPods/Xcodeproj)을 활용합니다.
 
 다음과 같이 Ruby 파일을 작성합니다.
 
@@ -201,7 +201,7 @@ output += "\n  ],
 puts output
 ```
 
-이 파일을 실행하면 xctestplan의 JSON 형식을 따르는 데이터 형태로 출력됩니다.
+이 파일을 실행하면 xctestplan의 JSON 형식을 따르는 데이터 형태로 출력합니다.
 
 ```shell
 $ ruby generate_xctestplan.rb
@@ -269,7 +269,7 @@ $ ruby generate_xctestplan.rb
 $ ruby generate_xctestplan.rb > TestPlan/FullTest.xctestplan
 ```
 
-그리고 Xcode에서 FullTest.xctestplan 파일을 열어 정상적으로 노출되는지 확인합니다. 또한, xcodebuild test를 이용하여 생성한 FullTest.xctestplan으로 잘 동작하는지 확인합니다.
+그리고 `Xcode`에서 `FullTest.xctestplan` 파일을 열어 정상적으로 노출되는지 확인합니다. 또한, `xcodebuild test`를 이용하여 생성한 `FullTest.xctestplan`으로 잘 동작하는지 확인합니다.
 
 ```
 $ xcodebuild test -scheme Application -testPlan FullTest -destination 'platform=iOS Simulator,OS=16.0,name=iPhone 13'

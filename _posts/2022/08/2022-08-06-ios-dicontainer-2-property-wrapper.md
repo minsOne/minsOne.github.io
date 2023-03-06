@@ -5,9 +5,7 @@ tags: [Swift, Dependency Injection, PropertyWrapper, Service Locator, Container,
 ---
 {% include JB/setup %}
 
-이전 글에서 컨테이너에 객체를 저장하고, 사용할 때 저장했던 객체를 꺼내어 사용하는 방법을 기술하였습니다.
-
-이번 글에서 컨테이너에 저장했던 객체가 잘 있는지 무결성을 어떻게 보장해 볼 수 있을지 고민하는 글입니다.
+이전 글에서 객체를 저장하고 사용하는 방법을 설명하였습니다. 이번 글에서는 이전에 저장했던 객체의 무결성을 보장하기 위해 어떤 방법을 고려할 수 있는지에 대해 고민해보고자 합니다
 
 관련 소스는 [여기](https://github.com/minsOne/Experiment-Repo/tree/master/20220806-DemoAppSample)에서 확인할 수 있습니다.
 
@@ -150,6 +148,8 @@ func register() {
 
 Swift를 사용하는 소스에서는 정상적인 방법으로는 현재 의존하는 모듈의 목록 및 모듈 분석하는 것이 불가능합니다. 그래서 애플리케이션으로 빌드 한 결과물에서 실행 바이너리, 프레임워크의 바이너리의 심볼을 읽어 분석할 수 있지 않을까 합니다.
 
+Swift를 사용하는 소스에서는 현재 의존하는 모듈의 목록과 해당 모듈을 분석하는 것이 일반적으로 불가능합니다. 대신 실행 가능한 바이너리 및 프레임워크에서 심볼을 읽어서 분석하면 어떨까 생각해봅니다.
+
 `nm`을 사용하여 라이브러리의 심볼 테이블을 확인합니다.
 
 ```bash
@@ -171,7 +171,7 @@ $ nm Frameworks/Features.framework/Features
 ...
 ```
 
-심볼은 우리가 알아보기 어렵기 때문에, `demangle` 하여 알아볼 수 있도록 해야 합니다.
+심볼은 우리가 알아보기 어렵기 때문에, `demangle` 하여 알아볼 수 있도록 바꿀 수 있습니다.
 
 ```bash
 $ nm Frameworks/Features.framework/Features \
@@ -261,17 +261,19 @@ extension InjectionKey {
 }
 ```
 
-`AppDelegate`에서 `didFinishLaunchingWithOptions` 함수가 호출된 뒤 테스트 코드가 동작합니다. 따라서 컨테이너에 키가 등록되어 있음을 가정하고 테스트를 할 수 있습니다. 
+`AppDelegate`에서 `didFinishLaunchingWithOptions` 함수가 호출된 후 테스트 코드가 실행합니다. 따라서 컨테이너에 키가 등록되어 있음을 가정하고 테스트를 시작할 수 있습니다.
 
 이렇게 테스트 코드를 작성하는 스크립트를 만든다면, 매번 또는 주기적으로 테스트 코드를 이용하여 컨테이너에 등록되어 있는지 검증할 수 있습니다. 키를 사용할 때, 잘 등록되어 있는지를 테스트 코드로 보장이 되므로 안심하고 사용할 수 있습니다.
 
+테스트 코드를 작성해주는 스크립트를 만든다면, 테스트 코드를 이용하여 주기적으로 컨테이너에 등록된 키가 잘 등록되어 있는지 확인할 수 있어, 코드의 안정성과 신뢰성이 높아집니다.
+
 ## 컨테이너 등록 코드 작성
 
-테스트 코드 자동화로는 사실 부족합니다. 컨테이너에 등록하는 코드를 작성하는 자동화까지 필요합니다. 그래야 안심하고 사용을 할 수 있을 것이라고 생각됩니다.
+테스트 코드 자동화는 코드 안정성을 높이지만, 컨테이너에 등록하는 코드를 작성하는 자동화를 추가한다면 더욱 효과적일 것입니다. 이러한 자동화를 통해 시간과 노력을 절약하면서, 코드의 안정성과 신뢰성을 높일 수 있습니다.
 
-앞에서 `DIContainer` 모듈의 `InjectionKey` 프로토콜을 준수하는 키 `FeatureAuthInterface` 모듈의 `AuthServiceKey`를 추출할 수 있었습니다. `AuthServiceKey`에서 `associatedtype`으로 가지는 타입을 찾아야 합니다.
+이전에 `DIContainer` 모듈의 `InjectionKey` 프로토콜을 준수하는 키 중에서 `FeatureAuthInterface` 모듈의 `AuthServiceKey`를 추출하였습니다. 이제 `AuthServiceKey`에서 가지고 있는 `associatedtype`으로 필요한 타입을 찾아내어야 합니다.
 
-타입을 찾는 방법은 여러 가지가 있지만, 심볼 테이블을 분석해 봅시다.
+타입을 찾는 방법은 다양하지만 그 중에 심볼 테이블을 분석해보겠습니다.
 
 ```bash
 $ nm Frameworks/Features.framework/Features \
@@ -291,7 +293,7 @@ nominal type descriptor for FeatureAuthInterface.AuthServiceKey
 type metadata for FeatureAuthInterface.AuthServiceKey
 ```
 
-`AuthServiceKey`의 `associatedtype`으로 가지는 타입을 유추할 수 있는 코드를 찾지 못하였습니다. 우리는 코드를 확인하면 바로 `AuthServiceKey`의 `associatedtype`은 `AuthServiceInterface`라는 것을 확인할 수 있지만, 심볼 테이블에서는 찾지 못했습니다. 심볼 테이블에서 `AuthServiceInterface`를 찾을 수 있는 방법으로 코드를 수정해 봅시다.
+`AuthServiceKey`의 `associatedtype`에서 어떤 타입을 사용해야 할 지 코드에서 확인할 수 없었습니다. 코드를 살펴보면 `AuthServiceKey`의 `associatedtype`은 `AuthServiceInterface`이어야 한다는 것을 알 수 있습니다. 그러나 이를 심볼 테이블에서 찾을 수 없었습니다. 이를 해결하기 위해 코드를 수정하여 심볼 테이블에서 `AuthServiceInterface`를 찾을 수 있도록 해봅시다.
 
 ```swift
 /// Module : DIContainer
@@ -311,7 +313,7 @@ public protocol InjectionKey {
 }
 ```
 
-InjetionKey 프로토콜에 Value 타입을 가지는 `type` 변수를 정의합니다. 그러면 AuthServiceKey 코드는 다음과 같이 수정해야 합니다.
+`InjectionKey` 프로토콜에서 `Value` 타입을 가지는 `type` 변수를 정의합니다. 이에 따라, `AuthServiceKey` 코드를 다음과 같이 수정해야합니다.
 
 ```swift
 /// ModuleName : FeatureAuthInterface
@@ -328,7 +330,7 @@ public struct AuthServiceKey: InjectionKey {
 }
 ```
 
-코드 수정 후, 다시 애플리케이션을 빌드하고, Features 라이브러리의 심볼 테이블을 확인해 봅시다.
+코드를 수정한 후, 애플리케이션을 다시 빌드하고 `Features` 라이브러리의 심볼 테이블을 다시 확인해봅시다.
 
 ```bash
 $ nm Frameworks/Features.framework/Features \
@@ -364,7 +366,7 @@ assignWithTake value witness for FeatureAuthInterface.AuthServiceKey
 destroy value witness for FeatureAuthInterface.AuthServiceKey
 ```
 
-아까는 보지 못했던 `FeatureAuthInterface` 모듈의 `AuthServiceKey` 타입에 `type` 속성 정보가 생겼습니다.
+이전에 보지 못했던 `FeatureAuthInterface` 모듈의 `AuthServiceKey` 타입에서 `type` 속성 정보를 확인할 수 있습니다.
 
 ```
 FeatureAuthInterface.AuthServiceKey.type.modify : FeatureAuthInterface.AuthServiceInterface?
@@ -375,7 +377,7 @@ variable initialization expression of FeatureAuthInterface.AuthServiceKey.type :
 FeatureAuthInterface.AuthServiceKey.type.setter : FeatureAuthInterface.AuthServiceInterface?
 ```
 
-우리는 `AuthServiceKey` 타입도 알고 있고, `type`이라는 속성도 알고 있기 때문에, `type`이 어떤 타입인지를 확인할 수 있고, 해당 타입을 추출할 수 있습니다.
+`AuthServiceKey` 타입과 `type` 속성 모두 알고 있기 때문에, `type`의 타입을 확인하고 해당 타입을 추출할 수 있습니다.
 
 ```bash
 $ nm Frameworks/Features.framework/Features \
@@ -423,7 +425,7 @@ outlined init with take of FeatureAuthInterface.AuthServiceInterface
 outlined init with copy of FeatureAuthInterface.AuthServiceInterface
 ```
 
-위 결과 중에서 프로토콜을 준수함을 의미하는 `protocol conformance descriptor` 문자열이 있는지 찾아봅시다.
+위 결과 중에서 프로토콜을 채택함을 의미하는 `protocol conformance descriptor` 문자열이 있는지 찾아봅시다.
 
 ```bash
 $ nm Frameworks/Features.framework/Features \
@@ -438,7 +440,7 @@ FeatureAuth.AuthService
 
 `FeatureAuthInterface` 모듈의 `AuthServiceInterface` 프로토콜을 준수하는 `FeatureAuth` 모듈의 `AuthService`을 찾았습니다.
 
-`FeatureAuthInterface` 모듈의 `AuthServiceKey` 타입과 `FeatureAuth` 모듈의 `AuthService` 타입을 가지고 컨테이너에 등록하는 코드를 작성할 수 있습니다.
+`FeatureAuthInterface` 모듈의 `AuthServiceKey` 타입과 `FeatureAuth` 모듈의 `AuthService` 타입을 이용하여 컨테이너에 등록하는 코드를 작성할 수 있습니다.
 
 ```swift
 /// ModuleName : Application
@@ -478,7 +480,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-지금은 프레임워크 하나만 찾아서 하였지만, find 명령어를 활용하여 모든 라이브러리를 찾아 심볼 테이블을 분석할 수 있습니다.
+현재는 하나의 프레임워크에서만 찾아냈지만, find 명령어를 사용하여 모든 라이브러리를 검색하고 심볼 테이블을 분석하는 것도 가능합니다.
 
 ```bash
 $ find . -type f -exec file {} \; \
@@ -491,12 +493,12 @@ $ find . -type f -exec file {} \; \
 | ~~~~
 ```
 
-Xcode에서 사용하는 여러 환경 변수\(ex, CODESIGNING_FOLDER_PATH\)를 이용해서 애플리케이션, 프레임워크 또는 라이브러리 경로를 얻어와 작업도 가능합니다. [Xcode Build Settings](https://xcodebuildsettings.com/)
+Xcode에서는 `CODESIGNING_FOLDER_PATH`와 같은 여러 환경 변수를 이용하여, 애플리케이션이나 프레임워크, 라이브러리의 경로를 가져올 수 있습니다. 이를 이용하여 작업하는 것도 가능합니다. [Xcode Build Settings](https://xcodebuildsettings.com/)
 
 ## 정리
 
-* 빌드 된 결과물은 모든 코드가 모여진 결과물
-* 심볼 테이블을 demangle하여 알아볼 수 있는 코드 및 문자열로 변경하고, 해당 코드 및 문자열을 분석하여 원하는 코드를 추출 및 생성할 수 있음
+* 빌드 결과물은 모든 코드가 모인 결과물
+* 심볼 테이블을 demangle하여 알아볼 수 있는 코드나 문자열로 변환한 뒤, 해당 코드나 문자열을 분석하여 필요한 코드를 추출하거나 생성할 수 있음
 
 ## 참고자료
 

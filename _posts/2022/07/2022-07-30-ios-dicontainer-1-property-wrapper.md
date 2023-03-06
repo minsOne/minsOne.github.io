@@ -5,19 +5,19 @@ tags: [Swift, Dependency Injection, PropertyWrapper, Service Locator, Container,
 ---
 {% include JB/setup %}
 
-서비스 로케이터는 로케이터에 객체를 등록하고, 필요한 곳에서 로케이터에 접근하여 객체를 제공받는 방법입니다.
+서비스 로케이터는 객체를 로케이터에 등록하고, 해당 객체가 필요한 곳에서는 로케이터에 접근하여 객체를 제공받는 방식입니다.
 
-즉, 컨테이너에 객체를 저장하고, 사용할때는 컨테이너에 저장했던 객체를 꺼내어 사용합니다.
+서비스 로케이터는 객체를 컨테이너에 저장하고, 필요한 시점에 컨테이너에서 해당 객체를 꺼내어 사용하는 방식입니다. 이를 위해, 이전에는 직접 컨테이너에서 객체를 꺼내는 코드를 작성하거나, 이를 위한 클래스를 만들어 사용했었습니다.
 
-기존에는 컨테이너에 접근하여 객체를 꺼내는 코드를 직접 작성하거나 이를 위한 클래스를 만들어 사용했습니다.
+Swift 5.1에서 도입된 PropertyWrapper를 사용하면, 직접 코드를 작성하지 않고도 컨테이너에서 객체를 꺼내와 사용할 수 있습니다. 이를 이용하여, 스프링이나 안드로이드의 Koin, Hilt와 비슷한 방식으로 코드를 작성하고 동작시킬 수 있습니다.
 
-Swift 5.1에서 추가된 [PropertyWrapper](https://github.com/apple/swift-evolution/blob/main/proposals/0258-property-wrappers.md)를 이용하면, 코드를 직접 작성하지 않고, 컨테이너에서 객체를 꺼내어 사용할 수 있습니다.
+Swift 5.1에서 도입된 [PropertyWrapper](https://github.com/apple/swift-evolution/blob/main/proposals/0258-property-wrappers.md)를 사용하면,직접 코드를 작성하지 않고도 컨테이너에서 객체를 꺼내와 사용할 수 있습니다.
 
-PropertyWrapper를 이용하여 스프링이나 안드로이드의 Koin, Hilt와 같이 Swift에서 비슷한 방식으로 작성하고, 동작하게 만들어봅시다.
+ 이를 이용하여, 스프링이나 안드로이드의 Koin, Hilt와 비슷한 방식으로 코드를 작성하고 동작시킬 수 있습니다.
 
 ## 특정 프로토콜만 등록할 수 있는 서비스 로케이터
 
-먼저, Injectable 프로토콜을 따르는 타입의 객체만 로케이터에 등록할 수 있다고 해봅시다.
+먼저, Injectable 프로토콜을 따르는 타입의 객체만 서비스 로케이터에 등록할 수 있다고 가정해봅시다.
 
 ```swift
 /// Module : Container
@@ -35,7 +35,7 @@ public struct Module {
 }
 ```
 
-위 모듈을 관리하는 컨테이너를 만들어봅시다.
+이전에 만든 모듈을 관리하는 컨테이너를 만들어봅시다.
 
 ```swift
 /// Module : Container
@@ -101,7 +101,7 @@ public extension Container {
 }
 ```
 
-위 컨테이너를 이용하면 쉽게 객체를 등록할 수 있습니다.
+위 컨테이너를 사용하면, 쉽게 객체를 등록할 수 있습니다.
 
 ```swift
 protocol Service {
@@ -124,7 +124,7 @@ service.doSomething()
 // Output: Doing something...
 ```
 
-여기에 PropertyWrapper를 활용하여 직접 `Container.resolve()`를 호출하지 않아도 객체를 얻을 수 있습니다.
+여기에 PropertyWrapper를 활용하면, `Container.resolve()`를 직접 호출하지 않아도 객체를 얻을 수 있습니다.
 
 ```swift
 /// Module : Container
@@ -146,7 +146,7 @@ public class Inject<Value> {
 }
 ```
 
-PropertyWrapper인 `Inject`를 이용하여 객체를 얻을 수 있습니다.
+`Inject`라는 PropertyWrapper를 사용하면, 객체를 얻을 수 있습니다.
 
 ```swift
 @Inject 
@@ -155,7 +155,7 @@ service.doSomething()
 // Output: Doing something...
 ```
 
-하지만 Inject는 제약이 없기 때문에 어떤 타입이라도 사용할 수 있습니다. 따라서 컨테이너에 등록되어 있지 않은 타입을 사용하면 에러가 발생합니다.
+하지만 `Inject`는 제약이 없기 때문에 어떤 타입이라도 사용할 수 있습니다. 따라서 컨테이너에 등록되어 있지 않은 타입을 `Inject`하면 에러가 발생합니다.
 
 ```swift
 protocol AAAA {
@@ -168,7 +168,7 @@ service.doSomething()
 // Error : Fatal error: Container 'AAAA' not resolved!
 ```
 
-Inject를 사용할땐 제약을 줘야 의도하게 동작하도록 만들 수 있습니다. Inject의 제네릭 Value에 Injectable을 따르도록 하도록 하면, Injectable를 준수하는 타입 외에는 사용할 수 없습니다.
+`Inject`를 사용할 때는 제약을 주어 의도한 대로 동작하도록 만들 수 있습니다. `Inject`의 제네릭 타입 `Value`에 `Injectable` 프로토콜을 준수하도록 제한하면, `Injectable`을 준수하지 않는 타입은 사용할 수 없습니다.
 
 ```swift
 /// Module : Container
@@ -190,7 +190,7 @@ public class Inject<Value: Injectable> {
 }
 ```
 
-하지만 Injectable을 준수하는 구현 타입을 필요하므로, 추상화를 할 수 없습니다.
+하지만 `Injectable`을 준수하는 구현 타입이 필요하기 때문에, 추상화를 할 수는 없습니다.
 
 ```swift
 @Inject 
@@ -199,7 +199,7 @@ service.doSomething()
 // Error : Type 'any Service' cannot conform to 'Injectable'
 ```
 
-따라서 Service가 아닌 ServiceImpl을 사용해야 합니다.
+따라서 `Service` 대신 `ServiceImpl`을 사용해야 합니다.
 
 ```swift
 let container = Container {
@@ -239,8 +239,7 @@ service.doSomething()
 
 ## 프로토콜, 키를 한 쌍으로 사용하는 서비스 로케이터
 
-
-앞에서는 컨테이너에 등록된 객체를 얻어오는 방법을 설명했습니다. 하지만, 제약을 두게 되면 구현 타입을 사용할 수밖에 없는 한계가 있었습니다. 이를 해결하는 방법을 설명하려고 합니다.
+앞에서는 컨테이너에 등록된 객체를 얻어오는 방법을 설명했습니다. 하지만, 제약을 두면 구현 타입을 사용할 수밖에 없는 한계가 있습니다. 이를 해결하는 방법에 대해서 설명하려고 합니다.
 
 ```swift
 /// Module : Container
@@ -252,9 +251,9 @@ public protocol InjectionKey {
 }
 ```
 
-키에 사용할 프로토콜을 정의하였습니다. InjectionKey에 정의된 associatedtype은 키에 사용할 타입을 정의합니다. 그리고 currentValue는 자기 자신을 키로 컨테이너에서 객체를 꺼내도록 할 것입니다.
+키에 사용할 프로토콜을 정의했습니다. `InjectionKey`에서 정의된 `associatedtype`은 키에 사용할 타입을 정의합니다. 그리고 `currentValue`는 자기 자신을 키로 컨테이너에서 객체를 꺼내도록 할 것입니다.
 
-그리고 Module 코드는 InjectionKey를 이름으로 하는 코드로 변경됩니다.
+그리고 Module 코드는 `InjectionKey`를 이름으로 하는 코드로 변경됩니다.
 
 ```swift
 /// Module : Container
@@ -273,6 +272,8 @@ public struct Module {
 ```
 
 다음으로, Property Wrapper인 Inject는 initialize에서 키를 인자로 받도록 합니다.
+
+다음으로, Property Wrapper인 `Inject`는 `initialize`에서 키를 인자로 받도록 합니다.
 
 ```swift
 @propertyWrapper
@@ -296,7 +297,7 @@ public class Inject<Value> {
 }
 ```
 
-이제 Inject를 사용할 때는 InjectionKey를 따르는 타입이 키로 사용되며, 해당 키 타입에 정의된 Value와 같은 타입을 사용해야 합니다. 앞에서 구현했던 Service에서 ServiceKey를 추가해봅시다.
+`Inject`를 사용할 때는, 해당 프로퍼티 래퍼를 선언하는 타입이 `InjectionKey` 프로토콜을 준수하는 타입으로 지정되어야 하며, 해당 키 타입에 정의된 `Value`와 동일한 타입을 지정해야 합니다. 앞에서 정의한 `Service`에서 `ServiceKey`를 추가하고, 해당 키 타입에서 `Value` 프로퍼티에 해당하는 값이 해당 타입과 일치하도록 합니다.
 
 ```swift
 struct ServiceKey: InjectionKey {
@@ -315,7 +316,7 @@ struct ServiceImpl: Service, Injectable {
 }
 ```
 
-이제 컨테이너에 ServiceKey, ServiceImpl를 등록하고 사용하는 것을 확인해봅시다.
+이제 `ServiceKey`와 `ServiceImpl`을 컨테이너에 등록하고, 사용하는 것을 확인해봅시다.
 
 ```swift
 let container = Container {
@@ -329,7 +330,7 @@ service.doSomething()
 // Output: Doing something...
 ```
 
-만약에 ServiceKey 사용할 때 다른 타입을 사용하게 된다면 에러가 발생합니다.
+만약 `ServiceKey`에서 정의된 타입과 다른 타입을 사용하면 에러가 발생합니다.
 
 ```swift
 @Inject(ServiceKey.self) // Error : Type of expression is ambiguous without more context
@@ -337,9 +338,9 @@ var service: AAAA
 service.doSomething()
 ```
 
-따라서 Inject를 사용할 때 키와 프로토콜은 쌍으로 사용하여, 실수할 여지가 줄어듭니다.
+따라서 `Inject`를 사용할 때에는 키와 프로토콜은 쌍으로 사용하여, 실수할 가능성이 줄어들게 됩니다.
 
-추가로, InjectionKey에서 currentValue의 코드를 계속 구현해줘야 하는데, extension으로 currentValue를 구현하면 코드를 줄일 수 있습니다.
+또한, `InjectionKey` 프로토콜에서 정의된 `currentValue`의 코드를 계속 구현하려면 꽤 많은 코드를 작성해야 합니다. 그러나 extension을 활용하여 `currentValue`를 구현하면 코드의 양을 줄일 수 있습니다.
 
 ```swift
 public extension InjectionKey {
@@ -355,7 +356,7 @@ struct ServiceKey: InjectionKey {
 
 ## 정리
 
-PropertyWrapper를 이용하여 컨테이너에서 객체를 꺼내어 사용하는 것을 쉽게 할 수 있습니다.
+`PropertyWrapper`를 활용하면 컨테이너에서 객체를 쉽게 가져와 사용할 수 있습니다.
 
 다음은 전체코드입니다.<br/><br/>
 

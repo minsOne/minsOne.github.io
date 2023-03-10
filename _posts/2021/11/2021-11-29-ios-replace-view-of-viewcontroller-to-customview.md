@@ -156,7 +156,10 @@ struct UIViewPreview<View: UIView>: UIViewRepresentable {
 
     func makeUIView(context: Context) -> UIView { view }
 
-    func updateUIView(_ view: UIView, context: Context) {}
+    func updateUIView(_ view: UIView, context: Context) {
+        view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        view.setContentHuggingPriority(.defaultHigh, for: .vertical)
+    }
 }
 #endif
 

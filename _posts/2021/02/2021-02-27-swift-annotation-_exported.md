@@ -8,11 +8,11 @@ tags: [Swift, Module]
 ---
 {% include JB/setup %}
 
-<div class="alert warning"><strong>주의</strong> : 본 글은 비공식 속성을 다루므로 사용하는데 유의하시기 바랍니다.</div>
+<div class="alert warning"><strong>주의</strong> : 이 글은 비공식 속성을 다루므로 사용 시 유의하시기 바랍니다.</div>
 
-`@_exported`는 비공식 속성으로 \_가 붙어있습니다. (비슷하게 현재 Async/Await 가 비공식으로 쓰기 위해선 `import _Concurrency`를 쓰는 것과 비슷합니다.)
+`@_exported`는 비공식 속성으로 \_가 붙어 있습니다. (비슷하게 현재 Async/Await가 비공식으로 쓰이기 위해서는 `import _Concurrency`를 사용해야 합니다.)
 
-하위모듈을 import할 때, `@_exported`를 붙여서 사용하게 되면 현재 모듈의 코드에서 별도로 import 하지 않아도 전역에서 사용할 수 있으며, 상위 모듈에서 현재 모듈을 import 할 때 하위 모듈까지 접근할 수 있습니다. [비공식 문서 - The-Swift-Programming-Language](https://the-swift-programming-language.readthedocs.io/en/latest/md/Attributes/)
+하위모듈을 import할 때, `@_exported`를 붙여서 사용하면 현재 모듈의 코드에서 별도로 import하지 않아도 전역에서 사용할 수 있으며, 상위 모듈에서 현재 모듈을 import할 때 하위 모듈까지 접근할 수 있습니다. [비공식 문서 - The-Swift-Programming-Language](https://the-swift-programming-language.readthedocs.io/en/latest/md/Attributes/)
 
 ```
 @_exported import ModuleA
@@ -27,7 +27,7 @@ tags: [Swift, Module]
 
 각 모듈에서 하위 모듈을 사용할때 `@_exported` 속성을 붙여 import 할 것입니다.
 
-해당 의존성 관계를 가진 프로젝트들을 만들어봅시다.
+해당 의존성 관계를 가진 프로젝트들을 만들어 봅시다.
 
 <p style="text-align:center;">
 <img src="{{ site.production_url }}/image/2021/02/20210228_2.png" style="width: 600px"/>
@@ -35,7 +35,7 @@ tags: [Swift, Module]
 
 ModuleD에서 다음 코드를 작성합니다.
 
-```
+```swift
 /// ModuleD
 /// FileName : ModuleDClass.swift
 
@@ -52,16 +52,16 @@ public final class ModuleDClass {
 
 ModuleC에서 ModuleD를 `@_exported`를 사용하여 import 하는 파일을 별도로 만듭니다.
 
-```
+```swift
 /// ModuleC
 /// FileName : ImportModule.swift
 
 @_exported import ModuleD
 ```
 
-그리고 다른 파일에서 ModuleCClass 클래스를 만들고, ModuleD의 ModuleDClass 객체를 생성하는 코드를 작성합니다.
+또한, 다른 파일에서 ModuleCClass 클래스를 생성하고, ModuleD의 ModuleDClass 객체를 생성하는 코드를 작성합니다.
 
-```
+```swift
 /// ModuleC
 /// FileName : ModuleCClass.swift
 
@@ -81,16 +81,16 @@ public final class ModuleCClass {
 
 다음으로 ModuleB에서 ModuleD를 `@_exported`를 사용하여 import 하는 파일을 별도로 만듭니다.
 
-```
+```swift
 /// ModuleB
 /// FileName : ImportModule.swift
 
 @_exported import ModuleD
 ```
 
-그리고 다른 파일에서 ModuleBClass 클래스를 만들고, ModuleD의 ModuleDClass 객체를 생성하는 코드를 작성합니다.
+그리고 다른 파일에서 ModuleBClass 클래스를 생성하고, ModuleD의 ModuleDClass 객체를 생성하는 코드를 작성합니다.
 
-```
+```swift
 /// ModuleB
 /// FileName : ModuleBClass.swift
 
@@ -106,9 +106,9 @@ public final class ModuleBClass {
 }
 ```
 
-다음으로 ModuleA에서 ModuleB, ModuleC, ModuleD 모듈을 별도의 파일에서 import 하는 파일을 만듭니다.
+그 다음으로, ModuleA에서 ModuleB, ModuleC, ModuleD 모듈을 별도의 파일에서 import하는 파일을 생성합니다.
 
-```
+```swift
 /// ModuleA
 /// FileName : ImportModule.swift
 
@@ -117,9 +117,9 @@ public final class ModuleBClass {
 @_exported import ModuleD
 ```
 
-다른 파일에서 ModuleBClass 클래스를 만들고, ModuleB의 ModuleBClass, ModuleC의 ModuleCClass, ModuleD의 ModuleDClass 객체를 생성하는 코드를 작성합니다.
+그리고 다른 파일에서 ModuleBClass 클래스를 만들고, ModuleB의 ModuleBClass, ModuleC의 ModuleCClass, ModuleD의 ModuleDClass 객체를 생성하는 코드를 작성합니다.
 
-```
+```swift
 /// ModuleA
 /// FileName : ModuleAClass.swift
 
@@ -138,7 +138,7 @@ public final class ModuleAClass {
 
 다음으로 App에서 ModuleA의 코드를 사용하는 코드를 작성합니다.
 
-```
+```swift
 /// App
 /// FileName : ImportModuleA.swift
 
@@ -165,7 +165,7 @@ func call() {
 }
 ```
 
-위 코드에서 ModuleA만 import 하였는데, ModuleB, ModuleC, ModuleD를 접근할 수 있습니다. 즉, 하위 모듈에서 `@_exported` 속성을 붙인 import를 사용했다면 상위 모듈에서 접근이 가능하다는 것을 알 수 있습니다.
+위 코드에서 ModuleA만 import 하였지만, ModuleB, ModuleC, ModuleD를 접근할 수 있습니다. 이는 하위 모듈에서 `@_exported` 속성을 붙인 import를 사용했기 때문에 상위 모듈에서도 접근이 가능하다는 것을 의미합니다.
 
 ## 참고
 

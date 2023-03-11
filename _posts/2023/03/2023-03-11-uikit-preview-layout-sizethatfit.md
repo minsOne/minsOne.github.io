@@ -178,3 +178,8 @@ final class ButtonView: UIView {
 <p style="text-align:left;"><img src="{{ site.production_url }}/image/2023/03/06.png" style="width: 300px"/></p><br/>
 
 이제 Preview에서 뷰가 정확한 크기로 출력되는 것을 확인할 수 있습니다.
+
+## 참고자료
+
+* [마기의 개발 블로그 - intrinsicContentSize에 대해서 알아보기](https://magi82.github.io/ios-intrinsicContentSize/)
+* [Apple Document - intrinsicContentSize](https://developer.apple.com/documentation/uikit/uiview/1622600-intrinsiccontentsize)

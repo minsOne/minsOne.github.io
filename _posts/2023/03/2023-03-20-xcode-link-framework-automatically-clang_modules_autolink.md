@@ -21,7 +21,7 @@ Xcode는 의존성이 필요한 모듈을 자동으로 연결시켜줍니다.
 
 ---
 
-간단한 프로젝트를 하나 만들려고 합니다.
+간단한 프로젝트를 구성해보겠습니다.
 
 <div class="mermaid" style="display:flex;justify-content:center;"> 
 graph TD;
@@ -32,7 +32,7 @@ graph TD;
     style id3 fill:#ff7357
 </div><br/>
 
-Application은 AFramework 및 BFramework 프레임워크에 의존성을 가지는 간단한 프로젝트입니다.
+Application은 AFramework 및 BFramework 프레임워크에 의존성을 가지는 프로젝트입니다.
 
 <p style="text-align:left;"><img src="{{ site.production_url }}/image/2023/03/07.png" style="width: 600px; border: 1px solid #555;"/></p><br/>
 
@@ -1397,7 +1397,7 @@ $ otool -L ~/Library/Developer/Xcode/DerivedData/Application-fzeqfnolclwfecgcdal
 	/usr/lib/swift/libswiftUIKit.dylib (compatibility version 1.0.0, current version 6209.0.0)
 ```
 
-`Application.app/Application` 실행 파일에서는 `@rpath/AFramework.framework/AFramework`, `@rpath/BFramework.framework/BFramework` 가 포함되어 있음을 하였으므로, `AFramework`, `BFramework` 프레임워크를 사용한다는 것을 알 수 있습니다.
+`Application.app/Application` 실행 파일에서는 `@rpath/AFramework.framework/AFramework`, `@rpath/BFramework.framework/BFramework` 가 포함되어 있는 것을 확인하였으므로, `AFramework`, `BFramework` 프레임워크를 사용한다는 것을 알 수 있습니다.
 
 <br/>
 
@@ -1472,7 +1472,7 @@ graph TD;
 
 `AFramework`, `BFramework`는 `CFramework`를 의존하고 있어 `CFramework`가 빌드되어 있어야 빌드가 가능합니다. `CFramework`가 빌드하려면 `DFramework`가 빌드되어야 합니다.
 
-그렇다면, `AFramework`, `BFramework`는 빌드할 때 `DFramework`가 이미 빌드되어 있으므로, `import DFramework`를 추가할 수 있고, `DFramework` 프레임워크의 코드를 사용할 수 있습니다.
+그렇다면, `AFramework`, `BFramework`는 빌드할 때 `DFramework`가 이미 빌드되어 있으므로, `import DFramework` 구문을 추가하여, `DFramework` 프레임워크의 코드를 사용할 수 있습니다.
 
 ```swift
 /// Module : AFramework

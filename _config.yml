@@ -29,7 +29,9 @@ author :
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 production_url : https://minsOne.github.io
+prod_url : https://minsOne.github.io
 development_url : http://127.0.0.1:4000
+dev_url : http://127.0.0.1:4000
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #

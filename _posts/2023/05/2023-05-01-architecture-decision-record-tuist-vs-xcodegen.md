@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[ADR][가상] 아키텍처 의사 결정 기록 - Xcode 프로젝트 생성 도구 선택하기 Tuist vs XcodeGen"
+title: "[ADR][가상] 아키텍처 의사 결정 기록: Xcode 프로젝트 생성 도구 선택하기 Tuist vs XcodeGen"
 tags: [ADR, Tuist, XcodeGen, Xcode]
 ---
 {% include JB/setup %}
@@ -11,12 +11,14 @@ Contents:
 * [Context](#context)
 * [결정](#decisions)
   * [이유](#rationale)
-* [결과](#conclusion)
+* [결과](#consequences)
+* [결론](#conclusion)
 * [노트](#note)
 
 ## Xcode 프로젝트 생성 도구 선택하기 - Tuist vs XcodeGen
 
-프로젝트 생성을 위해 선호하는 도구로 Tuist를 선택했습니다.
+작성일 : 2022-05-01  
+작성자 : 안정민
 
 <h2 id="status">상태</h2>
 
@@ -45,9 +47,17 @@ Tuist와 XcodeGen 모두 Xcode 프로젝트를 생성하는데 널리 사용되�
 
 XcodeGen도 자체적인 이점이 있는 훌륭한 도구이지만 Tuist가 우리 프로젝트의 특정 요구 사항에 더 적합하다고 생각합니다.
 
-<h2 id="conclusion">결과</h2>
+<h2 id="consequences">결과 및 영향</h2>
 
-Tuist를 개발 프로세스에 통합하려면 몇 가지 추가 설정 및 구성이 필요합니다. 여기에는 Tuist 구성 파일 생성 및 유지 관리, 개발자가 도구에 익숙해지도록 하고 잠재적으로 새 도구를 수용하기 위해 기존 작업 흐름을 수정하는 작업이 포함됩니다. 그러나 우리는 Tuist 사용의 이점이 이러한 초기 비용을 능가하고 궁극적으로 보다 확장 가능하고 유지 가능한 프로젝트 구조로 이어질 것이라고 판단됩니다.
+Tuist를 개발 프로세스에 통합하려면 몇 가지 추가 설정 및 구성이 필요합니다.
+
+* Tuist 구성 파일 생성 및 유지 관리, 개발자가 도구에 익숙해지도록 시간 필요
+* 새 도구를 수용하기 위해 기존 작업 흐름을 수정하는 작업
+* Tuist 기반 코드 이전 비용 검토
+
+<h2 id="conclusion">결론</h2>
+
+우리는 Tuist 사용의 이점이 이러한 초기 비용을 능가하고 궁극적으로 보다 확장 가능하고 유지 가능한 프로젝트 구조로 이어질 것이라고 판단됩니다.
 
 <h2 id="notes">노트</h2>
 

@@ -61,66 +61,66 @@ Tuist를 개발 프로세스에 통합하려면 몇 가지 추가 설정 및 구
 
 <h2 id="notes">노트</h2>
 
-당근마켓  
-[Tuist 를 활용해 확장 가능한 모듈 구조 만들기](https://medium.com/daangn/tuist-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4-%EB%AA%A8%EB%93%88-%EA%B5%AC%EC%A1%B0-%EC%9E%90%EB%8F%99%ED%99%94%ED%95%98%EA%B8%B0-f200992d4bf2)
+* 카카오뱅크
+  * [카카오뱅크 iOS 프로젝트의 모듈화 여정: Tuist를 활용한 모듈 아키텍처 설계 사례](https://if.kakao.com/2022/session/88), [YouTube](https://www.youtube.com/watch?v=9HywMpgf8Mk)
 
-29CM  
-[iOS Modular Architecture 를 향한 여정 Part 1 — XcodeGen 도입과 모듈화의 시작](https://medium.com/29cm/modular-architecture-%EB%A5%BC-%ED%96%A5%ED%95%9C-%EC%97%AC%EC%A0%95-part-1-xcodegen-%EB%8F%84%EC%9E%85%EA%B3%BC-%EB%AA%A8%EB%93%88%ED%99%94%EC%9D%98-%EC%8B%9C%EC%9E%91-19a7f7b6401a)  
-[iOS Modular Architecture 를 향한 여정 Part 2 — 프로젝트 모듈화, 레거시와 공존하기](https://medium.com/29cm/ios-modular-architecture-%EB%A5%BC-%ED%96%A5%ED%95%9C-%EC%97%AC%EC%A0%95-part-2-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%AA%A8%EB%93%88%ED%99%94-%EB%A0%88%EA%B1%B0%EC%8B%9C%EC%99%80-%EA%B3%B5%EC%A1%B4%ED%95%98%EA%B8%B0-d63f5e454573) 
+* 당근마켓
+  * [Tuist 를 활용해 확장 가능한 모듈 구조 만들기](https://medium.com/daangn/tuist-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4-%EB%AA%A8%EB%93%88-%EA%B5%AC%EC%A1%B0-%EC%9E%90%EB%8F%99%ED%99%94%ED%95%98%EA%B8%B0-f200992d4bf2)
 
-[모듈식 iOS 가이드](https://anuragajwani.medium.com/modular-ios-guide-60810f5a7f97)  
+* 29CM
+  * [iOS Modular Architecture 를 향한 여정 Part 1 — XcodeGen 도입과 모듈화의 시작](https://medium.com/29cm/modular-architecture-%EB%A5%BC-%ED%96%A5%ED%95%9C-%EC%97%AC%EC%A0%95-part-1-xcodegen-%EB%8F%84%EC%9E%85%EA%B3%BC-%EB%AA%A8%EB%93%88%ED%99%94%EC%9D%98-%EC%8B%9C%EC%9E%91-19a7f7b6401a)  
+  * [iOS Modular Architecture 를 향한 여정 Part 2 — 프로젝트 모듈화, 레거시와 공존하기](https://medium.com/29cm/ios-modular-architecture-%EB%A5%BC-%ED%96%A5%ED%95%9C-%EC%97%AC%EC%A0%95-part-2-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%AA%A8%EB%93%88%ED%99%94-%EB%A0%88%EA%B1%B0%EC%8B%9C%EC%99%80-%EA%B3%B5%EC%A1%B4%ED%95%98%EA%B8%B0-d63f5e454573) 
 
-[Xcode Previews를 사용하여 UIKit 기반 프로젝트 개발 효율성](https://engineering.mercari.com/blog/entry/2019-12-13-155700/)  
+* Mercari
+  * [Xcode Previews를 사용하여 UIKit 기반 프로젝트 개발 효율성](https://engineering.mercari.com/blog/entry/2019-12-13-155700/)
 
-에어비앤비  
-[대규모 iOS 앱 개발 생산성을 위해 바꾼 것들](https://yozm.wishket.com/magazine/detail/1330/)  
+* 에어비앤비
+  * [대규모 iOS 앱 개발 생산성을 위해 바꾼 것들](https://yozm.wishket.com/magazine/detail/1330/)
 
-MIXI  
-[iOS 앱 설계에 Clean Architecture를 채용하여 약 3년 운용해 온 지견](https://mixi-developers.mixi.co.jp/mitene-ios-clean-architecture-11d23325553d)  
+* MIXI
+  * [iOS 앱 설계에 Clean Architecture를 채용하여 약 3년 운용해 온 지견](https://mixi-developers.mixi.co.jp/mitene-ios-clean-architecture-11d23325553d)
 
-mitene  
-[미테네에서의 iOS 앱 개발의 현재 상황과 과제에 대한 대처](https://team-blog.mitene.us/ios-development-2022-2d60d16e7135)  
+* mitene
+  * [미테네에서의 iOS 앱 개발의 현재 상황과 과제에 대한 대처](https://team-blog.mitene.us/ios-development-2022-2d60d16e7135)
 
-[인프라 지속성 계층 디자인](https://docs.microsoft.com/ko-kr/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)  
+* Slack
+  * [Slack의 모바일앱 리팩토링 모듈화](https://medium.com/mobile-app-development-publication/mobile-app-refactoring-initiative-by-slack-fedc4c4a6026)
 
-Slack  
-[Slack의 모바일앱 리팩토링 모듈화](https://medium.com/mobile-app-development-publication/mobile-app-refactoring-initiative-by-slack-fedc4c4a6026)  
+* Trendyol
+  * [트렌디올의 iOS 앱 개편: 모듈화 성공 사례](https://medium.com/trendyol-tech/revamping-trendyols-ios-app-a-modularization-success-story-a6c1d2c4188b)
 
-Trendyol  
-[트렌디올의 iOS 앱 개편: 모듈화 성공 사례](https://medium.com/trendyol-tech/revamping-trendyols-ios-app-a-modularization-success-story-a6c1d2c4188b)  
+* 쿡패드
+  * [iOSDC Japan 2021 - 대규모 앱의 멀티모듈 구성 실습](https://www.youtube.com/watch?v=LCOU2ZlGKi4)
+  * [코드 생성을 이용한 iOS 앱 멀티 모듈화를 위한 종속 솔루션](https://techlife.cookpad.com/entry/2021/06/16/110000)
+  * [쿡 패드 iOS 앱의 파괴와 창조, 그리고 미래](https://techconf.cookpad.com/2019/kohki_miki.html)
 
+* Just Eat
+  * [Modular iOS Architecture](https://tech.just-eat.com/2019/12/18/modular-ios-architecture-just-eat/)
 
-쿡패드  
-[iOSDC Japan 2021 - 대규모 앱의 멀티모듈 구성 실습](https://www.youtube.com/watch?v=LCOU2ZlGKi4)  
-[코드 생성을 이용한 iOS 앱 멀티 모듈화를 위한 종속 솔루션](https://techlife.cookpad.com/entry/2021/06/16/110000)  
-[쿡 패드 iOS 앱의 파괴와 창조, 그리고 미래](https://techconf.cookpad.com/2019/kohki_miki.html)
+* Depop
+  * [Scaling up an iOS app using modules](https://engineering.depop.com/scaling-up-an-ios-app-with-modularisation-8cd280d6b2b8)
 
-Just Eat  
-[Modular iOS Architecture](https://tech.just-eat.com/2019/12/18/modular-ios-architecture-just-eat/)  
+* The Washington Post
+  * [Scaling iOS Architecture](https://github.com/ArtSabintsev/iOSDevCampDC-2018/blob/master/Scaling-iOS-Architecture.md)
 
-Depop  
-[Scaling up an iOS app using modules](https://engineering.depop.com/scaling-up-an-ios-app-with-modularisation-8cd280d6b2b8)  
+* Badoo
+  * [iOS 앱 모듈화: Badoo 앱을 모듈로 세분화한 이유와 방](https://medium.com/bumble-tech/modularising-an-ios-app-3ea131a5c809)
+  * [Badoo iOS 앱 모듈화: 노크온 효과 처리하기](https://medium.com/bumble-tech/modularising-the-badoo-ios-app-ce75d5a7aba7)
 
-iOS Architecture Patterns for Large-Scale Development  
-[part 1: Modular architecture](https://blog.griddynamics.com/modular-architecture-in-ios/)  
-[part 2: Dependency management](https://blog.griddynamics.com/dependency-management/)  
-[part 3: UI architecture approach](https://blog.griddynamics.com/ui-architecture-approach/)  
+* Spotify
+  * [성장을 위한 준비: 확장성 및 빌드 속도를 위한 대규모 앱 아키텍처 설계하기](https://www.youtube.com/watch?v=sZuI6z8qSmc)
 
-The Washington Post  
-[Scaling iOS Architecture](https://github.com/ArtSabintsev/iOSDevCampDC-2018/blob/master/Scaling-iOS-Architecture.md)
+* Wayfair
+  * [앱 모듈화: 코드와 Android 및 iOS 팀을 대규모로 확장한 방법](https://www.aboutwayfair.com/tech-blog/app-modularization-at-wayfair-how-we-unlocked-our-code-and-android-and-ios-teams-at-scale)
 
-Badoo  
-[iOS 앱 모듈화: Badoo 앱을 모듈로 세분화한 이유와 방](https://medium.com/bumble-tech/modularising-an-ios-app-3ea131a5c809)  
-[Badoo iOS 앱 모듈화: 노크온 효과 처리하기](https://medium.com/bumble-tech/modularising-the-badoo-ios-app-ce75d5a7aba7)  
+* Capital One
+  * [플러그인 기반 아키텍처 및 확장형 iOS 개발](https://medium.com/capital-one-tech/plugin-based-architecture-and-scaling-ios-development-at-capital-one-fb67561c7df6)
 
-Spotify
-[성장을 위한 준비: 확장성 및 빌드 속도를 위한 대규모 앱 아키텍처 설계하기](https://www.youtube.com/watch?v=sZuI6z8qSmc)  
-
-[\[Swift\] Bastard Injection의 문제점, 혹은 의존성 반전의 원리에 대해서 또는 needle이라는 DI 컨테이너 소개](https://qiita.com/YusukeHosonuma/items/77bbb962e8ec4d36cbea)  
-
-Wayfair  
-[앱 모듈화: 코드와 Android 및 iOS 팀을 대규모로 확장한 방법](https://www.aboutwayfair.com/tech-blog/app-modularization-at-wayfair-how-we-unlocked-our-code-and-android-and-ios-teams-at-scale)  
-
-Capital One
-[플러그인 기반 아키텍처 및 확장형 iOS 개발](https://medium.com/capital-one-tech/plugin-based-architecture-and-scaling-ios-development-at-capital-one-fb67561c7df6)
-
+* Article
+  * [모듈식 iOS 가이드](https://anuragajwani.medium.com/modular-ios-guide-60810f5a7f97)
+  * iOS Architecture Patterns for Large-Scale Development
+    * [part 1: Modular architecture](https://blog.griddynamics.com/modular-architecture-in-ios/)
+    * [part 2: Dependency management](https://blog.griddynamics.com/dependency-management/)
+    * [part 3: UI architecture approach](https://blog.griddynamics.com/ui-architecture-approach/)
+  * [인프라 지속성 계층 디자인](https://docs.microsoft.com/ko-kr/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)
+  * [\[Swift\] Bastard Injection의 문제점, 혹은 의존성 반전의 원리에 대해서 또는 needle이라는 DI 컨테이너 소개](https://qiita.com/YusukeHosonuma/items/77bbb962e8ec4d36cbea)

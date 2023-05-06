@@ -8,7 +8,7 @@ tags: [ADR, RIBs, MVC, MVVM]
 Contents:
 
 * [상태](#status)
-* [Context](#context)
+* [배경](#context)
 * [결정](#decisions)
   * [이유](#rationale)
 * [결과](#consequences)
@@ -21,11 +21,11 @@ Contents:
 
 <h2 id="status">상태</h2>
 
-수락됨
+수락됨(Accepted)
 
 * RIBs 아키텍처에서의 앱의 모듈화, 확장성, 유지보수성 보다 더 높이 제공하는 새로운 아키텍처가 있다면 다시 논의합시다.
 
-<h2 id="context">Context</h2>
+<h2 id="context">배경</h2>
 
 프로젝트가 커짐에 따라 모듈성, 확장성, 관심사 분리, 재사용성 등의 요구사항이 필요해졌습니다. 기존 MVC, MVVM 아키텍처를 사용했지만 늘어나는 기능에 제한적인 리소스를 감안하여 더 잘 맞는 아키텍처를 고려하고 채택해야합니다.
 

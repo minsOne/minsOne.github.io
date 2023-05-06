@@ -8,7 +8,7 @@ tags: [ADR, Tuist, XcodeGen, Xcode]
 Contents:
 
 * [상태](#status)
-* [Context](#context)
+* [배경](#context)
 * [결정](#decisions)
   * [이유](#rationale)
 * [결과](#consequences)
@@ -22,11 +22,11 @@ Contents:
 
 <h2 id="status">상태</h2>
 
-수락됨
+수락됨(Accepted)
 
 * 프로젝트 생성을 잘 관리할 수 있는 새로운 도구를 사용할 수 있게 된다면 다시 논의합니다.
 
-<h2 id="context">Context</h2>
+<h2 id="context">배경</h2>
 
 프로젝트가 커짐에 따라 프로젝트 파일 충돌, 결합도 증가, 빌드 시간 증가, 작성한 코드의 결과 확인의 어려움 등이 있습니다. 별도의 프로젝트, 라이브러리로 코드를 분리하여 프로젝트의 운영, 유지보수성과 확장성을 높이려고 합니다. 그러나 이런 작업은 반복적이고 복잡한 작업일 수 있으며, 실수할 가능성이 있습니다.
 

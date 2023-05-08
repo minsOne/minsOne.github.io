@@ -2,7 +2,6 @@
 layout: post
 title: "[ADR][가상] 아키텍처 의사 결정 기록: UI 모듈에서 Combine 사용"
 tags: [ADR, Combine]
-published: false
 ---
 {% include JB/setup %}
 

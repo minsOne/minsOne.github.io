@@ -21,7 +21,7 @@ Contents:
 
 <h2 id="status">상태</h2>
 
-제안됨(Proposed)
+* 제안됨(Proposed)
 
 <h2 id="context">배경</h2>
 

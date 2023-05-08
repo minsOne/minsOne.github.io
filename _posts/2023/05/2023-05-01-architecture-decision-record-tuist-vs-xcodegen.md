@@ -22,7 +22,7 @@ Contents:
 
 <h2 id="status">상태</h2>
 
-수락됨(Accepted)
+* 수락됨(Accepted)
 
 * 프로젝트 생성을 잘 관리할 수 있는 새로운 도구를 사용할 수 있게 된다면 다시 논의합니다.
 

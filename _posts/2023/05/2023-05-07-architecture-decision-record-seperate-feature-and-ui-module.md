@@ -21,7 +21,7 @@ Contents:
 
 <h2 id="status">상태</h2>
 
-수락됨(Accepted)
+* 수락됨(Accepted)
   
 <h2 id="context">배경</h2>
 

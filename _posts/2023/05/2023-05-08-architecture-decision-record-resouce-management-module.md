@@ -2,7 +2,6 @@
 layout: post
 title: "[ADR][가상] 아키텍처 의사 결정 기록: 리소스 관리 모듈 생성 및 사용 결정"
 tags: [ADR, iOS, Resource]
-published: false
 ---
 {% include JB/setup %}
 

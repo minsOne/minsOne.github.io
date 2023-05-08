@@ -14,7 +14,7 @@ Contents:
 * [결과](#consequences)
 * [결론](#conclusion)
 
-##  Feature 모듈과 UI 모듈 분리 결정
+## Feature 모듈과 UI 모듈 분리 결정
 
 작성일 : 2022-05-07  
 작성자 : 안정민

@@ -17,7 +17,7 @@ Contents:
 
 ## Xcode 프로젝트 생성 도구 선택하기 - Tuist vs XcodeGen
 
-작성일 : 2022-05-01  
+작성일 : 2023-05-01  
 작성자 : 안정민
 
 <h2 id="status">상태</h2>

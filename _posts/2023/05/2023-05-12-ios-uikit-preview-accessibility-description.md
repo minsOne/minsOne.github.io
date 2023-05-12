@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "[iOS][Xcode 14.3+][UIKit][Accessibility] Preview에서 UIKit 기반 View 접근성 요소을 출력하여 확인하기"
-tags: []
+title: "[iOS][Xcode 14.3+][UIKit][Accessibility] Preview를 이용해 UIKit 화면의 접근성 요소 확인하기"
+tags: [iOS, Accessibility, UIKit, SwiftUI, Preview]
 ---
 {% include JB/setup %}
 
@@ -25,7 +25,7 @@ tags: []
 
 그러면 접근성을 대응하기 위해 더욱 빠른 방법으로 접근성 요소를 확인할 수 있는 방법을 찾아야 합니다.
 
-## Preview 상에서 UIKit 기반 뷰를 접근성 요소을 출력하여 확인하기
+## Preview를 이용해 UIKit 화면의 접근성 요소 확인하기
 
 UIKit 기반 뷰의 접근성을 확인하려면 애플리케이션으로 빌드하고 실행해야 하며, 이는 시간이 많이 걸릴 수 있습니다.
 
@@ -67,12 +67,12 @@ extension UIView {
 struct BadgeLabelBuilder {
     init() {}
     func build(index: Int) -> UILabel {
-        let colors: [UIColor] = [.systemRed, .systemBlue, .systemGreen]
+        let bgColors: [UIColor] = [.systemRed, .systemBlue, .systemGreen, .systemBrown, .systemPurple]
         let label = UILabel()
         label.text = "\(index)"
         label.font = .boldSystemFont(ofSize: 14)
         label.textColor = .white
-        label.backgroundColor = colors[index%colors.count].withAlphaComponent(0.5)
+        label.backgroundColor = bgColors[index%bgColors.count].withAlphaComponent(0.5)
         label.isUserInteractionEnabled = false
         label.accessibilityTraits = .none
         label.isAccessibilityElement = false
@@ -82,9 +82,9 @@ struct BadgeLabelBuilder {
         let size = label.bounds.size
         let max = max(size.width, size.height)
         label.frame.size = .init(width: max, height: max)
-        label.frame.origin = .init(x: -max/2, y: -max/2)
 
         label.layer.cornerRadius = max / 2
+        label.layer.cornerCurve = .continuous
         label.layer.masksToBounds = true
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1
@@ -263,7 +263,7 @@ struct ViewController_Preview: PreviewProvider {
 
 <p style="text-align:left;"><img src="{{ site.production_url }}/image/2023/05/03.png" style="width: 800px; border: 1px solid #555;"/></p><br/>
 
-AXSnapshot 라이브러리를 사용하여 접근성 요소를 가져와 뷰에 뱃지를 붙였습니다. 이렇게 하면 접근성 요소를 식별하고 콘솔에서 빠르고 쉽게 확인할 수 있습니다.
+`AXSnapshot` 라이브러리를 사용하여 접근성 요소를 가져와 뷰에 뱃지를 붙였습니다. 이렇게 하면 접근성 요소를 식별하고 콘솔에서 빠르고 쉽게 확인할 수 있습니다.
 
 ## 참고자료
 

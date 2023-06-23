@@ -67,7 +67,7 @@ extension UIView {
 struct BadgeLabelBuilder {
     init() {}
     func build(index: Int) -> UILabel {
-        let bgColors: [UIColor] = [.systemRed, .systemBlue, .systemGreen]
+        let bgColors: [UIColor] = [.systemRed, .systemBlue, .systemGreen, .systemBrown, .systemPurple]
         let label = UILabel()
         label.text = "\(index)"
         label.font = .boldSystemFont(ofSize: 14)

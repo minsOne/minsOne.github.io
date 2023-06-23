@@ -278,8 +278,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## 정리
 
-"맞습니다. `GitHubAPI+Users.swift` 파일은 해당 API에 대한 명세를 담고 있어, 어떤 정보를 보내고 받을 수 있는지 확인할 수 있습니다. 이를 통해 코드의 일관성과 유지보수성을 높임과 동시에 API 엔드포인트를 효과적으로 관리할 수 있습니다."
-
 `NetworkAPIs` 모듈의 `GitHubAPI+Users.swift` 파일은 해당 API에 대한 명세를 담고 있어, 어떤 정보를 보내고 받을 수 있는지 확인할 수 있습니다. 이를 통해 코드의 일관성과 유지보수성을 높임과 동시에 API 엔드포인트를 효과적으로 관리할 수 있습니다.
 
 ## 코드

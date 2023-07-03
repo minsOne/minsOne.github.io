@@ -2,7 +2,6 @@
 layout: post
 title: "[Swift 5.9+][Macros][리팩토링] Codable 이전 시대의 Response 코드를 Macros를 이용하여 정리하기"
 tags: [Swift, Macros, SwifyJSON, Response, JSON]
-published: false
 ---
 {% include JB/setup %}
 
@@ -45,9 +44,9 @@ public struct SomeResponse: JSONResponse {
 
 Swift 5.9 이전까지는 json을 접근하여 값을 가져오는 상용구 코드는 줄일 수 없습니다. WWDC 2023의 [Expand on Swift macros](https://developer.apple.com/videos/play/wwdc2023/10167/) 세션 중에 나온 예제가 위의 코드와 아주 유사하였습니다. 세션에 나온 예제와 비슷하게 작업하여 코드를 줄일 수 있을 것으로 추론해볼 수 있습니다.
 
-Macros에 대해서는 WWDC에서 자세히 다루기 때문에 위의 코드를 Macros를 사용하여 축약하도록 하겠습니다.
+Macros에 대해서는 WWDC에서 자세히 다루기 때문에 상세한 이야기는 생략하겠습니다.
 
-앞선 코드를 Macros를 활용하여 다음과 같이 코드를 줄일려고 합니다.
+위의 코드를 Macros를 활용하여 다음과 같이 코드를 줄일려고 합니다.
 
 ```swift
 import SwiftyJSON

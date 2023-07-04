@@ -45,9 +45,7 @@ Xcode 13.0 버전을 사용해서 아래에 제시된 방법을 사용하는 것
 
 해당 문제가 이슈화된지는 오래되었습니다. 버그 리포트 [https://bugs.swift.org/browse/SR-12303](https://bugs.swift.org/browse/SR-12303)에도 이 문제에 대한 이슈가 올라왔으며, RxSwift 저장소의 오래된 [이슈](https://github.com/ReactiveX/RxSwift/issues/2127)이기도 했습니다. 또한, 트위터에서도 이 문제를 해결하기 위한 [대화](https://twitter.com/freak4pc/status/1233465169189228544?s=20)가 이루어졌습니다.
 
-Xcode 12.5 Release Note에서는 Swift Package에 대한 업데이트가 포함되어 있습니다.
-
-[Xcode 12.5 Release Note]((https://developer.apple.com/documentation/xcode-release-notes/xcode-12_5-release-notes#Swift-Packages))에서는 Swift Package에 대한 업데이트가 포함되어 있습니다.
+[Xcode 12.5 Release Note](https://developer.apple.com/documentation/xcode-release-notes/xcode-12_5-release-notes#Swift-Packages)에서는 Swift Package에 대한 업데이트가 포함되어 있습니다.
 
 ```
 The Swift Package Manager now builds package products and targets as dynamic frameworks automatically, if doing so avoids duplication of library code at runtime. (59931771) (FB7608638)

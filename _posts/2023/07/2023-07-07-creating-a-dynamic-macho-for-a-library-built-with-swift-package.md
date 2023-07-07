@@ -47,7 +47,7 @@ The Swift Package Manager now builds package products and targets as dynamic fra
 즉, 여러 Dynamic 라이브러리가 패키지의 `type`이 `static`으로 설정된 라이브러리를 의존한다면, Dynamic Framework로 빌드한다는 의미입니다.
 
 <div class="mermaid" style="display:flex;justify-content:center;"> 
-graph TD;
+flowchart TD
     id1[Application]-->id2[AFramework]
     id1[Application]-->id3[BFramework]
     id2-->id4(MyLibrary)
@@ -90,16 +90,35 @@ let package = Package(
 
 RxSwift는 Dynamic 라이브러리를 별도로 구현하고 있는 것을 확인할 수 있습니다.
 
-하지만, 우리는 Dynamic 라이브러리를 사용하지 않고, Static 라이브러리만 사용하여 동적 프레임워크를 만드는지 검증할 것입니다.<br/><br/>
+하지만, 우리는 Dynamic 라이브러리를 사용하지 않고, Static 라이브러리만 사용하여 동적 프레임워크를 만들어보려고 합니다.
 
-예제 프로젝트를 통해서 검증해보도록 합시다.
+예제 프로젝트를 통해서 동적 프레임워크를 만들어봅시다.
 
 첫 번째로, AFramework에서만 `RxSwift`, `RxCocoa`, `RxRelay` 라이브러리를 의존하도록 추가합니다.
 
-<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2023/07/01.png" style="width: 600px; border: 1px solid #555;"/></p><br/>
+<p style="text-align:left;"><img src="{{ site.prod_url }}/image/2023/07/01.png" style="border: 1px solid #555;"/></p><br/>
 
+<div class="mermaid" style="display:flex;justify-content:center;"> 
+flowchart TD
+    id1[Application]-->id2[AFramework]
+    id1[Application]-->id3[BFramework]
+    id2-->id4(RxSwift)
+    id2-->id5(RxCocoa)
+    id2-->id6(RxRelay)
+    subgraph Package-RxSwift
+      id4
+      id5
+      id6
+    end
+    style id1 fill:#03bfff
+    style id2 fill:#ffba0c
+    style id3 fill:#ffba0c
+    style id4 fill:#ff5116
+    style id5 fill:#ff5116
+    style id6 fill:#ff5116
+</div><br/>
 
-그러면 AFramework에 라이브러리 코드가 복사됩니다. `nm` 을 이용하여 `RxSwift`, `RxCocoa`, `RxRelay` 라이브러리가 AFramework.framework/AFramework에 복사된 것을 확인합니다.
+그러면 AFramework에 `RxSwift`, `RxCocoa`, `RxRelay` 라이브러리 코드가 복사됩니다. `nm` 을 이용하여 `RxSwift`, `RxCocoa`, `RxRelay` 라이브러리가 AFramework.framework/AFramework에 복사된 것을 확인합니다.
 
 ```shell
 $ nm ~/Library/Developer/Xcode/DerivedData/SampleApp-adywyzvbmjimpfcinuscwqubgslf/Build/Products/Debug-iphonesimulator/SampleApp.app/Frameworks/AFramework.framework/AFramework
@@ -121,11 +140,35 @@ AFramework, BFramework 둘다 `RxSwift`, `RxCocoa`, `RxRelay`를 의존한다면
 
 BFramework에서도 `RxSwift`, `RxCocoa`, `RxRelay` 라이브러리를 의존하도록 추가합니다.
 
-<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2023/07/02.png" style="width: 600px; border: 1px solid #555;"/></p><br/>
+<p style="text-align:left;"><img src="{{ site.prod_url }}/image/2023/07/02.png" style="border: 1px solid #555;"/></p><br/>
+
+<div class="mermaid" style="display:flex;justify-content:center;"> 
+flowchart TD
+    id1[Application]-->id2[AFramework]
+    id1[Application]-->id3[BFramework]
+    id2-->id4(RxSwift)
+    id2-->id5(RxCocoa)
+    id2-->id6(RxRelay)
+    id3-->id4(RxSwift)
+    id3-->id5(RxCocoa)
+    id3-->id6(RxRelay)
+    subgraph Package-RxSwift
+      id4
+      id5
+      id6
+    end
+    style id1 fill:#03bfff
+    style id2 fill:#ffba0c
+    style id3 fill:#ffba0c
+    style id4 fill:#ff5116
+    style id5 fill:#ff5116
+    style id6 fill:#ff5116
+</div><br/>
+
 
 빌드된 결과물인 SampleApp.app의 Frameworks에 있는 AFramework, BFramework을 분석해봅시다.
 
-<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2023/07/03.png" style="width: 600px; border: 1px solid #555;"/></p><br/>
+<p style="text-align:left;"><img src="{{ site.prod_url }}/image/2023/07/03.png" style="border: 1px solid #555;"/></p><br/>
 
 AFramework를 `nm`으로 분석했을 때, `RxSwift`, `RxCocoa`, `RxRelay` 라이브러리 코드가 복사되지 않았음을 확인할 수 있습니다.
 
@@ -234,7 +277,7 @@ $ otool -l ~/Library/Developer/Xcode/DerivedData/SampleApp-adywyzvbmjimpfcinuscw
 
 `@rpath`에 추가된 경로중에 `PackageFrameworks`가 있는 것을 확인할 수 있습니다. 해당 경로의 폴더를 확인해봅시다.
 
-<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2023/07/04.png" style="width: 600px; border: 1px solid #555;"/></p><br/>
+<p style="text-align:left;"><img src="{{ site.prod_url }}/image/2023/07/04.png" style="border: 1px solid #555;"/></p><br/>
 
 `PackageFrameworks` 폴더에 `RxSwift`, `RxCocoa`, `RxRelay` 동적 프레임워크가 있는 것을 확인하였습니다. 
 
@@ -246,15 +289,41 @@ $ otool -l ~/Library/Developer/Xcode/DerivedData/SampleApp-adywyzvbmjimpfcinuscw
 
 해당 동적 프레임워크가 복사되게 하려면, `Application` 타겟에도 `RxSwift`, `RxCocoa`, `RxRelay` 라이브러리를 추가해야합니다.
 
-<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2023/07/05.png" style="width: 600px; border: 1px solid #555;"/></p><br/>
+<p style="text-align:left;"><img src="{{ site.prod_url }}/image/2023/07/05.png" style="border: 1px solid #555;"/></p><br/>
+
+<div class="mermaid" style="display:flex;justify-content:center;"> 
+flowchart TD
+    id1[Application]-->id2[AFramework]
+    id1[Application]-->id3[BFramework]
+    id1-->id4(RxSwift)
+    id1-->id5(RxCocoa)
+    id1-->id6(RxRelay)
+    id2-->id4(RxSwift)
+    id2-->id5(RxCocoa)
+    id2-->id6(RxRelay)
+    id3-->id4(RxSwift)
+    id3-->id5(RxCocoa)
+    id3-->id6(RxRelay)
+    subgraph Package-RxSwift
+      id4
+      id5
+      id6
+    end
+    style id1 fill:#03bfff
+    style id2 fill:#ffba0c
+    style id3 fill:#ffba0c
+    style id4 fill:#ff5116
+    style id5 fill:#ff5116
+    style id6 fill:#ff5116
+</div><br/>
 
 다시 SampleApp을 빌드하여 `SampleApp.app`의 Frameworks 폴더 내에 `RxSwift`, `RxCocoa`, `RxRelay` 동적 프레임워크가 있는지 확인해봅시다.
 
-<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2023/07/06.png" style="width: 600px; border: 1px solid #555;"/></p><br/>
+<p style="text-align:left;"><img src="{{ site.prod_url }}/image/2023/07/06.png" style="border: 1px solid #555;"/></p><br/>
 
 빌드 로그에서도 `PackageFrameworks`에 있는 `RxSwift`, `RxCocoa`, `RxRelay` 동적 프레임워크를 SampleApp.app의 Frameworks에 복사하는 것을 확인할 수 있습니다.
 
-<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2023/07/07.png" style="width: 600px; border: 1px solid #555;"/></p><br/>
+<p style="text-align:left;"><img src="{{ site.prod_url }}/image/2023/07/07.png" style="border: 1px solid #555;"/></p><br/>
 
 ```shell
 Copy /Users/minsone/Library/Developer/Xcode/DerivedData/SampleApp-adywyzvbmjimpfcinuscwqubgslf/Build/Products/Debug-iphonesimulator/SampleApp.app/Frameworks/RxSwift.framework /Users/minsone/Library/Developer/Xcode/DerivedData/SampleApp-adywyzvbmjimpfcinuscwqubgslf/Build/Products/Debug-iphonesimulator/PackageFrameworks/RxSwift.framework (in target 'SampleApp' from project 'SampleApp')

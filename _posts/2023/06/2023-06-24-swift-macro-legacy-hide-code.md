@@ -315,3 +315,14 @@ extension SomeResponse : JSONResponse  {}
 ```
 
 위의 코드는 [GitHub](https://github.com/minsOne/Experiment-Repo/tree/master/20230622-ResponseMacros)에서 확인하실 수 있습니다.
+
+## 참고자료
+
+* WWDC23
+  * [Expand on Swift macros](https://developer.apple.com/videos/play/wwdc2023/10167/)
+  * [Write Swift macros](https://developer.apple.com/videos/play/wwdc2023/10166/)
+
+* GitHub
+  * [DougGregor/swift-macro-examples](https://github.com/DougGregor/swift-macro-examples)
+
+* [Swift AST Explorer](https://swift-ast-explorer.com/)

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift][SwiftUI] SwiftUI + RIBs"
+title: "[Swift][SwiftUI] RIBs + SwiftUI"
 tags: [RIBs, SwiftUI]
 ---
 {% include JB/setup %}
@@ -29,7 +29,7 @@ Presenter는 View에 상태값을 전달하는 역할에만 충실히 하도록 
 
 앞에서 이야기한 구조를 작성해봅시다.
 
-## SwiftUI + RIBs
+## RIBs + SwiftUI
 
 `Interactor`, `Presenter`, `ViewModel`와 `View` 간의 전달되는 `State`와 `Action`을 정의합니다.
 
@@ -339,7 +339,10 @@ struct HomeView_Previews: PreviewProvider {
 * [Clean Architecture for SwiftUI](https://nalexn.github.io/clean-architecture-swiftui/)
 * [The Strategic SwiftUI Data Flow Guide](https://matteomanferdini.com/swiftui-data-flow/)
 * [I was wrong! MVVM is NOT a good choice for building SwiftUI applications](https://azamsharp.com/2022/07/17/2022-swiftui-and-mvvm.html)
-* [Mobility Technologies - 첫 RIBs](https://speakerdeck.com/imairi/chu-metefalse-ribs)
+* Mobility Technologies
+  * [첫 RIBs](https://speakerdeck.com/imairi/chu-metefalse-ribs)
+  * [JapanTaxi iOS 앱에 RIBs 아키텍처를 도입하여 얻은 것](https://lab.mo-t.com/blog/andonlabo-4-ribs-ios-app)
+  * [RIBs 아키텍처를 사용하는 기존 앱에 SwiftUI 도입](https://lab.mo-t.com/blog/ios-ribs-swiftui)
 
 ## 전체코드 - [Gist](https://gist.github.com/minsOne/256bbe28c54ff3a67fbeb14953b71711)
 

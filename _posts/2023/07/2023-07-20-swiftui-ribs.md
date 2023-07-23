@@ -344,7 +344,10 @@ struct HomeView_Previews: PreviewProvider {
   * [JapanTaxi iOS 앱에 RIBs 아키텍처를 도입하여 얻은 것](https://lab.mo-t.com/blog/andonlabo-4-ribs-ios-app)
   * [RIBs 아키텍처를 사용하는 기존 앱에 SwiftUI 도입](https://lab.mo-t.com/blog/ios-ribs-swiftui)
 
-## 전체코드 - [Gist](https://gist.github.com/minsOne/256bbe28c54ff3a67fbeb14953b71711)
+## 전체코드
+
+* [Gist](https://gist.github.com/minsOne/256bbe28c54ff3a67fbeb14953b71711)
+* [GitHub](https://github.com/minsOne/Experiment-Repo/tree/master/20230720/SampleApp)
 
 #### HomeViewStateAction.swift
 

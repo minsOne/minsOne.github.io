@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[SwiftUI] SwiftUI 도입시 주의해야할 사항 SwiftUI 1.0~"
+title: "[SwiftUI] SwiftUI 도입시 주의해야할 사항 SwiftUI 1.0~ (수정중)"
 tags: [SwiftUI, UIKit]
 ---
 {% include JB/setup %}
@@ -61,3 +61,4 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * GitHub
   * [ryangittings/swiftui-bugs](https://github.com/ryangittings/swiftui-bugs)
 * [SwiftUI bugs and defects](https://swiftunwrap.com/article/swiftui-bugs/)
+* [A review of SwiftUI problems](https://www.loopwerk.io/articles/2020/swiftui-review/)

@@ -44,5 +44,8 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * SwiftUI의 기본 애니메이션은 Spring으로 변경됨
 
 ## 참고자료
+
 * [Fucking SwiftUI](https://fuckingswiftui.com/)
 * [UIKit 기반의 대규모 프로젝트에 SwiftUI 도입](https://speakerdeck.com/kuritatu18/uikit-besunoda-gui-mo-napuroziekutoheno-swiftui-dao-ru)
+* GitHub
+  * [ryangittings/swiftui-bugs](https://github.com/ryangittings/swiftui-bugs)

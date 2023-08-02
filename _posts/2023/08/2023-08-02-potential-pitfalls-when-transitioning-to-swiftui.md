@@ -35,3 +35,4 @@ published: false
 
 ## 참고자료
 * [Fucking SwiftUI](https://fuckingswiftui.com/)
+* [UIKit 기반의 대규모 프로젝트에 SwiftUI 도입](https://speakerdeck.com/kuritatu18/uikit-besunoda-gui-mo-napuroziekutoheno-swiftui-dao-ru)

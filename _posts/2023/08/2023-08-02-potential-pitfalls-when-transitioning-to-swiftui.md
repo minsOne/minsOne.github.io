@@ -23,6 +23,7 @@ published: false
 * List, ScrollView
   * ScrollView 내의 버튼이 오동작하는 것으로 추정됨. iOS 13.5.1 이상에서 해결된 것으로 추정
     출처 : https://techlife.cookpad.com/entry/2021/01/18/kaimono-swift-ui#fn-d9b05647
+  * List의 Separator를 수정하는 건 iOS 15부터 가능
 * NavigationLink
   * 자잘한 버그가 많음
 * Sheet, Alert

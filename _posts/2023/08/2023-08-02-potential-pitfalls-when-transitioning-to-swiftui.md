@@ -28,3 +28,6 @@ published: false
 ##### iOS 17 주의사항
 
 * SwiftUI의 기본 애니메이션은 Spring으로 변경됨
+
+## 참고자료
+* [Fucking SwiftUI](https://fuckingswiftui.com/)

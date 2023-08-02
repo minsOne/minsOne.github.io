@@ -28,7 +28,11 @@ published: false
   * 자잘한 버그가 많음
 * Sheet, Alert
   * 여러번 수행시 동작이 안되는 경우가 존재함
-* UIViewRepresentable를 사용하여 기존 UIKit 코드를 감싸 호출하는 것을 추천
+* Text
+  * iOS 13.0에서 문자열 개행이 안된다고 추정, iOS 13.1에서는 개행이 정상 동작된다고 함
+* View
+  * iOS 13.0에서 onDisappear가 호출되지 않는다고 추정, iOS 13.1에서는 호출된다고 함.
+
 
 ##### iOS 17 주의사항
 

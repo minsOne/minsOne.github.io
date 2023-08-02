@@ -62,3 +62,5 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
   * [ryangittings/swiftui-bugs](https://github.com/ryangittings/swiftui-bugs)
 * [SwiftUI bugs and defects](https://swiftunwrap.com/article/swiftui-bugs/)
 * [A review of SwiftUI problems](https://www.loopwerk.io/articles/2020/swiftui-review/)
+* [10 More Deadly SwiftUI Mistakes and How to Avoid Them](https://blog.devgenius.io/10-more-deadly-swiftui-mistakes-and-how-to-avoid-them-de0952f1766c)
+* [The SwiftUI Lab - Bug Watch](https://swiftui-lab.com/bug-watch/)

@@ -1,11 +1,13 @@
 ---
 layout: post
-title: "[SwiftUI] SwiftUI 도입시 주의해야할 사항 SwiftUI 1.0 ~"
+title: "[SwiftUI] SwiftUI 도입시 주의해야할 사항 SwiftUI 1.0~"
 tags: [SwiftUI, UIKit]
 ---
 {% include JB/setup %}
 
-##### iOS 13 주의사항
+UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사항을 모아 확인하기 위한 글입니다.
+
+### iOS 13 주의사항
 
 * LazyVStack, LazyHStack, Namespace은 iOS 14부터 사용 가능
 * GeometryReader - 레이아웃 문제
@@ -33,7 +35,7 @@ tags: [SwiftUI, UIKit]
   * iOS 13.0에서 onDisappear가 호출되지 않는다고 추정, iOS 13.1에서는 호출된다고 함.
 
 
-##### iOS 17 주의사항
+### iOS 17 주의사항
 
 * SwiftUI의 기본 애니메이션은 Spring으로 변경됨
 

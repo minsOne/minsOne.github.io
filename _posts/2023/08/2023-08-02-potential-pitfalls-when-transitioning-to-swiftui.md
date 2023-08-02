@@ -41,6 +41,14 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
   * onDisappear 호출 문제
     * iOS 13.0에서 onDisappear가 호출되지 않는다고 추정, iOS 13.1에서는 호출된다고 함.
 
+### iOS 14 주의사항
+
+* StateObject
+  * 할당 해제가 되지 않는 문제 - https://swiftunwrap.com/article/swiftui-bugs
+
+### iOS 15 주의사항
+
+* didSet이 여러번 호출됨 - https://swiftunwrap.com/article/swiftui-bugs/
 
 ### iOS 17 주의사항
 
@@ -52,3 +60,4 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * [UIKit 기반의 대규모 프로젝트에 SwiftUI 도입](https://speakerdeck.com/kuritatu18/uikit-besunoda-gui-mo-napuroziekutoheno-swiftui-dao-ru)
 * GitHub
   * [ryangittings/swiftui-bugs](https://github.com/ryangittings/swiftui-bugs)
+* [SwiftUI bugs and defects](https://swiftunwrap.com/article/swiftui-bugs/)

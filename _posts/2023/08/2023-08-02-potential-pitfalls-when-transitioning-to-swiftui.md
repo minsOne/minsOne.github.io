@@ -10,12 +10,13 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 ### iOS 13 주의사항
 
 * LazyVStack, LazyHStack, Namespace은 iOS 14부터 사용 가능
-* GeometryReader - 레이아웃 문제
-  * iOS 13에서 GeometryReader에 View를 붙이면 가운데 위치
-  * iOS 14 이상에서는 왼쪽 상단 모서리에 위치
-  * 출처
-    * https://protocorn93.github.io/2020/07/26/GeometryReader-in-SwiftUI/
-    * [Xcode 12 release note](https://developer.apple.com/documentation/xcode-release-notes/xcode-12-release-notes)
+* GeometryReader
+  * 레이아웃 문제
+    * iOS 13에서 GeometryReader에 View를 붙이면 가운데 위치
+    * iOS 14 이상에서는 왼쪽 상단 모서리에 위치
+    * 출처
+      * https://protocorn93.github.io/2020/07/26/GeometryReader-in-SwiftUI/
+      * [Xcode 12 release note](https://developer.apple.com/documentation/xcode-release-notes/xcode-12-release-notes)
 * TextField
   * TextField에서 포커스가 되어 키보드가 위로 올라올 때, SafeArea가 변경됨
   * iOS 14에서는 `.ignoresSafeArea(.keyboard, edges: .bottom)`를 제공하여 iOS 13에서 별도의 대응 필요
@@ -30,9 +31,12 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * Sheet, Alert
   * 여러번 수행시 동작이 안되는 경우가 존재함
 * Text
-  * iOS 13.0에서 문자열 개행이 안된다고 추정, iOS 13.1에서는 개행이 정상 동작된다고 함
+  * 개행문제
+    * iOS 13.0에서 문자열 개행이 안된다고 추정, iOS 13.1에서는 개행이 정상 동작된다고 함
+    * 출처 : https://speakerdeck.com/kuritatu18/uikit-besunoda-gui-mo-napuroziekutoheno-swiftui-dao-ru
 * View
-  * iOS 13.0에서 onDisappear가 호출되지 않는다고 추정, iOS 13.1에서는 호출된다고 함.
+  * onDisappear 호출 문제
+    * iOS 13.0에서 onDisappear가 호출되지 않는다고 추정, iOS 13.1에서는 호출된다고 함.
 
 
 ### iOS 17 주의사항

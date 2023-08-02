@@ -27,6 +27,7 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
     * ScrollView 내의 버튼이 오동작하는 것으로 추정됨. iOS 13.5.1 이상에서 해결된 것으로 추정
     * Tap Gesture로 대응
     * 출처 : https://techlife.cookpad.com/entry/2021/01/18/kaimono-swift-ui#fn-d9b05647
+    * https://stackoverflow.com/questions/56561064/swiftui-multiple-buttons-in-a-list-row
   * List의 Separator를 수정하는 건 iOS 15부터 가능
 * NavigationLink
   * 자잘한 버그가 많음

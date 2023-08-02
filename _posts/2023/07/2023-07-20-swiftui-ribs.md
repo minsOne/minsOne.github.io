@@ -343,6 +343,7 @@ struct HomeView_Previews: PreviewProvider {
   * [첫 RIBs](https://speakerdeck.com/imairi/chu-metefalse-ribs)
   * [JapanTaxi iOS 앱에 RIBs 아키텍처를 도입하여 얻은 것](https://lab.mo-t.com/blog/andonlabo-4-ribs-ios-app)
   * [RIBs 아키텍처를 사용하는 기존 앱에 SwiftUI 도입](https://lab.mo-t.com/blog/ios-ribs-swiftui)
+* [Cookpad - SwiftUI를 활용한 「레시피」×「쇼핑」의 신기능 개발](https://techlife.cookpad.com/entry/2021/01/18/kaimono-swift-ui)
 
 ## 전체코드
 

@@ -29,6 +29,7 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
     * 출처 : https://techlife.cookpad.com/entry/2021/01/18/kaimono-swift-ui#fn-d9b05647
     * https://stackoverflow.com/questions/56561064/swiftui-multiple-buttons-in-a-list-row
   * List의 Separator를 수정하는 건 iOS 15부터 가능
+  * ScrollView의 scollTo(id) 관련 이슈 - https://blog.timing.is/swiftui-production-experience-problems-solutions-performance-tips/
 * NavigationLink
   * 자잘한 버그가 많음
 * Sheet, Alert
@@ -40,6 +41,8 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * View
   * onDisappear 호출 문제
     * iOS 13.0에서 onDisappear가 호출되지 않는다고 추정, iOS 13.1에서는 호출된다고 함.
+* ToolBar
+  * 문제가 있다고 하는데 명확한 지점을 못찾음
 
 ### iOS 14 주의사항
 
@@ -64,3 +67,7 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * [A review of SwiftUI problems](https://www.loopwerk.io/articles/2020/swiftui-review/)
 * [10 More Deadly SwiftUI Mistakes and How to Avoid Them](https://blog.devgenius.io/10-more-deadly-swiftui-mistakes-and-how-to-avoid-them-de0952f1766c)
 * [The SwiftUI Lab - Bug Watch](https://swiftui-lab.com/bug-watch/)
+* [Holy Swift - SwiftUI의 중첩된 Observables 문제](https://holyswift.app/how-to-solve-observable-object-problem/)
+* [30,000줄의 SwiftUI 생산한 후기](https://blog.timing.is/swiftui-production-experience-problems-solutions-performance-tips/)
+* [SwiftUI performance tips](https://martinmitrevski.com/2022/04/14/swiftui-performance-tips/)
+* [Using complex gestures in a SwiftUI ScrollView](https://danielsaidi.com/blog/2022/11/16/using-complex-gestures-in-a-scroll-view)

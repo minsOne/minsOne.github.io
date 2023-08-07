@@ -25,7 +25,7 @@ $ brew install cirruslabs/cli/tart
 2.`tart clone`를 이용하여 이미지를 내려받습니다:
 
 ```shell
-$ tart clone ghcr.io/cirruslabs/macos-ventura-base:latest ventura-xcode
+$ tart clone ghcr.io/cirruslabs/macos-ventura-xcode:latest ventura-xcode
 ```
 
 해당 이미지는 [orgs/cirruslabs](https://github.com/orgs/cirruslabs)의 Packages에서 필요한 macOS 이미지를 선택해 다운로드하면 됩니다. 순수한 macOS가 필요하면 'vanilla', brew가 설치된 버전이 필요하면 'base', Xcode가 설치된 버전이 필요하면 'xcode'를 선택합니다.

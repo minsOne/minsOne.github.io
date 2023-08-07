@@ -68,7 +68,7 @@ $ tree .tart
 $ tart run ventura-base
 ```
 
-<p style="text-align:center;"><img src="{{ site.prod_url }}/image/2023/08/03.png" style="width:600px;"/></p><br/>
+<p style="text-align:center;"><img src="{{ site.prod_url }}/image/2023/08/03.png" style="width:600px;"/><img src="{{ site.prod_url }}/image/2023/08/04.png" style="width:600px;"/></p>
 
 
 4.해당 이미지의 계정은 `admin/admin`으로 설정되어 있습니다. 이를 통해 ssh를 사용하여 해당 VM에 로그인할 수 있습니다:

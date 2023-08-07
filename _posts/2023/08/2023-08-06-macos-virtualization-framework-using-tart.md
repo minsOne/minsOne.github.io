@@ -25,7 +25,7 @@ $ brew install cirruslabs/cli/tart
 2.`tart clone`를 이용하여 이미지를 내려받습니다:
 
 ```shell
-$ tart clone ghcr.io/cirruslabs/macos-ventura-base:latest ventura-base
+$ tart clone ghcr.io/cirruslabs/macos-ventura-base:latest ventura-xcode
 ```
 
 해당 이미지는 [orgs/cirruslabs](https://github.com/orgs/cirruslabs)의 Packages에서 필요한 macOS 이미지를 선택해 다운로드하면 됩니다. 순수한 macOS가 필요하면 'vanilla', brew가 설치된 버전이 필요하면 'base', Xcode가 설치된 버전이 필요하면 'xcode'를 선택합니다.
@@ -47,10 +47,10 @@ $ tree .tart
 │       └── ghcr.io
 │           └── cirruslabs
 │               └── macos-ventura-base
-│                   └── latest -> /Users/minsone/.tart/cache/OCIs/ghcr.io/cirruslabs/macos-ventura-base/sha256:d67230f3e3f0e52bae4e0923aa7d7ebaa5e799df9b812eab18557675d1480c84
+│                   └── latest -> /Users/minsone/.tart/cache/OCIs/ghcr.io/cirruslabs/macos-ventura-xcode/sha256:d67230f3e3f0e52bae4e0923aa7d7ebaa5e799df9b812eab18557675d1480c84
 ├── tmp
 └── vms
-    └── ventura-base
+    └── ventura-xcode
         ├── config.json
         ├── disk.img
         └── nvram.bin
@@ -65,7 +65,7 @@ $ tree .tart
 3.이제 생성한 VM 이미지를 Tart로 실행합니다:
 
 ```shell
-$ tart run ventura-base
+$ tart run ventura-xcode
 ```
 
 <p style="text-align:center;"><img src="{{ site.prod_url }}/image/2023/08/03.png" style="width:600px;"/></p><br/>
@@ -74,20 +74,20 @@ $ tart run ventura-base
 4.해당 이미지의 계정은 `admin/admin`으로 설정되어 있습니다. 이를 통해 ssh를 사용하여 해당 VM에 로그인할 수 있습니다:
 
 ```shell
-$ ssh admin@$(tart ip ventura-base)
+$ ssh admin@$(tart ip ventura-xcode)
 ```
 
 매번 비밀번호를 입력하는 것이 번거롭다면, `ssh-copy-id`를 사용하여 비밀번호 입력을 생략할 수 있습니다:
 
 ```shell
-$ ssh-copy-id admin@$(tart ip ventura-base)
+$ ssh-copy-id admin@$(tart ip ventura-xcode)
 ```
 
 원격으로 명령을 실행할 수 있습니다:
 
 ```shell
-$ ssh admin@$(tart ip ventura-base) ls -al
-$ ssh admin@$(tart ip ventura-base) 'ls -a; df'
+$ ssh admin@$(tart ip ventura-xcode) ls -al
+$ ssh admin@$(tart ip ventura-xcode) 'ls -a; df'
 ```
 
 ## 정리

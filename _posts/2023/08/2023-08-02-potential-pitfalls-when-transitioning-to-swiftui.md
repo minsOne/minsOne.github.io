@@ -43,6 +43,8 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
     * iOS 13.0에서 onDisappear가 호출되지 않는다고 추정, iOS 13.1에서는 호출된다고 함.
 * ToolBar
   * 문제가 있다고 하는데 명확한 지점을 못찾음
+* Task
+  * iOS 15 이상부터 지원 - [Document](https://developer.apple.com/documentation/swiftui/view/task(priority:_:))
 
 ### iOS 14 주의사항
 

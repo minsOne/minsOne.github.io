@@ -46,18 +46,59 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * Task
   * iOS 15 이상부터 지원 - [Document](https://developer.apple.com/documentation/swiftui/view/task(priority:_:))
 
-### iOS 14 주의사항
+---
+
+### iOS 14
+
+#### 기대되는 점
+
+* LazyVStack, LazyHStack, LazyVGrid, LazyHGrid, Namespace 사용 가능
+
+#### 주의사항
 
 * StateObject
   * 할당 해제가 되지 않는 문제 - https://swiftunwrap.com/article/swiftui-bugs
 
-### iOS 15 주의사항
+---
+
+### iOS 15
+
+#### 기대되는 점
+
+* Task 사용 가능
+
+#### 주의사항
 
 * didSet이 여러번 호출됨 - https://swiftunwrap.com/article/swiftui-bugs/
+* ScrollViewReader의 scrollTo가 이상하게 동작함 - https://developer.apple.com/forums/thread/688230, https://www.hackingwithswift.com/forums/swiftui/scrollviewproxy-scrollto-seems-to-be-broken-on-ios-16/16318
+  * iOS 14에서는 문제가 발생하지 않음
 
-### iOS 17 주의사항
+---
+
+### iOS 16
+
+#### 기대되는 점
+
+* Grid 사용 가능
+* NavigationStack이 추가됨
+* Layout 프로토콜 추가
+
+#### 주의사항
+
+* NavigationLink가 Deprecated됨
+* NavigationStack도 마이너 버전에 따라 Large Title 관련 버그가 있음
+
+---
+
+### iOS 17
+
+#### 기대되는 점
+
+#### 주의사항
 
 * SwiftUI의 기본 애니메이션은 Spring으로 변경됨
+
+---
 
 ## 참고자료
 
@@ -74,3 +115,21 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * [SwiftUI performance tips](https://martinmitrevski.com/2022/04/14/swiftui-performance-tips/)
 * [Using complex gestures in a SwiftUI ScrollView](https://danielsaidi.com/blog/2022/11/16/using-complex-gestures-in-a-scroll-view)
 * [iOS13 SwiftUI 버그 모음](https://qiita.com/trickart4121/items/efc0d8db54f0617d4698)
+
+* [Backport SwiftUI safe area insets to iOS 13 and 14](https://www.fivestars.blog/articles/safe-area-insets-2/)
+
+---
+
+## SwiftUI 개발시 참고자료
+
+* [Holy Swift](https://holyswift.app/swiftui/)
+* [Five Stars](https://www.fivestars.blog/)
+* [SwiftUI Weekly By Majid Jabrayilov](https://weekly.swiftwithmajid.com/)
+* [Design+Code](https://designcode.io/)
+* [The SwiftUI Lab](https://swiftui-lab.com/)
+
+* YouTube
+  * [Swiftful Thinking](https://www.youtube.com/@SwiftfulThinking)
+  * [DesignCode](https://www.youtube.com/@DesignCodeTeam)
+  * [Kavsoft](https://www.youtube.com/@Kavsoft)
+  * [Stewart Lynch](https://www.youtube.com/@StewartLynch)

@@ -73,3 +73,4 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * [30,000줄의 SwiftUI 생산한 후기](https://blog.timing.is/swiftui-production-experience-problems-solutions-performance-tips/)
 * [SwiftUI performance tips](https://martinmitrevski.com/2022/04/14/swiftui-performance-tips/)
 * [Using complex gestures in a SwiftUI ScrollView](https://danielsaidi.com/blog/2022/11/16/using-complex-gestures-in-a-scroll-view)
+* [iOS13 SwiftUI 버그 모음](https://qiita.com/trickart4121/items/efc0d8db54f0617d4698)

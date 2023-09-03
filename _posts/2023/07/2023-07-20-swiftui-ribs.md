@@ -153,11 +153,9 @@ public protocol HomePresentableListener: AnyObject {
 }
 
 public final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
-    public weak var listener: HomePresentableListener? {
-        didSet { viewModel.listener = listener }
-    }
+    public weak var listener: HomePresentableListener?
 
-    private let viewModel = HomeViewModel(state: .init(title: "Hello", desc: "World"))
+    private let viewModel = HomeViewModel(listener: listener, state: .init(title: "Hello", desc: "World"))
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -285,9 +283,7 @@ struct HomeView_Previews: PreviewProvider {
     typealias ViewModel = HomeViewModel
 
     class Listener: HomePresentableListener {
-        var viewModel: ViewModel? {
-            didSet { viewModel?.listener = self }
-        }
+        var viewModel: ViewModel?
 
         func request(action: Action) {
             let state: State
@@ -310,8 +306,9 @@ struct HomeView_Previews: PreviewProvider {
     
     static var previews: some View {
         let state = State(title: "Hello", desc: "World")
-        let view = HomeView(viewModel: .init(state: state))
-        listener.viewModel = view.viewModel
+        let vm = HomeViewModel(listener: listener, state: state)
+        let view = HomeView(viewModel: vm)
+        listener.viewModel = vm
         
         return view
     }
@@ -423,13 +420,9 @@ protocol HomePresentableListener: AnyObject {
 }
 
 final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
-    weak var listener: HomePresentableListener? {
-        didSet {
-            viewModel.listener = listener
-        }
-    }
+    weak var listener: HomePresentableListener?
     
-    let viewModel = HomeViewModel(state: .init(title: "Hello", desc: "World"))
+    let viewModel = HomeViewModel(listener: listener, state: .init(title: "Hello", desc: "World"))
     
     override func viewDidLoad() {
         super.viewDidLoad()

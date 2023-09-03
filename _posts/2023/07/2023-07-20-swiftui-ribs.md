@@ -155,7 +155,7 @@ public protocol HomePresentableListener: AnyObject {
 public final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
     public weak var listener: HomePresentableListener?
 
-    private let viewModel = HomeViewModel(listener: listener, state: .init(title: "Hello", desc: "World"))
+    private lazy var viewModel = HomeViewModel(listener: listener, state: .init(title: "Hello", desc: "World"))
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -422,7 +422,7 @@ protocol HomePresentableListener: AnyObject {
 final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
     weak var listener: HomePresentableListener?
     
-    let viewModel = HomeViewModel(listener: listener, state: .init(title: "Hello", desc: "World"))
+    lazy var viewModel = HomeViewModel(listener: listener, state: .init(title: "Hello", desc: "World"))
     
     override func viewDidLoad() {
         super.viewDidLoad()

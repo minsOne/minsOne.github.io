@@ -98,6 +98,7 @@ $ ssh admin@$(tart ip ventura-xcode) 'ls -a; df'
 ## 참고자료
 
 * [Apple Document - Virtualization](https://developer.apple.com/documentation/virtualization)
+  * [Sample Code - Running macOS in a virtual machine on Apple silicon](https://developer.apple.com/documentation/virtualization/running_macos_in_a_virtual_machine_on_apple_silicon)
 * [Tart](https://tart.run/)
 * [Cilicon](https://github.com/traderepublic/Cilicon)
 * [IPSW Downloads](https://ipsw.me/)

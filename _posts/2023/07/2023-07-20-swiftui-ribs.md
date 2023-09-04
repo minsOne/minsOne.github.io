@@ -37,8 +37,8 @@ Presenter는 View에 상태값을 전달하는 역할에만 충실히 하도록 
 /// FileName : HomeViewStateAction.swift
 
 struct HomeViewState {
-    public var title: String
-    public var desc: String
+    var title: String
+    var desc: String
 }
 
 enum HomeViewAction {
@@ -61,7 +61,7 @@ protocol HomePresentableListener: AnyObject {
 }
 
 final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
-    public weak var listener: HomePresentableListener?
+    weak var listener: HomePresentableListener?
 }
 ```
 
@@ -435,7 +435,7 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
         listener?.request(action: .viewDidLoad)
     }
     
-    public func update(state: HomeViewState) {
+    func update(state: HomeViewState) {
         viewModel.update(state: state)
     }
 }

@@ -36,12 +36,12 @@ Presenter는 View에 상태값을 전달하는 역할에만 충실히 하도록 
 ```swift
 /// FileName : HomeViewStateAction.swift
 
-public struct HomeViewState {
+struct HomeViewState {
     public var title: String
     public var desc: String
 }
 
-public enum HomeViewAction {
+enum HomeViewAction {
     case viewDidLoad
     case tap1
     case tap2
@@ -56,11 +56,11 @@ public enum HomeViewAction {
 import SwiftUI
 import UIKit
 
-public protocol HomePresentableListener: AnyObject {
+protocol HomePresentableListener: AnyObject {
     func request(action: HomeViewAction)
 }
 
-public final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
+final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
     public weak var listener: HomePresentableListener?
 }
 ```
@@ -148,16 +148,16 @@ struct HomeView: View {
 import SwiftUI
 import UIKit
 
-public protocol HomePresentableListener: AnyObject {
+protocol HomePresentableListener: AnyObject {
     func request(action: HomeViewAction)
 }
 
-public final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
-    public weak var listener: HomePresentableListener?
+final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
+    weak var listener: HomePresentableListener?
 
     private lazy var viewModel = HomeViewModel(listener: listener, state: .init(title: "Hello", desc: "World"))
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         title = "Hello World"
 
@@ -178,7 +178,7 @@ public final class HomeViewController: UIViewController, HomePresentable, HomeVi
         listener?.request(action: .viewDidLoad)
     }
 
-    public func update(state: HomeViewState) {
+    func update(state: HomeViewState) {
         viewModel.update(state: state)
     }
 }
@@ -191,9 +191,9 @@ ViewController에서는 `ViewModel`을 가지고 있어 상태값을 `ViewModel`
 ```swift
 /// FileName : HomeViewController.swift
 
-public final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
+final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
     ...
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         title = "Hello World"
 

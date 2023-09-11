@@ -333,6 +333,8 @@ struct HomeView_Previews: PreviewProvider {
     * [YouTube](https://www.youtube.com/watch?v=KJ7zzk9fj8E)
   * [SwiftUI와 UIKit을 친해지게 한다](https://speakerdeck.com/auramagi/iosdc-2022-swiftui-uikit)
     * [YouTube](https://www.youtube.com/watch?v=5C7cryhPhvk)
+* iOSDC2023
+  * [SwiftUI 등장 전의 VIPER 앱에서도 SwiftUI를 원활하게 도입 할 수 있었던 이야기](https://speakerdeck.com/shincarpediem/swiftuideng-chang-qian-noviperapuridemoswiftuiwosumuzunidao-ru-dekitahua)
 * [Clean Architecture for SwiftUI](https://nalexn.github.io/clean-architecture-swiftui/)
 * [The Strategic SwiftUI Data Flow Guide](https://matteomanferdini.com/swiftui-data-flow/)
 * [I was wrong! MVVM is NOT a good choice for building SwiftUI applications](https://azamsharp.com/2022/07/17/2022-swiftui-and-mvvm.html)

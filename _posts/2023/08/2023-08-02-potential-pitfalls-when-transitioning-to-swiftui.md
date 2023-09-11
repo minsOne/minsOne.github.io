@@ -100,6 +100,13 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 
 ---
 
+### 기타
+
+* [모달 전환을 이해](https://speakerdeck.com/objectiveaudio/modarunoqian-yi-woli-jie-suru)
+  * [문제 재현 코드](https://github.com/objective-audio/ModalProblem)
+  * [문제 해결 코드](https://github.com/objective-audio/ModalArchitecture)
+---
+
 ## 참고자료
 
 * [Fucking SwiftUI](https://fuckingswiftui.com/)

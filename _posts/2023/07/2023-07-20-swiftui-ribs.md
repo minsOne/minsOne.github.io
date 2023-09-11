@@ -326,15 +326,16 @@ struct HomeView_Previews: PreviewProvider {
 
 * [SwiftbySundell - SwiftUI and UIKit interoperability - Part 2](https://www.swiftbysundell.com/articles/swiftui-and-uikit-interoperability-part-2/)
 * LINE LIVE iOS의 SwiftUI - 기술 선택과 구현[YouTube](https://www.youtube.com/watch?v=HZtH67dBp4Y)
-* iOSDC2022
-  * [SwiftUI in UIKit으로 개발하는 세상](https://speakerdeck.com/hcrane/iosdc2022-swiftui-in-uikit-dekai-fa-surushi-jie)
-    * [YouTube](https://www.youtube.com/watch?v=6nWnQVRVcs0)
-  * [UIKit 기반의 대규모 프로젝트에 SwiftUI 도입](https://speakerdeck.com/kuritatu18/uikit-besunoda-gui-mo-napuroziekutoheno-swiftui-dao-ru)
-    * [YouTube](https://www.youtube.com/watch?v=KJ7zzk9fj8E)
-  * [SwiftUI와 UIKit을 친해지게 한다](https://speakerdeck.com/auramagi/iosdc-2022-swiftui-uikit)
-    * [YouTube](https://www.youtube.com/watch?v=5C7cryhPhvk)
-* iOSDC2023
-  * [SwiftUI 등장 전의 VIPER 앱에서도 SwiftUI를 원활하게 도입 할 수 있었던 이야기](https://speakerdeck.com/shincarpediem/swiftuideng-chang-qian-noviperapuridemoswiftuiwosumuzunidao-ru-dekitahua)
+* iOSDC
+  * 2022
+    * [SwiftUI in UIKit으로 개발하는 세상](https://speakerdeck.com/hcrane/iosdc2022-swiftui-in-uikit-dekai-fa-surushi-jie)
+      * [YouTube](https://www.youtube.com/watch?v=6nWnQVRVcs0)
+    * [UIKit 기반의 대규모 프로젝트에 SwiftUI 도입](https://speakerdeck.com/kuritatu18/uikit-besunoda-gui-mo-napuroziekutoheno-swiftui-dao-ru)
+      * [YouTube](https://www.youtube.com/watch?v=KJ7zzk9fj8E)
+    * [SwiftUI와 UIKit을 친해지게 한다](https://speakerdeck.com/auramagi/iosdc-2022-swiftui-uikit)
+      * [YouTube](https://www.youtube.com/watch?v=5C7cryhPhvk)
+  * 2023
+    * [SwiftUI 등장 전의 VIPER 앱에서도 SwiftUI를 원활하게 도입 할 수 있었던 이야기](https://speakerdeck.com/shincarpediem/swiftuideng-chang-qian-noviperapuridemoswiftuiwosumuzunidao-ru-dekitahua)
 * [Clean Architecture for SwiftUI](https://nalexn.github.io/clean-architecture-swiftui/)
 * [The Strategic SwiftUI Data Flow Guide](https://matteomanferdini.com/swiftui-data-flow/)
 * [I was wrong! MVVM is NOT a good choice for building SwiftUI applications](https://azamsharp.com/2022/07/17/2022-swiftui-and-mvvm.html)

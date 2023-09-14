@@ -34,6 +34,7 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
   * 자잘한 버그가 많음
 * Sheet, Alert
   * 여러번 수행시 동작이 안되는 경우가 존재함
+    * State 할당을 잘 해야 함 - https://speakerdeck.com/objectiveaudio/modarunoqian-yi-woli-jie-suru
 * Text
   * 개행문제
     * iOS 13.0에서 문자열 개행이 안된다고 추정, iOS 13.1에서는 개행이 정상 동작된다고 함
@@ -105,6 +106,7 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * [모달 전환을 이해](https://speakerdeck.com/objectiveaudio/modarunoqian-yi-woli-jie-suru)
   * [문제 재현 코드](https://github.com/objective-audio/ModalProblem)
   * [문제 해결 코드](https://github.com/objective-audio/ModalArchitecture)
+
 ---
 
 ## 참고자료

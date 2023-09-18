@@ -36,12 +36,12 @@ Presenter는 View에 상태값을 전달하는 역할에만 충실히 하도록 
 ```swift
 /// FileName : HomeViewStateAction.swift
 
-public struct HomeViewState {
-    public var title: String
-    public var desc: String
+struct HomeViewState {
+    var title: String
+    var desc: String
 }
 
-public enum HomeViewAction {
+enum HomeViewAction {
     case viewDidLoad
     case tap1
     case tap2
@@ -56,12 +56,12 @@ public enum HomeViewAction {
 import SwiftUI
 import UIKit
 
-public protocol HomePresentableListener: AnyObject {
+protocol HomePresentableListener: AnyObject {
     func request(action: HomeViewAction)
 }
 
-public final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
-    public weak var listener: HomePresentableListener?
+final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
+    weak var listener: HomePresentableListener?
 }
 ```
 
@@ -148,16 +148,16 @@ struct HomeView: View {
 import SwiftUI
 import UIKit
 
-public protocol HomePresentableListener: AnyObject {
+protocol HomePresentableListener: AnyObject {
     func request(action: HomeViewAction)
 }
 
-public final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
-    public weak var listener: HomePresentableListener?
+final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
+    weak var listener: HomePresentableListener?
 
     private lazy var viewModel = HomeViewModel(listener: listener, state: .init(title: "Hello", desc: "World"))
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         title = "Hello World"
 
@@ -178,7 +178,7 @@ public final class HomeViewController: UIViewController, HomePresentable, HomeVi
         listener?.request(action: .viewDidLoad)
     }
 
-    public func update(state: HomeViewState) {
+    func update(state: HomeViewState) {
         viewModel.update(state: state)
     }
 }
@@ -191,9 +191,9 @@ ViewController에서는 `ViewModel`을 가지고 있어 상태값을 `ViewModel`
 ```swift
 /// FileName : HomeViewController.swift
 
-public final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
+final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
     ...
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         title = "Hello World"
 
@@ -326,13 +326,16 @@ struct HomeView_Previews: PreviewProvider {
 
 * [SwiftbySundell - SwiftUI and UIKit interoperability - Part 2](https://www.swiftbysundell.com/articles/swiftui-and-uikit-interoperability-part-2/)
 * LINE LIVE iOS의 SwiftUI - 기술 선택과 구현[YouTube](https://www.youtube.com/watch?v=HZtH67dBp4Y)
-* iOSDC2022
-  * [SwiftUI in UIKit으로 개발하는 세상](https://speakerdeck.com/hcrane/iosdc2022-swiftui-in-uikit-dekai-fa-surushi-jie)
-    * [YouTube](https://www.youtube.com/watch?v=6nWnQVRVcs0)
-  * [UIKit 기반의 대규모 프로젝트에 SwiftUI 도입](https://speakerdeck.com/kuritatu18/uikit-besunoda-gui-mo-napuroziekutoheno-swiftui-dao-ru)
-    * [YouTube](https://www.youtube.com/watch?v=KJ7zzk9fj8E)
-  * [SwiftUI와 UIKit을 친해지게 한다](https://speakerdeck.com/auramagi/iosdc-2022-swiftui-uikit)
-    * [YouTube](https://www.youtube.com/watch?v=5C7cryhPhvk)
+* iOSDC
+  * 2022
+    * [SwiftUI in UIKit으로 개발하는 세상](https://speakerdeck.com/hcrane/iosdc2022-swiftui-in-uikit-dekai-fa-surushi-jie)
+      * [YouTube](https://www.youtube.com/watch?v=6nWnQVRVcs0)
+    * [UIKit 기반의 대규모 프로젝트에 SwiftUI 도입](https://speakerdeck.com/kuritatu18/uikit-besunoda-gui-mo-napuroziekutoheno-swiftui-dao-ru)
+      * [YouTube](https://www.youtube.com/watch?v=KJ7zzk9fj8E)
+    * [SwiftUI와 UIKit을 친해지게 한다](https://speakerdeck.com/auramagi/iosdc-2022-swiftui-uikit)
+      * [YouTube](https://www.youtube.com/watch?v=5C7cryhPhvk)
+  * 2023
+    * [SwiftUI 등장 전의 VIPER 앱에서도 SwiftUI를 원활하게 도입 할 수 있었던 이야기](https://speakerdeck.com/shincarpediem/swiftuideng-chang-qian-noviperapuridemoswiftuiwosumuzunidao-ru-dekitahua)
 * [Clean Architecture for SwiftUI](https://nalexn.github.io/clean-architecture-swiftui/)
 * [The Strategic SwiftUI Data Flow Guide](https://matteomanferdini.com/swiftui-data-flow/)
 * [I was wrong! MVVM is NOT a good choice for building SwiftUI applications](https://azamsharp.com/2022/07/17/2022-swiftui-and-mvvm.html)
@@ -435,7 +438,7 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
         listener?.request(action: .viewDidLoad)
     }
     
-    public func update(state: HomeViewState) {
+    func update(state: HomeViewState) {
         viewModel.update(state: state)
     }
 }

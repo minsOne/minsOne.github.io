@@ -32,4 +32,10 @@ OTHER_SWIFT_FLAGS = -driver-show-incremental -driver-show-job-lifecycle
 
 <!--
 ENABLE_CODE_COVERAGE = NO
+-driver-time-compilation
 -->
+
+## 참고자료
+
+* [Apple - Swift Compiler Performance](https://github.com/apple/swift/blob/main/docs/CompilerPerformance.md)
+* [Reducing Our Build Time By 50%](https://medium.com/gojekengineering/reducing-our-build-time-by-50-835b54c99588)

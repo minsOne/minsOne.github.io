@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift 5.7+][Concurrency] Delegate 패턴을 async/await로 변환하기"
+title: "[Swift 5.9][Concurrency] Delegate 패턴을 async/await로 변환하기"
 tags: [Swift, Concurrency, await, async, AsyncSequence, AsyncIteratorProtocol, AsyncStream]
 ---
 {% include JB/setup %}
@@ -132,7 +132,7 @@ class ViewController {
 
 ```swift
 class ViewController {
-    final class Adapter: ViewActionListener {
+    private final class Adapter: ViewActionListener {
         var handler: ((ViewAction) -> Void)?
         
         func send(action: ViewAction) {
@@ -141,7 +141,7 @@ class ViewController {
     }
 
     let view = SomeView()
-    let adapter = Adapter()
+    private let adapter = Adapter()
     
     init() {
         view.listener = adapter
@@ -177,31 +177,30 @@ class ViewController {
 
 ```swift
 class ViewController {
-    final class Adapter: AsyncSequence, ViewActionListener {
+    private final class Adapter: AsyncSequence, ViewActionListener {
         typealias Element = ViewAction
-        
-        private var continuation: AsyncStream<Element>.Continuation?
-        private var iterator: AsyncStream<Element>.Iterator!
+
+        private let continuation: AsyncStream<Element>.Continuation
+        private let iterator: AsyncStream<Element>.Iterator
 
         init() {
-            let stream = AsyncStream(Element.self, bufferingPolicy: .unbounded) { [weak self] continuation in
-                self?.continuation = continuation
-            }
+            let (stream, continuation) = AsyncStream.makeStream(of: Element.self)
+            self.continuation = continuation
             self.iterator = stream.makeAsyncIterator()
         }
-        
+
         func makeAsyncIterator() -> AsyncStream<Element>.AsyncIterator {
             iterator
         }
-        
+
         func send(action: ViewAction) {
-            continuation?.yield(action)
+            continuation.yield(action)
         }
     }
 
     let view = SomeView()
-    let adapter = Adapter()
-    
+    private let adapter = Adapter()
+
     init() {
         view.listener = adapter
         Task { @MainActor [weak self] in

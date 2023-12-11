@@ -106,7 +106,7 @@ UIKit 기반 프로젝트를 SwiftUI로 전환하기 위해 고려해야할 사�
 * [모달 전환을 이해](https://speakerdeck.com/objectiveaudio/modarunoqian-yi-woli-jie-suru)
   * [문제 재현 코드](https://github.com/objective-audio/ModalProblem)
   * [문제 해결 코드](https://github.com/objective-audio/ModalArchitecture)
-
+* [ScrollView 등 화면에 동일한 뷰가 있을 때, 갱신되지 않을 때, id를 활용하여 해결](https://zenn.dev/musa/articles/31b32583bb00b4)
 ---
 
 ## 참고자료

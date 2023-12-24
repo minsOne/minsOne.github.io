@@ -134,11 +134,12 @@ swift-syntax에서 사용하는 라이브러리가 포함되어 있는 것을 �
 
 ## 참고자료
 
+* [Apple Swift Evolution - SE-0394 Package Manager Support for Custom Macros](https://github.com/apple/swift-evolution/blob/main/proposals/0394-swiftpm-expression-macros.md)
 * GitHub
   * [jjrscott/SwiftCompilerPlugin](https://github.com/jjrscott/SwiftCompilerPlugin)
-* [ssly1997/MacrosDemo](https://github.com/ssly1997/MacrosDemo)
-* [chiragramani/SwiftMacroRepro](https://github.com/chiragramani/SwiftMacroRepro)
-* [sjavora/swift-syntax-xcframeworks](https://github.com/sjavora/swift-syntax-xcframeworks)
+  * [ssly1997/MacrosDemo](https://github.com/ssly1997/MacrosDemo)
+  * [chiragramani/SwiftMacroRepro](https://github.com/chiragramani/SwiftMacroRepro)
+  * [sjavora/swift-syntax-xcframeworks](https://github.com/sjavora/swift-syntax-xcframeworks)
 * Swift Forums
   * [How to import macros using methods other than SwiftPM](https://forums.swift.org/t/how-to-import-macros-using-methods-other-than-swiftpm)
   * [Macros and XCFrameworks](https://forums.swift.org/t/macros-and-xcframeworks)

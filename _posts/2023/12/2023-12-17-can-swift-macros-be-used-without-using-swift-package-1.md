@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift 5.9][Xcode 15] Swift Package를 사용하지 않고 Swift의 Macros를 사용할 수 있을까? - 1"
+title: "[Swift 5.9][Xcode 15] Swift Package를 사용하지 않고 Swift의 Macros를 사용할 수 있을까? (1) - Why"
 tags: [Swift, Macros]
 ---
 {% include JB/setup %}

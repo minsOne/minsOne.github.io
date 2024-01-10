@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "[Swift 5.9][Xcode 15] Swift Package를 사용하지 않고 Swift의 Macros를 사용할 수 있을까? (3) - Prebuild Swift-Syntax"
-tags: [Swift, Macros]
-published: false
+tags: [Swift, Macros, Swift-Syntax, XCFramework]
 ---
 {% include JB/setup %}
 
@@ -225,3 +224,21 @@ The value 42 was produced by the code "a + b"
 
 ## Xcode Project 적용
 
+`MacroToolKit` 이라는 Dynamic Framework를 가진 애플리케이션 프로젝트를 생성합니다.
+
+<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2024/01/01.png"/></p><br/>
+
+그리고 이전에 만들었던 `MyMacro` 패키지를 프로젝트에 추가하며, `MacroToolKit`에 `MyMacro`를 추가합니다.
+
+<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2024/01/02.png"/></p><br/>
+
+이제 `MacroToolKit`을 의존하는 곳에서 `import MyMacro`를 추가하면, Macro를 쉽게 사용할 수 있습니다.
+
+<p style="text-align:left;"><img src="{{ site.dev_url }}/image/2024/01/03.png"/></p><br/>
+
+<br/>
+이러한 방법을 통해, Swift Macro를 쉽게 사용할 수 있는 방법을 알아보았습니다.
+
+---
+
+위 코드의 샘플은 [여기](https://github.com/minsOne/Experiment-Repo/tree/master/20240110)에서 확인하실 수 있습니다.

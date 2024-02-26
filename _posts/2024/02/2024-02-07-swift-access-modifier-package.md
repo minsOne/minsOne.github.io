@@ -60,9 +60,9 @@ Build complete! (0.20s)
 다음 의존관계를 가진 프로젝트를 구축합니다.
 
 <div class="mermaid" style="display:flex;justify-content:center;"> 
-graph TD;
+graph LR;
     Application-->FeatureA-->FeatureB;
-</div>
+</div><br/>
 
 <p style="text-align:center;"><img src="{{ site.prod_url }}/image/2024/02/01.png"/></p><br/>
 

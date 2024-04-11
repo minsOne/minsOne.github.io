@@ -132,4 +132,5 @@ swift-syntax에서 사용하는 라이브러리가 포함되어 있는 것을 �
   * [How to import macros using methods other than SwiftPM](https://forums.swift.org/t/how-to-import-macros-using-methods-other-than-swiftpm)
   * [Macros and XCFrameworks](https://forums.swift.org/t/macros-and-xcframeworks)
   * [Macro Adoption Concerns around SwiftSyntax](https://forums.swift.org/t/macro-adoption-concerns-around-swiftsyntax/66588)
+  * [Swift Macros: Build Time Overhead Concerns](https://forums.swift.org/t/swift-macros-build-time-overhead-concerns)
 * [How to import Swift macros without using Swift Package Manager](https://www.polpiella.dev/binary-swift-macros)

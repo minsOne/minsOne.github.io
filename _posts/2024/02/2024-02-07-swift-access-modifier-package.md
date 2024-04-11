@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[Swift 5.9+][SE-0386] 새로운 Access Modifier인 Package를 Xcode Project에서 사용하기"
-tags: [access modifier, package, xcode, swift]
+tags: [access modifier, package, xcode, swift, OTHER_SWIFT_FLAGS, SWIFT_PACKAGE_NAME]
 ---
 {% include JB/setup %}
 

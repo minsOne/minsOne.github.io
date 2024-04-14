@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift 5.9+][SE-0386] 새로운 Access Modifier인 Package를 Xcode Project에서 사용하기"
+title: "[Swift 5.9+][Xcode 15][SE-0386] 새로운 Access Modifier인 Package를 Xcode Project에서 사용하기"
 tags: [access modifier, package, xcode, swift, OTHER_SWIFT_FLAGS, SWIFT_PACKAGE_NAME]
 ---
 {% include JB/setup %}
@@ -140,7 +140,7 @@ Xcode Project의 `OTHER_SWIFT_FLAGS`에 `-package-name` 옵션을 추가해 Swif
 
 ## Xcode 15
 
-Xcode 15에서 Build Settings에 `SWIFT_PACKAGE_NAME` 옵션이 추가되었습니다. 앞에서 이야기 했던 `-package-name` 대신 이 옵션을 사용하면 Xcode Project에서 Package Name을 설정할 수 있습니다.
+Xcode 15에서 Build Settings에 Package Access Identifier - `SWIFT_PACKAGE_NAME` 옵션이 추가되었습니다. 앞에서 이야기 했던 `-package-name` 대신 이 옵션을 사용하면 Xcode Project에서 Package Name을 설정할 수 있습니다.
 
 <p style="text-align:center;"><img src="{{ site.prod_url }}/image/2024/02/07.png"/></p><br/>
 

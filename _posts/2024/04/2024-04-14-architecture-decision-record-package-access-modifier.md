@@ -34,7 +34,6 @@ Contents:
 * [SE-0386](https://github.com/apple/swift-evolution/blob/main/proposals/0386-package-access-modifier.md) 제안서가 Swift 5.9에 추가됨
 * 현재 수백 개의 모듈을 사용 중
 * 기존의 Public, Open 접근 제어자만 사용하여 의도하지 않은 인터페이스 공개로 인한 문제 발생
-* 기존 접근제어자인 Public, Open만 사용하고 있어, 의도하지 않은 인터페이스 공개로 인한 문제가 발생함
 * 동일 도메인 내에서만 공유하는 인터페이스를 외부에서 접근하지 못하도록 제한이 필요함
 
 <h2 id="decisions">결정</h2>

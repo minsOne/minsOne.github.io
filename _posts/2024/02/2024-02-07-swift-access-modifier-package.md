@@ -151,7 +151,8 @@ Xcode 15에서 Build Settings에 Package Access Identifier - `SWIFT_PACKAGE_NAME
 ## 정리
 
 * `Package` 접근 제어자를 이용하면 동일한 도메인이나 역할을 가진 모듈만 접근 가능합니다.
-* OTHER_SWIFT_FLAGS에 `-package-name` 옵션을 추가해 Package Name을 설정할 수 있습니다.
+* `OTHER_SWIFT_FLAGS`에 `-package-name` 옵션을 추가해 Package Name을 설정할 수 있습니다.
+* `SWIFT_PACKAGE_NAME`에 Package Name을 쉽게 설정할 수 있습니다.
 
 ## 참고자료
 

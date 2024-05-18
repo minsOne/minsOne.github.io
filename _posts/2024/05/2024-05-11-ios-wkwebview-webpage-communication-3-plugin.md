@@ -262,7 +262,8 @@ webViewManager.set(plugins: [loadingPlugin, paymentPlugin])
 
 웹페이지에서 전달받은 Action을 수행하는 코드를 Plugin으로 분리하는 방식은 코드를 더욱 쉽게 유지하고 관리할 수 있게 해주며, Action을 처리하는 코드를 더욱 간결하게 작성할 수 있습니다.
 
-[예제 코드](https://github.com/minsOne/Experiment-Repo/tree/master/20240511)
+* [예제 코드](https://github.com/minsOne/Experiment-Repo/tree/master/20240511)
+* [JSInterfacePluginContainer-iOS](https://github.com/minsOne/JSInterfacePluginContainer-iOS)
 
 ## 참고자료
 

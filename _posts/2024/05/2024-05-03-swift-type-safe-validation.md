@@ -95,6 +95,7 @@ Swift의 타입 시스템을 활용하여 데이터 유효성을 검증하는 �
 * [Wikipedia - Type safety](https://en.wikipedia.org/wiki/Type_safety)
 * [Type-Safe TypeScript With Type Narrowing](https://betterprogramming.pub/type-safe-typescript-with-type-narrowing-649450d708df)
 * [Validate with Fluent Validations in .NET (C#)](https://medium.com/codenx/code-with-fluent-validations-in-net-c-da2fb517566d)
+* [initialization 톺아보기(4) — Failable Initializers, required Initializers](https://medium.com/daily-monster/initialization-%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0-4-failable-initializers-required-initializers-27bde5c051da)
 
 * GitHub
   * [donflopez/ttype-safe](https://github.com/donflopez/ttype-safe)

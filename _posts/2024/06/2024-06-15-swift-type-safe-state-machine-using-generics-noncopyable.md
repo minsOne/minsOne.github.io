@@ -122,13 +122,14 @@ extension Turnstile where State == Unlocked {
 let locked = Turnstile<Locked>() 
 let unlocked = locked.insertCoin()
 
+_ = unlocked.push()
 _ = unlocked.push() // ❌ 'unlocked' consumed more than once
 _ = locked.insertCoin() // ❌ 'locked' consumed more than once
 ```
 
 `consume`을 사용하여 변수의 수명이 종료되어 재사용이 불가능해졌습니다. 위 코드와 같이 변수를 재사용하려고 하면 컴파일러가 에러를 발생시켜 안전한 코드를 작성할 수 있게 됩니다.
 
-또한, `var로` 작성 시 기존 변수에 새로운 값을 다시 할당하는 것은 가능하지만, 기존 변수를 재사용하는 것은 여전히 불가능합니다.
+또한, `var`로 작성 시 기존 변수에 새로운 값을 다시 할당하는 것은 가능하지만, 기존 변수를 재사용하는 것은 여전히 불가능합니다.
 
 ```swift
 var locked = Turnstile<Locked>()

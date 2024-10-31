@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Tuist 4.x+] Cache"
+title: "[Tuist 4.x] Cache"
 tags: [Tuist, MinIO, Cache]
 ---
 {% include JB/setup %}

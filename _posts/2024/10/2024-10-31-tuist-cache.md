@@ -89,7 +89,7 @@ $ tuist generate App
 ```
 
 <p style="text-align:center;">
-<img src="{{ site.dev_url }}/image/2024/10/01.png" style="width: 600px"/>
+<img src="{{ site.prod_url }}/image/2024/10/01.png" style="width: 600px"/>
 </p><br/>
 
 App에서 의존하는 프레임워크인 Framework1, Framework2-iOS, Framework3, Framework4, Framework5를 캐시에 있는 XCFramework를 사용하는 것을 확인할 수 있습니다.
@@ -171,7 +171,7 @@ done
 MinIO에 업로드한 파일을 확인할 수 있습니다.
 
 <p style="text-align:center;">
-<img src="{{ site.dev_url }}/image/2024/10/03.png" style="width: 600px"/>
+<img src="{{ site.prod_url }}/image/2024/10/03.png" style="width: 600px"/>
 </p><br/>
 
 다음으로 캐시를 복원하기 하기 위해, MinIO에 업로드한 파일을 다운받아서 압축을 풀어줍니다.
@@ -210,7 +210,7 @@ The following warnings need attention:
 ```
 
 <p style="text-align:center;">
-<img src="{{ site.dev_url }}/image/2024/10/04.png" style="width: 600px"/>
+<img src="{{ site.prod_url }}/image/2024/10/04.png" style="width: 600px"/>
 </p><br/>
 
 하지만 캐시를 이용하지 않고 프로젝트를 만들었다는 것을 확인할 수 있습니다. 왜 그런걸까요?
@@ -340,7 +340,7 @@ $ tuist generate App
 ```
 
 <p style="text-align:center;">
-<img src="{{ site.dev_url }}/image/2024/10/02.png" style="width: 600px"/>
+<img src="{{ site.prod_url }}/image/2024/10/02.png" style="width: 600px"/>
 </p><br/>
 
 ## 정리

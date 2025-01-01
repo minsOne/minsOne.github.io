@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "[SwiftTesting] Swift Testing 분석 (1) - Expand Macro(Test)"
-tags: [swift, testing, Swift Testing]
+title: "[Type Scanner] Type Scanner (1) - Swift Testing의 Expand Macro가 생성하는 코드 분석"
+tags: [type scanner, swift, testing, Swift Testing]
 ---
 {% include JB/setup %}
 

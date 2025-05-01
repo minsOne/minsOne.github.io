@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Type Scanner] Type Scanner (1) - Swift Testing의 Expand Macro가 생성하는 코드 분석"
+title: "[Swift] Type Scanner (1) - Swift Testing의 Expand Macro가 생성하는 코드 분석"
 tags: [type scanner, swift, testing, Swift Testing]
 ---
 {% include JB/setup %}

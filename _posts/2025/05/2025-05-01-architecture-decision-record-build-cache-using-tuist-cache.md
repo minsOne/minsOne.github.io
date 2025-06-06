@@ -52,4 +52,4 @@ Tuist Cache를 활용하여 CI 빌드 시간을 단축시키는 것이 가능하
 <h2 id="notes">노트</h2>
 
 * [Tuist - Cache](https://docs.tuist.dev/en/guides/develop/cache)
-* [Tuist Cache 분석 글](https://minsone.github.io/tuist-cache/)
+* [Tuist Cache 분석 글](https://minsone.github.io/tuist-cache)

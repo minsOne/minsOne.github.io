@@ -27,7 +27,7 @@ tags: [type scanner, swift, testing, Swift Testing]
 
 <br/>
 <p style="text-align:center;">
-<img src="{{ site.dev_url }}/image/2025/05/03.png"/>
+<img src="{{ site.product_url }}/image/2025/05/03.png"/>
 </p><br/>
 
 이제 `swt_enumerateTypesWithNamesContaining` 함수가 구현된 [Discovery.cpp](https://github.com/swiftlang/swift-testing/blob/5b4d6d6f7d4e0dbca4dd6593e0c8862022388d7c/Sources/_TestingInternals/Discovery.cpp#L509)를 확인해봅시다.

@@ -78,6 +78,7 @@ void swt_enumerateTypesWithNamesContaining(const char *nameSubstring, void *cont
 ## 참고자료
 
 * [Swift Testing](https://github.com/swiftlang/swift-testing)
+* [Swift Testing and the Compatibility With xcodebuild](https://trinhngocthuyen.com/posts/tech/swift-testing-and-xcodebuild/)
 * [Displaying all SwiftUI Previews in a Storybook app](https://medium.com/eureka-engineering/displaying-all-swiftui-previews-in-a-storybook-app-1dd8e925d777)
   * [eure/Storybook-ios](https://github.com/eure/Storybook-ios)
 * GitHub

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift6] Swift에서 비동기 호출을 검증하기: Polling 기반 테스트 헬퍼
+title: "[Swift6][Concurrency] Swift에서 비동기 호출을 검증하기 (1) - Polling 기반 Concurrency 헬퍼"
 tags: [Swift, Concurrency, Test]
 ---
 {% include JB/setup %}
@@ -16,7 +16,7 @@ Swift 5.5 부터 Concurrency가 도입되면서 비동기 함수를 훨씬 직�
 
 ```swift
 @Test
-func testAsyncFunction() async throws {
+func testAsyncFunction() {
   var callCount = 0
   
   Task.detached {

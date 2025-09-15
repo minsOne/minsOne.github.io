@@ -8,6 +8,7 @@ tags: [ADR, iOS, CI, Tuist, Build Cache]
 ## CI 빌드 시간 단축을 위한 Tuist Cache 활용 방안
 
 작성일 : 2025-05-01
+
 작성자 : 안정민
 
 <h2 id="status">상태</h2>

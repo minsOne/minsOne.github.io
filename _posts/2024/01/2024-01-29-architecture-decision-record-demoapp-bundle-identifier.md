@@ -18,6 +18,7 @@ Contents:
 ## 수많은 데모앱의 Bundle Identifier 관리 결정
 
 작성일 : 2024-01-29
+
 작성자 : 안정민
 
 <h2 id="status">상태</h2>

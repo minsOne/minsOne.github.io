@@ -8,6 +8,7 @@ tags: [ADR, Tuist, Xcode, Project, Target]
 ## Tuist 템플릿 - 1 Project, N Target
 
 작성일 : 2025-07-19
+
 작성자 : 안정민
 
 <h2 id="status">상태</h2>

@@ -8,6 +8,7 @@ tags: [ADR, Response Model, DTO, Mapper, API, 네트워크]
 ## 네트워크 응답 처리 방식 개선: 공용 응답 모델 도입
 
 작성일 : 2025-06-02
+
 작성자 : 안정민
 
 <h2 id="status">상태</h2>

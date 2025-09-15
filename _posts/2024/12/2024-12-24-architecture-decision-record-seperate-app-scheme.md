@@ -8,6 +8,7 @@ tags: [ADR, iOS, App Scheme]
 ## 내부, 외부용 App Scheme 분리 결정
 
 작성일 : 2024-12-24
+
 작성자 : 안정민
 
 <h2 id="status">상태</h2>

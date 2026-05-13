@@ -161,7 +161,7 @@ struct SignupParameter: Encodable {
 
 ## 정리
 
-Swift에서 네트워크 요청 body를 만들 때 `Encodable` DTO를 사용하는 방식은 여전히 좋은 기본값입니다.
+Swift에서 네트워크 요청 body를 만들 때 `Encodable` DTO를 사용하는 방식은 여전히 좋은 선택지입니다.
 
 하지만 모든 요청에 매번 타입을 만들 필요는 없다고 생각합니다. 필드가 적고 단순한 body라면, key는 문자열로 받고 value는 `Encodable`만 허용하는 작은 body 타입을 두는 것도 충분히 실용적인 선택지가 될 수 있습니다.
 

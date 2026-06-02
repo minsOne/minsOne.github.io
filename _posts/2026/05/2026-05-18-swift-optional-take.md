@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[Swift] Optional 값을 꺼내고 비우는 take 함수"
-tags: [Swift, Optional, Extension]
+tags: [Swift, Optional, Extension, take]
 ---
 {% include JB/setup %}
 

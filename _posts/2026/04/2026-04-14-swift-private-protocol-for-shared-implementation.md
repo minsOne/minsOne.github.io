@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift] private protocol로 파일 내부 공통 구현 숨기기"
+title: "[Swift] Private Protocol로 파일 내부 공통 구현 숨기기"
 tags: [Swift, Protocol, Access Control, Refactoring]
 ---
 {% include JB/setup %}
@@ -67,7 +67,7 @@ extension InvestPlugin {
 
 이럴 때 파일 안에서만 쓰는 `private protocol` 하나를 두고, extension으로 공통 구현을 빼두면 깔끔하게 정리됩니다.
 
-## 왜 `private protocol`인가
+## 왜 private protocol 인가
 
 프로토콜도 `private` 접근 제어를 가질 수 있습니다.
 
@@ -81,7 +81,7 @@ private protocol MyProtocol {}
 
 중요한 건 세부 접근 제어 비교가 아니라, "이 프로토콜은 파일 밖으로 나갈 이유가 없다"는 판단입니다. 재사용하려고 만든 프로토콜이 아니라, 그냥 이 파일 안에서 중복을 줄이기 위한 보조 도구라면 `private`으로 두는 쪽이 자연스럽습니다.
 
-### `extension ProcessorPlugin`의 기본 구현
+### extension ProcessorPlugin 의 기본 구현
 
 처음에는 아래처럼 공개 프로토콜 extension에 기본 구현을 넣는 방법이 더 단순해 보일 수 있습니다.
 
@@ -157,10 +157,10 @@ extension InvestPlugin {
 | 항목 | Before | After |
 |------|--------|-------|
 | `run(info:)` 구현 수 | 3개 | 1개 |
-| 중복 로직 수정 지점 | 3곳 | 1곳 |
-| 새 Plugin 추가 시 | `run()` 복사 필요 | `type`만 선언 |
+| 중복 로직 수정 지점     | 3곳 | 1곳 |
+| 새 Plugin 추가 시     | `run()` 복사 필요 | `type`만 선언 |
 
-핵심은 코드 줄 수보다 수정 지점이 하나로 모인다는 점입니다. 공통 로직을 바꿀 때 한 군데만 보면 되고, 새 타입을 추가할 때도 `type`만 구현하면 됩니다.
+<br/>핵심은 코드 줄 수보다 수정 지점이 하나로 모인다는 점입니다. 공통 로직을 바꿀 때 한 군데만 보면 되고, 새 타입을 추가할 때도 `type`만 구현하면 됩니다.
 
 ## 다른 방법과 비교해보면
 
